@@ -1,0 +1,832 @@
+/*
+ * MiaoMiaoWuX · LearnHub 教育平台风格
+ * 版本：v2026.09.21-02
+ * 更新日期：2026-09-21
+ * 独立主题：请单独粘贴使用，不要与 Lumina CSS 混用。
+ * 视觉语言：清爽白底、学习绿、粉彩辅助色、深色描边、偏移硬阴影。
+ */
+
+@import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;600;700;800&display=swap");
+
+:root {
+  /* 页面内容最大宽度：可改为 1360px、1600px；100% 表示不限制。 */
+  --edu-content-max-width: 1440px;
+  /* 按钮减高：4px = 桌面 38px / 手机 40px；0px 恢复原高度。 */
+  --edu-button-height-reduction: 4px;
+  /* 全部描边与阴影比例：1 = 原始，0.666667 = 减少约三分之一。 */
+  --edu-effect-scale: 0.666667;
+  /* 黑金背景水印：none = 关闭（默认），block = 显示。 */
+  --edu-premium-watermark-display: none;
+  /* 黑金选中色：控件使用渐变，文字选区使用同色系实金色。 */
+  --edu-premium-accent-bg: linear-gradient(105deg, #b87b1e, #e3bd63);
+  --edu-premium-accent-fg: #171107;
+  --edu-premium-selection-bg: #e3bd63;
+
+  --primary: #22c55e;
+  --primary-foreground: #ffffff;
+  --background: #fff9f5;
+  --foreground: #0f172a;
+  --card: #ffffff;
+  --card-foreground: #0f172a;
+  --popover: #ffffff;
+  --popover-foreground: #0f172a;
+  --secondary: #add8e6;
+  --secondary-foreground: #2d3748;
+  --muted: #f1f5f9;
+  --muted-foreground: #64748b;
+  --accent: #e6e6fa;
+  --accent-foreground: #2d3748;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --border: #2d3748;
+  --input: #cbd5e1;
+  --ring: rgba(34, 197, 94, 0.45);
+  --sidebar: #ffffff;
+  --sidebar-foreground: #0f172a;
+  --sidebar-primary: #22c55e;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #e6e6fa;
+  --sidebar-accent-foreground: #2d3748;
+  --sidebar-border: #2d3748;
+  --sidebar-ring: rgba(34, 197, 94, 0.45);
+  --radius: 1rem;
+  --font-sans: "Nunito", "Noto Sans SC", ui-rounded, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+  --edu-ink: #2d3748;
+  --edu-green: #22c55e;
+  --edu-green-dark: #16a34a;
+  --edu-nav-active-bg: var(--primary);
+  --edu-nav-active-fg: var(--primary-foreground);
+  --edu-blue: #add8e6;
+  --edu-pink: #fdbcb4;
+  --edu-mint: #98ff98;
+  --edu-lavender: #e6e6fa;
+  --edu-cream: #fff9f5;
+  --edu-line: calc(3px * var(--edu-effect-scale)) solid var(--edu-ink);
+  --edu-shadow-sm: calc(3px * var(--edu-effect-scale)) calc(3px * var(--edu-effect-scale)) 0 var(--edu-ink);
+  --edu-shadow: calc(5px * var(--edu-effect-scale)) calc(5px * var(--edu-effect-scale)) 0 var(--edu-ink);
+}
+
+.dark {
+  --primary: #4ade80;
+  --primary-foreground: #102117;
+  --background: #111827;
+  --foreground: #f8fafc;
+  --card: #1e293b;
+  --card-foreground: #f8fafc;
+  --popover: #1e293b;
+  --popover-foreground: #f8fafc;
+  --secondary: #31576a;
+  --secondary-foreground: #f8fafc;
+  --muted: #263449;
+  --muted-foreground: #cbd5e1;
+  --accent: #473f67;
+  --accent-foreground: #f8fafc;
+  --destructive: #fb7185;
+  --destructive-foreground: #1f1115;
+  --border: #d7e0ec;
+  --input: #64748b;
+  --ring: rgba(74, 222, 128, 0.52);
+  --sidebar: #172033;
+  --sidebar-foreground: #f8fafc;
+  --sidebar-primary: #4ade80;
+  --sidebar-primary-foreground: #102117;
+  --sidebar-accent: #473f67;
+  --sidebar-accent-foreground: #f8fafc;
+  --sidebar-border: #d7e0ec;
+  --sidebar-ring: rgba(74, 222, 128, 0.52);
+
+  --edu-ink: #d7e0ec;
+  --edu-green: #4ade80;
+  --edu-green-dark: #22c55e;
+  --edu-blue: #31576a;
+  --edu-pink: #704a50;
+  --edu-mint: #285c3b;
+  --edu-lavender: #473f67;
+  --edu-cream: #111827;
+}
+
+/* 与 Lumina 一致：兼容两种页面外壳，小屏不超过可用宽度。 */
+#root main.container,
+#root main[class~="max-w-[1600px]"] {
+  width: min(100%, var(--edu-content-max-width)) !important;
+  max-width: var(--edu-content-max-width) !important;
+  margin-inline: auto;
+}
+
+/* 黑金主题使用独立金色系，不继承 LearnHub 的绿色交互强调色。 */
+:root.theme-premium {
+  --edu-nav-active-bg: var(--edu-premium-accent-bg);
+  --edu-nav-active-fg: var(--edu-premium-accent-fg);
+  --edu-green: var(--primary);
+  --edu-green-dark: color-mix(in srgb, var(--primary) 85%, black);
+  --edu-mint: var(--edu-premium-selection-bg);
+  --sidebar-primary: var(--primary);
+  --sidebar-primary-foreground: var(--primary-foreground);
+  --sidebar-ring: var(--ring);
+}
+
+/* 黑金主题的 PRO、皇冠等背景装饰，统一由顶部开关控制。 */
+:root.theme-premium body::before {
+  display: var(--edu-premium-watermark-display, none) !important;
+}
+
+/* 日期按钮已各自带有描边，去掉按钮组和日期工具栏的重复底框。 */
+:root.theme-premium .dashboard-ranking-toolbar,
+:root.theme-premium .dashboard-range-control {
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+html {
+  color-scheme: light;
+  scrollbar-color: var(--edu-green) var(--muted);
+  scrollbar-width: thin;
+}
+
+html.dark {
+  color-scheme: dark;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--foreground);
+  background-color: var(--background);
+  background-image:
+    radial-gradient(circle at 12% 12%, color-mix(in srgb, var(--edu-blue) 48%, transparent) 0 70px, transparent 72px),
+    radial-gradient(circle at 91% 18%, color-mix(in srgb, var(--edu-pink) 42%, transparent) 0 54px, transparent 56px),
+    radial-gradient(circle at 83% 88%, color-mix(in srgb, var(--edu-mint) 34%, transparent) 0 78px, transparent 80px);
+  background-attachment: fixed;
+}
+
+::selection {
+  color: #102117;
+  background: var(--edu-mint);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--muted);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--edu-green);
+  border: calc(2px * var(--edu-effect-scale)) solid var(--muted);
+  border-radius: 999px;
+}
+
+/* 标题保留参考站的圆润、友好感。 */
+h1,
+h2,
+h3,
+[data-slot="card-title"],
+[data-slot="dialog-title"],
+[data-slot="sheet-title"],
+[data-slot="alert-dialog-title"] {
+  font-family: "Fredoka", "Nunito", "Noto Sans SC", var(--font-sans);
+  font-weight: 700;
+  letter-spacing: -0.015em;
+}
+
+/* 卡片：粗描边 + 漫画式硬阴影。 */
+[data-slot="card"] {
+  overflow: hidden;
+  border: var(--edu-line) !important;
+  border-radius: 24px !important;
+  background: color-mix(in srgb, var(--card) 96%, transparent) !important;
+  box-shadow: var(--edu-shadow), 0 calc(-4px * var(--edu-effect-scale)) 0 rgba(0, 0, 0, 0.05) inset !important;
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease;
+}
+
+[data-slot="card"]:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: calc(6px * var(--edu-effect-scale)) calc(6px * var(--edu-effect-scale)) 0 var(--edu-ink), 0 calc(-4px * var(--edu-effect-scale)) 0 rgba(0, 0, 0, 0.05) inset !important;
+}
+
+/* 关闭妙妙屋卡片的悬停斜纹层，保留卡片本体、描边与阴影。 */
+.pixel-card::before {
+  display: none !important;
+  content: none !important;
+}
+
+[data-slot="card-header"] {
+  border-bottom-color: color-mix(in srgb, var(--edu-ink) 20%, transparent);
+}
+
+[data-slot="card-title"] {
+  color: var(--foreground);
+}
+
+/* 按钮：绿色主按钮，浅蓝辅助按钮，保持清楚的按压反馈。 */
+:is([data-slot="button"], .pixel-button) {
+  min-height: calc(42px - var(--edu-button-height-reduction));
+  border: var(--edu-line) !important;
+  border-radius: 16px !important;
+  box-shadow: calc(4px * var(--edu-effect-scale)) calc(4px * var(--edu-effect-scale)) 0 var(--edu-ink) !important;
+  font-weight: 800;
+  transition:
+    transform 120ms ease,
+    box-shadow 120ms ease,
+    filter 120ms ease !important;
+}
+
+/* 妙妙屋像素主题会用红色 ::before 方框包住按钮，LearnHub 不保留该装饰。 */
+.pixel-button::before,
+.pixel-button::after {
+  display: none !important;
+  content: none !important;
+}
+
+:is([data-slot="button"], .pixel-button):hover:not(:disabled) {
+  filter: saturate(1.08) brightness(1.02);
+  transform: translate(-1px, -1px);
+  box-shadow: var(--edu-shadow) !important;
+}
+
+:is([data-slot="button"], .pixel-button):active:not(:disabled) {
+  transform: translate(3px, 3px);
+  box-shadow: calc(1px * var(--edu-effect-scale)) calc(1px * var(--edu-effect-scale)) 0 var(--edu-ink) !important;
+}
+
+.pixel-button:focus-visible,
+[data-slot="button"]:focus-visible,
+[data-slot="input"]:focus-visible,
+[data-slot="textarea"]:focus-visible,
+[data-slot="select-trigger"]:focus-visible,
+[data-slot="checkbox"]:focus-visible,
+[data-slot="switch"]:focus-visible {
+  outline: calc(3px * var(--edu-effect-scale)) solid var(--ring) !important;
+  outline-offset: 3px;
+}
+
+/* 图标操作按钮的原主题悬停/焦点规则会重置圆角，强制保持 LearnHub 轮廓。 */
+.pixel-button.accent-action-btn:hover,
+.pixel-button.accent-action-btn:focus-visible {
+  border-radius: 16px !important;
+}
+
+.pixel-button.accent-action-btn:focus-visible {
+  outline: none !important;
+  box-shadow:
+    0 0 0 calc(3px * var(--edu-effect-scale)) var(--ring),
+    calc(4px * var(--edu-effect-scale)) calc(4px * var(--edu-effect-scale)) 0 var(--edu-ink) !important;
+}
+
+/* 次要/幽灵按钮不强行染成主色，改用参考站浅蓝色。 */
+:is([data-slot="button"], .pixel-button)[class~="bg-background/75"],
+:is([data-slot="button"], .pixel-button)[data-variant="outline"],
+:is([data-slot="button"], .pixel-button)[data-variant="secondary"] {
+  color: var(--secondary-foreground) !important;
+  background: var(--secondary) !important;
+}
+
+/* 地域选择器内嵌国旗：外框仅 36px 高，不能套用全局按钮最小高度。
+   通过紧凑触发器与相邻地域文字定位，兼容 emoji 图片及未选地区的图标。 */
+.border-input.h-9 > [data-slot="popover-trigger"].pixel-button.size-7:has(+ .text-muted-foreground) {
+  width: 28px !important;
+  height: 28px !important;
+  min-height: 28px !important;
+  padding: 0 !important;
+  border-width: calc(2px * var(--edu-effect-scale)) !important;
+  border-radius: 8px !important;
+  box-shadow: none !important;
+  transform: none !important;
+  outline-offset: 1px;
+}
+
+/* PRO 是状态标识：外观与旁边辅助按钮一致，保留原有显示条件。 */
+:root.theme-premium .premium-pro-badge {
+  min-height: calc(42px - var(--edu-button-height-reduction));
+  flex-shrink: 0;
+  padding-inline: 12px;
+  border: var(--edu-line) !important;
+  border-radius: 16px !important;
+  color: var(--secondary-foreground) !important;
+  background: var(--secondary) !important;
+  box-shadow: calc(4px * var(--edu-effect-scale)) calc(4px * var(--edu-effect-scale)) 0 var(--edu-ink) !important;
+  font-weight: 800;
+}
+
+:root.theme-premium .premium-pro-badge svg {
+  color: inherit;
+  fill: none;
+}
+
+/* 顶部选中项跟随当前主题，与下方主色选中按钮一致。 */
+nav .pixel-button:is([aria-current="page"], [data-status="active"]) {
+  color: var(--edu-nav-active-fg) !important;
+  background: var(--edu-nav-active-bg) !important;
+}
+
+/* 玻璃导航已有按钮自身的选中底色，隐藏圆角不一致的重复滑动背景。
+   仅处理顶部导航，保留 Tabs 的玻璃指示层和按钮阴影、键盘焦点。 */
+:root.theme-glass [data-glass-nav] > .glass-indicator {
+  display: none !important;
+}
+
+/* 输入控件 */
+[data-slot="input"],
+[data-slot="textarea"],
+[data-slot="select-trigger"] {
+  min-height: 42px;
+  border: calc(2px * var(--edu-effect-scale)) solid var(--input) !important;
+  border-radius: 12px !important;
+  background: color-mix(in srgb, var(--card) 94%, transparent) !important;
+  box-shadow: 0 calc(3px * var(--edu-effect-scale)) 0 color-mix(in srgb, var(--edu-ink) 16%, transparent);
+  font-weight: 600;
+}
+
+[data-slot="input"]:hover,
+[data-slot="textarea"]:hover,
+[data-slot="select-trigger"]:hover {
+  border-color: color-mix(in srgb, var(--edu-green) 70%, var(--input)) !important;
+}
+
+[data-slot="label"] {
+  color: var(--foreground);
+  font-weight: 800;
+}
+
+[data-slot="checkbox"] {
+  width: 20px;
+  height: 20px;
+  border: calc(2px * var(--edu-effect-scale)) solid var(--edu-ink) !important;
+  border-radius: 6px !important;
+  box-shadow: calc(2px * var(--edu-effect-scale)) calc(2px * var(--edu-effect-scale)) 0 color-mix(in srgb, var(--edu-ink) 60%, transparent);
+}
+
+/* 开关：明确轨道与圆形滑块，关闭靠左、开启靠右（RTL 镜像）。
+   重置主控的 translate，避免与滑块定位叠加或被主题样式覆盖。 */
+[data-slot="switch"] {
+  position: relative;
+  box-sizing: border-box;
+  width: 38px !important;
+  min-width: 38px;
+  height: 24px !important;
+  min-height: 24px;
+  flex-shrink: 0;
+  padding: 0 !important;
+  border: calc(2px * var(--edu-effect-scale)) solid var(--edu-ink) !important;
+  border-radius: 999px !important;
+  background: var(--input) !important;
+  box-shadow: calc(2px * var(--edu-effect-scale)) calc(2px * var(--edu-effect-scale)) 0 color-mix(in srgb, var(--edu-ink) 55%, transparent);
+}
+
+[data-slot="switch"][data-state="checked"] {
+  background: var(--primary) !important;
+}
+
+[data-slot="switch"] > [data-slot="switch-thumb"] {
+  position: absolute !important;
+  inset-block-start: 50% !important;
+  inset-inline-start: 2px !important;
+  display: block !important;
+  box-sizing: border-box;
+  width: 18px !important;
+  height: 18px !important;
+  margin: 0 !important;
+  border: 1px solid #2d3748 !important;
+  border-radius: 50% !important;
+  background: #ffffff !important;
+  box-shadow: 0 1px 1px rgba(15, 23, 42, 0.22) !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: none;
+  translate: none !important;
+  transform: translateY(-50%) !important;
+  transition: inset-inline-start 160ms ease;
+}
+
+[data-slot="switch"][data-state="checked"] > [data-slot="switch-thumb"] {
+  inset-inline-start: calc(100% - 20px) !important;
+}
+
+/* 标签与状态徽章 */
+[data-slot="badge"] {
+  border: calc(2px * var(--edu-effect-scale)) solid var(--edu-ink) !important;
+  border-radius: 999px !important;
+  box-shadow: calc(2px * var(--edu-effect-scale)) calc(2px * var(--edu-effect-scale)) 0 var(--edu-ink);
+  font-weight: 800;
+}
+
+/* 左侧栏：白色学习手册式面板。 */
+[data-slot="sidebar-container"],
+[data-slot="sidebar-inner"] {
+  background: color-mix(in srgb, var(--sidebar) 97%, transparent) !important;
+  border-color: var(--edu-ink) !important;
+}
+
+[data-slot="sidebar-container"] {
+  border-right-width: calc(3px * var(--edu-effect-scale)) !important;
+}
+
+[data-slot="sidebar-header"] {
+  border-bottom: calc(2px * var(--edu-effect-scale)) dashed color-mix(in srgb, var(--edu-ink) 28%, transparent);
+}
+
+[data-slot="sidebar-footer"] {
+  border-top: calc(2px * var(--edu-effect-scale)) dashed color-mix(in srgb, var(--edu-ink) 28%, transparent);
+}
+
+[data-slot="sidebar-menu-button"] {
+  min-height: calc(42px - var(--edu-button-height-reduction));
+  border: calc(2px * var(--edu-effect-scale)) solid transparent;
+  border-radius: 12px !important;
+  font-weight: 700;
+  transition:
+    transform 120ms ease,
+    background-color 120ms ease,
+    border-color 120ms ease;
+}
+
+[data-slot="sidebar-menu-button"]:hover {
+  border-color: var(--edu-ink);
+  background: var(--edu-blue) !important;
+  transform: translateX(2px);
+}
+
+[data-slot="sidebar-menu-button"][data-active="true"] {
+  color: #102117 !important;
+  border-color: var(--edu-ink) !important;
+  background: var(--edu-mint) !important;
+  box-shadow: var(--edu-shadow-sm);
+}
+
+/* 表格与分页 */
+.rounded-md.border:has(> [data-slot="table-container"]) {
+  overflow: hidden;
+  border: 0 !important;
+  border-radius: 20px !important;
+}
+
+[data-slot="table-container"] {
+  overflow: auto;
+  border: calc(2px * var(--edu-effect-scale)) solid var(--edu-ink);
+  border-radius: 20px !important;
+  background: var(--card);
+}
+
+[data-slot="table-header"] {
+  background: color-mix(in srgb, var(--edu-blue) 58%, var(--card));
+}
+
+[data-slot="table-head"] {
+  color: var(--foreground);
+  font-weight: 800;
+}
+
+[data-slot="table-row"] {
+  border-color: color-mix(in srgb, var(--edu-ink) 16%, transparent);
+}
+
+[data-slot="table-row"]:hover {
+  background: color-mix(in srgb, var(--edu-mint) 18%, transparent) !important;
+}
+
+/* 伪装探针：说明与外置域名表单均分可用宽度，不让 shrink-0 挤窄说明。
+   无法容纳两列 24rem 时自动上下排列；仅调整布局，不修改开关或域名设置。 */
+[data-slot="card"]:has(#probe-metrics-persist) [data-slot="card-content"] > div > .flex.items-start.justify-between:has(> .flex-1 + .flex.shrink-0.flex-col) {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 24rem), 1fr));
+  align-items: start;
+}
+
+[data-slot="card"]:has(#probe-metrics-persist) [data-slot="card-content"] > div > .flex.items-start.justify-between:has(> .flex-1 + .flex.shrink-0.flex-col) > :is(.flex-1, .flex.shrink-0.flex-col) {
+  min-width: 0;
+  max-width: 100%;
+}
+
+[data-slot="card"]:has(#probe-metrics-persist) [data-slot="card-content"] > div > .flex.items-start.justify-between:has(> .flex-1 + .flex.shrink-0.flex-col) p {
+  overflow-wrap: anywhere;
+}
+
+/* 节点表格：操作图标按名称、服务器和套餐信息的整体高度居中。
+   仅调整桌面名称列布局，保留 LearnHub 按钮尺寸、阴影和手机卡片。 */
+@media (min-width: 768px) {
+  td[class~="max-w-[300px]"][class~="min-w-[200px]"] {
+    min-width: 28rem !important;
+    max-width: 40rem !important;
+    white-space: normal;
+  }
+
+  td[class~="max-w-[300px]"][class~="min-w-[200px]"] > .min-w-0:has(> .flex > .min-w-0.flex-1.truncate) {
+    display: grid;
+    grid-template-columns: minmax(10rem, 1fr);
+    grid-template-rows: repeat(3, auto);
+    grid-auto-columns: max-content;
+    grid-auto-flow: column;
+    column-gap: 0.5rem;
+    align-items: center;
+  }
+
+  td[class~="max-w-[300px]"][class~="min-w-[200px]"] > .min-w-0 > .flex:has(> .min-w-0.flex-1.truncate) {
+    display: contents !important;
+  }
+
+  td[class~="max-w-[300px]"][class~="min-w-[200px]"] > .min-w-0 > .flex > .min-w-0.flex-1.truncate {
+    grid-column: 1;
+    grid-row: 1;
+    overflow: visible;
+    white-space: normal;
+    text-overflow: clip;
+    overflow-wrap: anywhere;
+    line-height: 1.35;
+  }
+
+  td[class~="max-w-[300px]"][class~="min-w-[200px]"] > .min-w-0 > .flex:has(> .min-w-0.flex-1.truncate) > :is(svg, button) {
+    grid-column: auto;
+    grid-row: 1 / -1;
+    align-self: center;
+  }
+
+  td[class~="max-w-[300px]"][class~="min-w-[200px]"] > .min-w-0 > .text-muted-foreground.truncate {
+    grid-column: 1;
+    grid-row: 2;
+    overflow: visible;
+    white-space: normal;
+    text-overflow: clip;
+    overflow-wrap: anywhere;
+    line-height: 1.35;
+  }
+
+  td[class~="max-w-[300px]"][class~="min-w-[200px]"] > .min-w-0 > button {
+    grid-column: 1;
+    grid-row: 3;
+    min-width: 0;
+  }
+}
+
+/* 用户表格续期：三个快捷天数按钮 + 自定义弹窗按钮保持同一行。
+   按按钮内容撑开该列；小屏沿用表格横向滚动，不影响手机卡片或筛选栏。 */
+[data-slot="table-cell"] > .flex.flex-wrap.gap-1:has(
+  > [data-slot="button"]:first-child + [data-slot="button"]
+  + [data-slot="button"] + [data-slot="popover-trigger"]:last-child
+) {
+  flex-wrap: nowrap;
+  width: max-content;
+}
+
+/* 下拉、弹窗、气泡等 Portal 浮层 */
+[data-slot="dialog-content"],
+[data-slot="alert-dialog-content"],
+[data-slot="sheet-content"],
+[data-slot="popover-content"],
+[data-slot="dropdown-menu-content"],
+[data-slot="select-content"],
+[data-slot="command"],
+[data-slot="tooltip-content"] {
+  border: var(--edu-line) !important;
+  border-radius: 16px !important;
+  background: var(--popover) !important;
+  box-shadow: var(--edu-shadow) !important;
+}
+
+/* 大型套餐编辑弹窗：中等宽度不再退回 sm:max-w-lg 的 512px 上限。
+   按父层可用空间展开，保留 1400px 上限，不影响普通弹窗和确认框。 */
+[data-slot="dialog-content"][class~="w-[96vw]"][class~="xl:max-w-[1400px]"] {
+  width: 100%;
+  max-width: min(96vw, 1400px) !important;
+  min-width: 0;
+}
+
+/* Xray 管理：宽屏保留半屏比例，中等宽度保证编辑空间，窄屏不超出视口。 */
+[data-slot="dialog-content"][class~="w-[50vw]"][class~="h-[85vh]"] {
+  width: min(96vw, max(50vw, 56rem));
+  max-width: calc(100vw - 2rem) !important;
+  min-width: 0;
+}
+
+/* 手机专用全屏抽屉不套用普通弹窗的两侧留白。 */
+[data-slot="sheet-content"][class~="h-[100dvh]"][class~="w-full"][class~="max-w-none"] {
+  width: 100%;
+  max-width: 100% !important;
+}
+
+/* Xray 的完整版本信息允许换行，服务控制按钮组在窄屏分行显示。 */
+:is(
+  [data-slot="dialog-content"][class~="w-[50vw]"][class~="h-[85vh]"],
+  [data-slot="sheet-content"][class~="h-[100dvh]"][class~="max-w-none"]
+) .mb-3.flex.flex-wrap.items-center > [data-slot="badge"] {
+  max-width: 100%;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  text-align: start;
+}
+
+:is(
+  [data-slot="dialog-content"][class~="w-[50vw]"][class~="h-[85vh]"],
+  [data-slot="sheet-content"][class~="h-[100dvh]"][class~="max-w-none"]
+) .mb-3.flex.flex-wrap.items-center > .flex.items-center.gap-2 {
+  min-width: 0;
+  max-width: 100%;
+  flex-wrap: wrap;
+}
+
+[data-slot="dropdown-menu-item"],
+[data-slot="select-item"],
+[data-slot="command-item"] {
+  min-height: 38px;
+  border-radius: 10px !important;
+  font-weight: 650;
+}
+
+[data-slot="dropdown-menu-item"]:focus,
+[data-slot="select-item"]:focus,
+[data-slot="command-item"][data-selected="true"] {
+  color: #102117 !important;
+  background: var(--edu-mint) !important;
+}
+
+[data-slot="tooltip-content"] {
+  color: #102117 !important;
+  background: var(--edu-blue) !important;
+  box-shadow: var(--edu-shadow-sm) !important;
+  font-weight: 800;
+}
+
+[data-slot="tooltip-content"] > span > svg {
+  background-color: var(--edu-blue) !important;
+  fill: var(--edu-blue) !important;
+}
+
+/* Tabs、进度条、通知 */
+[data-slot="tabs-list"] {
+  padding: 5px;
+  border: calc(2px * var(--edu-effect-scale)) solid var(--edu-ink);
+  border-radius: 14px !important;
+  background: var(--muted) !important;
+}
+
+[data-slot="tabs-trigger"] {
+  border-radius: 10px !important;
+  font-weight: 800;
+}
+
+[data-slot="tabs-trigger"][data-state="active"] {
+  color: #102117 !important;
+  background: var(--edu-mint) !important;
+  box-shadow: calc(2px * var(--edu-effect-scale)) calc(2px * var(--edu-effect-scale)) 0 var(--edu-ink) !important;
+}
+
+[data-slot="progress"] {
+  height: 12px;
+  overflow: hidden;
+  border: calc(2px * var(--edu-effect-scale)) solid var(--edu-ink);
+  border-radius: 999px !important;
+  background: var(--muted) !important;
+}
+
+[data-slot="progress-indicator"] {
+  background: var(--edu-green) !important;
+}
+
+[data-slot="alert"] {
+  border: calc(2px * var(--edu-effect-scale)) solid var(--edu-ink) !important;
+  border-radius: 16px !important;
+  box-shadow: var(--edu-shadow-sm);
+}
+
+/* 黑金的填充选中态统一为渐变金色；不改成功/错误等状态提示色。 */
+:root.theme-premium :is(
+  [data-slot="tabs-trigger"][data-state="active"],
+  [data-slot="sidebar-menu-button"][data-active="true"],
+  [data-slot="dropdown-menu-item"]:focus,
+  [data-slot="dropdown-menu-item"][data-highlighted],
+  [data-slot="select-item"]:focus,
+  [data-slot="select-item"][data-highlighted],
+  [data-slot="command-item"][data-selected="true"],
+  [data-slot="checkbox"][data-state="checked"],
+  [data-slot="switch"][data-state="checked"],
+  .pixel-button[class~="bg-primary"],
+  [data-slot="button"][data-active="true"],
+  [data-slot="badge"][class~="bg-primary"]
+) {
+  color: var(--edu-premium-accent-fg) !important;
+  background: var(--edu-premium-accent-bg) !important;
+}
+
+:root.theme-premium [data-slot="progress-indicator"],
+:root.theme-premium ::-webkit-scrollbar-thumb {
+  background: var(--edu-premium-accent-bg) !important;
+}
+
+/* 原生 ::selection 不支持 background-image，使用实金色保证兼容性。 */
+:root.theme-premium::selection,
+:root.theme-premium ::selection {
+  color: var(--edu-premium-accent-fg);
+  background-color: var(--edu-premium-selection-bg);
+  text-shadow: none;
+}
+
+/* 登录页：更宽、更有欢迎卡片的感觉。 */
+[data-slot="card"].max-w-sm {
+  max-width: 29rem;
+  padding-block: 1rem;
+}
+
+[data-slot="card"].max-w-sm [data-slot="card-header"] {
+  padding-top: 0.5rem;
+  padding-bottom: 0.75rem;
+}
+
+[data-slot="card"].max-w-sm [data-slot="card-title"] {
+  font-size: clamp(1.5rem, 4vw, 2rem);
+}
+
+[data-slot="card"].max-w-sm [data-slot="card-content"] {
+  padding-inline: clamp(1.25rem, 5vw, 2rem);
+}
+
+/* 可访问性与响应式 */
+@media (max-width: 640px) {
+  body {
+    background-image:
+      radial-gradient(circle at 0 8%, color-mix(in srgb, var(--edu-blue) 38%, transparent) 0 44px, transparent 46px),
+      radial-gradient(circle at 100% 92%, color-mix(in srgb, var(--edu-mint) 28%, transparent) 0 58px, transparent 60px);
+  }
+
+  [data-slot="card"] {
+    border-width: calc(2px * var(--edu-effect-scale));
+    border-radius: 18px;
+    box-shadow: calc(4px * var(--edu-effect-scale)) calc(4px * var(--edu-effect-scale)) 0 var(--edu-ink);
+  }
+
+  :is([data-slot="button"], .pixel-button) {
+    min-height: calc(44px - var(--edu-button-height-reduction));
+    border-width: calc(2px * var(--edu-effect-scale)) !important;
+    box-shadow: var(--edu-shadow-sm) !important;
+  }
+
+  /* 手机节点卡片：名称独占上方，操作图标另起一行，避免横向挤压。
+     仅匹配带节点名称结构的紧凑卡片，不影响桌面表格或其他卡片。 */
+  #root [data-slot="card-content"].p-3:has(.line-clamp-2.break-all)
+    > .flex.items-start.justify-between {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  #root [data-slot="card-content"].p-3:has(.line-clamp-2.break-all)
+    > .flex.items-start.justify-between > .min-w-0.flex-1 {
+    flex: none;
+    width: 100%;
+  }
+
+  #root [data-slot="card-content"].p-3:has(.line-clamp-2.break-all)
+    > .flex.items-start.justify-between > .flex.shrink-0 {
+    flex-wrap: wrap;
+    max-width: 100%;
+    row-gap: 8px;
+  }
+
+  #root [data-slot="card-content"].p-3 .line-clamp-2.break-all {
+    display: block;
+    -webkit-line-clamp: unset;
+    overflow: visible;
+    overflow-wrap: anywhere;
+    word-break: normal;
+  }
+
+  #root [data-slot="card-content"].p-3 .line-clamp-2.break-all + .truncate {
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+
+  [data-slot="dialog-content"],
+  [data-slot="alert-dialog-content"],
+  [data-slot="sheet-content"] {
+    max-width: calc(100vw - 24px);
+    border-width: calc(2px * var(--edu-effect-scale)) !important;
+    box-shadow: calc(4px * var(--edu-effect-scale)) calc(4px * var(--edu-effect-scale)) 0 var(--edu-ink) !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
+
+@media (prefers-contrast: more) {
+  :root {
+    --input: var(--edu-ink);
+  }
+
+  [data-slot="card"],
+  :is([data-slot="button"], .pixel-button),
+  [data-slot="input"],
+  [data-slot="textarea"] {
+    border-color: var(--foreground) !important;
+  }
+}

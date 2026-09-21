@@ -1,0 +1,1268 @@
+/*
+ * MiaoMiaoWuX · Lumina 白金 / 黑金
+ * 版本：v2026.09.21-02
+ * 更新日期：2026-09-21
+ * 跟随主控现有的 light / dark 外观开关，无需 JavaScript。
+ */
+
+/* 分享或更换背景时，只需修改下面这一处图片链接。 */
+:root {
+  --lumina-wallpaper: url("https://raw.githubusercontent.com/chnnic/Bettmmwx/refs/heads/codex/initial-themes/assets/lumina-wallpaper.jpg");
+  /* 全站内容最大宽度：当前 1440px，可改成 1600px、1360px 等。 */
+  --lumina-content-max-width: 1440px;
+  /* 背景固定开关：fixed = 固定（默认），scroll = 跟随页面滚动。 */
+  --lumina-background-attachment: fixed;
+  /* 卡片悬停/点击斜纹：0 = 关闭（默认），1 = 开启。 */
+  --lumina-card-hover-stripes: 0;
+  /* Premium 背景水印：none = 关闭（默认），block = 开启。 */
+  --lumina-premium-watermark-display: none;
+}
+
+/* 兼容旧版 container 与新版 max-w-[1600px] 页面外壳。 */
+#root main.container,
+#root main.max-w-\[1600px\] {
+  width: min(100%, var(--lumina-content-max-width)) !important;
+  max-width: var(--lumina-content-max-width) !important;
+}
+
+:root,
+.light {
+  color-scheme: light;
+  --background: #f4f3ef;
+  --foreground: #24211b;
+  --card: #fffefa;
+  --card-foreground: #24211b;
+  --popover: #fffefa;
+  --popover-foreground: #24211b;
+  --primary: #a67c2e;
+  --primary-foreground: #fffdf7;
+  --secondary: #ebe8e1;
+  --secondary-foreground: #39342b;
+  --muted: #efede8;
+  --muted-foreground: #746e63;
+  --accent: #e7ddca;
+  --accent-foreground: #6f511d;
+  --destructive: #be4b45;
+  --destructive-foreground: #fffafa;
+  --border: #b8aa90;
+  --input: #b89d69;
+  --ring: #b88c37;
+  --sidebar: #ebe9e4;
+  --sidebar-foreground: #29261f;
+  --sidebar-primary: #a67c2e;
+  --sidebar-primary-foreground: #fffdf7;
+  --sidebar-accent: #ded8cc;
+  --sidebar-accent-foreground: #5f471c;
+  --sidebar-border: #bca878;
+  --sidebar-ring: #b88c37;
+  --chart-1: #b4862f;
+  --chart-2: #657d75;
+  --chart-3: #8c7958;
+  --chart-4: #c5a65d;
+  --chart-5: #4f6660;
+  --radius: 0.75rem;
+  --font-sans: Inter, "OPPO Sans 3", "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+
+.dark {
+  color-scheme: dark;
+  --background: #080806;
+  --foreground: #f2eadb;
+  --card: #12110e;
+  --card-foreground: #f2eadb;
+  --popover: #16140f;
+  --popover-foreground: #f2eadb;
+  --primary: #dfb65a;
+  --primary-foreground: #171108;
+  --secondary: #201e19;
+  --secondary-foreground: #eee5d4;
+  --muted: #1b1915;
+  --muted-foreground: #aaa08e;
+  --accent: #2b2519;
+  --accent-foreground: #f1d28a;
+  --destructive: #db6860;
+  --destructive-foreground: #160807;
+  --border: #705a34;
+  --input: #80683d;
+  --ring: #d7aa4d;
+  --sidebar: #0d0c0a;
+  --sidebar-foreground: #eee5d4;
+  --sidebar-primary: #dfb65a;
+  --sidebar-primary-foreground: #171108;
+  --sidebar-accent: #282219;
+  --sidebar-accent-foreground: #f1d28a;
+  --sidebar-border: #66522f;
+  --sidebar-ring: #d7aa4d;
+  --chart-1: #e0b557;
+  --chart-2: #7bb39f;
+  --chart-3: #b89764;
+  --chart-4: #f0ce7a;
+  --chart-5: #5e8d7d;
+}
+
+html,
+body {
+  min-height: 100%;
+  /* auto = 保留页面顶部/底部的系统回弹；none = 关闭回弹。 */
+  overscroll-behavior: auto;
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+:root:not(.theme-glass) body {
+  background-image:
+    linear-gradient(rgba(247, 244, 236, 0.10), rgba(247, 244, 236, 0.10)),
+    radial-gradient(circle at 12% -8%, rgba(183, 146, 70, 0.10), transparent 30rem),
+    radial-gradient(circle at 92% 4%, rgba(111, 120, 116, 0.08), transparent 28rem),
+    var(--lumina-wallpaper) !important;
+  background-position: center, center, center, center !important;
+  background-repeat: no-repeat !important;
+  background-size: auto, auto, auto, cover !important;
+  background-attachment: var(--lumina-background-attachment) !important;
+}
+
+:root.dark:not(.theme-glass) body {
+  background-image:
+    linear-gradient(rgba(8, 9, 9, 0.30), rgba(8, 9, 9, 0.30)),
+    radial-gradient(circle at 14% -8%, rgba(221, 177, 84, 0.12), transparent 32rem),
+    radial-gradient(circle at 92% 8%, rgba(121, 96, 45, 0.08), transparent 30rem),
+    var(--lumina-wallpaper) !important;
+}
+
+/* Premium 主题自带的 PRO 标记水印层。 */
+:root.theme-premium body::before {
+  display: var(--lumina-premium-watermark-display, none) !important;
+}
+
+/* 主控内容外壳默认是不透明底色，需透出 body 上的背景图片。 */
+#root .min-h-svh.bg-background,
+#root .min-h-dvh.bg-background,
+#root .h-svh.bg-background,
+#root .h-dvh.bg-background {
+  background-color: transparent !important;
+}
+
+/* 日志管理等页面使用独立的半透明内容壳，也统一为毛玻璃。 */
+#root [class~="bg-background/50"] {
+  background-color: color-mix(in srgb, var(--card) 66%, transparent) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(1.14);
+  backdrop-filter: blur(20px) saturate(1.14);
+}
+
+.dark #root [class~="bg-background/50"] {
+  background-color: rgba(18, 17, 14, 0.66) !important;
+}
+
+/* 卡片：白金用柔和银灰层次，黑金用细金边。 */
+[data-slot="card"] {
+  border: 1px solid color-mix(in srgb, var(--border) 92%, var(--primary));
+  background: color-mix(in srgb, var(--card) 72%, transparent);
+  -webkit-backdrop-filter: blur(18px) saturate(1.16);
+  backdrop-filter: blur(18px) saturate(1.16);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.72) inset,
+    0 12px 30px rgba(47, 42, 32, 0.07);
+}
+
+/* 主控妙妙屋主题自带 .pixel-card 斜纹层；统一接入顶部开关。
+   同时覆盖 hover、键盘焦点与手机点击后保留的 hover 状态。 */
+.pixel-card:hover::before,
+.pixel-card:focus::before,
+.pixel-card:focus-within::before,
+.pixel-card:active::before {
+  opacity: var(--lumina-card-hover-stripes, 0) !important;
+}
+
+/* 流量首页、服务管理及标签页中的实时卡片会持续重绘。
+ * Chrome 在重绘含 backdrop-filter 的大面积卡片时容易整块频闪，
+ * 因此关闭这些动态内容层的背景模糊，透明底色和阴影仍保留。 */
+#root .dashboard-page [data-slot="card"],
+#root main [data-slot="tabs-content"] > [data-slot="card"],
+:root:not(.theme-glass) #root
+  .mb-6.flex.flex-wrap.gap-4
+  + .grid.grid-cols-1.gap-4
+  [data-slot="card"] {
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+
+.dark [data-slot="card"] {
+  background: linear-gradient(145deg, rgba(22, 20, 15, 0.70), rgba(14, 14, 11, 0.70));
+  border-color: rgba(218, 174, 83, 0.48);
+  box-shadow:
+    0 1px 0 rgba(255, 224, 157, 0.05) inset,
+    0 16px 34px rgba(0, 0, 0, 0.25);
+}
+
+/* 顶栏、侧栏和浮层保持统一材质。 */
+header,
+[data-slot="sidebar"],
+[data-sidebar="sidebar"] {
+  border-color: var(--sidebar-border);
+  border-width: 1px;
+  background-color: color-mix(in srgb, var(--sidebar) 60%, transparent);
+  -webkit-backdrop-filter: blur(22px) saturate(1.18);
+  backdrop-filter: blur(22px) saturate(1.18);
+}
+
+[data-slot="popover-content"],
+[data-slot="dropdown-menu-content"],
+[data-slot="select-content"],
+[role="dialog"] {
+  border-color: var(--border);
+  border-width: 1px;
+  background-color: color-mix(in srgb, var(--popover) 82%, transparent);
+  color: var(--popover-foreground);
+  -webkit-backdrop-filter: blur(22px) saturate(1.16);
+  backdrop-filter: blur(22px) saturate(1.16);
+  box-shadow: 0 18px 44px rgba(28, 24, 17, 0.16);
+}
+
+.dark [data-slot="popover-content"],
+.dark [data-slot="dropdown-menu-content"],
+.dark [data-slot="select-content"],
+.dark [role="dialog"] {
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.42);
+}
+
+/* 表单和分页：边框清楚，但不抢内容层级。 */
+[data-slot="input"],
+[data-slot="textarea"],
+[data-slot="select-trigger"],
+input,
+textarea,
+select {
+  border-width: 1px;
+  border-color: var(--input);
+  background-color: color-mix(in srgb, var(--card) 74%, transparent);
+  -webkit-backdrop-filter: blur(16px) saturate(1.1);
+  backdrop-filter: blur(12px) saturate(1.1);
+}
+
+/* 黑金模式输入区比卡片略亮，避免表单控件陷进纯黑背景。 */
+.dark [data-slot="input"],
+.dark [data-slot="textarea"],
+.dark [data-slot="select-trigger"],
+.dark input,
+.dark textarea,
+.dark select {
+  color: #f2eadb;
+  border-color: rgba(223, 182, 90, 0.42);
+  background-color: rgba(42, 38, 30, 0.76);
+  box-shadow: 0 1px 0 rgba(255, 232, 180, 0.06) inset;
+}
+
+.dark [data-slot="input"]:focus-visible,
+.dark [data-slot="textarea"]:focus-visible,
+.dark [data-slot="select-trigger"]:focus-visible,
+.dark input:focus-visible,
+.dark textarea:focus-visible,
+.dark select:focus-visible {
+  border-color: rgba(223, 182, 90, 0.76);
+  background-color: rgba(52, 47, 36, 0.84);
+}
+
+.dark input::placeholder,
+.dark textarea::placeholder {
+  color: #b8ad98;
+  opacity: 0.92;
+}
+
+[data-slot="input"]:focus-visible,
+[data-slot="textarea"]:focus-visible,
+[data-slot="select-trigger"]:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  border-color: var(--ring);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--ring) 22%, transparent);
+}
+
+[data-slot="tabs-list"] {
+  border: 1px solid color-mix(in srgb, var(--border) 88%, var(--primary));
+  background-color: color-mix(in srgb, var(--muted) 68%, transparent);
+  -webkit-backdrop-filter: blur(18px) saturate(1.12);
+  backdrop-filter: blur(18px) saturate(1.12);
+}
+
+:root:not(.theme-glass) [data-slot="tabs-trigger"][data-state="active"] {
+  color: var(--accent-foreground);
+  background-color: var(--card);
+  box-shadow: 0 4px 14px rgba(54, 45, 29, 0.08);
+}
+
+:root.dark:not(.theme-glass) [data-slot="tabs-trigger"][data-state="active"] {
+  color: var(--primary);
+  box-shadow: 0 5px 16px rgba(0, 0, 0, 0.24);
+}
+
+/* 参考 ccp.mmwx.org：主按钮与选中项使用暖金渐变，危险操作仍保留红色。 */
+:root:not(.theme-glass) button.bg-primary:not(.bg-destructive),
+:root:not(.theme-glass) [data-slot="tabs-trigger"][data-state="active"] {
+  color: #171107 !important;
+  border-color: rgba(168, 124, 34, 0.68) !important;
+  background: linear-gradient(105deg, #b87b1e, #e3bd63) !important;
+  box-shadow:
+    0 1px 0 rgba(255, 241, 185, 0.46) inset,
+    0 5px 14px -9px rgba(184, 123, 30, 0.78);
+}
+
+:root:not(.theme-glass) button.bg-primary:not(.bg-destructive):hover {
+  border-color: rgba(227, 189, 99, 0.92) !important;
+  background: linear-gradient(105deg, #c98e2d, #f0d58a) !important;
+  box-shadow:
+    0 1px 0 rgba(255, 247, 211, 0.58) inset,
+    0 7px 18px -10px rgba(184, 123, 30, 0.9);
+}
+
+/* 服务管理工具栏：未选中的视图、功能和状态按钮使用毛玻璃。 */
+:root:not(.theme-glass) #root .mb-6.flex.flex-wrap.gap-4 button[class~="bg-background/75"] {
+  border-color: transparent !important;
+  background: rgba(255, 254, 250, 0.42) !important;
+  -webkit-backdrop-filter: blur(18px) saturate(1.16);
+  backdrop-filter: blur(18px) saturate(1.16);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.48) inset,
+    0 8px 20px -16px rgba(76, 58, 24, 0.58);
+}
+
+:root.dark:not(.theme-glass) #root .mb-6.flex.flex-wrap.gap-4 button[class~="bg-background/75"] {
+  color: #f2eadb;
+  border-color: transparent !important;
+  background: rgba(42, 38, 30, 0.46) !important;
+  box-shadow:
+    0 1px 0 rgba(255, 232, 180, 0.10) inset,
+    0 8px 20px -16px rgba(0, 0, 0, 0.72);
+}
+
+:root:not(.theme-glass) #root .mb-6.flex.flex-wrap.gap-4 button[class~="bg-background/75"]:hover {
+  border-color: transparent !important;
+  background: color-mix(in srgb, var(--accent) 48%, transparent) !important;
+}
+
+:root:not(.theme-glass) [data-slot="switch"][data-state="checked"],
+:root:not(.theme-glass) [data-slot="checkbox"][data-state="checked"] {
+  color: #171107 !important;
+  border-color: rgba(168, 124, 34, 0.72) !important;
+  background: linear-gradient(105deg, #b87b1e, #e3bd63) !important;
+}
+
+/* 节点管理操作说明：补全上游未带 mask-image 的两个自定义 SVG 图标。 */
+.accent-svg-icon[aria-label="chain proxy"],
+.accent-svg-icon[aria-label="resolve IP"] {
+  display: inline-block !important;
+  flex: 0 0 1rem;
+  width: 1rem;
+  height: 1rem;
+  vertical-align: -0.125rem;
+  background-color: currentColor;
+}
+
+.accent-svg-icon[aria-label="chain proxy"] {
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 6h6a3 3 0 0 1 3 3v6a3 3 0 0 0 3 3h8'/%3E%3Cpath d='m18 15 3 3-3 3'/%3E%3Cpath d='m6 3-3 3 3 3'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 6h6a3 3 0 0 1 3 3v6a3 3 0 0 0 3 3h8'/%3E%3Cpath d='m18 15 3 3-3 3'/%3E%3Cpath d='m6 3-3 3 3 3'/%3E%3C/svg%3E");
+}
+
+.accent-svg-icon[aria-label="resolve IP"] {
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpath d='M2 12h20'/%3E%3Cpath d='M12 2a15.3 15.3 0 0 1 0 20'/%3E%3Cpath d='M12 2a15.3 15.3 0 0 0 0 20'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpath d='M2 12h20'/%3E%3Cpath d='M12 2a15.3 15.3 0 0 1 0 20'/%3E%3Cpath d='M12 2a15.3 15.3 0 0 0 0 20'/%3E%3C/svg%3E");
+}
+
+/* 服务卡片的周期流量进度改为同系金色，并保留底槽的中性层次。 */
+[data-slot="card"] .bg-muted > .bg-primary {
+  background: linear-gradient(90deg, #b87b1e, #e3bd63) !important;
+  box-shadow: 0 0 8px rgba(227, 189, 99, 0.38);
+}
+
+/* 妙妙屋 / 扁平：列表视图流量进度与卡片视图使用同一金色渐变。 */
+:root:not(.theme-flat):not(.theme-anime):not(.theme-premium):not(.theme-glass)
+  .table-card .bg-muted > .bg-green-500,
+:root.theme-flat .table-card .bg-muted > .bg-green-500 {
+  background: linear-gradient(90deg, #b87b1e, #e3bd63) !important;
+  box-shadow: 0 0 8px rgba(227, 189, 99, 0.38);
+}
+
+/* 在线状态徽章使用与主按钮一致的金色渐变。 */
+:root:not(.theme-glass) [data-slot="card"] [data-slot="badge"].bg-primary {
+  color: #171107 !important;
+  border-color: rgba(168, 124, 34, 0.68) !important;
+  background: linear-gradient(105deg, #b87b1e, #e3bd63) !important;
+  box-shadow:
+    0 1px 0 rgba(255, 241, 185, 0.42) inset,
+    0 4px 10px -7px rgba(184, 123, 30, 0.76);
+}
+
+/* 首页用户视图的并发连接数与节点视图保持同一组蓝色。 */
+[title="当前并发连接数"] {
+  color: var(--color-sky-600) !important;
+}
+
+.dark [title="当前并发连接数"] {
+  color: var(--color-sky-400) !important;
+}
+
+:root:not(.theme-glass) [data-slot="button"]:focus-visible,
+:root:not(.theme-glass) button:focus-visible,
+:root:not(.theme-glass) a:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--ring) 28%, transparent);
+}
+
+[data-slot="badge"] {
+  border-color: color-mix(in srgb, var(--border) 86%, transparent);
+}
+
+table,
+[data-slot="table"] {
+  border-color: var(--border);
+}
+
+/* 毛玻璃上的外框与内部结构线统一使用轻薄线条。 */
+/* 顶栏取消外框，与无边框毛玻璃卡片保持一致。 */
+header {
+  border-width: 0 !important;
+}
+
+[data-slot="card"],
+[data-slot="popover-content"],
+[data-slot="dropdown-menu-content"],
+[data-slot="select-content"],
+[role="dialog"] {
+  border-width: 1px !important;
+  border-color: color-mix(in srgb, var(--border) 78%, var(--primary)) !important;
+}
+
+main [class~="border"],
+#root [class~="bg-background/50"] {
+  border-width: 1px;
+  border-color: color-mix(in srgb, var(--border) 82%, var(--primary));
+}
+
+/* 普通卡片取消外框，让毛玻璃层次主要由背景和阴影表达。 */
+[data-slot="card"],
+.pixel-card {
+  border-width: 0 !important;
+}
+
+/* 日志内容面板仍保留轻薄边线，避免大块内容与背景混在一起。 */
+#root [class~="bg-background/50"] {
+  border-width: 1px !important;
+}
+
+main [class~="border-t"] {
+  border-top-width: 1px !important;
+  border-top-color: color-mix(in srgb, var(--border) 78%, var(--primary));
+}
+
+main [class~="border-b"] {
+  border-bottom-width: 1px !important;
+  border-bottom-color: color-mix(in srgb, var(--border) 78%, var(--primary));
+}
+
+[data-slot="separator"],
+[role="separator"],
+hr {
+  border-color: transparent;
+  background-color: color-mix(in srgb, var(--border) 74%, var(--primary));
+}
+
+[data-slot="separator"][data-orientation="horizontal"],
+[role="separator"][aria-orientation="horizontal"],
+hr {
+  min-height: 1px;
+}
+
+[data-slot="separator"][data-orientation="vertical"],
+[role="separator"][aria-orientation="vertical"] {
+  min-width: 1px;
+}
+
+/* 标签只突出当前选中项；未选中项恢复无框样式。 */
+:root:not(.theme-glass) [data-slot="tabs-trigger"][data-state="inactive"] {
+  border-color: transparent !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+:root:not(.theme-glass) [data-slot="tabs-trigger"][data-state="inactive"]:hover {
+  border-color: transparent !important;
+  background: color-mix(in srgb, var(--accent) 28%, transparent) !important;
+}
+
+/* 日志、证书及系统设置等标签栏取消最外层边框。 */
+[data-slot="tabs-list"] {
+  border-width: 0 !important;
+}
+
+thead,
+[data-slot="table-header"] {
+  background-color: transparent !important;
+}
+
+tr,
+[data-slot="table-row"] {
+  border-color: color-mix(in srgb, var(--border) 75%, transparent);
+}
+
+tbody tr:hover,
+[data-slot="table-row"]:hover {
+  background-color: color-mix(in srgb, var(--accent) 54%, transparent);
+}
+
+/* 伪装探针：说明与外置域名表单均分可用宽度，不让 shrink-0 挤窄说明。
+   无法容纳两列 24rem 时自动上下排列；仅调整布局，不修改开关或域名设置。 */
+[data-slot="card"]:has(#probe-metrics-persist) [data-slot="card-content"] > div > .flex.items-start.justify-between:has(> .flex-1 + .flex.shrink-0.flex-col) {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 24rem), 1fr));
+  align-items: start;
+}
+
+[data-slot="card"]:has(#probe-metrics-persist) [data-slot="card-content"] > div > .flex.items-start.justify-between:has(> .flex-1 + .flex.shrink-0.flex-col) > :is(.flex-1, .flex.shrink-0.flex-col) {
+  min-width: 0;
+  max-width: 100%;
+}
+
+[data-slot="card"]:has(#probe-metrics-persist) [data-slot="card-content"] > div > .flex.items-start.justify-between:has(> .flex-1 + .flex.shrink-0.flex-col) p {
+  overflow-wrap: anywhere;
+}
+
+/* 节点操作与名称、服务器及套餐信息整体居中；不改变手机卡片。 */
+@media (min-width: 768px) {
+  td.max-w-\[300px\].min-w-\[200px\] {
+    min-width: 28rem !important;
+    max-width: 40rem !important;
+    white-space: normal;
+  }
+
+  td.max-w-\[300px\].min-w-\[200px\] > .min-w-0:has(> .flex > .min-w-0.flex-1.truncate) {
+    display: grid;
+    grid-template-columns: minmax(10rem, 1fr);
+    grid-template-rows: repeat(3, auto);
+    grid-auto-columns: max-content;
+    grid-auto-flow: column;
+    column-gap: 0.5rem;
+    align-items: center;
+  }
+
+  td.max-w-\[300px\].min-w-\[200px\] > .min-w-0 > .flex:has(> .min-w-0.flex-1.truncate) {
+    display: contents !important;
+  }
+
+  td.max-w-\[300px\].min-w-\[200px\] > .min-w-0 > .flex > .min-w-0.flex-1.truncate {
+    grid-column: 1;
+    grid-row: 1;
+    overflow: visible;
+    white-space: normal;
+    text-overflow: clip;
+    overflow-wrap: anywhere;
+    line-height: 1.35;
+  }
+
+  td.max-w-\[300px\].min-w-\[200px\] > .min-w-0 > .flex:has(> .min-w-0.flex-1.truncate) > :is(svg, button) {
+    grid-column: auto;
+    grid-row: 1 / -1;
+    align-self: center;
+  }
+
+  td.max-w-\[300px\].min-w-\[200px\] > .min-w-0 > .text-muted-foreground.truncate {
+    grid-column: 1;
+    grid-row: 2;
+    overflow: visible;
+    white-space: normal;
+    text-overflow: clip;
+    overflow-wrap: anywhere;
+    line-height: 1.35;
+  }
+
+  td.max-w-\[300px\].min-w-\[200px\] > .min-w-0 > button {
+    grid-column: 1;
+    grid-row: 3;
+    min-width: 0;
+  }
+
+  /* 改名时保留输入框及确认、取消按钮的独立布局。 */
+  td.max-w-\[300px\].min-w-\[200px\] > .min-w-0 > .flex:has(> input[data-slot="input"]) {
+    display: grid !important;
+    grid-template-columns: minmax(14rem, 1fr) 1.75rem 1.75rem;
+    grid-template-rows: 2rem;
+    align-items: center;
+  }
+
+  td.max-w-\[300px\].min-w-\[200px\] > .min-w-0 > .flex > input[data-slot="input"] {
+    width: 100% !important;
+    min-width: 0 !important;
+    height: 2rem;
+    font-size: 0.875rem;
+  }
+}
+
+::selection {
+  color: var(--primary-foreground);
+  background: var(--primary);
+}
+
+@media (max-width: 1180px) {
+  /*
+   * 手机/窄屏浏览器的地址栏伸缩或视口变化会让 body 的 fixed + cover 跳动。
+   * 把壁纸放到独立的固定合成层，并用 lvh 锁定最大视口高度。
+   */
+  :root:not(.theme-glass) body {
+    position: relative;
+    isolation: isolate;
+    background-color: transparent !important;
+    background-image: none !important;
+    background-attachment: scroll !important;
+  }
+
+  :root:not(.theme-glass) body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100vh;
+    height: 100lvh;
+    pointer-events: none;
+    background-image:
+      linear-gradient(rgba(247, 244, 236, 0.46), rgba(247, 244, 236, 0.46)),
+      radial-gradient(circle at 50% -6rem, rgba(183, 146, 70, 0.10), transparent 24rem),
+      var(--lumina-wallpaper);
+    background-position: center, center, center top;
+    background-repeat: no-repeat;
+    background-size: auto, auto, cover;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    will-change: transform;
+  }
+
+  :root.dark:not(.theme-glass) body::before {
+    background-image:
+      linear-gradient(rgba(8, 9, 9, 0.58), rgba(8, 9, 9, 0.58)),
+      radial-gradient(circle at 50% -6rem, rgba(221, 177, 84, 0.12), transparent 24rem),
+      var(--lumina-wallpaper);
+  }
+}
+
+@media (max-width: 640px) {
+  :root,
+  .light,
+  .dark {
+    --radius: 0.65rem;
+  }
+
+  /* 节点卡片：快捷操作单独占一行，避免把节点名称挤成两三个字宽。 */
+  main .space-y-2.p-3 > .flex.items-start.justify-between.gap-2:has(
+      > .min-w-0.flex-1 + .flex.shrink-0.items-center.gap-1
+    ) {
+    flex-wrap: wrap;
+  }
+
+  main .space-y-2.p-3 > .flex.items-start.justify-between.gap-2 > .min-w-0.flex-1 {
+    flex: 1 0 100%;
+    width: 100%;
+  }
+
+  main .space-y-2.p-3 > .flex.items-start.justify-between.gap-2 > .flex.shrink-0.items-center.gap-1 {
+    flex: 1 0 100%;
+    width: 100%;
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding-bottom: 0.1rem;
+    scrollbar-width: none;
+  }
+
+  main .space-y-2.p-3 > .flex.items-start.justify-between.gap-2 > .flex.shrink-0.items-center.gap-1::-webkit-scrollbar {
+    display: none;
+  }
+
+  [data-slot="card"] {
+    box-shadow: 0 8px 22px rgba(47, 42, 32, 0.06);
+  }
+}
+
+/*
+ * 妙妙屋主题基准材质
+ *
+ * 妙妙屋是根节点没有 theme-* 类名时的默认主题。玻璃材质完整沿用
+ * 扁平主题的轻阴影基准，让全部卡片、页首和页尾使用同一套玻璃。
+ * 其它主题有自己的 theme-* 类名，不会命中这一段。
+ */
+:root:not(.theme-flat):not(.theme-anime):not(.theme-premium):not(.theme-glass) {
+  --miaomiao-glass-background: rgba(255, 254, 250, 0.72);
+  --miaomiao-glass-foreground: #24211b;
+  --miaomiao-glass-backdrop: blur(18px) saturate(1.16);
+  --miaomiao-glass-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.10),
+    0 1px 2px -1px rgba(0, 0, 0, 0.10);
+}
+
+:root:not(.theme-flat):not(.theme-anime):not(.theme-premium):not(.theme-glass).dark {
+  --miaomiao-glass-background: linear-gradient(
+    145deg,
+    rgba(22, 20, 15, 0.70),
+    rgba(14, 14, 11, 0.70)
+  );
+  --miaomiao-glass-foreground: #f2eadb;
+  --miaomiao-glass-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.10),
+    0 1px 2px -1px rgba(0, 0, 0, 0.10);
+}
+
+/* 生成订阅使用 min-h-screen 外壳；去掉实色底，透出与其他页面相同的壁纸。 */
+:root:not(.theme-flat):not(.theme-anime):not(.theme-premium):not(.theme-glass)
+  #root .min-h-screen.bg-background {
+  background-color: transparent !important;
+}
+
+:root:not(.theme-flat):not(.theme-anime):not(.theme-premium):not(.theme-glass) #root :where(
+    [data-slot="card"],
+    .pixel-card,
+    [class~="bg-background/50"],
+    [data-slot="tabs-list"],
+    [data-slot="sidebar"],
+    [data-sidebar="sidebar"]
+  ),
+:root:not(.theme-flat):not(.theme-anime):not(.theme-premium):not(.theme-glass) :where(
+    header.app-topbar,
+    footer,
+    [data-slot="popover-content"],
+    [data-slot="dropdown-menu-content"],
+    [data-slot="select-content"],
+    [data-slot="hover-card-content"],
+    [data-slot="sheet-content"],
+    [data-slot="drawer-content"],
+    [data-slot="alert-dialog-content"],
+    [data-slot="dialog-content"],
+    [data-slot="command"],
+    [role="dialog"]
+  ) {
+  color: var(--miaomiao-glass-foreground) !important;
+  border: 0 !important;
+  background: var(--miaomiao-glass-background) !important;
+  -webkit-backdrop-filter: var(--miaomiao-glass-backdrop) !important;
+  backdrop-filter: var(--miaomiao-glass-backdrop) !important;
+  box-shadow: var(--miaomiao-glass-shadow) !important;
+}
+
+/*
+ * 扁平主题基准材质
+ * 使用扁平主题节点列表卡片的轻阴影，保留它自己的圆角与控件几何。
+ */
+:root.theme-flat {
+  --flat-glass-background: rgba(255, 254, 250, 0.72);
+  --flat-glass-foreground: #24211b;
+  --flat-glass-backdrop: blur(18px) saturate(1.16);
+  --flat-glass-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.10),
+    0 1px 2px -1px rgba(0, 0, 0, 0.10);
+}
+
+:root.theme-flat.dark {
+  --flat-glass-background: linear-gradient(
+    145deg,
+    rgba(22, 20, 15, 0.70),
+    rgba(14, 14, 11, 0.70)
+  );
+  --flat-glass-foreground: #f2eadb;
+}
+
+:root.theme-flat #root .min-h-screen.bg-background {
+  background-color: transparent !important;
+}
+
+:root.theme-flat #root [data-slot="card"],
+:root.theme-flat #root .pixel-card,
+:root.theme-flat #root :where(
+    [class~="bg-background/50"],
+    [data-slot="tabs-list"],
+    [data-slot="sidebar"],
+    [data-sidebar="sidebar"]
+  ),
+:root.theme-flat :where(
+    header.app-topbar,
+    footer,
+    [data-slot="popover-content"],
+    [data-slot="dropdown-menu-content"],
+    [data-slot="select-content"],
+    [data-slot="hover-card-content"],
+    [data-slot="sheet-content"],
+    [data-slot="drawer-content"],
+    [data-slot="alert-dialog-content"],
+    [data-slot="dialog-content"],
+    [data-slot="command"],
+    [role="dialog"]
+  ) {
+  color: var(--flat-glass-foreground) !important;
+  border: 0 !important;
+  background: var(--flat-glass-background) !important;
+  -webkit-backdrop-filter: var(--flat-glass-backdrop) !important;
+  backdrop-filter: var(--flat-glass-backdrop) !important;
+  box-shadow: var(--flat-glass-shadow) !important;
+}
+
+/*
+ * 官方液态玻璃主题基准材质
+ * 全部取自主控的 --g-* 变量，色调和明暗继续由主控控制。
+ */
+:root.theme-glass {
+  --liquid-card-backdrop: blur(var(--g-card-blur)) saturate(1.6);
+  --liquid-card-shadow:
+    0 1px 0 var(--g-edge) inset,
+    var(--g-shadow);
+}
+
+/* 液态玻璃：标签菜单仅由选中指示器描边，未选中项不显示边框。 */
+:root.theme-glass [data-slot="tabs-trigger"][data-state="inactive"] {
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+
+:root.theme-glass #root .min-h-screen.bg-background {
+  background-color: transparent !important;
+}
+
+:root.theme-glass #root [data-slot="card"],
+:root.theme-glass #root .pixel-card,
+:root.theme-glass #root :where(
+    [class~="bg-background/50"],
+    [data-slot="tabs-list"],
+    [data-slot="sidebar"],
+    [data-sidebar="sidebar"]
+  ),
+:root.theme-glass :where(
+    header.app-topbar,
+    footer,
+    [data-slot="popover-content"],
+    [data-slot="dropdown-menu-content"],
+    [data-slot="select-content"],
+    [data-slot="hover-card-content"],
+    [data-slot="sheet-content"],
+    [data-slot="drawer-content"],
+    [data-slot="alert-dialog-content"],
+    [data-slot="dialog-content"],
+    [data-slot="command"],
+    [role="dialog"]
+  ) {
+  color: var(--foreground) !important;
+  border: 0 !important;
+  background-color: var(--g-card-fill) !important;
+  -webkit-backdrop-filter: var(--liquid-card-backdrop) !important;
+  backdrop-filter: var(--liquid-card-backdrop) !important;
+  box-shadow: var(--liquid-card-shadow) !important;
+}
+
+/* 标准 Card 继续使用官方 ::after 高光，先清掉其它主题遗留的背景渐变。 */
+:root.theme-glass #root [data-slot="card"],
+:root.theme-glass #root .pixel-card {
+  background-image: none !important;
+}
+
+/* 没有官方 ::after 的外壳直接使用同一层高光。 */
+:root.theme-glass #root :where(
+    [class~="bg-background/50"],
+    [data-slot="tabs-list"],
+    [data-slot="sidebar"],
+    [data-sidebar="sidebar"]
+  ),
+:root.theme-glass :where(
+    header.app-topbar,
+    footer,
+    [data-slot="popover-content"],
+    [data-slot="dropdown-menu-content"],
+    [data-slot="select-content"],
+    [data-slot="hover-card-content"],
+    [data-slot="sheet-content"],
+    [data-slot="drawer-content"],
+    [data-slot="alert-dialog-content"],
+    [data-slot="dialog-content"],
+    [data-slot="command"],
+    [role="dialog"]
+  ) {
+  background-image: var(--g-sheen) !important;
+}
+
+/*
+ * beta7 频闪修正：只处理液态玻璃主题。
+ * 卡片采用官方无直接 backdrop-filter 的方式，页首保留官方壳层模糊。
+ */
+:root.theme-glass #root [data-slot="card"],
+:root.theme-glass #root .pixel-card {
+  border: 1px solid var(--g-edge-soft) !important;
+  background: transparent !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+  box-shadow:
+    0 1px 0 var(--g-edge) inset,
+    var(--g-shadow) !important;
+}
+
+:root.theme-glass #root header.app-topbar {
+  background: var(--g-shell-fill) !important;
+  -webkit-backdrop-filter: blur(var(--g-shell-blur)) saturate(1.7) !important;
+  backdrop-filter: blur(var(--g-shell-blur)) saturate(1.7) !important;
+  box-shadow:
+    0 1px 0 var(--g-edge) inset,
+    var(--g-shadow) !important;
+}
+
+/* 转发管理“新建节点 / 绑定已有节点”：当前选中项沿用全站暖金渐变。 */
+:root:not(.theme-glass) [role="dialog"] .bg-muted > button.bg-background.shadow-sm {
+  color: #171107 !important;
+  border-color: rgba(168, 124, 34, 0.68) !important;
+  background: linear-gradient(105deg, #b87b1e, #e3bd63) !important;
+  box-shadow:
+    0 1px 0 rgba(255, 241, 185, 0.46) inset,
+    0 5px 14px -9px rgba(184, 123, 30, 0.78) !important;
+}
+
+/* 大型套餐编辑弹窗：解除中等视口的 sm:max-w-lg（512px）上限。
+   按父层可用空间展开，仍保留 1400px 上限，不改变普通表单和确认框。 */
+[data-slot="dialog-content"][class~="w-[96vw]"][class~="xl:max-w-[1400px]"] {
+  width: 100%;
+  max-width: min(96vw, 1400px) !important;
+  min-width: 0;
+}
+
+/* Xray 管理：中等宽度保证编辑空间，窄屏不超出视口，宽屏保留半屏比例。 */
+[data-slot="dialog-content"][class~="w-[50vw]"][class~="h-[85vh]"] {
+  width: min(96vw, max(50vw, 56rem));
+  max-width: calc(100vw - 2rem) !important;
+  min-width: 0;
+}
+
+/* 手机专用全屏抽屉保持完整可用宽度。 */
+[data-slot="sheet-content"][class~="h-[100dvh]"][class~="w-full"][class~="max-w-none"] {
+  width: 100%;
+  max-width: 100% !important;
+}
+
+/* Xray 的完整版本信息和服务控制按钮组可换行，避免窄屏横向溢出。
+   只调整布局，沿用 Lumina 的浅色、深色及液态玻璃配色。 */
+:is(
+  [data-slot="dialog-content"][class~="w-[50vw]"][class~="h-[85vh]"],
+  [data-slot="sheet-content"][class~="h-[100dvh]"][class~="max-w-none"]
+) .mb-3.flex.flex-wrap.items-center > [data-slot="badge"] {
+  max-width: 100%;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  text-align: start;
+}
+
+:is(
+  [data-slot="dialog-content"][class~="w-[50vw]"][class~="h-[85vh]"],
+  [data-slot="sheet-content"][class~="h-[100dvh]"][class~="max-w-none"]
+) .mb-3.flex.flex-wrap.items-center > .flex.items-center.gap-2 {
+  min-width: 0;
+  max-width: 100%;
+  flex-wrap: wrap;
+}
+
+/*
+ * 服务管理的 Xray 配置是 85vh 高、宽度自适应的大型动态弹窗。
+ * 弹窗、标签栏和 JSON 编辑框原本各自带一层 backdrop-filter，编辑器
+ * 重绘时会让三层玻璃反复重新合成。只在这个窗口关闭嵌套模糊，保留
+ * 原有透明底色、配色和阴影，避免影响其它普通弹窗。
+ */
+#root [data-slot="dialog-content"][class~="h-[85vh]"][class~="w-[50vw]"],
+#root [data-slot="dialog-content"][class~="h-[85vh]"][class~="w-[50vw]"] [data-slot="tabs-list"],
+#root [data-slot="dialog-content"][class~="h-[85vh]"][class~="w-[50vw]"] [data-slot="textarea"] {
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+
+/*
+ * 登录页：参考纸张点阵、粗描边卡片和双色按钮的轻复古风格。
+ * 用户名和密码字段同时存在时才生效，不影响登录后的管理页。
+ */
+body:has(#username):has(#password) {
+  --lumina-login-paper: #fdf9f7;
+  --lumina-login-card: rgba(255, 255, 255, 0.97);
+  --lumina-login-ink: #2d3947;
+  --lumina-login-field: rgba(255, 255, 255, 0.94);
+  --lumina-login-field-border: #cfd7dc;
+  --lumina-login-dot: rgba(221, 124, 145, 0.18);
+  --lumina-login-primary: #24c66b;
+  --lumina-login-passkey: #bfe2f1;
+}
+
+:root.dark body:has(#username):has(#password) {
+  --lumina-login-paper: #111419;
+  --lumina-login-card: rgba(27, 31, 38, 0.98);
+  --lumina-login-ink: #f1e8d8;
+  --lumina-login-field: rgba(40, 45, 54, 0.96);
+  --lumina-login-field-border: #626d79;
+  --lumina-login-dot: rgba(226, 184, 96, 0.16);
+  --lumina-login-primary: #28bd70;
+  --lumina-login-passkey: #527f94;
+}
+
+body:has(#username):has(#password)
+  #root
+  .min-h-svh:has(> [data-slot="card"]) {
+  justify-content: center !important;
+  padding: clamp(1.25rem, 4vw, 3rem) 1rem !important;
+  background-color: var(--lumina-login-paper) !important;
+  background-image:
+    radial-gradient(ellipse 4px 1px at center, var(--lumina-login-dot) 0 58%, transparent 72%),
+    radial-gradient(ellipse 1px 4px at center, var(--lumina-login-dot) 0 58%, transparent 72%),
+    radial-gradient(circle at center, color-mix(in srgb, var(--lumina-login-dot) 76%, transparent) 0 1px, transparent 1.3px) !important;
+  background-position: center !important;
+  background-repeat: repeat !important;
+  background-size: 32px 32px, 32px 32px, 16px 16px !important;
+  background-attachment: fixed !important;
+}
+
+/* 原登录壁纸自带的黑色遮罩会压暗纸张底色，纸张主题下无需保留。 */
+body:has(#username):has(#password)
+  #root
+  .min-h-svh:has(> [data-slot="card"])
+  > .pointer-events-none.absolute.inset-0 {
+  display: none !important;
+}
+
+body:has(#username):has(#password)
+  #root
+  .min-h-svh
+  > [data-slot="card"] {
+  width: min(100%, 26.25rem) !important;
+  max-width: 26.25rem !important;
+  gap: 0.5rem !important;
+  padding: 0.9rem 0 1.15rem !important;
+  overflow: visible !important;
+  color: var(--lumina-login-ink) !important;
+  border: 2px solid var(--lumina-login-ink) !important;
+  border-radius: 1.25rem !important;
+  background: var(--lumina-login-card) !important;
+  background-image: none !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+  box-shadow:
+    0 8px 0 var(--lumina-login-ink),
+    0 18px 38px rgba(35, 42, 52, 0.14) !important;
+  isolation: isolate;
+}
+
+body:has(#username):has(#password)
+  #root
+  .min-h-svh
+  > [data-slot="card"]::before {
+  display: none !important;
+}
+
+body:has(#username):has(#password) [data-slot="card-header"] {
+  gap: 0.45rem !important;
+  padding: 0.45rem 1.75rem 0 !important;
+}
+
+body:has(#username):has(#password) [data-slot="card-title"] {
+  gap: 0.55rem !important;
+  color: var(--lumina-login-ink) !important;
+  font-family: "Snell Roundhand", "Brush Script MT", "Kaiti SC", Georgia, serif !important;
+  font-style: italic;
+  font-weight: 700 !important;
+  letter-spacing: 0.01em;
+}
+
+body:has(#username):has(#password) [data-slot="card-title"] img {
+  width: 1.75rem !important;
+  height: 1.75rem !important;
+  border: 0 !important;
+  border-radius: 0.45rem !important;
+  box-shadow: none !important;
+}
+
+body:has(#username):has(#password) .license-nameplate {
+  display: inline-flex !important;
+  width: auto !important;
+  max-width: 10.5rem !important;
+  min-height: 1.55rem !important;
+  padding: 0.22rem 0.7rem !important;
+  overflow: hidden !important;
+  color: #ffffff !important;
+  border: 0 !important;
+  border-radius: 0.42rem !important;
+  background: #46505f !important;
+  box-shadow: 0 5px 10px rgba(35, 42, 52, 0.22) !important;
+}
+
+body:has(#username):has(#password) .license-nameplate .np-text {
+  display: block !important;
+  overflow: hidden !important;
+  color: #ffffff !important;
+  font-size: 0.7rem !important;
+  font-weight: 600 !important;
+  line-height: 1.1rem !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+}
+
+body:has(#username):has(#password) .license-nameplate :where(.np-shine-clip, .np-stars) {
+  display: none !important;
+}
+
+body:has(#username):has(#password) [data-slot="card-content"] {
+  padding: 0 1.75rem !important;
+}
+
+body:has(#username):has(#password) form:has(#username):has(#password) {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+body:has(#username):has(#password) form:has(#username):has(#password) > * {
+  margin-block: 0 !important;
+}
+
+body:has(#username):has(#password) form [data-slot="label"] {
+  color: var(--lumina-login-ink) !important;
+  font-size: 0.78rem !important;
+  font-weight: 700 !important;
+}
+
+body:has(#username):has(#password) :where(#username, #password) {
+  height: 2.55rem !important;
+  padding-inline: 0.8rem !important;
+  color: var(--lumina-login-ink) !important;
+  border: 2px solid var(--lumina-login-field-border) !important;
+  border-radius: 0.68rem !important;
+  background: var(--lumina-login-field) !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+  box-shadow: 0 3px 0 rgba(45, 57, 71, 0.14) !important;
+}
+
+body:has(#username):has(#password) :where(#username, #password)::placeholder {
+  color: color-mix(in srgb, var(--lumina-login-ink) 52%, transparent) !important;
+  opacity: 1 !important;
+}
+
+body:has(#username):has(#password) :where(#username, #password):focus-visible {
+  border-color: color-mix(in srgb, var(--lumina-login-primary) 62%, #ffffff) !important;
+  box-shadow:
+    0 0 0 3px color-mix(in srgb, var(--lumina-login-primary) 30%, transparent),
+    0 3px 0 rgba(45, 57, 71, 0.14) !important;
+}
+
+body:has(#username):has(#password) #remember_me {
+  width: 1.15rem !important;
+  height: 1.15rem !important;
+  border: 2px solid var(--lumina-login-ink) !important;
+  border-radius: 0.35rem !important;
+  background: var(--lumina-login-field) !important;
+  box-shadow: none !important;
+}
+
+body:has(#username):has(#password) #remember_me[data-state="checked"] {
+  color: #ffffff !important;
+  background: var(--lumina-login-primary) !important;
+}
+
+body:has(#username):has(#password)
+  form:has(#username):has(#password)
+  > .flex.gap-2
+  > [data-slot="button"] {
+  height: 2.45rem !important;
+  color: #ffffff !important;
+  border: 2px solid var(--lumina-login-ink) !important;
+  border-radius: 0.78rem !important;
+  background: var(--lumina-login-primary) !important;
+  box-shadow: 0 4px 0 var(--lumina-login-ink) !important;
+  transform: translateY(0);
+}
+
+body:has(#username):has(#password)
+  form:has(#username):has(#password)
+  > .flex.gap-2
+  > [data-slot="button"]:last-child {
+  color: #20303d !important;
+  background: var(--lumina-login-passkey) !important;
+}
+
+body:has(#username):has(#password)
+  form:has(#username):has(#password)
+  > .flex.gap-2
+  > [data-slot="button"]:hover {
+  filter: brightness(1.04);
+  transform: translateY(-1px);
+}
+
+body:has(#username):has(#password)
+  form:has(#username):has(#password)
+  > .flex.gap-2
+  > [data-slot="button"]:active {
+  box-shadow: 0 2px 0 var(--lumina-login-ink) !important;
+  transform: translateY(2px);
+}
+
+body:has(#username):has(#password)
+  #root
+  [class~="top-4"][class~="right-4"]
+  > div {
+  gap: 0.15rem !important;
+  padding: 0.15rem !important;
+  border: 1.5px solid var(--lumina-login-ink) !important;
+  border-radius: 0.6rem !important;
+  background: var(--lumina-login-card) !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+  box-shadow: none !important;
+}
+
+body:has(#username):has(#password)
+  #root
+  [class~="top-4"][class~="right-4"]
+  button {
+  min-width: 2.7rem;
+  color: var(--lumina-login-ink) !important;
+  border: 0 !important;
+  border-radius: 0.28rem !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+body:has(#username):has(#password)
+  #root
+  [class~="top-4"][class~="right-4"]
+  button.bg-primary {
+  color: #ffffff !important;
+  background: var(--lumina-login-primary) !important;
+}
+
+@media (max-width: 640px) {
+  body:has(#username):has(#password)
+    #root
+    .min-h-svh:has(> [data-slot="card"]) {
+    padding: 4.5rem 0.9rem 2rem !important;
+  }
+
+  body:has(#username):has(#password)
+    #root
+    .min-h-svh
+    > [data-slot="card"] {
+    border-radius: 1rem !important;
+    box-shadow:
+      0 6px 0 var(--lumina-login-ink),
+      0 14px 28px rgba(35, 42, 52, 0.14) !important;
+  }
+
+  body:has(#username):has(#password) [data-slot="card-content"],
+  body:has(#username):has(#password) [data-slot="card-header"] {
+    padding-inline: 1.2rem !important;
+  }
+
+  body:has(#username):has(#password)
+    [data-slot="card-title"]
+    span[class*="!text-3xl"] {
+    font-size: 1.55rem !important;
+  }
+}
+
+/* 页面标题下方的说明文字：提高壁纸上的可读性，不影响卡片内的次要文字。 */
+#root h1 + p,
+#root :has(> h1) + p,
+#root h1 + div > p {
+  color: color-mix(in srgb, var(--foreground) 82%, var(--muted-foreground)) !important;
+  font-weight: 500 !important;
+  text-shadow: 0 1px 2px color-mix(in srgb, var(--background) 72%, transparent) !important;
+}
