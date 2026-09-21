@@ -7,7 +7,7 @@ MiaoMiaoWuX 的独立主题与界面扩展集合。每个主题单独维护主�
 | 主题 | 主控 CSS | TG Bot Mini App CSS | 说明 |
 | --- | --- | --- | --- |
 | Lumina 白金 / 黑金 | [controller.css](themes/lumina/controller.css) · v2026.09.21-04 | [tgbot.css](themes/lumina/tgbot.css) · v2026.09.21-02 | [安装与配置](themes/lumina/README.md) |
-| PaperMint 薄荷纸境 | [controller.css](themes/papermint/controller.css) · v2026.09.21-03 | [tgbot.css](themes/papermint/tgbot.css) · v2026.09.21-01 | [安装与配置](themes/papermint/README.md) |
+| PaperMint 薄荷纸境 | [controller.css](themes/papermint/controller.css) · v2026.09.21-04 | [tgbot.css](themes/papermint/tgbot.css) · v2026.09.21-01 | [安装与配置](themes/papermint/README.md) |
 
 Lumina 使用暖金强调色和可选壁纸；PaperMint 使用圆角、描边、偏移硬阴影和粉彩辅助色。两套主题均兼容浅色与深色。
 
@@ -46,7 +46,7 @@ assets/
 
 ## 配置与适配
 
-每个 CSS 文件开头的第一个 `:root` 集中放置可调参数，主题目录的 README 逐项说明。
+每个 CSS 文件开头的第一个 `:root` 集中放置可调参数，主题目录的 README 逐项说明。PaperMint 主控使用 `--paper-*`，Mini App 使用 `--paper-mini-*`，不提供旧变量别名；更新时请完整替换对应 CSS，并同步自行追加的配置变量名。
 
 - 主控：限宽、壁纸、描边、阴影、按钮高度、黑金水印及选中色。
 - Mini App：独立的内容限宽、按钮高度、圆角；Lumina 可设置壁纸和模糊，PaperMint 可设置描边/阴影比例。

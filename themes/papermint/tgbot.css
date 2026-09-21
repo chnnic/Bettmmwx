@@ -7,7 +7,7 @@
  */
 
 :root {
-  /* 用户配置：主题独立于主控 --edu-*，不修改开关实际状态。 */
+  /* 用户配置：Mini App 使用独立的 --paper-mini-* 命名，不修改开关实际状态。 */
   --paper-mini-content-max-width: 900px;
   --paper-mini-button-height: 40px;
   --paper-mini-radius: 16px;

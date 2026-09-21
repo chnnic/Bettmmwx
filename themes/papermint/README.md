@@ -1,8 +1,8 @@
 # PaperMint 薄荷纸境
 
-圆角卡片、深色描边、偏移硬阴影与粉彩辅助色。原名 LearnHub，既有主控配置继续兼容。
+圆角卡片、深色描边、偏移硬阴影与粉彩辅助色。
 
-- [controller.css](controller.css)：主控完整样式，`v2026.09.21-03`。
+- [controller.css](controller.css)：主控完整样式，`v2026.09.21-04`。
 - [tgbot.css](tgbot.css)：TG Bot Mini App 完整样式，`v2026.09.21-01`。
 
 ## 安装
@@ -13,14 +13,14 @@
 
 ## 主控参数
 
-沿用 `--edu-*` 变量，避免主题更名后已有配置失效。
+主控统一使用 `--paper-*` 变量，Mini App 使用 `--paper-mini-*`，不提供旧变量别名。更新时请完整替换对应 CSS；自行追加的配置也须使用新变量名。
 
-- `--edu-content-max-width`：默认 `1440px`，`100%` 不限宽。
-- `--edu-button-height-reduction`：默认 `4px`，`0px` 恢复原按钮高度。
-- `--edu-effect-scale`：默认 `0.666667`，描边和阴影减少约三分之一。
-- `--edu-premium-watermark-display`：`none` 关闭黑金水印，`block` 开启。
-- `--edu-premium-accent-bg` / `--edu-premium-accent-fg`：黑金选中态配色。
-- `--edu-premium-selection-bg`：黑金文字选区颜色。
+- `--paper-content-max-width`：默认 `1440px`，`100%` 不限宽。
+- `--paper-button-height-reduction`：默认 `4px`，`0px` 恢复原按钮高度。
+- `--paper-effect-scale`：默认 `0.666667`，描边和阴影减少约三分之一。
+- `--paper-premium-watermark-display`：`none` 关闭黑金水印，`block` 开启。
+- `--paper-premium-accent-bg` / `--paper-premium-accent-fg`：黑金选中态配色。
+- `--paper-premium-selection-bg`：黑金文字选区颜色。
 
 ## Mini App 参数
 

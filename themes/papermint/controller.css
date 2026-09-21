@@ -1,6 +1,6 @@
 /*
  * MiaoMiaoWuX · PaperMint 薄荷纸境
- * 版本：v2026.09.21-03
+ * 版本：v2026.09.21-04
  * 更新日期：2026-09-21
  * 独立主题：请单独粘贴使用，不要与 Lumina CSS 混用。
  * 视觉语言：清爽白底、学习绿、粉彩辅助色、深色描边、偏移硬阴影。
@@ -10,17 +10,17 @@
 
 :root {
   /* 页面内容最大宽度：可改为 1360px、1600px；100% 表示不限制。 */
-  --edu-content-max-width: 1440px;
+  --paper-content-max-width: 1440px;
   /* 按钮减高：4px = 桌面 38px / 手机 40px；0px 恢复原高度。 */
-  --edu-button-height-reduction: 4px;
+  --paper-button-height-reduction: 4px;
   /* 全部描边与阴影比例：1 = 原始，0.666667 = 减少约三分之一。 */
-  --edu-effect-scale: 0.666667;
+  --paper-effect-scale: 0.666667;
   /* 黑金背景水印：none = 关闭（默认），block = 显示。 */
-  --edu-premium-watermark-display: none;
+  --paper-premium-watermark-display: none;
   /* 黑金选中色：控件使用渐变，文字选区使用同色系实金色。 */
-  --edu-premium-accent-bg: linear-gradient(105deg, #b87b1e, #e3bd63);
-  --edu-premium-accent-fg: #171107;
-  --edu-premium-selection-bg: #e3bd63;
+  --paper-premium-accent-bg: linear-gradient(105deg, #b87b1e, #e3bd63);
+  --paper-premium-accent-fg: #171107;
+  --paper-premium-selection-bg: #e3bd63;
 
   --primary: #22c55e;
   --primary-foreground: #ffffff;
@@ -52,19 +52,19 @@
   --radius: 1rem;
   --font-sans: "Nunito", "Noto Sans SC", ui-rounded, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 
-  --edu-ink: #2d3748;
-  --edu-green: #22c55e;
-  --edu-green-dark: #16a34a;
-  --edu-nav-active-bg: var(--primary);
-  --edu-nav-active-fg: var(--primary-foreground);
-  --edu-blue: #add8e6;
-  --edu-pink: #fdbcb4;
-  --edu-mint: #98ff98;
-  --edu-lavender: #e6e6fa;
-  --edu-cream: #fff9f5;
-  --edu-line: calc(3px * var(--edu-effect-scale)) solid var(--edu-ink);
-  --edu-shadow-sm: calc(3px * var(--edu-effect-scale)) calc(3px * var(--edu-effect-scale)) 0 var(--edu-ink);
-  --edu-shadow: calc(5px * var(--edu-effect-scale)) calc(5px * var(--edu-effect-scale)) 0 var(--edu-ink);
+  --paper-ink: #2d3748;
+  --paper-green: #22c55e;
+  --paper-green-dark: #16a34a;
+  --paper-nav-active-bg: var(--primary);
+  --paper-nav-active-fg: var(--primary-foreground);
+  --paper-blue: #add8e6;
+  --paper-pink: #fdbcb4;
+  --paper-mint: #98ff98;
+  --paper-lavender: #e6e6fa;
+  --paper-cream: #fff9f5;
+  --paper-line: calc(3px * var(--paper-effect-scale)) solid var(--paper-ink);
+  --paper-shadow-sm: calc(3px * var(--paper-effect-scale)) calc(3px * var(--paper-effect-scale)) 0 var(--paper-ink);
+  --paper-shadow: calc(5px * var(--paper-effect-scale)) calc(5px * var(--paper-effect-scale)) 0 var(--paper-ink);
 }
 
 .dark {
@@ -96,31 +96,31 @@
   --sidebar-border: #d7e0ec;
   --sidebar-ring: rgba(74, 222, 128, 0.52);
 
-  --edu-ink: #d7e0ec;
-  --edu-green: #4ade80;
-  --edu-green-dark: #22c55e;
-  --edu-blue: #31576a;
-  --edu-pink: #704a50;
-  --edu-mint: #285c3b;
-  --edu-lavender: #473f67;
-  --edu-cream: #111827;
+  --paper-ink: #d7e0ec;
+  --paper-green: #4ade80;
+  --paper-green-dark: #22c55e;
+  --paper-blue: #31576a;
+  --paper-pink: #704a50;
+  --paper-mint: #285c3b;
+  --paper-lavender: #473f67;
+  --paper-cream: #111827;
 }
 
 /* 与 Lumina 一致：兼容两种页面外壳，小屏不超过可用宽度。 */
 #root main.container,
 #root main[class~="max-w-[1600px]"] {
-  width: min(100%, var(--edu-content-max-width)) !important;
-  max-width: var(--edu-content-max-width) !important;
+  width: min(100%, var(--paper-content-max-width)) !important;
+  max-width: var(--paper-content-max-width) !important;
   margin-inline: auto;
 }
 
 /* 黑金主题使用独立金色系，不继承 PaperMint 的绿色交互强调色。 */
 :root.theme-premium {
-  --edu-nav-active-bg: var(--edu-premium-accent-bg);
-  --edu-nav-active-fg: var(--edu-premium-accent-fg);
-  --edu-green: var(--primary);
-  --edu-green-dark: color-mix(in srgb, var(--primary) 85%, black);
-  --edu-mint: var(--edu-premium-selection-bg);
+  --paper-nav-active-bg: var(--paper-premium-accent-bg);
+  --paper-nav-active-fg: var(--paper-premium-accent-fg);
+  --paper-green: var(--primary);
+  --paper-green-dark: color-mix(in srgb, var(--primary) 85%, black);
+  --paper-mint: var(--paper-premium-selection-bg);
   --sidebar-primary: var(--primary);
   --sidebar-primary-foreground: var(--primary-foreground);
   --sidebar-ring: var(--ring);
@@ -128,7 +128,7 @@
 
 /* 黑金主题的 PRO、皇冠等背景装饰，统一由顶部开关控制。 */
 :root.theme-premium body::before {
-  display: var(--edu-premium-watermark-display, none) !important;
+  display: var(--paper-premium-watermark-display, none) !important;
 }
 
 /* 日期按钮已各自带有描边，去掉按钮组和日期工具栏的重复底框。 */
@@ -141,7 +141,7 @@
 
 html {
   color-scheme: light;
-  scrollbar-color: var(--edu-green) var(--muted);
+  scrollbar-color: var(--paper-green) var(--muted);
   scrollbar-width: thin;
 }
 
@@ -154,15 +154,15 @@ body {
   color: var(--foreground);
   background-color: var(--background);
   background-image:
-    radial-gradient(circle at 12% 12%, color-mix(in srgb, var(--edu-blue) 48%, transparent) 0 70px, transparent 72px),
-    radial-gradient(circle at 91% 18%, color-mix(in srgb, var(--edu-pink) 42%, transparent) 0 54px, transparent 56px),
-    radial-gradient(circle at 83% 88%, color-mix(in srgb, var(--edu-mint) 34%, transparent) 0 78px, transparent 80px);
+    radial-gradient(circle at 12% 12%, color-mix(in srgb, var(--paper-blue) 48%, transparent) 0 70px, transparent 72px),
+    radial-gradient(circle at 91% 18%, color-mix(in srgb, var(--paper-pink) 42%, transparent) 0 54px, transparent 56px),
+    radial-gradient(circle at 83% 88%, color-mix(in srgb, var(--paper-mint) 34%, transparent) 0 78px, transparent 80px);
   background-attachment: fixed;
 }
 
 ::selection {
   color: #102117;
-  background: var(--edu-mint);
+  background: var(--paper-mint);
 }
 
 ::-webkit-scrollbar {
@@ -175,8 +175,8 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--edu-green);
-  border: calc(2px * var(--edu-effect-scale)) solid var(--muted);
+  background: var(--paper-green);
+  border: calc(2px * var(--paper-effect-scale)) solid var(--muted);
   border-radius: 999px;
 }
 
@@ -196,10 +196,10 @@ h3,
 /* 卡片：粗描边 + 漫画式硬阴影。 */
 [data-slot="card"] {
   overflow: hidden;
-  border: var(--edu-line) !important;
+  border: var(--paper-line) !important;
   border-radius: 24px !important;
   background: color-mix(in srgb, var(--card) 96%, transparent) !important;
-  box-shadow: var(--edu-shadow), 0 calc(-4px * var(--edu-effect-scale)) 0 rgba(0, 0, 0, 0.05) inset !important;
+  box-shadow: var(--paper-shadow), 0 calc(-4px * var(--paper-effect-scale)) 0 rgba(0, 0, 0, 0.05) inset !important;
   transition:
     transform 180ms ease,
     box-shadow 180ms ease;
@@ -207,7 +207,7 @@ h3,
 
 [data-slot="card"]:hover {
   transform: translate(-1px, -1px);
-  box-shadow: calc(6px * var(--edu-effect-scale)) calc(6px * var(--edu-effect-scale)) 0 var(--edu-ink), 0 calc(-4px * var(--edu-effect-scale)) 0 rgba(0, 0, 0, 0.05) inset !important;
+  box-shadow: calc(6px * var(--paper-effect-scale)) calc(6px * var(--paper-effect-scale)) 0 var(--paper-ink), 0 calc(-4px * var(--paper-effect-scale)) 0 rgba(0, 0, 0, 0.05) inset !important;
 }
 
 /* 关闭妙妙屋卡片的悬停斜纹层，保留卡片本体、描边与阴影。 */
@@ -217,7 +217,7 @@ h3,
 }
 
 [data-slot="card-header"] {
-  border-bottom-color: color-mix(in srgb, var(--edu-ink) 20%, transparent);
+  border-bottom-color: color-mix(in srgb, var(--paper-ink) 20%, transparent);
 }
 
 [data-slot="card-title"] {
@@ -226,10 +226,10 @@ h3,
 
 /* 按钮：绿色主按钮，浅蓝辅助按钮，保持清楚的按压反馈。 */
 :is([data-slot="button"], .pixel-button) {
-  min-height: calc(42px - var(--edu-button-height-reduction));
-  border: var(--edu-line) !important;
+  min-height: calc(42px - var(--paper-button-height-reduction));
+  border: var(--paper-line) !important;
   border-radius: 16px !important;
-  box-shadow: calc(4px * var(--edu-effect-scale)) calc(4px * var(--edu-effect-scale)) 0 var(--edu-ink) !important;
+  box-shadow: calc(4px * var(--paper-effect-scale)) calc(4px * var(--paper-effect-scale)) 0 var(--paper-ink) !important;
   font-weight: 800;
   transition:
     transform 120ms ease,
@@ -247,12 +247,12 @@ h3,
 :is([data-slot="button"], .pixel-button):hover:not(:disabled) {
   filter: saturate(1.08) brightness(1.02);
   transform: translate(-1px, -1px);
-  box-shadow: var(--edu-shadow) !important;
+  box-shadow: var(--paper-shadow) !important;
 }
 
 :is([data-slot="button"], .pixel-button):active:not(:disabled) {
   transform: translate(3px, 3px);
-  box-shadow: calc(1px * var(--edu-effect-scale)) calc(1px * var(--edu-effect-scale)) 0 var(--edu-ink) !important;
+  box-shadow: calc(1px * var(--paper-effect-scale)) calc(1px * var(--paper-effect-scale)) 0 var(--paper-ink) !important;
 }
 
 .pixel-button:focus-visible,
@@ -262,7 +262,7 @@ h3,
 [data-slot="select-trigger"]:focus-visible,
 [data-slot="checkbox"]:focus-visible,
 [data-slot="switch"]:focus-visible {
-  outline: calc(3px * var(--edu-effect-scale)) solid var(--ring) !important;
+  outline: calc(3px * var(--paper-effect-scale)) solid var(--ring) !important;
   outline-offset: 3px;
 }
 
@@ -275,8 +275,8 @@ h3,
 .pixel-button.accent-action-btn:focus-visible {
   outline: none !important;
   box-shadow:
-    0 0 0 calc(3px * var(--edu-effect-scale)) var(--ring),
-    calc(4px * var(--edu-effect-scale)) calc(4px * var(--edu-effect-scale)) 0 var(--edu-ink) !important;
+    0 0 0 calc(3px * var(--paper-effect-scale)) var(--ring),
+    calc(4px * var(--paper-effect-scale)) calc(4px * var(--paper-effect-scale)) 0 var(--paper-ink) !important;
 }
 
 /* 次要/幽灵按钮不强行染成主色，改用参考站浅蓝色。 */
@@ -294,7 +294,7 @@ h3,
   height: 28px !important;
   min-height: 28px !important;
   padding: 0 !important;
-  border-width: calc(2px * var(--edu-effect-scale)) !important;
+  border-width: calc(2px * var(--paper-effect-scale)) !important;
   border-radius: 8px !important;
   box-shadow: none !important;
   transform: none !important;
@@ -303,14 +303,14 @@ h3,
 
 /* PRO 是状态标识：外观与旁边辅助按钮一致，保留原有显示条件。 */
 :root.theme-premium .premium-pro-badge {
-  min-height: calc(42px - var(--edu-button-height-reduction));
+  min-height: calc(42px - var(--paper-button-height-reduction));
   flex-shrink: 0;
   padding-inline: 12px;
-  border: var(--edu-line) !important;
+  border: var(--paper-line) !important;
   border-radius: 16px !important;
   color: var(--secondary-foreground) !important;
   background: var(--secondary) !important;
-  box-shadow: calc(4px * var(--edu-effect-scale)) calc(4px * var(--edu-effect-scale)) 0 var(--edu-ink) !important;
+  box-shadow: calc(4px * var(--paper-effect-scale)) calc(4px * var(--paper-effect-scale)) 0 var(--paper-ink) !important;
   font-weight: 800;
 }
 
@@ -321,8 +321,8 @@ h3,
 
 /* 顶部选中项跟随当前主题，与下方主色选中按钮一致。 */
 nav .pixel-button:is([aria-current="page"], [data-status="active"]) {
-  color: var(--edu-nav-active-fg) !important;
-  background: var(--edu-nav-active-bg) !important;
+  color: var(--paper-nav-active-fg) !important;
+  background: var(--paper-nav-active-bg) !important;
 }
 
 /* 玻璃导航已有按钮自身的选中底色，隐藏圆角不一致的重复滑动背景。
@@ -336,17 +336,17 @@ nav .pixel-button:is([aria-current="page"], [data-status="active"]) {
 [data-slot="textarea"],
 [data-slot="select-trigger"] {
   min-height: 42px;
-  border: calc(2px * var(--edu-effect-scale)) solid var(--input) !important;
+  border: calc(2px * var(--paper-effect-scale)) solid var(--input) !important;
   border-radius: 12px !important;
   background: color-mix(in srgb, var(--card) 94%, transparent) !important;
-  box-shadow: 0 calc(3px * var(--edu-effect-scale)) 0 color-mix(in srgb, var(--edu-ink) 16%, transparent);
+  box-shadow: 0 calc(3px * var(--paper-effect-scale)) 0 color-mix(in srgb, var(--paper-ink) 16%, transparent);
   font-weight: 600;
 }
 
 [data-slot="input"]:hover,
 [data-slot="textarea"]:hover,
 [data-slot="select-trigger"]:hover {
-  border-color: color-mix(in srgb, var(--edu-green) 70%, var(--input)) !important;
+  border-color: color-mix(in srgb, var(--paper-green) 70%, var(--input)) !important;
 }
 
 [data-slot="label"] {
@@ -357,9 +357,9 @@ nav .pixel-button:is([aria-current="page"], [data-status="active"]) {
 [data-slot="checkbox"] {
   width: 20px;
   height: 20px;
-  border: calc(2px * var(--edu-effect-scale)) solid var(--edu-ink) !important;
+  border: calc(2px * var(--paper-effect-scale)) solid var(--paper-ink) !important;
   border-radius: 6px !important;
-  box-shadow: calc(2px * var(--edu-effect-scale)) calc(2px * var(--edu-effect-scale)) 0 color-mix(in srgb, var(--edu-ink) 60%, transparent);
+  box-shadow: calc(2px * var(--paper-effect-scale)) calc(2px * var(--paper-effect-scale)) 0 color-mix(in srgb, var(--paper-ink) 60%, transparent);
 }
 
 /* 开关：明确轨道与圆形滑块，关闭靠左、开启靠右（RTL 镜像）。
@@ -373,10 +373,10 @@ nav .pixel-button:is([aria-current="page"], [data-status="active"]) {
   min-height: 24px;
   flex-shrink: 0;
   padding: 0 !important;
-  border: calc(2px * var(--edu-effect-scale)) solid var(--edu-ink) !important;
+  border: calc(2px * var(--paper-effect-scale)) solid var(--paper-ink) !important;
   border-radius: 999px !important;
   background: var(--input) !important;
-  box-shadow: calc(2px * var(--edu-effect-scale)) calc(2px * var(--edu-effect-scale)) 0 color-mix(in srgb, var(--edu-ink) 55%, transparent);
+  box-shadow: calc(2px * var(--paper-effect-scale)) calc(2px * var(--paper-effect-scale)) 0 color-mix(in srgb, var(--paper-ink) 55%, transparent);
 }
 
 [data-slot="switch"][data-state="checked"] {
@@ -410,9 +410,9 @@ nav .pixel-button:is([aria-current="page"], [data-status="active"]) {
 
 /* 标签与状态徽章 */
 [data-slot="badge"] {
-  border: calc(2px * var(--edu-effect-scale)) solid var(--edu-ink) !important;
+  border: calc(2px * var(--paper-effect-scale)) solid var(--paper-ink) !important;
   border-radius: 999px !important;
-  box-shadow: calc(2px * var(--edu-effect-scale)) calc(2px * var(--edu-effect-scale)) 0 var(--edu-ink);
+  box-shadow: calc(2px * var(--paper-effect-scale)) calc(2px * var(--paper-effect-scale)) 0 var(--paper-ink);
   font-weight: 800;
 }
 
@@ -420,24 +420,24 @@ nav .pixel-button:is([aria-current="page"], [data-status="active"]) {
 [data-slot="sidebar-container"],
 [data-slot="sidebar-inner"] {
   background: color-mix(in srgb, var(--sidebar) 97%, transparent) !important;
-  border-color: var(--edu-ink) !important;
+  border-color: var(--paper-ink) !important;
 }
 
 [data-slot="sidebar-container"] {
-  border-right-width: calc(3px * var(--edu-effect-scale)) !important;
+  border-right-width: calc(3px * var(--paper-effect-scale)) !important;
 }
 
 [data-slot="sidebar-header"] {
-  border-bottom: calc(2px * var(--edu-effect-scale)) dashed color-mix(in srgb, var(--edu-ink) 28%, transparent);
+  border-bottom: calc(2px * var(--paper-effect-scale)) dashed color-mix(in srgb, var(--paper-ink) 28%, transparent);
 }
 
 [data-slot="sidebar-footer"] {
-  border-top: calc(2px * var(--edu-effect-scale)) dashed color-mix(in srgb, var(--edu-ink) 28%, transparent);
+  border-top: calc(2px * var(--paper-effect-scale)) dashed color-mix(in srgb, var(--paper-ink) 28%, transparent);
 }
 
 [data-slot="sidebar-menu-button"] {
-  min-height: calc(42px - var(--edu-button-height-reduction));
-  border: calc(2px * var(--edu-effect-scale)) solid transparent;
+  min-height: calc(42px - var(--paper-button-height-reduction));
+  border: calc(2px * var(--paper-effect-scale)) solid transparent;
   border-radius: 12px !important;
   font-weight: 700;
   transition:
@@ -447,16 +447,16 @@ nav .pixel-button:is([aria-current="page"], [data-status="active"]) {
 }
 
 [data-slot="sidebar-menu-button"]:hover {
-  border-color: var(--edu-ink);
-  background: var(--edu-blue) !important;
+  border-color: var(--paper-ink);
+  background: var(--paper-blue) !important;
   transform: translateX(2px);
 }
 
 [data-slot="sidebar-menu-button"][data-active="true"] {
   color: #102117 !important;
-  border-color: var(--edu-ink) !important;
-  background: var(--edu-mint) !important;
-  box-shadow: var(--edu-shadow-sm);
+  border-color: var(--paper-ink) !important;
+  background: var(--paper-mint) !important;
+  box-shadow: var(--paper-shadow-sm);
 }
 
 /* 表格与分页 */
@@ -468,13 +468,13 @@ nav .pixel-button:is([aria-current="page"], [data-status="active"]) {
 
 [data-slot="table-container"] {
   overflow: auto;
-  border: calc(2px * var(--edu-effect-scale)) solid var(--edu-ink);
+  border: calc(2px * var(--paper-effect-scale)) solid var(--paper-ink);
   border-radius: 20px !important;
   background: var(--card);
 }
 
 [data-slot="table-header"] {
-  background: color-mix(in srgb, var(--edu-blue) 58%, var(--card));
+  background: color-mix(in srgb, var(--paper-blue) 58%, var(--card));
 }
 
 [data-slot="table-head"] {
@@ -483,11 +483,11 @@ nav .pixel-button:is([aria-current="page"], [data-status="active"]) {
 }
 
 [data-slot="table-row"] {
-  border-color: color-mix(in srgb, var(--edu-ink) 16%, transparent);
+  border-color: color-mix(in srgb, var(--paper-ink) 16%, transparent);
 }
 
 [data-slot="table-row"]:hover {
-  background: color-mix(in srgb, var(--edu-mint) 18%, transparent) !important;
+  background: color-mix(in srgb, var(--paper-mint) 18%, transparent) !important;
 }
 
 /* 伪装探针：说明与外置域名表单均分可用宽度，不让 shrink-0 挤窄说明。
@@ -582,10 +582,10 @@ nav .pixel-button:is([aria-current="page"], [data-status="active"]) {
 [data-slot="select-content"],
 [data-slot="command"],
 [data-slot="tooltip-content"] {
-  border: var(--edu-line) !important;
+  border: var(--paper-line) !important;
   border-radius: 16px !important;
   background: var(--popover) !important;
-  box-shadow: var(--edu-shadow) !important;
+  box-shadow: var(--paper-shadow) !important;
 }
 
 /* 大型套餐编辑弹窗：中等宽度不再退回 sm:max-w-lg 的 512px 上限。
@@ -641,25 +641,25 @@ nav .pixel-button:is([aria-current="page"], [data-status="active"]) {
 [data-slot="select-item"]:focus,
 [data-slot="command-item"][data-selected="true"] {
   color: #102117 !important;
-  background: var(--edu-mint) !important;
+  background: var(--paper-mint) !important;
 }
 
 [data-slot="tooltip-content"] {
   color: #102117 !important;
-  background: var(--edu-blue) !important;
-  box-shadow: var(--edu-shadow-sm) !important;
+  background: var(--paper-blue) !important;
+  box-shadow: var(--paper-shadow-sm) !important;
   font-weight: 800;
 }
 
 [data-slot="tooltip-content"] > span > svg {
-  background-color: var(--edu-blue) !important;
-  fill: var(--edu-blue) !important;
+  background-color: var(--paper-blue) !important;
+  fill: var(--paper-blue) !important;
 }
 
 /* Tabs、进度条、通知 */
 [data-slot="tabs-list"] {
   padding: 5px;
-  border: calc(2px * var(--edu-effect-scale)) solid var(--edu-ink);
+  border: calc(2px * var(--paper-effect-scale)) solid var(--paper-ink);
   border-radius: 14px !important;
   background: var(--muted) !important;
 }
@@ -671,26 +671,26 @@ nav .pixel-button:is([aria-current="page"], [data-status="active"]) {
 
 [data-slot="tabs-trigger"][data-state="active"] {
   color: #102117 !important;
-  background: var(--edu-mint) !important;
-  box-shadow: calc(2px * var(--edu-effect-scale)) calc(2px * var(--edu-effect-scale)) 0 var(--edu-ink) !important;
+  background: var(--paper-mint) !important;
+  box-shadow: calc(2px * var(--paper-effect-scale)) calc(2px * var(--paper-effect-scale)) 0 var(--paper-ink) !important;
 }
 
 [data-slot="progress"] {
   height: 12px;
   overflow: hidden;
-  border: calc(2px * var(--edu-effect-scale)) solid var(--edu-ink);
+  border: calc(2px * var(--paper-effect-scale)) solid var(--paper-ink);
   border-radius: 999px !important;
   background: var(--muted) !important;
 }
 
 [data-slot="progress-indicator"] {
-  background: var(--edu-green) !important;
+  background: var(--paper-green) !important;
 }
 
 [data-slot="alert"] {
-  border: calc(2px * var(--edu-effect-scale)) solid var(--edu-ink) !important;
+  border: calc(2px * var(--paper-effect-scale)) solid var(--paper-ink) !important;
   border-radius: 16px !important;
-  box-shadow: var(--edu-shadow-sm);
+  box-shadow: var(--paper-shadow-sm);
 }
 
 /* 黑金的填充选中态统一为渐变金色；不改成功/错误等状态提示色。 */
@@ -708,20 +708,20 @@ nav .pixel-button:is([aria-current="page"], [data-status="active"]) {
   [data-slot="button"][data-active="true"],
   [data-slot="badge"][class~="bg-primary"]
 ) {
-  color: var(--edu-premium-accent-fg) !important;
-  background: var(--edu-premium-accent-bg) !important;
+  color: var(--paper-premium-accent-fg) !important;
+  background: var(--paper-premium-accent-bg) !important;
 }
 
 :root.theme-premium [data-slot="progress-indicator"],
 :root.theme-premium ::-webkit-scrollbar-thumb {
-  background: var(--edu-premium-accent-bg) !important;
+  background: var(--paper-premium-accent-bg) !important;
 }
 
 /* 原生 ::selection 不支持 background-image，使用实金色保证兼容性。 */
 :root.theme-premium::selection,
 :root.theme-premium ::selection {
-  color: var(--edu-premium-accent-fg);
-  background-color: var(--edu-premium-selection-bg);
+  color: var(--paper-premium-accent-fg);
+  background-color: var(--paper-premium-selection-bg);
   text-shadow: none;
 }
 
@@ -748,20 +748,20 @@ nav .pixel-button:is([aria-current="page"], [data-status="active"]) {
 @media (max-width: 640px) {
   body {
     background-image:
-      radial-gradient(circle at 0 8%, color-mix(in srgb, var(--edu-blue) 38%, transparent) 0 44px, transparent 46px),
-      radial-gradient(circle at 100% 92%, color-mix(in srgb, var(--edu-mint) 28%, transparent) 0 58px, transparent 60px);
+      radial-gradient(circle at 0 8%, color-mix(in srgb, var(--paper-blue) 38%, transparent) 0 44px, transparent 46px),
+      radial-gradient(circle at 100% 92%, color-mix(in srgb, var(--paper-mint) 28%, transparent) 0 58px, transparent 60px);
   }
 
   [data-slot="card"] {
-    border-width: calc(2px * var(--edu-effect-scale));
+    border-width: calc(2px * var(--paper-effect-scale));
     border-radius: 18px;
-    box-shadow: calc(4px * var(--edu-effect-scale)) calc(4px * var(--edu-effect-scale)) 0 var(--edu-ink);
+    box-shadow: calc(4px * var(--paper-effect-scale)) calc(4px * var(--paper-effect-scale)) 0 var(--paper-ink);
   }
 
   :is([data-slot="button"], .pixel-button) {
-    min-height: calc(44px - var(--edu-button-height-reduction));
-    border-width: calc(2px * var(--edu-effect-scale)) !important;
-    box-shadow: var(--edu-shadow-sm) !important;
+    min-height: calc(44px - var(--paper-button-height-reduction));
+    border-width: calc(2px * var(--paper-effect-scale)) !important;
+    box-shadow: var(--paper-shadow-sm) !important;
   }
 
   /* 手机节点卡片：名称独占上方，操作图标另起一行，避免横向挤压。
@@ -802,8 +802,8 @@ nav .pixel-button:is([aria-current="page"], [data-status="active"]) {
   [data-slot="alert-dialog-content"],
   [data-slot="sheet-content"] {
     max-width: calc(100vw - 24px);
-    border-width: calc(2px * var(--edu-effect-scale)) !important;
-    box-shadow: calc(4px * var(--edu-effect-scale)) calc(4px * var(--edu-effect-scale)) 0 var(--edu-ink) !important;
+    border-width: calc(2px * var(--paper-effect-scale)) !important;
+    box-shadow: calc(4px * var(--paper-effect-scale)) calc(4px * var(--paper-effect-scale)) 0 var(--paper-ink) !important;
   }
 }
 
@@ -820,7 +820,7 @@ nav .pixel-button:is([aria-current="page"], [data-status="active"]) {
 
 @media (prefers-contrast: more) {
   :root {
-    --input: var(--edu-ink);
+    --input: var(--paper-ink);
   }
 
   [data-slot="card"],
