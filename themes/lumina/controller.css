@@ -1,6 +1,6 @@
 /*
  * MiaoMiaoWuX · Lumina 白金 / 黑金
- * 版本：v2026.09.21-04
+ * 版本：v2026.09.21-05
  * 更新日期：2026-09-21
  * 跟随主控现有的 light / dark 外观开关，无需 JavaScript。
  */
@@ -971,48 +971,18 @@ tbody tr:hover,
 }
 
 /*
- * 登录页：参考纸张点阵、粗描边卡片和双色按钮的轻复古风格。
+ * 登录页：沿用 Lumina 壁纸、白金 / 黑金配色、细边线与柔和阴影。
  * 用户名和密码字段同时存在时才生效，不影响登录后的管理页。
  */
-body:has(#username):has(#password) {
-  --lumina-login-paper: #fdf9f7;
-  --lumina-login-card: rgba(255, 255, 255, 0.97);
-  --lumina-login-ink: #2d3947;
-  --lumina-login-field: rgba(255, 255, 255, 0.94);
-  --lumina-login-field-border: #cfd7dc;
-  --lumina-login-dot: rgba(221, 124, 145, 0.18);
-  --lumina-login-primary: #24c66b;
-  --lumina-login-passkey: #bfe2f1;
-}
-
-:root.dark body:has(#username):has(#password) {
-  --lumina-login-paper: #111419;
-  --lumina-login-card: rgba(27, 31, 38, 0.98);
-  --lumina-login-ink: #f1e8d8;
-  --lumina-login-field: rgba(40, 45, 54, 0.96);
-  --lumina-login-field-border: #626d79;
-  --lumina-login-dot: rgba(226, 184, 96, 0.16);
-  --lumina-login-primary: #28bd70;
-  --lumina-login-passkey: #527f94;
-}
-
 body:has(#username):has(#password)
   #root
   .min-h-svh:has(> [data-slot="card"]) {
   justify-content: center !important;
   padding: clamp(1.25rem, 4vw, 3rem) 1rem !important;
-  background-color: var(--lumina-login-paper) !important;
-  background-image:
-    radial-gradient(ellipse 4px 1px at center, var(--lumina-login-dot) 0 58%, transparent 72%),
-    radial-gradient(ellipse 1px 4px at center, var(--lumina-login-dot) 0 58%, transparent 72%),
-    radial-gradient(circle at center, color-mix(in srgb, var(--lumina-login-dot) 76%, transparent) 0 1px, transparent 1.3px) !important;
-  background-position: center !important;
-  background-repeat: repeat !important;
-  background-size: 32px 32px, 32px 32px, 16px 16px !important;
-  background-attachment: fixed !important;
+  background: transparent !important;
 }
 
-/* 原登录壁纸自带的黑色遮罩会压暗纸张底色，纸张主题下无需保留。 */
+/* 壁纸与明暗遮罩由 Lumina 背景层统一提供，避免登录页重复叠加。 */
 body:has(#username):has(#password)
   #root
   .min-h-svh:has(> [data-slot="card"])
@@ -1026,69 +996,90 @@ body:has(#username):has(#password)
   > [data-slot="card"] {
   width: min(100%, 26.25rem) !important;
   max-width: 26.25rem !important;
-  gap: 0.5rem !important;
-  padding: 0.9rem 0 1.15rem !important;
+  gap: 0.75rem !important;
+  padding: 1.5rem 0 !important;
   overflow: visible !important;
-  color: var(--lumina-login-ink) !important;
-  border: 2px solid var(--lumina-login-ink) !important;
-  border-radius: 1.25rem !important;
-  background: var(--lumina-login-card) !important;
-  background-image: none !important;
+  color: var(--foreground) !important;
+  border: 1px solid color-mix(in srgb, var(--border) 74%, transparent) !important;
+  border-radius: 1rem !important;
+  background: color-mix(in srgb, var(--card) 94%, transparent) !important;
   -webkit-backdrop-filter: none !important;
   backdrop-filter: none !important;
   box-shadow:
-    0 8px 0 var(--lumina-login-ink),
-    0 18px 38px rgba(35, 42, 52, 0.14) !important;
+    0 1px 0 color-mix(in srgb, var(--foreground) 5%, transparent) inset,
+    0 18px 48px rgba(28, 24, 17, 0.16) !important;
+  transform: none !important;
   isolation: isolate;
+}
+
+:root.dark body:has(#username):has(#password)
+  #root
+  .min-h-svh
+  > [data-slot="card"] {
+  box-shadow:
+    0 1px 0 rgba(255, 224, 157, 0.06) inset,
+    0 20px 52px rgba(0, 0, 0, 0.42) !important;
+}
+
+/* 液态玻璃模式保留官方材质变量，关闭模糊以避免输入时重绘闪烁。 */
+:root.theme-glass body:has(#username):has(#password)
+  #root
+  .min-h-svh
+  > [data-slot="card"] {
+  border-color: var(--g-edge-soft) !important;
+  background: var(--g-card-fill) !important;
+  background-image: var(--g-sheen) !important;
 }
 
 body:has(#username):has(#password)
   #root
   .min-h-svh
-  > [data-slot="card"]::before {
+  > [data-slot="card"]::before,
+body:has(#username):has(#password)
+  #root
+  .min-h-svh
+  > [data-slot="card"]::after {
   display: none !important;
 }
 
 body:has(#username):has(#password) [data-slot="card-header"] {
-  gap: 0.45rem !important;
-  padding: 0.45rem 1.75rem 0 !important;
+  gap: 0.65rem !important;
+  padding: 0.25rem 1.75rem 0.5rem !important;
 }
 
 body:has(#username):has(#password) [data-slot="card-title"] {
-  gap: 0.55rem !important;
-  color: var(--lumina-login-ink) !important;
-  font-family: "Snell Roundhand", "Brush Script MT", "Kaiti SC", Georgia, serif !important;
-  font-style: italic;
-  font-weight: 700 !important;
+  gap: 0.65rem !important;
+  color: var(--foreground) !important;
+  font-family: var(--font-sans) !important;
+  font-style: normal;
+  font-weight: 600 !important;
   letter-spacing: 0.01em;
 }
 
 body:has(#username):has(#password) [data-slot="card-title"] img {
-  width: 1.75rem !important;
-  height: 1.75rem !important;
+  width: 2rem !important;
+  height: 2rem !important;
   border: 0 !important;
   border-radius: 0.45rem !important;
   box-shadow: none !important;
 }
 
 body:has(#username):has(#password) .license-nameplate {
-  display: inline-flex !important;
   width: auto !important;
-  max-width: 10.5rem !important;
+  max-width: 100%;
   min-height: 1.55rem !important;
   padding: 0.22rem 0.7rem !important;
   overflow: hidden !important;
-  color: #ffffff !important;
-  border: 0 !important;
-  border-radius: 0.42rem !important;
-  background: #46505f !important;
-  box-shadow: 0 5px 10px rgba(35, 42, 52, 0.22) !important;
+  color: var(--accent-foreground) !important;
+  border: 1px solid color-mix(in srgb, var(--primary) 24%, transparent) !important;
+  border-radius: 999px !important;
+  background: color-mix(in srgb, var(--accent) 52%, var(--card)) !important;
+  box-shadow: none !important;
 }
 
 body:has(#username):has(#password) .license-nameplate .np-text {
-  display: block !important;
   overflow: hidden !important;
-  color: #ffffff !important;
+  color: inherit !important;
   font-size: 0.7rem !important;
   font-weight: 600 !important;
   line-height: 1.1rem !important;
@@ -1107,7 +1098,7 @@ body:has(#username):has(#password) [data-slot="card-content"] {
 body:has(#username):has(#password) form:has(#username):has(#password) {
   display: flex;
   flex-direction: column;
-  gap: 0.9rem;
+  gap: 1.1rem;
 }
 
 body:has(#username):has(#password) form:has(#username):has(#password) > * {
@@ -1115,98 +1106,100 @@ body:has(#username):has(#password) form:has(#username):has(#password) > * {
 }
 
 body:has(#username):has(#password) form [data-slot="label"] {
-  color: var(--lumina-login-ink) !important;
-  font-size: 0.78rem !important;
-  font-weight: 700 !important;
+  color: var(--foreground) !important;
+  font-size: 0.82rem !important;
+  font-weight: 600 !important;
 }
 
 body:has(#username):has(#password) :where(#username, #password) {
-  height: 2.55rem !important;
+  height: 2.625rem !important;
   padding-inline: 0.8rem !important;
-  color: var(--lumina-login-ink) !important;
-  border: 2px solid var(--lumina-login-field-border) !important;
-  border-radius: 0.68rem !important;
-  background: var(--lumina-login-field) !important;
+  color: var(--foreground) !important;
+  border: 1px solid var(--input) !important;
+  border-radius: 0.65rem !important;
+  background: var(--card) !important;
   -webkit-backdrop-filter: none !important;
   backdrop-filter: none !important;
-  box-shadow: 0 3px 0 rgba(45, 57, 71, 0.14) !important;
+  box-shadow: none !important;
 }
 
 body:has(#username):has(#password) :where(#username, #password)::placeholder {
-  color: color-mix(in srgb, var(--lumina-login-ink) 52%, transparent) !important;
+  color: var(--muted-foreground) !important;
   opacity: 1 !important;
 }
 
 body:has(#username):has(#password) :where(#username, #password):focus-visible {
-  border-color: color-mix(in srgb, var(--lumina-login-primary) 62%, #ffffff) !important;
-  box-shadow:
-    0 0 0 3px color-mix(in srgb, var(--lumina-login-primary) 30%, transparent),
-    0 3px 0 rgba(45, 57, 71, 0.14) !important;
+  border-color: var(--ring) !important;
+  outline: none !important;
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--ring) 24%, transparent) !important;
 }
 
 body:has(#username):has(#password) #remember_me {
-  width: 1.15rem !important;
-  height: 1.15rem !important;
-  border: 2px solid var(--lumina-login-ink) !important;
-  border-radius: 0.35rem !important;
-  background: var(--lumina-login-field) !important;
+  width: 1.1rem !important;
+  height: 1.1rem !important;
+  border: 1px solid var(--input) !important;
+  border-radius: 0.3rem !important;
+  background: var(--card) !important;
   box-shadow: none !important;
 }
 
 body:has(#username):has(#password) #remember_me[data-state="checked"] {
-  color: #ffffff !important;
-  background: var(--lumina-login-primary) !important;
+  color: var(--primary-foreground) !important;
+  border-color: var(--primary) !important;
+  background: var(--primary) !important;
 }
 
 body:has(#username):has(#password)
   form:has(#username):has(#password)
   > .flex.gap-2
   > [data-slot="button"] {
-  height: 2.45rem !important;
-  color: #ffffff !important;
-  border: 2px solid var(--lumina-login-ink) !important;
-  border-radius: 0.78rem !important;
-  background: var(--lumina-login-primary) !important;
-  box-shadow: 0 4px 0 var(--lumina-login-ink) !important;
-  transform: translateY(0);
+  min-width: 0;
+  height: 2.625rem !important;
+  padding-inline: 0.75rem !important;
+  color: var(--secondary-foreground) !important;
+  border: 1px solid var(--input) !important;
+  border-radius: 0.65rem !important;
+  background: var(--secondary) !important;
+  box-shadow: 0 2px 6px rgba(28, 24, 17, 0.06) !important;
+  font-weight: 600 !important;
+  transform: none !important;
 }
 
 body:has(#username):has(#password)
   form:has(#username):has(#password)
   > .flex.gap-2
-  > [data-slot="button"]:last-child {
-  color: #20303d !important;
-  background: var(--lumina-login-passkey) !important;
+  > [data-slot="button"][type="submit"] {
+  color: #171107 !important;
+  border-color: color-mix(in srgb, var(--primary) 70%, var(--border)) !important;
+  background: linear-gradient(105deg, #b87b1e, #e3bd63) !important;
 }
 
-body:has(#username):has(#password)
-  form:has(#username):has(#password)
-  > .flex.gap-2
-  > [data-slot="button"]:hover {
+body:has(#username):has(#password) form [data-slot="button"]::before,
+body:has(#username):has(#password) form [data-slot="button"]::after {
+  display: none !important;
+}
+
+body:has(#username):has(#password) form [data-slot="button"]:hover:not(:disabled) {
   filter: brightness(1.04);
-  transform: translateY(-1px);
 }
 
-body:has(#username):has(#password)
-  form:has(#username):has(#password)
-  > .flex.gap-2
-  > [data-slot="button"]:active {
-  box-shadow: 0 2px 0 var(--lumina-login-ink) !important;
-  transform: translateY(2px);
+body:has(#username):has(#password) :is([data-slot="button"], #remember_me):focus-visible {
+  outline: 2px solid var(--ring) !important;
+  outline-offset: 3px;
 }
 
 body:has(#username):has(#password)
   #root
   [class~="top-4"][class~="right-4"]
   > div {
-  gap: 0.15rem !important;
-  padding: 0.15rem !important;
-  border: 1.5px solid var(--lumina-login-ink) !important;
-  border-radius: 0.6rem !important;
-  background: var(--lumina-login-card) !important;
+  gap: 0.2rem !important;
+  padding: 0.2rem !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 0.65rem !important;
+  background: var(--card) !important;
   -webkit-backdrop-filter: none !important;
   backdrop-filter: none !important;
-  box-shadow: none !important;
+  box-shadow: 0 2px 8px rgba(28, 24, 17, 0.08) !important;
 }
 
 body:has(#username):has(#password)
@@ -1214,9 +1207,9 @@ body:has(#username):has(#password)
   [class~="top-4"][class~="right-4"]
   button {
   min-width: 2.7rem;
-  color: var(--lumina-login-ink) !important;
+  color: var(--foreground) !important;
   border: 0 !important;
-  border-radius: 0.28rem !important;
+  border-radius: 0.35rem !important;
   background: transparent !important;
   box-shadow: none !important;
 }
@@ -1225,8 +1218,18 @@ body:has(#username):has(#password)
   #root
   [class~="top-4"][class~="right-4"]
   button.bg-primary {
-  color: #ffffff !important;
-  background: var(--lumina-login-primary) !important;
+  color: #171107 !important;
+  background: linear-gradient(105deg, #b87b1e, #e3bd63) !important;
+}
+
+/* 桌面保持原有右侧登录布局；手机和平板继续居中。 */
+@media (min-width: 1024px) {
+  body:has(#username):has(#password)
+    #root
+    .min-h-svh:has(> [data-slot="card"]) {
+    justify-content: flex-end !important;
+    padding-inline: 7vw !important;
+  }
 }
 
 @media (max-width: 640px) {
@@ -1234,16 +1237,6 @@ body:has(#username):has(#password)
     #root
     .min-h-svh:has(> [data-slot="card"]) {
     padding: 4.5rem 0.9rem 2rem !important;
-  }
-
-  body:has(#username):has(#password)
-    #root
-    .min-h-svh
-    > [data-slot="card"] {
-    border-radius: 1rem !important;
-    box-shadow:
-      0 6px 0 var(--lumina-login-ink),
-      0 14px 28px rgba(35, 42, 52, 0.14) !important;
   }
 
   body:has(#username):has(#password) [data-slot="card-content"],
