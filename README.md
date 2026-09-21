@@ -6,7 +6,7 @@ MiaoMiaoWuX 的独立主题与界面扩展集合。每个主题单独维护主�
 
 | 主题 | 主控 CSS | TG Bot Mini App CSS | 说明 |
 | --- | --- | --- | --- |
-| Lumina 白金 / 黑金 | [controller.css](themes/lumina/controller.css) · v2026.09.21-03 | [tgbot.css](themes/lumina/tgbot.css) · v2026.09.21-01 | [安装与配置](themes/lumina/README.md) |
+| Lumina 白金 / 黑金 | [controller.css](themes/lumina/controller.css) · v2026.09.21-04 | [tgbot.css](themes/lumina/tgbot.css) · v2026.09.21-02 | [安装与配置](themes/lumina/README.md) |
 | PaperMint 薄荷纸境 | [controller.css](themes/papermint/controller.css) · v2026.09.21-03 | [tgbot.css](themes/papermint/tgbot.css) · v2026.09.21-01 | [安装与配置](themes/papermint/README.md) |
 
 Lumina 使用暖金强调色和可选壁纸；PaperMint 使用圆角、描边、偏移硬阴影和粉彩辅助色。两套主题均兼容浅色与深色。
@@ -66,7 +66,7 @@ assets/
 
 原根目录的 `mmwx-lumina-platinum-gold.css`、`mmwx-papermint.css` 已分别迁入 `themes/lumina/controller.css`、`themes/papermint/controller.css`。更新收藏或下载链接即可，主控中已粘贴的 CSS 不受文件移动影响。
 
-新 Lumina 使用主题目录内的壁纸直链；旧 `assets/lumina-wallpaper.jpg` 保留兼容，避免已安装版本出现背景失效。新文件与新文档只引用主题目录资源。
+新 Lumina 使用主题目录内的壁纸直链，并锁定图片所在的提交版本，避免以后改分支或目录影响已安装的背景；旧 `assets/lumina-wallpaper.jpg` 保留兼容。更新图片时请同步更新 CSS 中的资源版本。
 
 ## 安全与验证边界
 

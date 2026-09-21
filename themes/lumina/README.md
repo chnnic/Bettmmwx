@@ -2,8 +2,8 @@
 
 暖金强调色、白金浅色与黑金深色，搭配独立壁纸和轻薄边线。
 
-- [controller.css](controller.css)：主控完整样式，`v2026.09.21-03`。
-- [tgbot.css](tgbot.css)：TG Bot Mini App 完整样式，`v2026.09.21-01`。
+- [controller.css](controller.css)：主控完整样式，`v2026.09.21-04`。
+- [tgbot.css](tgbot.css)：TG Bot Mini App 完整样式，`v2026.09.21-02`。
 - [assets/wallpaper.jpg](assets/wallpaper.jpg)：两端共用的背景图。
 
 ## 安装
@@ -14,7 +14,7 @@
 
 ## 主控参数
 
-- `--lumina-wallpaper`：默认使用本目录壁纸的 GitHub Raw 直链，改为 `none` 关闭。
+- `--lumina-wallpaper`：默认使用本目录壁纸的固定提交版本 GitHub Raw 直链，改为 `none` 关闭；换图时同步更新资源版本。
 - `--lumina-content-max-width`：默认 `1440px`，可设置 `1600px` 或 `100%`。
 - `--lumina-background-attachment`：`fixed` 固定背景，`scroll` 随页面滚动。
 - `--lumina-card-hover-stripes`：`0` 关闭悬停斜纹，`1` 开启。

@@ -1,6 +1,6 @@
 /*
  * MiaoMiaoWuX · Lumina 白金 / 黑金 · TG Bot Mini App
- * 版本：v2026.09.21-01
+ * 版本：v2026.09.21-02
  * 更新日期：2026-09-21
  * 使用：系统设置 → TG Bot → Mini App 自定义 CSS。
  * 独立完整文件，不要放入主控 CSS 栏，也不要与其他 Mini App 主题叠加。
@@ -8,7 +8,7 @@
 
 :root {
   /* 用户配置：图片可改为 none；scroll 避免手机固定背景重绘。 */
-  --lumina-mini-wallpaper: url("https://raw.githubusercontent.com/chnnic/Bettmmwx/refs/heads/codex/initial-themes/themes/lumina/assets/wallpaper.jpg");
+  --lumina-mini-wallpaper: url("https://raw.githubusercontent.com/chnnic/Bettmmwx/90225bdb65067c9ee771c5457b786092132ba49d/themes/lumina/assets/wallpaper.jpg");
   --lumina-mini-background-attachment: scroll;
   --lumina-mini-content-max-width: 900px;
   --lumina-mini-button-height: 40px;
