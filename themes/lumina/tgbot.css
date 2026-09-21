@@ -1,0 +1,211 @@
+/*
+ * MiaoMiaoWuX · Lumina 白金 / 黑金 · TG Bot Mini App
+ * 版本：v2026.09.21-01
+ * 更新日期：2026-09-21
+ * 使用：系统设置 → TG Bot → Mini App 自定义 CSS。
+ * 独立完整文件，不要放入主控 CSS 栏，也不要与其他 Mini App 主题叠加。
+ */
+
+:root {
+  /* 用户配置：图片可改为 none；scroll 避免手机固定背景重绘。 */
+  --lumina-mini-wallpaper: url("https://raw.githubusercontent.com/chnnic/Bettmmwx/refs/heads/codex/initial-themes/themes/lumina/assets/wallpaper.jpg");
+  --lumina-mini-background-attachment: scroll;
+  --lumina-mini-content-max-width: 900px;
+  --lumina-mini-button-height: 40px;
+  --lumina-mini-radius: 14px;
+  /* 0px 关闭模糊；可改为 14px，实时卡片建议保持关闭。 */
+  --lumina-mini-blur: 0px;
+  --lumina-mini-accent: linear-gradient(105deg, #b87b1e, #e3bd63);
+  --lumina-mini-accent-text: #171107;
+  --lumina-mini-selection: #e3bd63;
+}
+
+html,
+html[class] {
+  color-scheme: light;
+  --brand: #a67c2e;
+  --brand-soft: #e7ddca;
+  --bg: #f4f3ef;
+  --text: #24211b;
+  --card: rgba(255, 254, 250, 0.94);
+  --muted: #746e63;
+  --border: rgba(168, 124, 46, 0.32);
+  --radius: var(--lumina-mini-radius);
+  --lumina-mini-overlay: rgba(247, 244, 236, 0.18);
+  --lumina-mini-field: rgba(255, 254, 250, 0.94);
+  --lumina-mini-shadow: 0 8px 24px -16px rgba(55, 43, 23, 0.35);
+}
+
+html.dark,
+html.dark[class] {
+  color-scheme: dark;
+  --brand: #dfb65a;
+  --brand-soft: #2b2519;
+  --bg: #080806;
+  --text: #f2eadb;
+  --card: rgba(18, 17, 14, 0.94);
+  --muted: #b8ad98;
+  --border: rgba(218, 174, 83, 0.34);
+  --lumina-mini-overlay: rgba(8, 8, 6, 0.55);
+  --lumina-mini-field: rgba(27, 25, 21, 0.94);
+  --lumina-mini-shadow: 0 8px 24px -16px rgba(0, 0, 0, 0.65);
+}
+
+html body {
+  color: var(--text);
+  background-color: var(--bg) !important;
+  background-image: linear-gradient(var(--lumina-mini-overlay), var(--lumina-mini-overlay)), var(--lumina-mini-wallpaper) !important;
+  background-position: center !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  background-attachment: var(--lumina-mini-background-attachment) !important;
+  padding-bottom: calc(90px + env(safe-area-inset-bottom, 0px));
+}
+
+html main,
+html #notice {
+  width: 100%;
+  max-width: var(--lumina-mini-content-max-width);
+  margin-inline: auto;
+  min-width: 0;
+}
+
+html .card,
+html header,
+html nav {
+  color: var(--text);
+  border: 1px solid var(--border) !important;
+  background: var(--card) !important;
+  -webkit-backdrop-filter: blur(var(--lumina-mini-blur)) !important;
+  backdrop-filter: blur(var(--lumina-mini-blur)) !important;
+  box-shadow: var(--lumina-mini-shadow) !important;
+}
+
+html .card {
+  min-width: 0;
+  padding: 14px !important;
+  border-radius: var(--radius) !important;
+  overflow-wrap: anywhere;
+}
+
+/* 清除内置二次元蕾丝及玻璃高光，不改功能内容。 */
+html .card::after { display: none !important; }
+
+html header { border-width: 0 0 1px !important; }
+html header .brand { color: var(--text); }
+html .ax-t,
+html .ax-g {
+  background: var(--lumina-mini-accent) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  color: transparent !important;
+}
+
+html .btn,
+html .seg button {
+  min-height: var(--lumina-mini-button-height);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 650;
+  cursor: pointer;
+}
+
+/* 危险操作和中性按钮保留上游 --warn / --unknown 语义。 */
+html .btn:not([style*="--warn"]):not([style*="--unknown"]),
+html .seg button.active,
+html nav button.active,
+html .badge,
+html .bar > i,
+html .xsw.on {
+  color: var(--lumina-mini-accent-text) !important;
+  background: var(--lumina-mini-accent) !important;
+}
+
+html .btn[style*="--warn"] { background: var(--warn) !important; color: #fff !important; }
+html .btn[style*="--unknown"] { background: var(--unknown) !important; color: #171107 !important; }
+
+html .inp,
+html .seg button:not(.active) {
+  min-width: 0;
+  max-width: 100%;
+  color: var(--text) !important;
+  background: var(--lumina-mini-field) !important;
+  border-color: var(--border) !important;
+  border-radius: 10px;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+
+html .inp { font-size: 16px; }
+html input:is([type="checkbox"], [type="radio"]) { accent-color: var(--brand); }
+html .inp::placeholder { color: var(--muted); opacity: 1; }
+html :is(.inp, .btn, .seg button, nav button, .xsw):focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 3px;
+}
+
+html .seg { flex-wrap: wrap; gap: 8px; }
+html .seg button { flex: 1 1 5rem; }
+html .row,
+html main .sub { gap: 8px; flex-wrap: wrap; }
+html .row > *,
+html main .sub > * { min-width: 0; max-width: 100%; overflow-wrap: anywhere; }
+html main .sub .u { flex-basis: 12rem; }
+html .btn { max-width: 100%; white-space: normal; overflow-wrap: anywhere; }
+html .badge { display: inline-block; max-width: 100%; white-space: normal; }
+html .big { line-height: 1.3; font-variant-numeric: tabular-nums; }
+html .bar { height: 9px; background: var(--brand-soft); }
+html .st { gap: 10px; }
+html .st > :first-child { min-width: 0; overflow-wrap: anywhere; }
+html .xctl { flex-shrink: 0; }
+
+/* 不给 .xsw 套通用按钮高度；保留可见的左右滑块和禁用态。 */
+html .xsw {
+  width: 44px;
+  height: 26px;
+  flex: 0 0 44px;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--unknown);
+}
+html .xsw::after {
+  top: 50%;
+  left: 3px;
+  width: 18px;
+  height: 18px;
+  transform: translateY(-50%);
+  background: #fff;
+}
+html .xsw.on::after { transform: translate(18px, -50%); }
+html :is(.btn, .seg button, .xsw):disabled { opacity: 0.45; cursor: not-allowed; }
+
+/* 六项管理员菜单也能放进窄屏；保留 .hide 权限/视图隐藏规则。 */
+html nav {
+  z-index: 20;
+  max-width: var(--lumina-mini-content-max-width);
+  margin-inline: auto;
+  padding: 6px 4px calc(6px + env(safe-area-inset-bottom, 0px));
+  border-radius: 16px 16px 0 0;
+}
+html nav button {
+  min-width: 0;
+  min-height: 50px;
+  padding: 7px 2px;
+  border-radius: 10px;
+  color: var(--muted);
+  font-size: 11px;
+}
+html nav button.active { font-weight: 700; }
+html nav svg { flex-shrink: 0; }
+html ::selection { color: #171107; background: var(--lumina-mini-selection); }
+
+@media (prefers-reduced-motion: reduce) {
+  html *, html *::before, html *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}

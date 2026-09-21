@@ -1,65 +1,77 @@
 # Bettmmwx
 
-为 MiaoMiaoWuX 主控提供两套独立、可直接粘贴使用的自定义 CSS 主题：**Lumina** 与 **PaperMint（薄荷纸境）**。
+MiaoMiaoWuX 的独立主题与界面扩展集合。每个主题单独维护主控 CSS、TG Bot Mini App CSS、使用说明和资源，不混用不同端的样式。
 
-这是社区样式项目，不是主控程序，也不是独立探针项目。仅调整页面外观和布局，不修改节点、服务器、用户或 Xray 业务配置。
+## 主题
 
-## 选择主题
+| 主题 | 主控 CSS | TG Bot Mini App CSS | 说明 |
+| --- | --- | --- | --- |
+| Lumina 白金 / 黑金 | [controller.css](themes/lumina/controller.css) · v2026.09.21-03 | [tgbot.css](themes/lumina/tgbot.css) · v2026.09.21-01 | [安装与配置](themes/lumina/README.md) |
+| PaperMint 薄荷纸境 | [controller.css](themes/papermint/controller.css) · v2026.09.21-03 | [tgbot.css](themes/papermint/tgbot.css) · v2026.09.21-01 | [安装与配置](themes/papermint/README.md) |
 
-- [Lumina 白金 / 黑金](./mmwx-lumina-platinum-gold.css) — `v2026.09.21-02`
-  暖金强调色、浅色与深色适配、可选壁纸，以及对主控液态玻璃外观的专项适配。
-- [PaperMint 薄荷纸境](./mmwx-papermint.css) — `v2026.09.21-03`
-  圆角控件、深色描边、偏移硬阴影和粉彩辅助色；选中颜色跟随主控当前主题。
+Lumina 使用暖金强调色和可选壁纸；PaperMint 使用圆角、描边、偏移硬阴影和粉彩辅助色。两套主题均兼容浅色与深色。
 
-两套 CSS **二选一，不要叠加**。切换时完整替换自定义 CSS 输入框中的内容。
+## 目录结构
 
-## 安装与更新
+```text
+themes/
+├── README.md                  # 新主题的目录与维护约定
+├── lumina/
+│   ├── README.md
+│   ├── controller.css         # 主控
+│   ├── tgbot.css              # Telegram Mini App
+│   └── assets/wallpaper.jpg
+└── papermint/
+    ├── README.md
+    ├── controller.css
+    └── tgbot.css
+extensions/
+└── README.md                  # 未来可选功能的扩展约定
+assets/
+└── lumina-wallpaper.jpg       # 旧壁纸直链兼容副本
+```
 
-1. 先备份主控当前的自定义 CSS。
-2. 打开上方任意一个 CSS 文件，点击 GitHub 的 **Raw**，复制完整内容。
-3. 在主控进入 **系统设置 → 外观 → 自定义 CSS**。
-4. 粘贴全部内容，点击该 CSS 配置区域的 **保存**。
-5. 刷新页面检查效果；更新时按同样步骤完整替换。
+## 安装
 
-若主控没有自定义 CSS 入口或样式未生效，请先确认使用的主控版本与许可证支持该功能。使用说明以 [MiaoMiaoWuX 官方文档](https://miaomiaowux.com/docs/custom-css/) 为准。
+先备份对应输入框里的旧 CSS，再打开需要的文件，点击 GitHub **Raw**，复制完整内容。
 
-## 常用配置
+- **主控**：把 `controller.css` 粘贴到「系统设置 → 外观 → 自定义 CSS」并保存、刷新。
+- **TG Bot Mini App**：把 `tgbot.css` 粘贴到「系统设置 → TG Bot → Mini App 自定义 CSS」并保存，然后重新打开 Telegram 内的 Mini App。该页提示保存会随 Bot 重启生效，请选择合适的时间操作，不要改动 Token、管理员 ID 等其他配置。
 
-配置项集中在每个文件开头的第一个 `:root` 中，直接修改变量即可。
+每个输入框只使用一套主题。不要把 `controller.css` 和 `tgbot.css` 合并，也不要叠加 Lumina 与 PaperMint。可以只安装其中一端。
 
-### Lumina
+这里的 TG Bot 主题只作用于机器人打开的 **Mini App 网页**，不会改变 Telegram 原生聊天气泡或 Bot 消息配色；两个入口的 CSS 相互独立。
 
-- `--lumina-content-max-width: 1440px`：页面最大宽度，可改为 `1600px` 或 `100%`。
-- `--lumina-wallpaper`：默认使用本仓库 [背景图片](./assets/lumina-wallpaper.jpg) 的 GitHub 原始文件直链；改为 `none` 关闭图片背景，或自行填写 `url("你的图片地址")`。
-- `--lumina-background-attachment: fixed`：背景固定；改为 `scroll` 可随页面滚动。
-- `--lumina-card-hover-stripes: 0`：关闭卡片斜纹；`1` 开启。
-- `--lumina-premium-watermark-display: none`：关闭 Premium 水印；`block` 开启。
+主控自定义 CSS 的授权及版本要求见 [官方 CSS 文档](https://miaomiaowux.com/docs/custom-css/)，Mini App 的打开与认证方式见 [官方 TG Bot 文档](https://miaomiaowux.com/docs/tool-mmwx-tgbot/)。
 
-### PaperMint 薄荷纸境
+## 配置与适配
 
-为兼容已有配置，继续使用 `--edu-*` 变量名；主题更名不影响视觉效果和配置方式。
+每个 CSS 文件开头的第一个 `:root` 集中放置可调参数，主题目录的 README 逐项说明。
 
-- `--edu-content-max-width: 1440px`：页面最大宽度；`100%` 不限宽。
-- `--edu-button-height-reduction: 4px`：按钮减高 4px；`0px` 恢复。
-- `--edu-effect-scale: 0.666667`：描边和阴影减少约三分之一；`1` 恢复原强度。
-- `--edu-premium-watermark-display: none`：关闭黑金水印；`block` 开启。
-- `--edu-premium-accent-bg` / `--edu-premium-accent-fg`：黑金选中控件的背景和文字颜色。
-- `--edu-premium-selection-bg`：黑金文字选区颜色；原生文字选区使用实色，不使用渐变。
+- 主控：限宽、壁纸、描边、阴影、按钮高度、黑金水印及选中色。
+- Mini App：独立的内容限宽、按钮高度、圆角；Lumina 可设置壁纸和模糊，PaperMint 可设置描边/阴影比例。
+- 保留在线、警告、危险操作的语义颜色；开关保留可辨识的左右滑块。
+- 主控已包含套餐编辑、Xray 配置窄屏、探针说明挤压等布局修复。
 
-## 已包含的布局修复
+样式基于主控的组件属性与 Mini App 的实际 `.card`、`.btn`、`.xsw` 等钩子。主控升级后若组件结构变更，可能需要同步适配。建议使用支持 `:has()`、`color-mix()` 等语法的现代浏览器。
 
-- 大型套餐编辑窗口不再在中等宽度下被限制到 512px。
-- Xray 配置窗口自适应宽度，手机抽屉保持完整可用宽度。
-- Xray 长版本信息和服务控制按钮组在窄屏换行。
-- 伪装探针说明与表单在空间不足时上下排列，避免文字被挤成细长列。
-- 节点表格操作图标与名称及附加信息整体居中。
-- PaperMint 的开关滑块、紧凑国旗按钮、续费按钮排列和手机节点卡片适配。
+## 添加主题或功能
 
-## 注意事项
+- 新主题添加到 `themes/<theme-id>/`，按 [主题约定](themes/README.md) 独立提供各端文件和说明。
+- 未来跨主题可选功能添加到 `extensions/<feature-id>/`，按 [扩展约定](extensions/README.md) 声明作用端、依赖、加载顺序和回退方式。当前尚无功能扩展包。
+- 主题默认应能独立使用；不要依赖其他主题的 CSS，也不要用远程 `@import` 拼接必须的功能文件。
+- CSS 修改需更新头部版本与日期，格式为 `vYYYY.MM.DD-NN`。
 
-- 建议使用支持 `:has()`、`color-mix()` 和现代 CSS 布局的浏览器。
-- 部分样式依赖主控的 `data-slot` 和组件类名；主控升级后若布局变化，可能需要同步调整选择器。
-- PaperMint 使用 Google Fonts 在线字体；无法加载时会使用系统字体。
-- 仓库不包含主控地址、账户配置、令牌或许可证信息。
-- Lumina 背景图片随仓库一起维护，不再依赖个人图床。图片使用 GitHub Raw 直链，加载情况取决于访问 GitHub 的网络；自行替换图片时请确保有使用权限。
-- 修改 CSS 后，请同步更新文件头部的版本号与日期，格式为 `vYYYY.MM.DD-NN`。
+## 路径迁移
+
+原根目录的 `mmwx-lumina-platinum-gold.css`、`mmwx-papermint.css` 已分别迁入 `themes/lumina/controller.css`、`themes/papermint/controller.css`。更新收藏或下载链接即可，主控中已粘贴的 CSS 不受文件移动影响。
+
+新 Lumina 使用主题目录内的壁纸直链；旧 `assets/lumina-wallpaper.jpg` 保留兼容，避免已安装版本出现背景失效。新文件与新文档只引用主题目录资源。
+
+## 安全与验证边界
+
+仓库仅包含样式、图片与说明，不包含主控地址、Bot Token、账号配置或许可证数据。不会自动安装、重启 Bot 或改变任何业务配置。
+
+Mini App 样式依据实际页面的内置样式和组件钩子制作；使用无业务操作的静态样例验证布局，不代表已完成 Telegram 客户端中的登录与业务流程测试。不要为了预览样式而开启生产环境的开发调试认证选项。
+
+Lumina 壁纸通过 GitHub Raw 加载，访问速度取决于网络；PaperMint 主控使用 Google Fonts，加载失败时回退系统字体，Mini App 版不依赖在线字体。替换图片或字体时请确保有使用权限。

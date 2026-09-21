@@ -1,13 +1,13 @@
 /*
  * MiaoMiaoWuX · Lumina 白金 / 黑金
- * 版本：v2026.09.21-02
+ * 版本：v2026.09.21-03
  * 更新日期：2026-09-21
  * 跟随主控现有的 light / dark 外观开关，无需 JavaScript。
  */
 
 /* 分享或更换背景时，只需修改下面这一处图片链接。 */
 :root {
-  --lumina-wallpaper: url("https://raw.githubusercontent.com/chnnic/Bettmmwx/refs/heads/codex/initial-themes/assets/lumina-wallpaper.jpg");
+  --lumina-wallpaper: url("https://raw.githubusercontent.com/chnnic/Bettmmwx/refs/heads/codex/initial-themes/themes/lumina/assets/wallpaper.jpg");
   /* 全站内容最大宽度：当前 1440px，可改成 1600px、1360px 等。 */
   --lumina-content-max-width: 1440px;
   /* 背景固定开关：fixed = 固定（默认），scroll = 跟随页面滚动。 */

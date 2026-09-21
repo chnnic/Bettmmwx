@@ -1,0 +1,233 @@
+/*
+ * MiaoMiaoWuX · PaperMint 薄荷纸境 · TG Bot Mini App
+ * 版本：v2026.09.21-01
+ * 更新日期：2026-09-21
+ * 使用：系统设置 → TG Bot → Mini App 自定义 CSS。
+ * 独立完整文件，无字体或图片外部依赖；不与主控 CSS 混用。
+ */
+
+:root {
+  /* 用户配置：主题独立于主控 --edu-*，不修改开关实际状态。 */
+  --paper-mini-content-max-width: 900px;
+  --paper-mini-button-height: 40px;
+  --paper-mini-radius: 16px;
+  --paper-mini-effect-scale: 0.666667;
+  --paper-mini-premium-accent: linear-gradient(105deg, #b87b1e, #e3bd63);
+  --paper-mini-font: "Nunito", "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+}
+
+html,
+html[class] {
+  color-scheme: light;
+  --brand: #167d3c;
+  --brand-soft: #ccefd7;
+  --bg: #fff9f5;
+  --text: #17212e;
+  --card: #fff;
+  --muted: #64748b;
+  --border: #cdd5dc;
+  --radius: var(--paper-mini-radius);
+  --paper-mini-ink: #2d3748;
+  --paper-mini-button: #22c55e;
+  --paper-mini-button-text: #102117;
+  --paper-mini-secondary: #cce8f3;
+  --paper-mini-selection: #a6ebbd;
+  --paper-mini-line: calc(3px * var(--paper-mini-effect-scale)) solid var(--paper-mini-ink);
+  --paper-mini-shadow: calc(4px * var(--paper-mini-effect-scale)) calc(4px * var(--paper-mini-effect-scale)) 0 var(--paper-mini-ink);
+}
+
+html.dark,
+html.dark[class] {
+  color-scheme: dark;
+  --brand: #79dda0;
+  --brand-soft: #1e3b2d;
+  --bg: #10151c;
+  --text: #edf2f7;
+  --card: #1c2531;
+  --muted: #acb9c9;
+  --border: #586779;
+  --paper-mini-ink: #718198;
+  --paper-mini-secondary: #243c50;
+  --paper-mini-selection: #a6ebbd;
+}
+
+html.theme-anime { --brand: #7c3aed; --brand-soft: #eee7ff; --paper-mini-button: #d9c8ff; --paper-mini-button-text: #321552; --paper-mini-secondary: #f5e5fb; --paper-mini-selection: #d9c8ff; }
+html.theme-anime.dark { --brand: #c4a7ff; --brand-soft: #35294b; --paper-mini-secondary: #362741; }
+html.theme-glass { --brand: #087ba5; --brand-soft: #d8eff9; --paper-mini-button: #b4e1f1; --paper-mini-button-text: #123748; --paper-mini-secondary: #e7f3f8; --paper-mini-selection: #b4e1f1; }
+html.theme-glass.dark { --brand: #75ccec; --brand-soft: #203e50; --paper-mini-secondary: #243a4b; }
+html.theme-premium {
+  --brand: #8a621e;
+  --brand-soft: #f0e7d6;
+  --bg: #f7f4ec;
+  --text: #24211b;
+  --card: #fffdf7;
+  --muted: #746e63;
+  --border: #d6c5a5;
+  --paper-mini-button: var(--paper-mini-premium-accent);
+  --paper-mini-button-text: #171107;
+  --paper-mini-secondary: #efe8d9;
+  --paper-mini-selection: #e3bd63;
+}
+html.theme-premium.dark {
+  --brand: #dfb65a;
+  --brand-soft: #332a19;
+  --bg: #100f0b;
+  --text: #f2eadb;
+  --card: #1e1b15;
+  --muted: #b8ad98;
+  --border: #786544;
+  --paper-mini-secondary: #30291d;
+}
+
+html body {
+  font-family: var(--paper-mini-font);
+  color: var(--text);
+  background: var(--bg) !important;
+  padding-bottom: calc(94px + env(safe-area-inset-bottom, 0px));
+}
+html main,
+html #notice {
+  width: 100%;
+  max-width: var(--paper-mini-content-max-width);
+  min-width: 0;
+  margin-inline: auto;
+}
+
+html .card,
+html header,
+html nav {
+  color: var(--text);
+  background: var(--card) !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+html .card {
+  min-width: 0;
+  padding: 14px !important;
+  margin-bottom: 14px;
+  border: var(--paper-mini-line) !important;
+  border-radius: var(--radius) !important;
+  box-shadow: var(--paper-mini-shadow) !important;
+  overflow-wrap: anywhere;
+}
+html .card::after { display: none !important; }
+html header { border-bottom: 1px solid var(--border); }
+html header .brand { color: var(--text); }
+html .title { color: var(--muted); font-weight: 800; }
+html .big { line-height: 1.3; font-variant-numeric: tabular-nums; }
+
+html .btn,
+html .seg button {
+  min-height: var(--paper-mini-button-height);
+  max-width: 100%;
+  padding: 7px 11px;
+  border: var(--paper-mini-line);
+  border-radius: 12px;
+  box-shadow: var(--paper-mini-shadow);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 800;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  cursor: pointer;
+}
+
+/* 不覆盖删除/撤销的红色，也不把离线/未知状态改成主题主色。 */
+html .btn:not([style*="--warn"]):not([style*="--unknown"]),
+html .seg button.active,
+html nav button.active,
+html .badge,
+html .bar > i,
+html .xsw.on {
+  color: var(--paper-mini-button-text) !important;
+  background: var(--paper-mini-button) !important;
+}
+html .btn[style*="--warn"] { color: #fff !important; background: var(--warn) !important; }
+html .btn[style*="--unknown"] { color: #17212e !important; background: var(--unknown) !important; }
+html .seg button:not(.active) { color: var(--text); background: var(--paper-mini-secondary) !important; }
+html .seg { flex-wrap: wrap; gap: 8px; margin-block: 10px; }
+html .seg button { flex: 1 1 5rem; min-width: 0; }
+
+html .inp {
+  min-width: 0;
+  max-width: 100%;
+  color: var(--text) !important;
+  background: var(--card) !important;
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  font: inherit;
+  font-size: 16px;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+html input:is([type="checkbox"], [type="radio"]) { accent-color: var(--brand); }
+html .inp::placeholder { color: var(--muted); opacity: 1; }
+html :is(.inp, .btn, .seg button, nav button, .xsw):focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 3px;
+}
+
+html .row,
+html main .sub { gap: 8px; flex-wrap: wrap; }
+html .row > *,
+html main .sub > * { min-width: 0; max-width: 100%; overflow-wrap: anywhere; }
+html main .sub .u { flex-basis: 12rem; }
+html .badge { display: inline-block; max-width: 100%; border-radius: 8px; white-space: normal; font-weight: 750; }
+html .bar { height: 10px; border: 1px solid var(--paper-mini-ink); border-radius: 999px; background: var(--brand-soft); }
+html .st { gap: 10px; }
+html .st > :first-child { min-width: 0; overflow-wrap: anywhere; }
+html .xctl { flex-shrink: 0; }
+
+/* 单独描绘开关，不继承普通按钮阴影或高度；关闭左、开启右。 */
+html .xsw {
+  width: 44px;
+  height: 26px;
+  flex: 0 0 44px;
+  padding: 0;
+  border: 2px solid var(--paper-mini-ink);
+  border-radius: 999px;
+  background: var(--unknown);
+  box-shadow: none;
+}
+html .xsw::after {
+  top: 50%;
+  left: 2px;
+  width: 18px;
+  height: 18px;
+  background: #fff;
+  transform: translateY(-50%);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.35);
+}
+html .xsw.on::after { transform: translate(18px, -50%); }
+html :is(.btn, .seg button, .xsw):disabled { opacity: 0.45; cursor: not-allowed; }
+
+/* 六项导航的圆角背景放在各自按钮内，不改变隐藏项的显示逻辑。 */
+html nav {
+  z-index: 20;
+  max-width: var(--paper-mini-content-max-width);
+  margin-inline: auto;
+  padding: 6px 4px calc(6px + env(safe-area-inset-bottom, 0px));
+  border: var(--paper-mini-line);
+  border-bottom: 0;
+  border-radius: 18px 18px 0 0;
+}
+html nav button {
+  min-width: 0;
+  min-height: 50px;
+  margin-inline: 1px;
+  padding: 7px 1px;
+  border-radius: 10px;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 700;
+}
+html nav svg { flex-shrink: 0; }
+html ::selection { color: #17212e; background: var(--paper-mini-selection); }
+
+@media (prefers-reduced-motion: reduce) {
+  html *, html *::before, html *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
