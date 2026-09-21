@@ -1,6 +1,6 @@
 # Bettmmwx
 
-为 MiaoMiaoWuX 主控提供两套独立、可直接粘贴使用的自定义 CSS 主题：**Lumina** 与 **LearnHub**。
+为 MiaoMiaoWuX 主控提供两套独立、可直接粘贴使用的自定义 CSS 主题：**Lumina** 与 **PaperMint（薄荷纸境）**。
 
 这是社区样式项目，不是主控程序，也不是独立探针项目。仅调整页面外观和布局，不修改节点、服务器、用户或 Xray 业务配置。
 
@@ -8,7 +8,7 @@
 
 - [Lumina 白金 / 黑金](./mmwx-lumina-platinum-gold.css) — `v2026.09.21-02`
   暖金强调色、浅色与深色适配、可选壁纸，以及对主控液态玻璃外观的专项适配。
-- [LearnHub](./mmwx-learnhub.css) — `v2026.09.21-02`
+- [PaperMint 薄荷纸境](./mmwx-papermint.css) — `v2026.09.21-03`
   圆角控件、深色描边、偏移硬阴影和粉彩辅助色；选中颜色跟随主控当前主题。
 
 两套 CSS **二选一，不要叠加**。切换时完整替换自定义 CSS 输入框中的内容。
@@ -35,7 +35,9 @@
 - `--lumina-card-hover-stripes: 0`：关闭卡片斜纹；`1` 开启。
 - `--lumina-premium-watermark-display: none`：关闭 Premium 水印；`block` 开启。
 
-### LearnHub
+### PaperMint 薄荷纸境
+
+为兼容已有配置，继续使用 `--edu-*` 变量名；主题更名不影响视觉效果和配置方式。
 
 - `--edu-content-max-width: 1440px`：页面最大宽度；`100%` 不限宽。
 - `--edu-button-height-reduction: 4px`：按钮减高 4px；`0px` 恢复。
@@ -51,13 +53,13 @@
 - Xray 长版本信息和服务控制按钮组在窄屏换行。
 - 伪装探针说明与表单在空间不足时上下排列，避免文字被挤成细长列。
 - 节点表格操作图标与名称及附加信息整体居中。
-- LearnHub 的开关滑块、紧凑国旗按钮、续费按钮排列和手机节点卡片适配。
+- PaperMint 的开关滑块、紧凑国旗按钮、续费按钮排列和手机节点卡片适配。
 
 ## 注意事项
 
 - 建议使用支持 `:has()`、`color-mix()` 和现代 CSS 布局的浏览器。
 - 部分样式依赖主控的 `data-slot` 和组件类名；主控升级后若布局变化，可能需要同步调整选择器。
-- LearnHub 使用 Google Fonts 在线字体；无法加载时会使用系统字体。
+- PaperMint 使用 Google Fonts 在线字体；无法加载时会使用系统字体。
 - 仓库不包含主控地址、账户配置、令牌或许可证信息。
 - Lumina 背景图片随仓库一起维护，不再依赖个人图床。图片使用 GitHub Raw 直链，加载情况取决于访问 GitHub 的网络；自行替换图片时请确保有使用权限。
 - 修改 CSS 后，请同步更新文件头部的版本号与日期，格式为 `vYYYY.MM.DD-NN`。

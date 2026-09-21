@@ -1,6 +1,6 @@
 /*
- * MiaoMiaoWuX · LearnHub 教育平台风格
- * 版本：v2026.09.21-02
+ * MiaoMiaoWuX · PaperMint 薄荷纸境
+ * 版本：v2026.09.21-03
  * 更新日期：2026-09-21
  * 独立主题：请单独粘贴使用，不要与 Lumina CSS 混用。
  * 视觉语言：清爽白底、学习绿、粉彩辅助色、深色描边、偏移硬阴影。
@@ -114,7 +114,7 @@
   margin-inline: auto;
 }
 
-/* 黑金主题使用独立金色系，不继承 LearnHub 的绿色交互强调色。 */
+/* 黑金主题使用独立金色系，不继承 PaperMint 的绿色交互强调色。 */
 :root.theme-premium {
   --edu-nav-active-bg: var(--edu-premium-accent-bg);
   --edu-nav-active-fg: var(--edu-premium-accent-fg);
@@ -237,7 +237,7 @@ h3,
     filter 120ms ease !important;
 }
 
-/* 妙妙屋像素主题会用红色 ::before 方框包住按钮，LearnHub 不保留该装饰。 */
+/* 妙妙屋像素主题会用红色 ::before 方框包住按钮，PaperMint 不保留该装饰。 */
 .pixel-button::before,
 .pixel-button::after {
   display: none !important;
@@ -266,7 +266,7 @@ h3,
   outline-offset: 3px;
 }
 
-/* 图标操作按钮的原主题悬停/焦点规则会重置圆角，强制保持 LearnHub 轮廓。 */
+/* 图标操作按钮的原主题悬停/焦点规则会重置圆角，强制保持 PaperMint 轮廓。 */
 .pixel-button.accent-action-btn:hover,
 .pixel-button.accent-action-btn:focus-visible {
   border-radius: 16px !important;
@@ -508,7 +508,7 @@ nav .pixel-button:is([aria-current="page"], [data-status="active"]) {
 }
 
 /* 节点表格：操作图标按名称、服务器和套餐信息的整体高度居中。
-   仅调整桌面名称列布局，保留 LearnHub 按钮尺寸、阴影和手机卡片。 */
+   仅调整桌面名称列布局，保留 PaperMint 按钮尺寸、阴影和手机卡片。 */
 @media (min-width: 768px) {
   td[class~="max-w-[300px]"][class~="min-w-[200px]"] {
     min-width: 28rem !important;
