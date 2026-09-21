@@ -2,7 +2,7 @@
 
 暖金强调色、白金浅色与黑金深色，搭配独立壁纸和轻薄边线。
 
-- [controller.css](controller.css)：主控完整样式，`v2026.09.21-05`。
+- [controller.css](controller.css)：主控完整样式，`v2026.09.21-06`。
 - [tgbot.css](tgbot.css)：TG Bot Mini App 完整样式，`v2026.09.21-02`。
 - [assets/wallpaper.jpg](assets/wallpaper.jpg)：两端共用的背景图。
 
@@ -21,6 +21,8 @@
 - `--lumina-premium-watermark-display`：`none` 关闭黑金水印，`block` 开启。
 
 主控登录页沿用 Lumina 壁纸、细边线、柔和阴影和金色主按钮，不使用纸张点阵、粗描边或绿蓝按钮。桌面（`1024px` 及以上）登录框靠右，右侧留白 `7vw`；手机及窄屏居中。登录与 Passkey 按钮保留主次区分，浅色、深色及液态玻璃均有适配。
+
+系统设置菜单不显示吸顶外壳的半透明背景框及模糊效果，保留内部菜单底色、选中样式、间距和吸顶定位；手机折叠菜单及其他页面标签栏不受影响。
 
 ## Mini App 参数
 

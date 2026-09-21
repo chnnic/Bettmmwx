@@ -1,6 +1,6 @@
 /*
  * MiaoMiaoWuX · Lumina 白金 / 黑金
- * 版本：v2026.09.21-05
+ * 版本：v2026.09.21-06
  * 更新日期：2026-09-21
  * 跟随主控现有的 light / dark 外观开关，无需 JavaScript。
  */
@@ -492,6 +492,16 @@ hr {
 /* 日志、证书及系统设置等标签栏取消最外层边框。 */
 [data-slot="tabs-list"] {
   border-width: 0 !important;
+}
+
+/* 系统设置菜单：清除吸顶外壳的背景框，保留内部菜单材质与选中项。
+   通过外观标签识别该菜单；不影响其他页面的标签栏或手机折叠菜单。 */
+#root [data-slot="tabs"] > .sticky:has(> [data-slot="tabs-list"] > [data-slot="tabs-trigger"][id$="-trigger-appearance"]) {
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
 }
 
 thead,
