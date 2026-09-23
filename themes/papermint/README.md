@@ -2,7 +2,7 @@
 
 圆角卡片、深色描边、偏移硬阴影与粉彩辅助色。
 
-- [controller.css](controller.css)：主控完整样式，`v2026.09.21-04`。
+- [controller.css](controller.css)：主控完整样式，`v2026.09.23-01`。
 - [tgbot.css](tgbot.css)：TG Bot Mini App 完整样式，`v2026.09.21-01`。
 
 ## 安装
@@ -21,6 +21,8 @@
 - `--paper-premium-watermark-display`：`none` 关闭黑金水印，`block` 开启。
 - `--paper-premium-accent-bg` / `--paper-premium-accent-fg`：黑金选中态配色。
 - `--paper-premium-selection-bg`：黑金文字选区颜色。
+
+新版节点管理的表格快捷操作保持单行，保留按钮尺寸与顺序；手机卡片布局不受影响。
 
 ## Mini App 参数
 

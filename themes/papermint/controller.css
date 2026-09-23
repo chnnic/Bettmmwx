@@ -1,7 +1,7 @@
 /*
  * MiaoMiaoWuX · PaperMint 薄荷纸境
- * 版本：v2026.09.21-04
- * 更新日期：2026-09-21
+ * 版本：v2026.09.23-01
+ * 更新日期：2026-09-23
  * 独立主题：请单独粘贴使用，不要与 Lumina CSS 混用。
  * 视觉语言：清爽白底、学习绿、粉彩辅助色、深色描边、偏移硬阴影。
  */
@@ -505,6 +505,12 @@ nav .pixel-button:is([aria-current="page"], [data-status="active"]) {
 
 [data-slot="card"]:has(#probe-metrics-persist) [data-slot="card-content"] > div > .flex.items-start.justify-between:has(> .flex-1 + .flex.shrink-0.flex-col) p {
   overflow-wrap: anywhere;
+}
+
+/* 新版节点表格：快捷操作由两行网格恢复为单行，保留按钮尺寸与顺序。
+   仅匹配名称列中的操作组，不改变手机卡片、筛选按钮或其他表格。 */
+[data-slot="table-cell"] > .flex.items-center > .grid.grid-flow-col:has(> .accent-action-btn) {
+  grid-template-rows: auto;
 }
 
 /* 节点表格：操作图标按名称、服务器和套餐信息的整体高度居中。

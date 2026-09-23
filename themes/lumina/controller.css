@@ -1,7 +1,7 @@
 /*
  * MiaoMiaoWuX · Lumina 白金 / 黑金
- * 版本：v2026.09.21-06
- * 更新日期：2026-09-21
+ * 版本：v2026.09.23-01
+ * 更新日期：2026-09-23
  * 跟随主控现有的 light / dark 外观开关，无需 JavaScript。
  */
 
@@ -534,6 +534,12 @@ tbody tr:hover,
 
 [data-slot="card"]:has(#probe-metrics-persist) [data-slot="card-content"] > div > .flex.items-start.justify-between:has(> .flex-1 + .flex.shrink-0.flex-col) p {
   overflow-wrap: anywhere;
+}
+
+/* 新版节点表格：快捷操作由两行网格恢复为单行，保留按钮尺寸与顺序。
+   仅匹配名称列中的操作组，不改变手机卡片、筛选按钮或其他表格。 */
+[data-slot="table-cell"] > .flex.items-center > .grid.grid-flow-col:has(> .accent-action-btn) {
+  grid-template-rows: auto;
 }
 
 /* 节点操作与名称、服务器及套餐信息整体居中；不改变手机卡片。 */
