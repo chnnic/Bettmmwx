@@ -1,7 +1,7 @@
 /*
  * MiaoMiaoWuX · PaperMint 薄荷纸境
- * 版本：v2026.09.23-01
- * 更新日期：2026-09-23
+ * 版本：v2026.09.25-01
+ * 更新日期：2026-09-25
  * 独立主题：请单独粘贴使用，不要与 Lumina CSS 混用。
  * 视觉语言：清爽白底、学习绿、粉彩辅助色、深色描边、偏移硬阴影。
  */
@@ -490,20 +490,22 @@ nav .pixel-button:is([aria-current="page"], [data-status="active"]) {
   background: color-mix(in srgb, var(--paper-mint) 18%, transparent) !important;
 }
 
-/* 伪装探针：说明与外置域名表单均分可用宽度，不让 shrink-0 挤窄说明。
-   无法容纳两列 24rem 时自动上下排列；仅调整布局，不修改开关或域名设置。 */
-[data-slot="card"]:has(#probe-metrics-persist) [data-slot="card-content"] > div > .flex.items-start.justify-between:has(> .flex-1 + .flex.shrink-0.flex-col) {
+/* 伪装探针：按说明与开关组结构定位，兼容新版响应式 flex 类名。
+   宽屏两列均分，容不下两列 24rem 时上下排列；不改开关和域名配置。 */
+[data-slot="card"]:has(#probe-metrics-persist) [data-slot="card-content"] > div > .flex:has(> .flex-1 + .flex.flex-col > label > [data-slot="switch"]) {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 24rem), 1fr));
   align-items: start;
 }
 
-[data-slot="card"]:has(#probe-metrics-persist) [data-slot="card-content"] > div > .flex.items-start.justify-between:has(> .flex-1 + .flex.shrink-0.flex-col) > :is(.flex-1, .flex.shrink-0.flex-col) {
+/* 取消新版右侧 sm:w-80 的固定宽度，让表单填满分配到的网格列。 */
+[data-slot="card"]:has(#probe-metrics-persist) [data-slot="card-content"] > div > .flex:has(> .flex-1 + .flex.flex-col > label > [data-slot="switch"]) > :is(.flex-1, .flex.flex-col) {
+  width: 100%;
   min-width: 0;
   max-width: 100%;
 }
 
-[data-slot="card"]:has(#probe-metrics-persist) [data-slot="card-content"] > div > .flex.items-start.justify-between:has(> .flex-1 + .flex.shrink-0.flex-col) p {
+[data-slot="card"]:has(#probe-metrics-persist) [data-slot="card-content"] > div > .flex:has(> .flex-1 + .flex.flex-col > label > [data-slot="switch"]) p {
   overflow-wrap: anywhere;
 }
 
