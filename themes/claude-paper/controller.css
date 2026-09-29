@@ -1,6 +1,6 @@
 /*
  * MiaoMiaoWuX · Claude Paper 陶纸
- * 版本：v2026.09.29-01
+ * 版本：v2026.09.29-02
  * 更新日期：2026-09-29
  * Claude 风格的非官方独立主题：暖纸色、陶土橙、衬线标题、克制的细边线。
  * 整份替换主控自定义 CSS；不要叠加其他主题。不含脚本或远程资源。
@@ -391,6 +391,23 @@ html, body, body *, body::before, body::after, body *::before, body *::after {
 
 :root body :is([data-slot="dropdown-menu-item"], [data-slot="select-item"], [data-slot="command-item"]) { border-radius: 6px !important; }
 :root body :is([data-slot="dropdown-menu-item"], [data-slot="select-item"], [data-slot="command-item"]):is(:focus, [data-highlighted], [data-selected="true"]) { background: var(--accent) !important; color: var(--accent-foreground) !important; }
+
+/* 顶栏“更多”菜单也有 pixel-button / data-variant=default，但不是主按钮。
+   仅清除折叠导航项的强调色；悬停与键盘焦点使用中性色，深浅模式一致。 */
+:root body .nav-overflow-menu [data-slot="dropdown-menu-item"].pixel-button {
+  color: var(--foreground) !important;
+  border-color: transparent !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+:root body .nav-overflow-menu [data-slot="dropdown-menu-item"].pixel-button:is(:hover, :focus, [data-highlighted]) {
+  color: var(--foreground) !important;
+  background: var(--muted) !important;
+}
+
+:root body .nav-overflow-menu [data-slot="dropdown-menu-item"].pixel-button svg { color: inherit !important; }
+
 :root body [data-slot="tooltip-content"] { color: var(--card) !important; background: var(--foreground) !important; border: 0 !important; border-radius: 6px !important; box-shadow: none !important; }
 :root body [data-slot="tooltip-content"] svg { fill: var(--foreground) !important; background: var(--foreground) !important; }
 :root body :is([data-slot="dialog-close"], [data-slot="sheet-close"]) { color: var(--muted-foreground) !important; box-shadow: none !important; }

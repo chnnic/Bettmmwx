@@ -1,5 +1,11 @@
 # 更新日志
 
+## 2026-09-29 · Claude Paper 顶栏折叠菜单去色
+
+- 更新为 `v2026.09.29-02`：仅覆盖 `.nav-overflow-menu` 内的导航菜单项，修复 `pixel-button` 与 `data-variant=default` 使菜单误用主按钮橙色背景的问题。
+- 默认无底色，悬停和键盘选中使用中性色，文字与图标颜色一致；不改变其他主按钮、导航、Lumina、PaperMint 或 TG Bot。
+- 已检查深浅模式、鼠标悬停和键盘焦点；主控旧 CSS 已备份并保存新版，刷新后保存字段、页面下发样式及首页菜单核对一致，其他外观设置未变。
+
 ## 2026-09-29 · 新增 Claude Paper 陶纸
 
 - 新增独立主控主题 `themes/claude-paper/controller.css`，版本 `v2026.09.29-01`；Claude 风格的非官方设计，不替换主控品牌标识。

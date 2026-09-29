@@ -2,7 +2,7 @@
 
 受 Claude 界面启发的非官方主控主题。暖米白背景、陶土橙强调色、衬线标题与细边线；深色模式使用暖炭灰。不是 Anthropic 官方产品，不替换主控标识。
 
-- [controller.css](controller.css)：主控完整样式，`v2026.09.29-01`。
+- [controller.css](controller.css)：主控完整样式，`v2026.09.29-02`。
 - TG Bot Mini App 暂未提供；不要将主控 CSS 粘贴到 Mini App 字段。
 - 独立文件，不依赖 Lumina、PaperMint、远程字体、图片或 JavaScript。
 
@@ -29,6 +29,8 @@
 | `--claude-heading-font` | 本地衬线字体，负责页面和弹窗标题；可改为 `var(--claude-body-font)` |
 
 卡片与控件不使用背景模糊、背景图片、悬停位移或偏移硬阴影。保留轻阴影、键盘焦点轮廓、禁用态、开关滑块以及主控原生按钮高度。
+
+顶栏“更多”折叠菜单采用无底色菜单项，悬停与键盘选中使用中性色，不套用陶土橙主按钮背景。
 
 ## 适配范围
 
