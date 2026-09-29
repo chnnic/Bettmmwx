@@ -1,6 +1,6 @@
 /*
  * MiaoMiaoWuX · Lumina 白金 / 黑金
- * 版本：v2026.09.29-02
+ * 版本：v2026.09.29-03
  * 更新日期：2026-09-29
  * 跟随主控现有的 light / dark 外观开关，无需 JavaScript。
  */
@@ -960,6 +960,60 @@ tbody tr:hover,
   width: 100%;
   max-width: min(96vw, 1400px) !important;
   min-width: 0;
+}
+
+/* 二级窗口内部安全留白：保留滚动，不修改按钮尺寸、配色或背景模糊设置。
+   对应 Xray / 网站管理分页、入站向导、从节点导入，以及套餐编辑按钮区。 */
+:is([data-slot="dialog-content"], [data-slot="sheet-content"])
+  [data-slot="tabs-content"].flex-1.overflow-y-auto,
+[data-slot="dialog-content"] > .flex-1.overflow-y-auto,
+:is([data-slot="dialog-content"], [data-slot="sheet-content"])
+  .flex.flex-1.flex-col.space-y-4.overflow-hidden,
+[data-slot="dialog-content"][class~="w-[96vw]"][class~="xl:max-w-[1400px]"]
+  .space-y-2[class~="lg:overflow-hidden"],
+[data-slot="dialog-content"][class~="w-[96vw]"][class~="xl:max-w-[1400px]"]
+  [data-slot="dialog-footer"] {
+  padding: 8px;
+}
+
+/* 导入标签过多时保留整体滚动及节点列表的最小可操作高度。 */
+:is([data-slot="dialog-content"], [data-slot="sheet-content"])
+  .flex.flex-1.flex-col.space-y-4.overflow-hidden {
+  overflow-y: auto;
+}
+
+:is([data-slot="dialog-content"], [data-slot="sheet-content"])
+  .flex.flex-1.flex-col.space-y-4.overflow-hidden > .flex-1.overflow-y-auto {
+  min-height: 12rem;
+}
+
+[data-slot="dialog-content"] .flex.overflow-hidden.border-l.pl-4[class~="w-[60%]"] {
+  min-width: 0;
+  padding-block: 8px;
+  padding-right: 8px;
+}
+
+[data-slot="dialog-content"][class~="w-[96vw]"][class~="xl:max-w-[1400px]"]
+  [data-slot="dialog-footer"] {
+  flex-shrink: 0;
+}
+
+@media (min-width: 1024px) {
+  /* 右栏使用剩余空间，避免固定 680px 最小宽度推出按钮。 */
+  [data-slot="dialog-content"][class~="w-[96vw]"][class~="xl:max-w-[1400px]"]
+    > form > .grid[class~="lg:grid-cols-[minmax(280px,2fr)_minmax(680px,5fr)]"] {
+    grid-template-columns: minmax(280px, 2fr) minmax(0, 5fr);
+  }
+
+  [data-slot="dialog-content"][class~="w-[96vw]"][class~="xl:max-w-[1400px]"]
+    .space-y-2[class~="lg:overflow-hidden"] {
+    overflow-y: auto;
+  }
+
+  [data-slot="dialog-content"][class~="w-[96vw]"][class~="xl:max-w-[1400px]"]
+    .space-y-2[class~="lg:overflow-hidden"] > .flex-1.overflow-y-auto {
+    min-height: 12rem;
+  }
 }
 
 /* Xray 管理：中等宽度保证编辑空间，窄屏不超出视口，宽屏保留半屏比例。 */

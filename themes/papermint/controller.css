@@ -1,6 +1,6 @@
 /*
  * MiaoMiaoWuX · PaperMint 薄荷纸境
- * 版本：v2026.09.29-01
+ * 版本：v2026.09.29-03
  * 更新日期：2026-09-29
  * 独立主题：请单独粘贴使用，不要与 Lumina CSS 混用。
  * 视觉语言：清爽白底、学习绿、粉彩辅助色、深色描边、偏移硬阴影。
@@ -602,6 +602,63 @@ nav .pixel-button:is([aria-current="page"], [data-status="active"]) {
   width: 100%;
   max-width: min(96vw, 1400px) !important;
   min-width: 0;
+}
+
+/* 二级窗口内部安全留白：保留滚动裁切，不改按钮大小或业务布局。
+   覆盖 Xray / 网站管理分页、入站向导，以及从节点导入的筛选区。 */
+:is([data-slot="dialog-content"], [data-slot="sheet-content"])
+  [data-slot="tabs-content"].flex-1.overflow-y-auto,
+[data-slot="dialog-content"] > .flex-1.overflow-y-auto,
+:is([data-slot="dialog-content"], [data-slot="sheet-content"])
+  .flex.flex-1.flex-col.space-y-4.overflow-hidden,
+/* 套餐编辑器的右栏和底部按钮也需留出硬阴影、悬停位移和焦点轮廓。 */
+[data-slot="dialog-content"][class~="w-[96vw]"][class~="xl:max-w-[1400px]"]
+  .space-y-2[class~="lg:overflow-hidden"],
+[data-slot="dialog-content"][class~="w-[96vw]"][class~="xl:max-w-[1400px]"]
+  [data-slot="dialog-footer"] {
+  padding: max(6px, calc(3px + 5px * var(--paper-effect-scale)));
+}
+
+/* 导入筛选标签较多时允许整体滚动，避免节点列表被压成一条线。 */
+:is([data-slot="dialog-content"], [data-slot="sheet-content"])
+  .flex.flex-1.flex-col.space-y-4.overflow-hidden {
+  overflow-y: auto;
+}
+
+:is([data-slot="dialog-content"], [data-slot="sheet-content"])
+  .flex.flex-1.flex-col.space-y-4.overflow-hidden > .flex-1.overflow-y-auto {
+  min-height: 12rem;
+}
+
+/* 模板编辑器：保留左侧分隔线原有 1rem 间距，仅补齐其余三边。 */
+[data-slot="dialog-content"] .flex.overflow-hidden.border-l.pl-4[class~="w-[60%]"] {
+  min-width: 0;
+  padding-block: max(6px, calc(3px + 5px * var(--paper-effect-scale)));
+  padding-right: max(6px, calc(3px + 5px * var(--paper-effect-scale)));
+}
+
+[data-slot="dialog-content"][class~="w-[96vw]"][class~="xl:max-w-[1400px]"]
+  [data-slot="dialog-footer"] {
+  flex-shrink: 0;
+}
+
+@media (min-width: 1024px) {
+  /* 右栏按剩余空间收缩，避免 680px 最小宽度推出全选按钮。 */
+  [data-slot="dialog-content"][class~="w-[96vw]"][class~="xl:max-w-[1400px]"]
+    > form > .grid[class~="lg:grid-cols-[minmax(280px,2fr)_minmax(680px,5fr)]"] {
+    grid-template-columns: minmax(280px, 2fr) minmax(0, 5fr);
+  }
+
+  /* 标签较多或窗口较矮时，右侧整体可滚动，节点列表仍保留可操作高度。 */
+  [data-slot="dialog-content"][class~="w-[96vw]"][class~="xl:max-w-[1400px]"]
+    .space-y-2[class~="lg:overflow-hidden"] {
+    overflow-y: auto;
+  }
+
+  [data-slot="dialog-content"][class~="w-[96vw]"][class~="xl:max-w-[1400px]"]
+    .space-y-2[class~="lg:overflow-hidden"] > .flex-1.overflow-y-auto {
+    min-height: 12rem;
+  }
 }
 
 /* Xray 管理：宽屏保留半屏比例，中等宽度保证编辑空间，窄屏不超出视口。 */
