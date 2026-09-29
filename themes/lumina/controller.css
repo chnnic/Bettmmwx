@@ -1,6 +1,6 @@
 /*
  * MiaoMiaoWuX · Lumina 白金 / 黑金
- * 版本：v2026.09.29-01
+ * 版本：v2026.09.29-02
  * 更新日期：2026-09-29
  * 跟随主控现有的 light / dark 外观开关，无需 JavaScript。
  */
@@ -513,22 +513,22 @@ tbody tr:hover,
   background-color: color-mix(in srgb, var(--accent) 54%, transparent);
 }
 
-/* 伪装探针：按说明与开关组结构定位，兼容新版响应式 flex 类名。
+/* 伪装探针：按说明与开关组结构定位，不依赖开关外层是 label 还是 div。
    宽屏两列均分，容不下两列 24rem 时上下排列；不改开关和域名配置。 */
-[data-slot="card"]:has(#probe-metrics-persist) [data-slot="card-content"] > div > .flex:has(> .flex-1 + .flex.flex-col > label > [data-slot="switch"]) {
+[data-slot="card"]:has(#probe-metrics-persist) [data-slot="card-content"] > div > .flex:has(> .flex-1 + .flex.flex-col [data-slot="switch"]) {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 24rem), 1fr));
   align-items: start;
 }
 
 /* 取消新版右侧 sm:w-80 的固定宽度，让表单填满分配到的网格列。 */
-[data-slot="card"]:has(#probe-metrics-persist) [data-slot="card-content"] > div > .flex:has(> .flex-1 + .flex.flex-col > label > [data-slot="switch"]) > :is(.flex-1, .flex.flex-col) {
+[data-slot="card"]:has(#probe-metrics-persist) [data-slot="card-content"] > div > .flex:has(> .flex-1 + .flex.flex-col [data-slot="switch"]) > :is(.flex-1, .flex.flex-col) {
   width: 100%;
   min-width: 0;
   max-width: 100%;
 }
 
-[data-slot="card"]:has(#probe-metrics-persist) [data-slot="card-content"] > div > .flex:has(> .flex-1 + .flex.flex-col > label > [data-slot="switch"]) p {
+[data-slot="card"]:has(#probe-metrics-persist) [data-slot="card-content"] > div > .flex:has(> .flex-1 + .flex.flex-col [data-slot="switch"]) p {
   overflow-wrap: anywhere;
 }
 
