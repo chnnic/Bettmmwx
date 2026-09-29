@@ -8,8 +8,9 @@ MiaoMiaoWuX 的独立主题与界面扩展集合。每个主题单独维护主�
 | --- | --- | --- | --- |
 | Lumina 白金 / 黑金 | [controller.css](themes/lumina/controller.css) · v2026.09.29-03 | [tgbot.css](themes/lumina/tgbot.css) · v2026.09.21-02 | [安装与配置](themes/lumina/README.md) |
 | PaperMint 薄荷纸境 | [controller.css](themes/papermint/controller.css) · v2026.09.29-03 | [tgbot.css](themes/papermint/tgbot.css) · v2026.09.21-01 | [安装与配置](themes/papermint/README.md) |
+| Claude Paper 陶纸 | [controller.css](themes/claude-paper/controller.css) · v2026.09.29-01 | 暂未提供 | [安装与配置](themes/claude-paper/README.md) |
 
-Lumina 使用暖金强调色和可选壁纸；PaperMint 使用圆角、描边、偏移硬阴影和粉彩辅助色。两套主题均兼容浅色与深色。
+Lumina 使用暖金强调色和可选壁纸；PaperMint 使用圆角、描边、偏移硬阴影和粉彩辅助色；Claude Paper 是受 Claude 界面启发的非官方暖纸色主题，使用陶土橙和衬线标题。各主题兼容浅色与深色。
 
 ## 目录结构
 
@@ -21,10 +22,13 @@ themes/
 │   ├── controller.css         # 主控
 │   ├── tgbot.css              # Telegram Mini App
 │   └── assets/wallpaper.jpg
-└── papermint/
+├── papermint/
+│   ├── README.md
+│   ├── controller.css
+│   └── tgbot.css
+└── claude-paper/
     ├── README.md
-    ├── controller.css
-    └── tgbot.css
+    └── controller.css         # 当前只支持主控
 extensions/
 └── README.md                  # 未来可选功能的扩展约定
 assets/
@@ -38,7 +42,7 @@ assets/
 - **主控**：把 `controller.css` 粘贴到「系统设置 → 外观 → 自定义 CSS」并保存、刷新。
 - **TG Bot Mini App**：把 `tgbot.css` 粘贴到「系统设置 → TG Bot → Mini App 自定义 CSS」并保存，然后重新打开 Telegram 内的 Mini App。该页提示保存会随 Bot 重启生效，请选择合适的时间操作，不要改动 Token、管理员 ID 等其他配置。
 
-每个输入框只使用一套主题。不要把 `controller.css` 和 `tgbot.css` 合并，也不要叠加 Lumina 与 PaperMint。可以只安装其中一端。
+每个输入框只使用一套主题。不要把 `controller.css` 和 `tgbot.css` 合并，也不要叠加不同主题。可以只安装其中一端；尚未提供对应端的主题不能跨端混用。
 
 这里的 TG Bot 主题只作用于机器人打开的 **Mini App 网页**，不会改变 Telegram 原生聊天气泡或 Bot 消息配色；两个入口的 CSS 相互独立。
 

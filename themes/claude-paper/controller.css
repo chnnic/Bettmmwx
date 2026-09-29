@@ -1,0 +1,646 @@
+/*
+ * MiaoMiaoWuX · Claude Paper 陶纸
+ * 版本：v2026.09.29-01
+ * 更新日期：2026-09-29
+ * Claude 风格的非官方独立主题：暖纸色、陶土橙、衬线标题、克制的细边线。
+ * 整份替换主控自定义 CSS；不要叠加其他主题。不含脚本或远程资源。
+ */
+
+:root {
+  /* 内容最大宽度；100% 取消限宽。 */
+  --claude-content-max-width: 1440px;
+  /* 面板与控件圆角，互不影响控件的原生尺寸。 */
+  --claude-card-radius: 16px;
+  --claude-control-radius: 9px;
+  /* 浅色：暖纸底、近白面板、陶土强调色。 */
+  --claude-light-page: #f5f3ed;
+  --claude-light-surface: #fdfcf8;
+  --claude-light-ink: #302e29;
+  --claude-light-accent: #b45538;
+  /* 深色：暖炭灰，不使用纯黑和高饱和发光效果。 */
+  --claude-dark-page: #242320;
+  --claude-dark-surface: #2d2c28;
+  --claude-dark-ink: #ece9e1;
+  --claude-dark-accent: #df967a;
+  /* 本地字体，无需 Google Fonts。标题可改为 var(--claude-body-font)。 */
+  --claude-body-font: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+  --claude-heading-font: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, "Songti SC", "Noto Serif CJK SC", serif;
+}
+
+/* 明确覆盖内置主题调色板：切换主控基底风格仍保持陶纸配色。 */
+:root:root {
+  color-scheme: light;
+  --background: var(--claude-light-page) !important;
+  --foreground: var(--claude-light-ink) !important;
+  --card: var(--claude-light-surface) !important;
+  --card-foreground: var(--foreground) !important;
+  --popover: var(--card) !important;
+  --popover-foreground: var(--foreground) !important;
+  --primary: var(--claude-light-accent) !important;
+  --primary-foreground: #fffaf5 !important;
+  --secondary: #efede6 !important;
+  --secondary-foreground: #45423b !important;
+  --muted: #eeece5 !important;
+  --muted-foreground: #746f65 !important;
+  --accent: #f1e3d9 !important;
+  --accent-foreground: #8f432d !important;
+  --destructive: #b7403d !important;
+  --destructive-foreground: #fffafa !important;
+  --border: #dedad0 !important;
+  --input: #ccc7ba !important;
+  --ring: var(--primary) !important;
+  --sidebar: #eeece5 !important;
+  --sidebar-foreground: var(--foreground) !important;
+  --sidebar-primary: var(--primary) !important;
+  --sidebar-primary-foreground: var(--primary-foreground) !important;
+  --sidebar-accent: #e5dfd3 !important;
+  --sidebar-accent-foreground: var(--accent-foreground) !important;
+  --sidebar-border: var(--border) !important;
+  --sidebar-ring: var(--ring) !important;
+  --chart-1: #b45538 !important;
+  --chart-2: #668373 !important;
+  --chart-3: #8b7d9b !important;
+  --chart-4: #b18b43 !important;
+  --chart-5: #628398 !important;
+  --radius: var(--claude-control-radius) !important;
+  --font-sans: var(--claude-body-font) !important;
+  --claude-card-shadow: 0 1px 3px rgb(48 46 41 / 4%);
+  --claude-overlay-shadow: 0 12px 36px -16px rgb(48 46 41 / 30%);
+}
+
+:root:root.dark {
+  color-scheme: dark;
+  --background: var(--claude-dark-page) !important;
+  --foreground: var(--claude-dark-ink) !important;
+  --card: var(--claude-dark-surface) !important;
+  --primary: var(--claude-dark-accent) !important;
+  --primary-foreground: #251b16 !important;
+  --secondary: #35342f !important;
+  --secondary-foreground: #e6e1d6 !important;
+  --muted: #35342f !important;
+  --muted-foreground: #b2ab9e !important;
+  --accent: #49372e !important;
+  --accent-foreground: #efb79d !important;
+  --destructive: #e68b85 !important;
+  --destructive-foreground: #301815 !important;
+  --border: #48463e !important;
+  --input: #615b50 !important;
+  --sidebar: #201f1c !important;
+  --sidebar-accent: #3e332b !important;
+  --chart-1: #df967a !important;
+  --chart-2: #8faf98 !important;
+  --chart-3: #b5a0c3 !important;
+  --chart-4: #ccaf76 !important;
+  --chart-5: #8caebe !important;
+  --claude-card-shadow: 0 1px 3px rgb(0 0 0 / 12%);
+  --claude-overlay-shadow: 0 16px 44px -16px rgb(0 0 0 / 55%);
+}
+
+:root body {
+  color: var(--foreground) !important;
+  background: var(--background) !important;
+  font-family: var(--claude-body-font) !important;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 静态、实色表面：避免高频刷新卡片触发背景模糊合成。 */
+html, body, body *, body::before, body::after, body *::before, body *::after {
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+
+:root body::before,
+:root body::after,
+:root .pixel-card::before,
+:root .pixel-button::before,
+:root .pixel-button::after {
+  display: none !important;
+  content: none !important;
+}
+
+/* 液态玻璃的高光及滑动指示器仅在该基底下清理。 */
+:root.theme-glass [data-slot="card"]::after,
+:root.theme-glass [data-glass-nav] > .glass-indicator {
+  display: none !important;
+}
+
+#root main.container,
+#root main[class~="max-w-[1600px]"] {
+  width: min(100%, var(--claude-content-max-width)) !important;
+  max-width: var(--claude-content-max-width) !important;
+  margin-inline: auto;
+}
+
+:root body :is(.min-h-svh, .min-h-dvh, .min-h-screen, .h-svh, .h-dvh).bg-background {
+  background: var(--background) !important;
+}
+
+:root body :is(h1, [data-slot="dialog-title"], [data-slot="sheet-title"]) {
+  color: var(--foreground) !important;
+  font-family: var(--claude-heading-font) !important;
+  font-weight: 500 !important;
+  letter-spacing: -0.025em;
+  text-shadow: none !important;
+}
+
+:root body h1 { font-size: clamp(1.75rem, 3.2vw, 2.4rem); line-height: 1.25; }
+:root body :is([data-slot="card-title"], [data-slot="label"], [data-slot="table-head"]) { font-weight: 600; }
+:root body :is([data-slot="card-description"], [data-slot="dialog-description"]) { color: var(--muted-foreground); }
+:root body .text-muted-foreground { color: var(--muted-foreground) !important; }
+:root body :is(.font-mono, pre, code) { font-variant-ligatures: none; }
+:root body :is(.tabular-nums, [data-slot="table-cell"]) { font-variant-numeric: tabular-nums; }
+
+/* 内置黑金把统计值和 SVG 直接写成金色，在明确组件上覆盖。 */
+:root body .dashboard-kpi-grid [data-slot="card-content"] > div:first-child {
+  color: var(--foreground) !important;
+  font-family: var(--claude-heading-font);
+  font-weight: 500;
+  letter-spacing: -0.025em;
+}
+:root body :is(.text-primary, .accent-action-btn, .accent-svg-icon) { color: var(--primary) !important; }
+:root body .dashboard-kpi-grid svg.text-primary {
+  border-color: transparent !important;
+  background: var(--accent) !important;
+  box-shadow: none !important;
+}
+:root body #dailyUsageGradient stop { stop-color: var(--primary) !important; }
+:root body [data-slot="card"]:has(#dailyUsageGradient) .recharts-area-curve { stroke: var(--primary) !important; }
+
+/* 纸面卡片：无位移、无斜纹、无外扩硬阴影。 */
+:root #root :is([data-slot="card"], .pixel-card),
+:root body [role="dialog"] [data-slot="card"] {
+  color: var(--foreground) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: var(--claude-card-radius) !important;
+  background: var(--card) !important;
+  box-shadow: var(--claude-card-shadow) !important;
+  transform: none !important;
+  transition: border-color 140ms ease !important;
+}
+
+:root #root [class~="bg-background/50"] {
+  border-color: var(--border) !important;
+  border-radius: var(--claude-card-radius);
+  background: var(--card) !important;
+}
+
+:root body :is(header.app-topbar, [data-slot="sidebar"], [data-slot="sidebar-inner"], [data-sidebar="sidebar"]) {
+  color: var(--foreground) !important;
+  border-color: var(--border) !important;
+  background: var(--sidebar) !important;
+  box-shadow: none !important;
+}
+
+:root body header.app-topbar { border-bottom: 1px solid var(--border) !important; }
+:root body footer { color: var(--muted-foreground); background: var(--background) !important; border-color: var(--border) !important; }
+
+/* 保留主控 h-8/h-9/size-* 原生尺寸，不再统一拉高图标或开关。 */
+:root body :is([data-slot="button"], .pixel-button) {
+  border: 1px solid var(--input) !important;
+  border-radius: var(--claude-control-radius) !important;
+  background: var(--card) !important;
+  color: var(--foreground) !important;
+  box-shadow: none !important;
+  transform: none !important;
+  text-shadow: none !important;
+  font-family: var(--claude-body-font) !important;
+  font-weight: 500 !important;
+  transition: background-color 140ms ease, border-color 140ms ease, color 140ms ease !important;
+}
+
+:root body :is([data-slot="button"], .pixel-button):hover:not(:disabled) {
+  border-color: color-mix(in srgb, var(--foreground) 35%, var(--border)) !important;
+  background: var(--secondary) !important;
+  filter: none !important;
+}
+
+:root body :is([data-slot="button"], .pixel-button):is(.bg-primary, [data-variant="default"], [data-active="true"]) {
+  color: var(--primary-foreground) !important;
+  border-color: var(--primary) !important;
+  background: var(--primary) !important;
+}
+
+:root body :is([data-slot="button"], .pixel-button):is(.bg-primary, [data-variant="default"], [data-active="true"]):hover:not(:disabled) {
+  background: color-mix(in srgb, var(--primary) 90%, var(--foreground)) !important;
+}
+
+/* 危险操作继续使用红色，不能被陶土主色吞掉语义。 */
+:root body :is([data-slot="button"], .pixel-button):is(.bg-destructive, [data-variant="destructive"]) {
+  color: var(--destructive-foreground) !important;
+  border-color: var(--destructive) !important;
+  background: var(--destructive) !important;
+}
+
+:root body :is([data-slot="button"], .pixel-button):is(.bg-destructive, [data-variant="destructive"]):hover:not(:disabled) {
+  background: color-mix(in srgb, var(--destructive) 90%, var(--foreground)) !important;
+}
+
+:root body :is([data-slot="button"], .pixel-button):is(.text-destructive, [class*="text-red-"]) { color: var(--destructive) !important; }
+:root body :is([data-slot="button"], .pixel-button):disabled { opacity: 0.45; cursor: not-allowed; }
+
+/* 页签、导航：陶色浅底指示当前页面，避免整排高饱和按钮。 */
+:root body :is(nav .pixel-button, [data-slot="sidebar-menu-button"]) {
+  border-color: transparent !important;
+  background: transparent !important;
+  color: var(--muted-foreground) !important;
+  border-radius: var(--claude-control-radius) !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+:root body :is(nav .pixel-button, [data-slot="sidebar-menu-button"]):is([aria-current="page"], [data-status="active"], [data-active="true"]) {
+  color: var(--accent-foreground) !important;
+  background: var(--accent) !important;
+  font-weight: 600 !important;
+}
+
+:root body [data-slot="tabs-list"] {
+  padding: 4px;
+  border: 0 !important;
+  border-radius: calc(var(--claude-control-radius) + 3px) !important;
+  background: var(--muted) !important;
+  box-shadow: none !important;
+}
+
+:root body [data-slot="tabs-trigger"] {
+  color: var(--muted-foreground) !important;
+  border: 1px solid transparent !important;
+  border-radius: var(--claude-control-radius) !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  font-weight: 500 !important;
+  transform: none !important;
+}
+
+:root body [data-slot="tabs-trigger"][data-state="active"] {
+  color: var(--accent-foreground) !important;
+  background: var(--card) !important;
+  border-color: var(--border) !important;
+  font-weight: 600 !important;
+}
+
+#root [data-slot="tabs"] > .sticky:has(> [data-slot="tabs-list"] > [id$="-trigger-appearance"]) {
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+:root body :is(.dashboard-range-control, .dashboard-ranking-toolbar) {
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+:root body .premium-pro-badge {
+  color: var(--accent-foreground) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: var(--claude-control-radius) !important;
+  background: var(--accent) !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+}
+:root body .premium-pro-badge svg { color: var(--primary) !important; }
+
+:root body :is([data-slot="input"], [data-slot="textarea"], [data-slot="select-trigger"]) {
+  color: var(--foreground) !important;
+  border: 1px solid var(--input) !important;
+  border-radius: var(--claude-control-radius) !important;
+  background: var(--card) !important;
+  box-shadow: none !important;
+  font-weight: 400;
+}
+
+:root body :is(input, textarea)::placeholder { color: var(--muted-foreground) !important; opacity: 1; }
+
+:root body :is(button, a, input, textarea, select, [tabindex="0"]):focus-visible {
+  outline: 2px solid var(--ring) !important;
+  outline-offset: 2px;
+  box-shadow: none !important;
+}
+
+/* 轨道与白色圆点显式分离，避免开关被普通按钮样式覆盖。 */
+:root body [data-slot="switch"] {
+  position: relative;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  width: 38px !important;
+  min-width: 38px !important;
+  height: 22px !important;
+  min-height: 22px !important;
+  padding: 0 !important;
+  border: 1px solid var(--input) !important;
+  border-radius: 999px !important;
+  background: var(--input) !important;
+  box-shadow: none !important;
+}
+
+:root body [data-slot="switch"][data-state="checked"] { background: var(--primary) !important; border-color: var(--primary) !important; }
+
+:root body [data-slot="switch"] > [data-slot="switch-thumb"] {
+  position: absolute !important;
+  inset-block-start: 50% !important;
+  inset-inline-start: 2px !important;
+  width: 16px !important;
+  height: 16px !important;
+  margin: 0 !important;
+  border: 0 !important;
+  border-radius: 50% !important;
+  background: #fffdf9 !important;
+  box-shadow: 0 1px 2px rgb(0 0 0 / 18%) !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  translate: none !important;
+  transform: translateY(-50%) !important;
+  pointer-events: none;
+}
+
+:root body [data-slot="switch"][data-state="checked"] > [data-slot="switch-thumb"] { inset-inline-start: calc(100% - 18px) !important; }
+
+:root body :is([data-slot="checkbox"], [data-slot="radio-group-item"]) {
+  border: 1px solid var(--input) !important;
+  background: var(--card) !important;
+  box-shadow: none !important;
+}
+:root body [data-slot="checkbox"] { border-radius: 5px !important; }
+:root body :is([data-slot="checkbox"], [data-slot="radio-group-item"])[data-state="checked"] {
+  color: var(--primary-foreground) !important;
+  border-color: var(--primary) !important;
+  background: var(--primary) !important;
+}
+
+:root body [data-slot="badge"] { border-radius: 6px !important; box-shadow: none !important; font-weight: 500; }
+:root body [data-slot="progress"] { border: 0 !important; border-radius: 999px; background: var(--muted) !important; }
+:root body [data-slot="progress-indicator"] { background: var(--primary) !important; }
+
+/* 表格不改列宽和滚动策略；只替换表面、分隔线与选中态。 */
+:root body [data-slot="table-container"] { border-radius: 11px; }
+:root body :is(thead, [data-slot="table-header"]) { background: var(--muted) !important; }
+:root body :is(tr, [data-slot="table-row"]) { border-color: var(--border) !important; box-shadow: none !important; }
+:root body :is(tbody tr, [data-slot="table-row"]):hover { background: var(--secondary) !important; }
+:root body [data-slot="table-row"][data-state="selected"] { background: var(--accent) !important; }
+:root body :is([data-slot="table-head"], [data-slot="table-cell"]) { border-color: var(--border); }
+
+/* Portal 也使用同一暖纸面；不取消滚动或触碰隐藏/权限状态。 */
+:root body :is([data-slot="dialog-content"], [data-slot="sheet-content"], [data-slot="alert-dialog-content"], [data-slot="popover-content"], [data-slot="dropdown-menu-content"], [data-slot="select-content"], [data-slot="hover-card-content"], [data-slot="command"]) {
+  color: var(--foreground) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: var(--claude-card-radius) !important;
+  background: var(--popover) !important;
+  box-shadow: var(--claude-overlay-shadow) !important;
+}
+
+:root body :is([data-slot="dropdown-menu-item"], [data-slot="select-item"], [data-slot="command-item"]) { border-radius: 6px !important; }
+:root body :is([data-slot="dropdown-menu-item"], [data-slot="select-item"], [data-slot="command-item"]):is(:focus, [data-highlighted], [data-selected="true"]) { background: var(--accent) !important; color: var(--accent-foreground) !important; }
+:root body [data-slot="tooltip-content"] { color: var(--card) !important; background: var(--foreground) !important; border: 0 !important; border-radius: 6px !important; box-shadow: none !important; }
+:root body [data-slot="tooltip-content"] svg { fill: var(--foreground) !important; background: var(--foreground) !important; }
+:root body :is([data-slot="dialog-close"], [data-slot="sheet-close"]) { color: var(--muted-foreground) !important; box-shadow: none !important; }
+
+::selection { color: var(--foreground); background: color-mix(in srgb, var(--primary) 27%, var(--card)); text-shadow: none; }
+html { scrollbar-width: thin; scrollbar-color: var(--input) var(--background); }
+
+/* 登录页保持简洁居中；不换标识，不依赖头像或外部图片。 */
+body:has(#username):has(#password) [data-slot="card"].max-w-sm { max-width: 27rem; }
+body:has(#username):has(#password) [data-slot="card-title"] { font-family: var(--claude-heading-font); }
+
+/* 已验证的主控布局适配，独立包含，不导入其他主题。 */
+
+/* 伪装探针：按说明与开关组结构定位，不依赖开关外层是 label 还是 div。
+   宽屏两列均分，容不下两列 24rem 时上下排列；不改开关和域名配置。 */
+[data-slot="card"]:has(#probe-metrics-persist) [data-slot="card-content"] > div > .flex:has(> .flex-1 + .flex.flex-col [data-slot="switch"]) {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 24rem), 1fr));
+  align-items: start;
+}
+
+/* 取消新版右侧 sm:w-80 的固定宽度，让表单填满分配到的网格列。 */
+[data-slot="card"]:has(#probe-metrics-persist) [data-slot="card-content"] > div > .flex:has(> .flex-1 + .flex.flex-col [data-slot="switch"]) > :is(.flex-1, .flex.flex-col) {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+}
+
+[data-slot="card"]:has(#probe-metrics-persist) [data-slot="card-content"] > div > .flex:has(> .flex-1 + .flex.flex-col [data-slot="switch"]) p {
+  overflow-wrap: anywhere;
+}
+
+/* 新版节点表格：快捷操作由两行网格恢复为单行，保留按钮尺寸与顺序。
+   仅匹配名称列中的操作组，不改变手机卡片、筛选按钮或其他表格。 */
+[data-slot="table-cell"] > .flex.items-center > .grid.grid-flow-col:has(> .accent-action-btn) {
+  grid-template-rows: auto;
+}
+
+/* 节点表格：操作图标按名称、服务器和套餐信息的整体高度居中。
+   仅调整桌面名称列布局，保留 Claude Paper 按钮尺寸、阴影和手机卡片。 */
+@media (min-width: 768px) {
+  td[class~="max-w-[300px]"][class~="min-w-[200px]"] {
+    min-width: 28rem !important;
+    max-width: 40rem !important;
+    white-space: normal;
+  }
+
+  td[class~="max-w-[300px]"][class~="min-w-[200px]"] > .min-w-0:has(> .flex > .min-w-0.flex-1.truncate) {
+    display: grid;
+    grid-template-columns: minmax(10rem, 1fr);
+    grid-template-rows: repeat(3, auto);
+    grid-auto-columns: max-content;
+    grid-auto-flow: column;
+    column-gap: 0.5rem;
+    align-items: center;
+  }
+
+  td[class~="max-w-[300px]"][class~="min-w-[200px]"] > .min-w-0 > .flex:has(> .min-w-0.flex-1.truncate) {
+    display: contents !important;
+  }
+
+  td[class~="max-w-[300px]"][class~="min-w-[200px]"] > .min-w-0 > .flex > .min-w-0.flex-1.truncate {
+    grid-column: 1;
+    grid-row: 1;
+    overflow: visible;
+    white-space: normal;
+    text-overflow: clip;
+    overflow-wrap: anywhere;
+    line-height: 1.35;
+  }
+
+  td[class~="max-w-[300px]"][class~="min-w-[200px]"] > .min-w-0 > .flex:has(> .min-w-0.flex-1.truncate) > :is(svg, button) {
+    grid-column: auto;
+    grid-row: 1 / -1;
+    align-self: center;
+  }
+
+  td[class~="max-w-[300px]"][class~="min-w-[200px]"] > .min-w-0 > .text-muted-foreground.truncate {
+    grid-column: 1;
+    grid-row: 2;
+    overflow: visible;
+    white-space: normal;
+    text-overflow: clip;
+    overflow-wrap: anywhere;
+    line-height: 1.35;
+  }
+
+  td[class~="max-w-[300px]"][class~="min-w-[200px]"] > .min-w-0 > button {
+    grid-column: 1;
+    grid-row: 3;
+    min-width: 0;
+  }
+}
+
+/* 用户表格续期：三个快捷天数按钮 + 自定义弹窗按钮保持同一行。
+   按按钮内容撑开该列；小屏沿用表格横向滚动，不影响手机卡片或筛选栏。 */
+[data-slot="table-cell"] > .flex.flex-wrap.gap-1:has(
+  > [data-slot="button"]:first-child + [data-slot="button"]
+  + [data-slot="button"] + [data-slot="popover-trigger"]:last-child
+) {
+  flex-wrap: nowrap;
+  width: max-content;
+}
+
+/* 大型套餐编辑弹窗：中等宽度不再退回 sm:max-w-lg 的 512px 上限。
+   按父层可用空间展开，保留 1400px 上限，不影响普通弹窗和确认框。 */
+[data-slot="dialog-content"][class~="w-[96vw]"][class~="xl:max-w-[1400px]"] {
+  width: 100%;
+  max-width: min(96vw, 1400px) !important;
+  min-width: 0;
+}
+
+/* 二级窗口内部安全留白：保留滚动裁切，不改按钮大小或业务布局。
+   覆盖 Xray / 网站管理分页、入站向导，以及从节点导入的筛选区。 */
+:is([data-slot="dialog-content"], [data-slot="sheet-content"])
+  [data-slot="tabs-content"].flex-1.overflow-y-auto,
+[data-slot="dialog-content"] > .flex-1.overflow-y-auto,
+:is([data-slot="dialog-content"], [data-slot="sheet-content"])
+  .flex.flex-1.flex-col.space-y-4.overflow-hidden,
+/* 套餐编辑器的右栏和底部按钮也需留出轻阴影、悬停位移和焦点轮廓。 */
+[data-slot="dialog-content"][class~="w-[96vw]"][class~="xl:max-w-[1400px]"]
+  .space-y-2[class~="lg:overflow-hidden"],
+[data-slot="dialog-content"][class~="w-[96vw]"][class~="xl:max-w-[1400px]"]
+  [data-slot="dialog-footer"] {
+  padding: 6px;
+}
+
+/* 导入筛选标签较多时允许整体滚动，避免节点列表被压成一条线。 */
+:is([data-slot="dialog-content"], [data-slot="sheet-content"])
+  .flex.flex-1.flex-col.space-y-4.overflow-hidden {
+  overflow-y: auto;
+}
+
+:is([data-slot="dialog-content"], [data-slot="sheet-content"])
+  .flex.flex-1.flex-col.space-y-4.overflow-hidden > .flex-1.overflow-y-auto {
+  min-height: 12rem;
+}
+
+/* 模板编辑器：保留左侧分隔线原有 1rem 间距，仅补齐其余三边。 */
+[data-slot="dialog-content"] .flex.overflow-hidden.border-l.pl-4[class~="w-[60%]"] {
+  min-width: 0;
+  padding-block: 6px;
+  padding-right: 6px;
+}
+
+[data-slot="dialog-content"][class~="w-[96vw]"][class~="xl:max-w-[1400px]"]
+  [data-slot="dialog-footer"] {
+  flex-shrink: 0;
+}
+
+@media (min-width: 1024px) {
+  /* 右栏按剩余空间收缩，避免 680px 最小宽度推出全选按钮。 */
+  [data-slot="dialog-content"][class~="w-[96vw]"][class~="xl:max-w-[1400px]"]
+    > form > .grid[class~="lg:grid-cols-[minmax(280px,2fr)_minmax(680px,5fr)]"] {
+    grid-template-columns: minmax(280px, 2fr) minmax(0, 5fr);
+  }
+
+  /* 标签较多或窗口较矮时，右侧整体可滚动，节点列表仍保留可操作高度。 */
+  [data-slot="dialog-content"][class~="w-[96vw]"][class~="xl:max-w-[1400px]"]
+    .space-y-2[class~="lg:overflow-hidden"] {
+    overflow-y: auto;
+  }
+
+  [data-slot="dialog-content"][class~="w-[96vw]"][class~="xl:max-w-[1400px]"]
+    .space-y-2[class~="lg:overflow-hidden"] > .flex-1.overflow-y-auto {
+    min-height: 12rem;
+  }
+}
+
+/* Xray 管理：宽屏保留半屏比例，中等宽度保证编辑空间，窄屏不超出视口。 */
+[data-slot="dialog-content"][class~="w-[50vw]"][class~="h-[85vh]"] {
+  width: min(96vw, max(50vw, 56rem));
+  max-width: calc(100vw - 2rem) !important;
+  min-width: 0;
+}
+
+/* 手机专用全屏抽屉不套用普通弹窗的两侧留白。 */
+[data-slot="sheet-content"][class~="h-[100dvh]"][class~="w-full"][class~="max-w-none"] {
+  width: 100%;
+  max-width: 100% !important;
+}
+
+/* Xray 的完整版本信息允许换行，服务控制按钮组在窄屏分行显示。 */
+:is(
+  [data-slot="dialog-content"][class~="w-[50vw]"][class~="h-[85vh]"],
+  [data-slot="sheet-content"][class~="h-[100dvh]"][class~="max-w-none"]
+) .mb-3.flex.flex-wrap.items-center > [data-slot="badge"] {
+  max-width: 100%;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  text-align: start;
+}
+
+:is(
+  [data-slot="dialog-content"][class~="w-[50vw]"][class~="h-[85vh]"],
+  [data-slot="sheet-content"][class~="h-[100dvh]"][class~="max-w-none"]
+) .mb-3.flex.flex-wrap.items-center > .flex.items-center.gap-2 {
+  min-width: 0;
+  max-width: 100%;
+  flex-wrap: wrap;
+}
+
+
+@media (max-width: 640px) {
+  /* 手机节点卡片：名称独占上方，操作图标另起一行，避免横向挤压。
+     仅匹配带节点名称结构的紧凑卡片，不影响桌面表格或其他卡片。 */
+  #root [data-slot="card-content"].p-3:has(.line-clamp-2.break-all)
+    > .flex.items-start.justify-between {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  #root [data-slot="card-content"].p-3:has(.line-clamp-2.break-all)
+    > .flex.items-start.justify-between > .min-w-0.flex-1 {
+    flex: none;
+    width: 100%;
+  }
+
+  #root [data-slot="card-content"].p-3:has(.line-clamp-2.break-all)
+    > .flex.items-start.justify-between > .flex.shrink-0 {
+    flex-wrap: wrap;
+    max-width: 100%;
+    row-gap: 8px;
+  }
+
+  #root [data-slot="card-content"].p-3 .line-clamp-2.break-all {
+    display: block;
+    -webkit-line-clamp: unset;
+    overflow: visible;
+    overflow-wrap: anywhere;
+    word-break: normal;
+  }
+
+  #root [data-slot="card-content"].p-3 .line-clamp-2.break-all + .truncate {
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@media (prefers-contrast: more) {
+  :root:root { --border: var(--muted-foreground) !important; --input: var(--foreground) !important; }
+}
