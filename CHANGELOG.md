@@ -1,5 +1,13 @@
 # 更新日志
 
+## 2026-10-01 · Claude Paper TG Bot Mini App
+
+- 补齐独立 `themes/claude-paper/tgbot.css`，版本 `v2026.10.01-01`；使用真实 Mini App 的 `.card`、`.btn`、`.seg`、`.xsw` 等钩子，不复制主控 `data-slot` 规则。
+- 暖纸白 / 暖炭灰、陶土橙、本地衬线数字、细描边与轻阴影；不依赖远程资源，无背景模糊，参数集中在首个 `:root`，统一使用 `--claude-mini-*`。
+- 包含窄屏六项导航、长文本换行、可辨识开关滑块、禁用态与键盘焦点；保留权限隐藏和状态色语义。
+- 使用实际原生底层样式与静态样例核对四种宽度、四种基底的深浅模式共 32 组；不代表 Telegram 内业务流程验证。
+- 本次发布包含独立 Mini App 文件与说明；未部署生产配置、未重启 Bot，主控与其他主题不变。
+
 ## 2026-09-29 · Claude Paper 顶栏折叠菜单去色
 
 - 更新为 `v2026.09.29-02`：仅覆盖 `.nav-overflow-menu` 内的导航菜单项，修复 `pixel-button` 与 `data-variant=default` 使菜单误用主按钮橙色背景的问题。
