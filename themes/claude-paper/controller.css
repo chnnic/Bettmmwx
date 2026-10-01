@@ -1,6 +1,6 @@
 /*
  * MiaoMiaoWuX · Claude Paper 陶纸
- * 版本：v2026.10.01-08
+ * 版本：v2026.10.01-12
  * 更新日期：2026-10-01
  * Claude 风格的非官方独立主题：暖纸色、陶土橙、衬线标题、克制的细边线。
  * 整份替换主控自定义 CSS；不要叠加其他主题。不含脚本或远程资源。
@@ -1061,13 +1061,142 @@ body:has(#username):has(#password) [data-slot="card-title"] { font-family: var(-
     [data-slot="card-content"] {
     padding-inline: 12px;
   }
-  /* 服务分组/在线/离线筛选栏允许换行，不把整页向右撑出视口。 */
-  :root #root .ml-auto:has(> [data-slot="button"] > .bg-green-500):has(> [data-slot="button"] > .bg-red-500) {
-    max-width: 100%;
-    min-width: 0;
-    flex-wrap: wrap;
+}
+
+/* 服务状态筛选：以离线按钮约 116px 的宽度为基准，三项等宽，窄屏一起收缩。 */
+:root #root .ml-auto:has(> [data-slot="button"] > .bg-green-500):has(> [data-slot="button"] > .bg-red-500) {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  width: min(100%, 22.75rem);
+  max-width: 100%;
+  min-width: 0;
+  gap: 8px;
+}
+:root #root .ml-auto:has(> [data-slot="button"] > .bg-green-500):has(> [data-slot="button"] > .bg-red-500)
+  > :is([data-slot="button"], [data-slot="select-trigger"]) {
+  box-sizing: border-box;
+  width: 100% !important;
+  min-width: 0 !important;
+  padding-inline: 8px !important;
+  gap: 4px;
+  white-space: nowrap;
+}
+:root #root .ml-auto:has(> [data-slot="button"] > .bg-green-500):has(> [data-slot="button"] > .bg-red-500)
+  > [data-slot="button"] > span {
+  margin-inline: 0 !important;
+}
+@media (max-width: 359px) {
+  :root #root .ml-auto:has(> [data-slot="button"] > .bg-green-500):has(> [data-slot="button"] > .bg-red-500)
+    > :is([data-slot="button"], [data-slot="select-trigger"]) {
+    font-size: 12px !important;
+    padding-inline: 6px !important;
+  }
+  :root #root .ml-auto:has(> [data-slot="button"] > .bg-green-500):has(> [data-slot="button"] > .bg-red-500)
+    > [data-slot="button"] > [data-slot="badge"] {
+    font-size: 11px !important;
+    padding-inline: 4px !important;
   }
 }
+
+/* 手机服务工具栏：四个低频功能改为两列两行，保留按钮文字和原有点击行为。 */
+@media (max-width: 639px) {
+  :root #root .grid.w-full[class~="sm:contents"]:has(> button > svg.lucide-link-2):has(> button > svg.lucide-circle-arrow-up) {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-auto-rows: 1fr;
+    gap: 8px;
+  }
+  :root #root .grid.w-full[class~="sm:contents"]:has(> button > svg.lucide-link-2):has(> button > svg.lucide-circle-arrow-up) > button {
+    box-sizing: border-box;
+    width: 100% !important;
+    min-width: 0 !important;
+    height: auto !important;
+    min-height: 44px !important;
+    padding: 8px !important;
+    gap: 6px;
+    white-space: normal;
+    line-height: 1.35;
+  }
+  :root #root .grid.w-full[class~="sm:contents"]:has(> button > svg.lucide-link-2):has(> button > svg.lucide-circle-arrow-up) > button > svg {
+    margin-inline: 0 !important;
+    flex-shrink: 0;
+  }
+}
+@media (max-width: 359px) {
+  :root #root .grid.w-full[class~="sm:contents"]:has(> button > svg.lucide-link-2):has(> button > svg.lucide-circle-arrow-up) > button {
+    font-size: 12px !important;
+    padding-inline: 6px !important;
+    gap: 4px;
+  }
+}
+
+/* 模板工具栏：分类与操作按可用宽度换行，避免可见性/新建按钮被裁切。 */
+:root #root [data-slot="card-header"]:has([data-slot="tabs-trigger"][id$="-trigger-qx"]) {
+  flex-wrap: wrap;
+  min-width: 0;
+}
+:root #root [data-slot="card-header"]:has([data-slot="tabs-trigger"][id$="-trigger-qx"]) > div:first-child {
+  flex: 1 1 18rem;
+  min-width: 0;
+}
+:root #root [data-slot="card-header"]:has([data-slot="tabs-trigger"][id$="-trigger-qx"]) > div:has(> [data-slot="tabs"]) {
+  display: flex;
+  flex: 1 1 34rem;
+  flex-wrap: wrap;
+  min-width: 0;
+  max-width: 100%;
+  gap: 8px;
+}
+:root #root [data-slot="card-header"]:has([data-slot="tabs-trigger"][id$="-trigger-qx"]) > div > [data-slot="tabs"] {
+  flex: 1 1 19rem;
+  min-width: 0;
+  max-width: 100%;
+}
+:root #root [data-slot="card-header"]:has([data-slot="tabs-trigger"][id$="-trigger-qx"]) [data-slot="tabs-list"] {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  flex-wrap: wrap;
+}
+:root #root [data-slot="card-header"]:has([data-slot="tabs-trigger"][id$="-trigger-qx"]) > div:has(> [data-slot="tabs"]) > button {
+  flex: 1 0 auto;
+  min-width: max-content;
+  white-space: nowrap;
+}
+@media (max-width: 639px) {
+  :root #root [data-slot="card-header"]:has([data-slot="tabs-trigger"][id$="-trigger-qx"]) > div:first-child,
+  :root #root [data-slot="card-header"]:has([data-slot="tabs-trigger"][id$="-trigger-qx"]) > div:has(> [data-slot="tabs"]),
+  :root #root [data-slot="card-header"]:has([data-slot="tabs-trigger"][id$="-trigger-qx"]) > div > [data-slot="tabs"] {
+    flex-basis: auto;
+    width: 100%;
+  }
+}
+
+/* 转发链编辑器：区分链路滚动区与服务器池；不改变列表、拖拽或业务配置。 */
+:root body [data-slot="dialog-content"] > .grid[class~="md:grid-cols-[minmax(0,1fr)_280px]"] > .flex:first-child > .overflow-y-auto {
+  box-sizing: border-box;
+  border: 2px solid color-mix(in srgb, var(--primary) 70%, var(--border)) !important;
+  border-radius: 10px !important;
+  padding: 8px;
+  scroll-padding: 8px;
+}
+:root body [data-slot="dialog-content"] > .grid[class~="md:grid-cols-[minmax(0,1fr)_280px]"] > .flex:has(> div > h3) {
+  box-sizing: border-box;
+  border: 2px solid color-mix(in srgb, var(--muted-foreground) 65%, var(--border)) !important;
+  border-radius: 10px !important;
+}
+/* 沿用编辑器原有语义：入口绿、中转灰、出口主题色，底边与顶边同色。 */
+:root body [data-slot="dialog-content"] > .grid[class~="md:grid-cols-[minmax(0,1fr)_280px]"] > .flex:first-child [class~="border-t-[3px]"] {
+  border: 2px solid var(--muted-foreground) !important;
+  border-top-width: 3px !important;
+}
+:root body [data-slot="dialog-content"] > .grid[class~="md:grid-cols-[minmax(0,1fr)_280px]"] > .flex:first-child [class~="border-t-[3px]"].border-t-emerald-500 {
+  border-color: #10b981 !important;
+}
+:root body [data-slot="dialog-content"] > .grid[class~="md:grid-cols-[minmax(0,1fr)_280px]"] > .flex:first-child [class~="border-t-[3px]"].border-t-primary {
+  border-color: var(--primary) !important;
+}
+
 
 /* 手机轻量模式：只调整绘制特效，不隐藏内容、不建立额外合成层。
  * 不处理 SVG / animate-spin，保留加载反馈；不覆盖弹窗定位或拖拽 transform。 */
