@@ -2,7 +2,7 @@
 
 暖金强调色、白金浅色与黑金深色，搭配独立壁纸和轻薄边线。
 
-- [controller.css](controller.css)：主控完整样式，`v2026.10.01-01`。
+- [controller.css](controller.css)：主控完整样式，`v2026.10.01-02`。
 - [tgbot.css](tgbot.css)：TG Bot Mini App 完整样式，`v2026.09.21-02`。
 - [assets/wallpaper.jpg](assets/wallpaper.jpg)：两端共用的背景图。
 
@@ -16,6 +16,7 @@
 
 - `--lumina-wallpaper`：默认使用本目录壁纸的固定提交版本 GitHub Raw 直链，改为 `none` 关闭；换图时同步更新资源版本。
 - `--lumina-content-max-width`：默认 `1440px`，可设置 `1600px` 或 `100%`。
+- `--lumina-content-gutter`：默认 `24px`，控制 640px 及以上的页面两侧内边距。
 - `--lumina-background-attachment`：`fixed` 固定背景，`scroll` 随页面滚动。
 - `--lumina-surface-transparency`：面板背景透明度，默认 `0%`（完全不透明），`100%` 为完全透明；不影响文字、图标和控件本身。
 - `--lumina-card-hover-stripes`：`0` 关闭悬停斜纹，`1` 开启。
@@ -23,7 +24,7 @@
 
 主控全站背景模糊已关闭，包括卡片、顶栏、输入区、浮层和伪元素。调高面板透明度不会重新开启模糊；壁纸、阴影、焦点环、禁用态和弹窗遮罩仍保留。TG Bot Mini App 的独立模糊设置不受影响。
 
-内容限宽兼容新版管理页的页面级 `div.container`：窗口小于最大宽度时充分利用可用空间并保留原生内边距，不再被断点缩成窄列；弹窗与嵌套容器不受这条适配影响。
+内容限宽兼容新版管理页的页面级 `div.container`，不再被断点缩成窄列。窗口宽度达到 `640px` 时，两侧内边距由 `--lumina-content-gutter` 控制，默认各 `24px`；手机保留主控原生间距。最大宽度配置不变，弹窗与嵌套容器不受这条适配影响。
 
 主控登录页沿用 Lumina 壁纸、细边线、柔和阴影和金色主按钮，不使用纸张点阵、粗描边或绿蓝按钮。桌面（`1024px` 及以上）登录框靠右，右侧留白 `7vw`；手机及窄屏居中。登录与 Passkey 按钮保留主次区分，浅色、深色及液态玻璃均有适配。
 

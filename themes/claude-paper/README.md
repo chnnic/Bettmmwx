@@ -2,7 +2,7 @@
 
 受 Claude 界面启发的非官方主控与 TG Bot Mini App 主题。暖米白背景、陶土橙强调色、衬线标题与细边线；深色模式使用暖炭灰。不是 Anthropic 官方产品，不替换主控标识。
 
-- [controller.css](controller.css)：主控完整样式，`v2026.10.01-01`。
+- [controller.css](controller.css)：主控完整样式，`v2026.10.01-02`。
 - [tgbot.css](tgbot.css)：TG Bot Mini App 完整样式，`v2026.10.01-01`；不要与主控文件混用。
 - 独立文件，不依赖 Lumina、PaperMint、远程字体、图片或 JavaScript。
 
@@ -24,6 +24,7 @@
 | 参数 | 默认值 / 用途 |
 | --- | --- |
 | `--claude-content-max-width` | `1440px`；`100%` 不限宽 |
+| `--claude-content-gutter` | `24px`，640px 及以上的页面两侧内边距 |
 | `--claude-card-radius` | `16px`，卡片和弹窗圆角 |
 | `--claude-control-radius` | `9px`，按钮和输入框圆角 |
 | `--claude-light-page` / `--claude-dark-page` | 深浅模式页面底色 |
@@ -37,7 +38,7 @@
 
 顶栏“更多”折叠菜单采用无底色菜单项，悬停与键盘选中使用中性色，不套用陶土橙主按钮背景。
 
-内容限宽兼容新版管理页的页面级 `div.container`：窗口小于最大宽度时充分利用可用空间并保留原生内边距，不再被断点缩成窄列；弹窗与嵌套容器不受这条适配影响。
+内容限宽兼容新版管理页的页面级 `div.container`，不再被断点缩成窄列。窗口宽度达到 `640px` 时，两侧内边距由 `--claude-content-gutter` 控制，默认各 `24px`；手机保留主控原生间距。最大宽度配置不变，弹窗与嵌套容器不受这条适配影响。
 
 ## Mini App 顶部配置
 

@@ -2,7 +2,7 @@
 
 圆角卡片、深色描边、偏移硬阴影与粉彩辅助色。
 
-- [controller.css](controller.css)：主控完整样式，`v2026.10.01-01`。
+- [controller.css](controller.css)：主控完整样式，`v2026.10.01-02`。
 - [tgbot.css](tgbot.css)：TG Bot Mini App 完整样式，`v2026.09.21-01`。
 
 ## 安装
@@ -16,13 +16,14 @@
 主控统一使用 `--paper-*` 变量，Mini App 使用 `--paper-mini-*`，不提供旧变量别名。更新时请完整替换对应 CSS；自行追加的配置也须使用新变量名。
 
 - `--paper-content-max-width`：默认 `1440px`，`100%` 不限宽。
+- `--paper-content-gutter`：默认 `24px`，控制 640px 及以上的页面两侧内边距。
 - `--paper-button-height-reduction`：默认 `4px`，`0px` 恢复原按钮高度。
 - `--paper-effect-scale`：默认 `0.666667`，描边和阴影减少约三分之一。
 - `--paper-premium-watermark-display`：`none` 关闭黑金水印，`block` 开启。
 - `--paper-premium-accent-bg` / `--paper-premium-accent-fg`：黑金选中态配色。
 - `--paper-premium-selection-bg`：黑金文字选区颜色。
 
-内容限宽兼容新版管理页的页面级 `div.container`：窗口小于最大宽度时充分利用可用空间并保留原生内边距，不再被断点缩成窄列；弹窗与嵌套容器不受这条适配影响。
+内容限宽兼容新版管理页的页面级 `div.container`，不再被断点缩成窄列。窗口宽度达到 `640px` 时，两侧内边距由 `--paper-content-gutter` 控制，默认各 `24px`；手机保留主控原生间距。最大宽度配置不变，弹窗与嵌套容器不受这条适配影响。
 
 新版节点管理的表格快捷操作保持单行，保留按钮尺寸与顺序；手机卡片布局不受影响。
 

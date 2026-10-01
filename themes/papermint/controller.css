@@ -1,6 +1,6 @@
 /*
  * MiaoMiaoWuX · PaperMint 薄荷纸境
- * 版本：v2026.10.01-01
+ * 版本：v2026.10.01-02
  * 更新日期：2026-10-01
  * 独立主题：请单独粘贴使用，不要与 Lumina CSS 混用。
  * 视觉语言：清爽白底、学习绿、粉彩辅助色、深色描边、偏移硬阴影。
@@ -11,6 +11,8 @@
 :root {
   /* 页面内容最大宽度：可改为 1360px、1600px；100% 表示不限制。 */
   --paper-content-max-width: 1440px;
+  /* 640px 及以上的页面两侧内边距；手机保留主控原生间距。 */
+  --paper-content-gutter: 24px;
   /* 按钮减高：4px = 桌面 38px / 手机 40px；0px 恢复原高度。 */
   --paper-button-height-reduction: 4px;
   /* 全部描边与阴影比例：1 = 原始，0.666667 = 减少约三分之一。 */
@@ -113,6 +115,15 @@
   width: min(100%, var(--paper-content-max-width)) !important;
   max-width: var(--paper-content-max-width) !important;
   margin-inline: auto;
+}
+
+/* 适度增加页面留白，不缩窄手机内容或改变大屏最大宽度。 */
+@media (min-width: 640px) {
+  #root main.container,
+  #root main[class~="max-w-[1600px]"],
+  #root :is(.min-h-svh, .min-h-dvh).bg-background > div.container.mx-auto {
+    padding-inline: var(--paper-content-gutter) !important;
+  }
 }
 
 /* 黑金主题使用独立金色系，不继承 PaperMint 的绿色交互强调色。 */

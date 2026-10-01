@@ -1,6 +1,6 @@
 /*
  * MiaoMiaoWuX · Claude Paper 陶纸
- * 版本：v2026.10.01-01
+ * 版本：v2026.10.01-02
  * 更新日期：2026-10-01
  * Claude 风格的非官方独立主题：暖纸色、陶土橙、衬线标题、克制的细边线。
  * 整份替换主控自定义 CSS；不要叠加其他主题。不含脚本或远程资源。
@@ -9,6 +9,8 @@
 :root {
   /* 内容最大宽度；100% 取消限宽。 */
   --claude-content-max-width: 1440px;
+  /* 640px 及以上的页面两侧内边距；手机保留主控原生间距。 */
+  --claude-content-gutter: 24px;
   /* 面板与控件圆角，互不影响控件的原生尺寸。 */
   --claude-card-radius: 16px;
   --claude-control-radius: 9px;
@@ -131,6 +133,15 @@ html, body, body *, body::before, body::after, body *::before, body *::after {
   width: min(100%, var(--claude-content-max-width)) !important;
   max-width: var(--claude-content-max-width) !important;
   margin-inline: auto;
+}
+
+/* 适度增加页面留白，不缩窄手机内容或改变大屏最大宽度。 */
+@media (min-width: 640px) {
+  #root main.container,
+  #root main[class~="max-w-[1600px]"],
+  #root :is(.min-h-svh, .min-h-dvh).bg-background > div.container.mx-auto {
+    padding-inline: var(--claude-content-gutter) !important;
+  }
 }
 
 :root body :is(.min-h-svh, .min-h-dvh, .min-h-screen, .h-svh, .h-dvh).bg-background {

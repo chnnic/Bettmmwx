@@ -1,6 +1,6 @@
 /*
  * MiaoMiaoWuX · Lumina 白金 / 黑金
- * 版本：v2026.10.01-01
+ * 版本：v2026.10.01-02
  * 更新日期：2026-10-01
  * 跟随主控现有的 light / dark 外观开关，无需 JavaScript。
  */
@@ -10,6 +10,8 @@
   --lumina-wallpaper: url("https://raw.githubusercontent.com/chnnic/Bettmmwx/90225bdb65067c9ee771c5457b786092132ba49d/themes/lumina/assets/wallpaper.jpg");
   /* 全站内容最大宽度：当前 1440px，可改成 1600px、1360px 等。 */
   --lumina-content-max-width: 1440px;
+  /* 640px 及以上的页面两侧内边距；手机保留主控原生间距。 */
+  --lumina-content-gutter: 24px;
   /* 背景固定开关：fixed = 固定（默认），scroll = 跟随页面滚动。 */
   --lumina-background-attachment: fixed;
   /* 面板背景透明度：0% = 完全不透明，100% = 完全透明；不影响文字。 */
@@ -28,6 +30,15 @@
 #root :is(.min-h-svh, .min-h-dvh).bg-background > div.container.mx-auto {
   width: min(100%, var(--lumina-content-max-width)) !important;
   max-width: var(--lumina-content-max-width) !important;
+}
+
+/* 适度增加页面留白，不缩窄手机内容或改变大屏最大宽度。 */
+@media (min-width: 640px) {
+  #root main.container,
+  #root main[class~="max-w-[1600px]"],
+  #root :is(.min-h-svh, .min-h-dvh).bg-background > div.container.mx-auto {
+    padding-inline: var(--lumina-content-gutter) !important;
+  }
 }
 
 :root,
