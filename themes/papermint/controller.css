@@ -1,6 +1,6 @@
 /*
  * MiaoMiaoWuX · PaperMint 薄荷纸境
- * 版本：v2026.10.01-04
+ * 版本：v2026.10.01-07
  * 更新日期：2026-10-01
  * 独立主题：请单独粘贴使用，不要与 Lumina CSS 混用。
  * 视觉语言：清爽白底、学习绿、粉彩辅助色、深色描边、偏移硬阴影。
@@ -916,6 +916,390 @@ nav .pixel-button:is([aria-current="page"], [data-status="active"]) {
   :root #root .ml-auto:has(> [data-slot="button"] > .bg-green-500):has(> [data-slot="button"] > .bg-red-500)
     > [data-slot="select-trigger"][data-size="sm"] {
     height: max(calc(var(--spacing, 0.25rem) * 9), calc(44px - var(--paper-button-height-reduction))) !important;
+  }
+}
+
+/* 转发管理：名称和操作独占首行，链路使用下一整行；仅命中转发链列表卡片。 */
+:root #root [data-slot="card-content"]:has(> .overflow-x-auto):has(> div > button[title="编辑转发链"]) {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 12px 16px;
+}
+:root #root [data-slot="card-content"]:has(> .overflow-x-auto):has(> div > button[title="编辑转发链"]) > span {
+  grid-column: 1;
+  grid-row: 1;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+:root #root [data-slot="card-content"]:has(> .overflow-x-auto):has(> div > button[title="编辑转发链"]) > div:has(> button[title="编辑转发链"]) {
+  grid-column: 2;
+  grid-row: 1;
+  justify-self: end;
+  flex-wrap: nowrap;
+}
+:root #root [data-slot="card-content"]:has(> .overflow-x-auto):has(> div > button[title="编辑转发链"]) > .overflow-x-auto {
+  grid-column: 1 / -1;
+  grid-row: 2;
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  padding-bottom: 6px;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+}
+
+@media (max-width: 767px) {
+  :root #root [data-slot="card-content"]:has(> .overflow-x-auto):has(> div > button[title="编辑转发链"]) {
+    padding-inline: 12px;
+    column-gap: 8px;
+  }
+  :root #root [data-slot="card-content"]:has(> .overflow-x-auto):has(> div > button[title="编辑转发链"]) > span > .text-lg {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  :root #root [data-slot="card-content"]:has(> .overflow-x-auto):has(> div > button[title="编辑转发链"]) > div:has(> button[title="编辑转发链"]) {
+    gap: 4px;
+  }
+  :root #root [data-slot="card-content"]:has(> .overflow-x-auto):has(> div > button[title="编辑转发链"]) > div:has(> button[title="编辑转发链"]) > button {
+    width: 32px !important;
+    height: 36px !important;
+    min-width: 32px !important;
+    min-height: 36px !important;
+    padding: 0 !important;
+  }
+}
+
+/* 手机二级窗口：留足输入宽度与可滚动内容，不改变桌面布局或隐藏状态。 */
+@media (max-width: 767px) {
+  /* 消除外层和弹窗自身重复的左右留白。 */
+  body .flex.min-h-full:has(> [data-slot="dialog-content"]),
+  body .flex.min-h-full:has(> [data-slot="alert-dialog-content"]) {
+    padding: 8px !important;
+  }
+
+  :root body :is([data-slot="dialog-content"], [data-slot="alert-dialog-content"]) {
+    box-sizing: border-box;
+    width: calc(100vw - 16px) !important;
+    max-width: calc(100vw - 16px) !important;
+    min-width: 0;
+    max-height: calc(100dvh - 16px - env(safe-area-inset-top) - env(safe-area-inset-bottom)) !important;
+    padding: 16px !important;
+    gap: 12px;
+    overflow-y: auto !important;
+    overscroll-behavior-y: contain;
+  }
+
+  :root body [data-slot="dialog-content"]:is([class~="h-[85vh]"], [class~="h-[90vh]"]) {
+    height: calc(100dvh - 16px - env(safe-area-inset-top) - env(safe-area-inset-bottom));
+  }
+
+  :root body [data-slot="dialog-content"].grid {
+    grid-auto-rows: max-content;
+    align-content: start;
+  }
+
+  :root body :is([data-slot="dialog-content"], [data-slot="sheet-content"]) > *,
+  :root body :is([data-slot="dialog-content"], [data-slot="sheet-content"]) form {
+    min-width: 0;
+  }
+
+  :root body :is([data-slot="dialog-header"], [data-slot="sheet-header"],
+    [data-slot="dialog-footer"], [data-slot="sheet-footer"]) {
+    flex-shrink: 0;
+  }
+
+  :root body [data-slot="dialog-header"] {
+    padding-inline-end: 24px;
+    text-align: start;
+  }
+
+  :root body :is([data-slot="dialog-content"], [data-slot="sheet-content"])
+    :is([data-slot="input"], textarea, [data-slot="select-trigger"]) {
+    max-width: 100%;
+    min-width: 0;
+    font-size: 16px;
+  }
+
+  /* 只拆分含表单字段的多列网格，不改 tabs、单选组、表格或图标网格。 */
+  :root body :is([data-slot="dialog-content"], [data-slot="sheet-content"])
+    .grid:is(.grid-cols-2, .grid-cols-3, .grid-cols-4):has(
+      > [data-slot="input"], > textarea, > [data-slot="select-trigger"],
+      > div > [data-slot="input"], > div > textarea, > div > [data-slot="select-trigger"]
+    ) {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+
+  :root body :is([data-slot="dialog-content"], [data-slot="sheet-content"])
+    .grid:is(.grid-cols-2, .grid-cols-3, .grid-cols-4):has(
+      > [data-slot="input"], > textarea, > [data-slot="select-trigger"],
+      > div > [data-slot="input"], > div > textarea, > div > [data-slot="select-trigger"]
+    ) > * {
+    min-width: 0;
+    grid-column: auto !important;
+  }
+
+  /* URI 筛选的标签独占一行，用户搜索与选择各占半行，其余字段整行。 */
+  :root body [data-slot="dialog-content"]
+    > .flex.flex-wrap:has(> input[placeholder="搜索用户…"]):has(> input[placeholder="搜索节点…"]) {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    flex-shrink: 0;
+  }
+
+  :root body [data-slot="dialog-content"]
+    > .flex.flex-wrap:has(> input[placeholder="搜索用户…"]):has(> input[placeholder="搜索节点…"]) > * {
+    width: 100%;
+    min-width: 0;
+    margin-inline: 0;
+  }
+
+  :root body [data-slot="dialog-content"]
+    > .flex.flex-wrap:has(> input[placeholder="搜索用户…"]):has(> input[placeholder="搜索节点…"])
+    > :is(span.font-medium, input[placeholder="搜索节点…"], input[placeholder="搜索节点…"] + span + [data-slot="select-trigger"]) {
+    grid-column: 1 / -1;
+  }
+
+  :root body [data-slot="dialog-content"]:has(input[placeholder="搜索用户…"]):has(input[placeholder="搜索节点…"])
+    > .flex-1.overflow-auto {
+    min-height: min(16rem, 45dvh);
+    flex-shrink: 0;
+  }
+
+  /* 多行文本不压成一两行；代码编辑区在短屏/软键盘下仍可滚动到达。 */
+  :root body :is([data-slot="dialog-content"], [data-slot="sheet-content"]) textarea {
+    min-height: 8rem;
+  }
+
+  :root body :is([data-slot="dialog-content"], [data-slot="sheet-content"])
+    [data-slot="tabs-content"]:has(textarea) {
+    overflow-y: auto;
+  }
+
+  :root body :is([data-slot="dialog-content"], [data-slot="sheet-content"])
+    :is(textarea.flex-1, .flex.flex-col.flex-1:has(> textarea)) {
+    min-height: 12rem;
+    flex-shrink: 0;
+  }
+
+  /* 套餐标签列表单独滚动，不再让上百个标签把节点列表推到很远。 */
+  :root body [data-slot="dialog-content"][class~="xl:max-w-[1400px]"]
+    .space-y-2[class~="lg:overflow-hidden"] > .flex.flex-wrap.gap-1 {
+    max-height: 10rem;
+    overflow-y: auto;
+    flex-shrink: 0;
+    padding: 4px;
+  }
+
+  :root body [data-slot="dialog-content"][class~="xl:max-w-[1400px]"]
+    .space-y-2[class~="lg:overflow-hidden"] > .flex-1.overflow-y-auto {
+    flex: none;
+    height: min(60dvh, 32rem);
+    min-height: min(18rem, 50dvh);
+    max-height: none;
+  }
+
+  /* 模板：展开预览时整窗可滚动，代码区保留高度而不是被压扁。 */
+  :root body [data-slot="dialog-content"]:has([data-slot="collapsible-content"][class~="h-[250px]"])
+    > .flex.flex-1.overflow-hidden {
+    flex: none;
+    min-height: 24rem;
+    height: max(24rem, 55dvh);
+  }
+
+  :root body [data-slot="dialog-content"]
+    [data-slot="collapsible-content"][class~="h-[250px]"] [data-slot="scroll-area"] {
+    flex: 1 1 0;
+    height: auto;
+    min-height: 0;
+  }
+
+  :root body [data-slot="dialog-content"]
+    [data-slot="collapsible-content"][class~="h-[250px]"] [data-slot="card-header"] {
+    flex-shrink: 0;
+  }
+
+  :root body [data-slot="dialog-content"]
+    [data-slot="collapsible-content"][class~="h-[250px]"] [data-slot="card-content"] {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 0;
+    min-height: 0;
+  }
+
+  /* 转发链：链路编辑和服务器池纵向排，分别保留可操作的滚动高度。 */
+  :root body [data-slot="dialog-content"]
+    > .grid[class~="md:grid-cols-[minmax(0,1fr)_280px]"] {
+    flex: none;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  :root body [data-slot="dialog-content"]
+    > .grid[class~="md:grid-cols-[minmax(0,1fr)_280px]"] > .flex {
+    min-width: 0;
+    height: min(32rem, 65dvh);
+    min-height: min(20rem, 55dvh);
+  }
+
+  :root body :is([data-slot="dialog-content"], [data-slot="sheet-content"])
+    [data-slot="radio-group"].flex {
+    flex-wrap: wrap;
+  }
+}
+
+/* 内容空间专项：套餐节点优先分配剩余高度，日志正文不再与附加信息争抢固定屏高。 */
+:root body [data-slot="dialog-content"][class~="xl:max-w-[1400px]"]
+  .space-y-2[class~="lg:overflow-hidden"] > .flex.flex-wrap.gap-1 {
+  flex: 0 0 auto;
+  max-height: clamp(4rem, 16dvh, 8rem);
+  overflow-y: auto;
+  padding: 4px;
+}
+:root body [data-slot="dialog-content"][class~="xl:max-w-[1400px]"]
+  .space-y-2[class~="lg:overflow-hidden"] > :is(.flex.justify-between, p) {
+  flex-shrink: 0;
+}
+
+@media (min-width: 1024px) {
+  :root body [data-slot="dialog-content"][class~="xl:max-w-[1400px]"] {
+    height: calc(100dvh - 32px);
+    max-height: calc(100dvh - 32px) !important;
+    overflow: hidden !important;
+  }
+  :root body [data-slot="dialog-content"][class~="xl:max-w-[1400px]"] > form,
+  :root body [data-slot="dialog-content"][class~="xl:max-w-[1400px]"] > form > .grid {
+    min-height: 0;
+    min-width: 0;
+  }
+  :root body [data-slot="dialog-content"][class~="xl:max-w-[1400px]"]
+    .space-y-2[class~="lg:overflow-hidden"] {
+    min-height: 0;
+    overflow: hidden;
+  }
+  :root body [data-slot="dialog-content"][class~="xl:max-w-[1400px]"]
+    .space-y-2[class~="lg:overflow-hidden"] > .flex-1.overflow-y-auto {
+    flex: 1 1 0;
+    height: auto;
+    min-height: 0;
+    max-height: none;
+  }
+}
+
+@media (max-width: 1023px) {
+  :root body [data-slot="dialog-content"][class~="xl:max-w-[1400px]"] > form,
+  :root body [data-slot="dialog-content"][class~="xl:max-w-[1400px]"] > form > .grid {
+    flex: none;
+    overflow: visible;
+    min-width: 0;
+  }
+  :root body [data-slot="dialog-content"][class~="xl:max-w-[1400px]"] {
+    overflow-y: auto !important;
+  }
+  :root body [data-slot="dialog-content"][class~="xl:max-w-[1400px]"]
+    .space-y-2[class~="lg:overflow-hidden"] > .flex-1.overflow-y-auto {
+    flex: none;
+    height: clamp(20rem, 65dvh, 42rem);
+    min-height: 0;
+    max-height: none;
+  }
+}
+
+/* 套餐手机节点卡片：标题完整显示，倍率/限速/连接数/流量排成两列。 */
+@media (max-width: 767px) {
+  :root body [data-slot="dialog-content"][class~="xl:max-w-[1400px]"]
+    .divide-y > .flex.flex-col:has(> .grow > label) {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
+  }
+  :root body [data-slot="dialog-content"][class~="xl:max-w-[1400px]"]
+    .divide-y > .flex.flex-col:has(> .grow > label) > .cursor-pointer {
+    grid-column: 1 / -1;
+    padding-inline-end: 24px;
+  }
+  :root body [data-slot="dialog-content"][class~="xl:max-w-[1400px]"]
+    .divide-y > .flex.flex-col:has(> .grow > label) > .cursor-pointer > .truncate {
+    flex-basis: 100%;
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+  :root body [data-slot="dialog-content"][class~="xl:max-w-[1400px]"]
+    .divide-y > .flex.flex-col:has(> .grow > label) > .grow {
+    min-width: 0;
+  }
+}
+
+/* 日志管理独有的标签组合，避免影响系统设置和其他满高页面。 */
+:root #root .h-svh:has(> main [role="tab"][id$="-trigger-auto-limit"]):has(> main [role="tab"][id$="-trigger-security"]) {
+  height: auto;
+  min-height: 100dvh;
+}
+:root #root main:has([role="tab"][id$="-trigger-auto-limit"]):has([role="tab"][id$="-trigger-security"])
+  [data-slot="tabs-content"] > [data-slot="card"] {
+  height: auto;
+  overflow: visible;
+}
+:root #root main:has([role="tab"][id$="-trigger-auto-limit"]):has([role="tab"][id$="-trigger-security"])
+  [data-slot="card-content"] {
+  overflow: visible;
+  padding-bottom: 16px;
+}
+:root #root main:has([role="tab"][id$="-trigger-auto-limit"]):has([role="tab"][id$="-trigger-security"])
+  .flex-1:has(> pre.overflow-y-auto) {
+  flex: none;
+  height: clamp(20rem, 60dvh, 56rem);
+  min-height: 0;
+}
+:root #root main:has([role="tab"][id$="-trigger-auto-limit"]):has([role="tab"][id$="-trigger-security"])
+  pre.overflow-y-auto {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+:root #root main:has([role="tab"][id$="-trigger-auto-limit"]):has([role="tab"][id$="-trigger-security"])
+  .overflow-auto:has(table) {
+  flex: none;
+  height: auto;
+  min-height: 12rem;
+  max-height: clamp(16rem, 50dvh, 40rem);
+}
+:root #root main:has([role="tab"][id$="-trigger-auto-limit"]):has([role="tab"][id$="-trigger-security"])
+  div:has(> pre.overflow-y-auto) + .shrink-0 {
+  max-height: 16rem;
+  overflow-y: auto;
+}
+
+/* 规则等纯文本代码输入保留阅读高度；不放大普通描述字段。 */
+:root body :is([data-slot="dialog-content"], [data-slot="sheet-content"])
+  textarea.font-mono:not(.flex-1) {
+  min-height: clamp(16rem, 45dvh, 30rem);
+  resize: vertical;
+}
+/* 模板展开预览：标题以外仍能看到完整段落，正文内部滚动。 */
+:root body [data-slot="dialog-content"]
+  [data-slot="collapsible-content"][class~="h-[250px]"] {
+  height: clamp(18rem, 42dvh, 32rem);
+  flex-shrink: 0;
+}
+
+/* 配置历史与 Mini App CSS 也是代码阅读区，不修改内容或提交行为。 */
+:root #root textarea#tgbot-custom-css {
+  min-height: clamp(16rem, 45dvh, 30rem);
+}
+
+@media (max-width: 767px) {
+  :root body [data-slot="dialog-content"] textarea[class~="min-h-[260px]"] {
+    min-height: clamp(16rem, 45dvh, 30rem) !important;
+  }
+  :root #root main:has([role="tab"][id$="-trigger-auto-limit"]):has([role="tab"][id$="-trigger-security"])
+    [data-slot="card-content"] {
+    padding-inline: 12px;
+  }
+  /* 服务分组/在线/离线筛选栏允许换行，不把整页向右撑出视口。 */
+  :root #root .ml-auto:has(> [data-slot="button"] > .bg-green-500):has(> [data-slot="button"] > .bg-red-500) {
+    max-width: 100%;
+    min-width: 0;
+    flex-wrap: wrap;
   }
 }
 
