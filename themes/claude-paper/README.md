@@ -2,7 +2,7 @@
 
 受 Claude 界面启发的非官方主控与 TG Bot Mini App 主题。暖米白背景、陶土橙强调色、衬线标题与细边线；深色模式使用暖炭灰。不是 Anthropic 官方产品，不替换主控标识。
 
-- [controller.css](controller.css)：主控完整样式，`v2026.10.01-03`。
+- [controller.css](controller.css)：主控完整样式，`v2026.10.01-05`。
 - [tgbot.css](tgbot.css)：TG Bot Mini App 完整样式，`v2026.10.01-01`；不要与主控文件混用。
 - 独立文件，不依赖 Lumina、PaperMint、远程字体、图片或 JavaScript。
 
@@ -40,7 +40,11 @@
 
 内容限宽兼容新版管理页的页面级 `div.container`，不再被断点缩成窄列。窗口宽度达到 `640px` 时，两侧内边距由 `--claude-content-gutter` 控制，默认各 `24px`；手机保留主控原生间距。最大宽度配置不变，弹窗与嵌套容器不受这条适配影响。
 
+服务管理的分组筛选框与相邻在线/离线按钮统一为 36px 高度，保留原有描边、圆角与宽度；其他下拉框不受影响。
+
 ## 手机轻量模式
+
+服务卡片的“自动”等模式菜单默认防误触。第一个 `:root` 顶部的 `--claude-server-mode-pointer-events: none` 禁止鼠标/触屏点击，改为 `auto` 恢复；菜单仍显示当前模式，Agent 与 Xray 配置按钮不受影响。不修改服务器配置；这不是原生 disabled，键盘仍可操作。
 
 宽度不超过 `767px`，或设备为无悬停的粗指针触屏时启用：
 

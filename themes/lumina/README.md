@@ -2,7 +2,7 @@
 
 暖金强调色、白金浅色与黑金深色，搭配独立壁纸和轻薄边线。
 
-- [controller.css](controller.css)：主控完整样式，`v2026.10.01-03`。
+- [controller.css](controller.css)：主控完整样式，`v2026.10.01-04`。
 - [tgbot.css](tgbot.css)：TG Bot Mini App 完整样式，`v2026.09.21-02`。
 - [assets/wallpaper.jpg](assets/wallpaper.jpg)：两端共用的背景图。
 
@@ -37,6 +37,8 @@
 二级窗口的 Xray / 网站管理分页、入站向导、节点导入、套餐按钮及模板预览保留内部安全留白。套餐双栏按可用宽度收缩，导入标签过多时可整体滚动，节点列表保留最小可操作高度；不改变按钮尺寸或业务配置。
 
 ## 手机轻量模式
+
+服务管理分组框与在线/离线按钮统一为 36px 高度，其他下拉框不受影响。服务卡片的“自动”等模式菜单默认防误触：第一个 `:root` 中 `--lumina-server-mode-pointer-events: none` 禁止鼠标/触屏点击，`auto` 恢复。不修改服务器模式，不影响 Agent / Xray 配置；不是原生 disabled，键盘仍可操作。
 
 宽度不超过 `767px`，或设备为无悬停的粗指针触屏时启用：
 

@@ -1,12 +1,14 @@
 /*
  * MiaoMiaoWuX · Lumina 白金 / 黑金
- * 版本：v2026.10.01-03
+ * 版本：v2026.10.01-04
  * 更新日期：2026-10-01
  * 跟随主控现有的 light / dark 外观开关，无需 JavaScript。
  */
 
 /* 分享或更换背景时，只需修改下面这一处图片链接。 */
 :root {
+  /* 服务卡片“自动”等模式菜单：none = 禁止鼠标/触屏点击，auto = 恢复；键盘仍可操作。 */
+  --lumina-server-mode-pointer-events: none;
   --lumina-wallpaper: url("https://raw.githubusercontent.com/chnnic/Bettmmwx/90225bdb65067c9ee771c5457b786092132ba49d/themes/lumina/assets/wallpaper.jpg");
   /* 全站内容最大宽度：当前 1440px，可改成 1600px、1360px 等。 */
   --lumina-content-max-width: 1440px;
@@ -1366,6 +1368,22 @@ body:has(#username):has(#password)
   color: color-mix(in srgb, var(--foreground) 82%, var(--muted-foreground)) !important;
   font-weight: 500 !important;
   text-shadow: 0 1px 2px color-mix(in srgb, var(--background) 72%, transparent) !important;
+}
+
+/* 服务模式菜单防误触：保留状态显示，只拦截鼠标/触屏；不影响 Agent / Xray 配置。 */
+:root #root [data-slot="card-description"]
+  > [data-slot="dropdown-menu-trigger"]:has(> svg.lucide-settings):has(> svg.lucide-chevron-down),
+:root #root [data-slot="card-description"]
+  > [data-slot="dropdown-menu-trigger"]:has(> svg.lucide-settings):has(> svg.lucide-chevron-down) * {
+  pointer-events: var(--lumina-server-mode-pointer-events) !important;
+}
+
+/* 分组筛选与同栏在线/离线按钮等高，其他下拉框尺寸不变。 */
+:root #root .ml-auto:has(> [data-slot="button"] > .bg-green-500):has(> [data-slot="button"] > .bg-red-500)
+  > [data-slot="select-trigger"][data-size="sm"] {
+  height: calc(var(--spacing, 0.25rem) * 9) !important;
+  min-height: 0 !important;
+  flex-shrink: 0;
 }
 
 /* 手机轻量模式：只调整绘制特效，不隐藏内容、不建立额外合成层。

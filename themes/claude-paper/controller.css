@@ -1,12 +1,15 @@
 /*
  * MiaoMiaoWuX · Claude Paper 陶纸
- * 版本：v2026.10.01-03
+ * 版本：v2026.10.01-05
  * 更新日期：2026-10-01
  * Claude 风格的非官方独立主题：暖纸色、陶土橙、衬线标题、克制的细边线。
  * 整份替换主控自定义 CSS；不要叠加其他主题。不含脚本或远程资源。
  */
 
 :root {
+  /* 服务卡片“自动”等模式菜单防误触：none = 禁止鼠标/触屏点击（默认），auto = 恢复。
+   * 仅 CSS 防误触，不修改服务器模式；不等同于原生 disabled，键盘仍可操作。 */
+  --claude-server-mode-pointer-events: none;
   /* 内容最大宽度；100% 取消限宽。 */
   --claude-content-max-width: 1440px;
   /* 640px 及以上的页面两侧内边距；手机保留主控原生间距。 */
@@ -325,6 +328,22 @@ html, body, body *, body::before, body::after, body *::before, body *::after {
   background: var(--card) !important;
   box-shadow: none !important;
   font-weight: 400;
+}
+
+/* 只锁定服务卡片描述区的模式菜单；不依赖当前模式文字，不影响 Agent / Xray 配置。
+ * 同时覆盖子元素，避免内置主题对图标或文字恢复 pointer-events。 */
+:root #root [data-slot="card-description"]
+  > [data-slot="dropdown-menu-trigger"]:has(> svg.lucide-settings):has(> svg.lucide-chevron-down),
+:root #root [data-slot="card-description"]
+  > [data-slot="dropdown-menu-trigger"]:has(> svg.lucide-settings):has(> svg.lucide-chevron-down) * {
+  pointer-events: var(--claude-server-mode-pointer-events) !important;
+}
+
+/* 服务管理分组筛选：与相邻在线/离线 h-9 按钮等高，不放大其他下拉框。 */
+:root #root .ml-auto:has(> [data-slot="button"] > .bg-green-500):has(> [data-slot="button"] > .bg-red-500)
+  > [data-slot="select-trigger"][data-size="sm"] {
+  height: calc(var(--spacing, 0.25rem) * 9) !important;
+  flex-shrink: 0;
 }
 
 :root body :is(input, textarea)::placeholder { color: var(--muted-foreground) !important; opacity: 1; }

@@ -6,9 +6,9 @@ MiaoMiaoWuX 的独立主题与界面扩展集合。每个主题单独维护主�
 
 | 主题 | 主控 CSS | TG Bot Mini App CSS | 说明 |
 | --- | --- | --- | --- |
-| Lumina 白金 / 黑金 | [controller.css](themes/lumina/controller.css) · v2026.10.01-03 | [tgbot.css](themes/lumina/tgbot.css) · v2026.09.21-02 | [安装与配置](themes/lumina/README.md) |
-| PaperMint 薄荷纸境 | [controller.css](themes/papermint/controller.css) · v2026.10.01-03 | [tgbot.css](themes/papermint/tgbot.css) · v2026.09.21-01 | [安装与配置](themes/papermint/README.md) |
-| Claude Paper 陶纸 | [controller.css](themes/claude-paper/controller.css) · v2026.10.01-03 | [tgbot.css](themes/claude-paper/tgbot.css) · v2026.10.01-01 | [安装与配置](themes/claude-paper/README.md) |
+| Lumina 白金 / 黑金 | [controller.css](themes/lumina/controller.css) · v2026.10.01-04 | [tgbot.css](themes/lumina/tgbot.css) · v2026.09.21-02 | [安装与配置](themes/lumina/README.md) |
+| PaperMint 薄荷纸境 | [controller.css](themes/papermint/controller.css) · v2026.10.01-04 | [tgbot.css](themes/papermint/tgbot.css) · v2026.09.21-01 | [安装与配置](themes/papermint/README.md) |
+| Claude Paper 陶纸 | [controller.css](themes/claude-paper/controller.css) · v2026.10.01-05 | [tgbot.css](themes/claude-paper/tgbot.css) · v2026.10.01-01 | [安装与配置](themes/claude-paper/README.md) |
 
 Lumina 使用暖金强调色和可选壁纸；PaperMint 使用圆角、描边、偏移硬阴影和粉彩辅助色；Claude Paper 是受 Claude 界面启发的非官方暖纸色主题，使用陶土橙和衬线标题。各主题兼容浅色与深色。
 
@@ -56,6 +56,8 @@ assets/
 - 主控：限宽、壁纸、描边、阴影、按钮高度、黑金水印及选中色。
 - Mini App：独立的内容限宽、按钮高度、圆角；Lumina 可设置壁纸和模糊，PaperMint 可设置描边/阴影比例，Claude Paper 使用独立的 `--claude-mini-*` 深浅色与本地字体配置。
 - 保留在线、警告、危险操作的语义颜色；开关保留可辨识的左右滑块。
+- 服务卡片“自动”等模式菜单默认禁止鼠标/触屏点击；各主题首个 `:root` 中的 `--*-server-mode-pointer-events` 改为 `auto` 可恢复。不修改服务器配置，键盘仍可操作。
+- 服务管理分组筛选框与相邻状态按钮等高；PaperMint 跟随自己的按钮减高配置与手机断点。
 - 主控已包含套餐编辑、Xray 配置窄屏、探针说明挤压等布局修复。
 - 三套主控主题均兼容新版管理页的页面级 `div.container`，中等窗口充分利用可用宽度，大屏仍遵守各主题的最大宽度配置。
 - 手机/触屏轻量模式减少卡片阴影与常用控件过渡，保留加载反馈和内容；只针对 CSS 绘制开销，尚待浏览器与真机性能复测。

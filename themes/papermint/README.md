@@ -2,7 +2,7 @@
 
 圆角卡片、深色描边、偏移硬阴影与粉彩辅助色。
 
-- [controller.css](controller.css)：主控完整样式，`v2026.10.01-03`。
+- [controller.css](controller.css)：主控完整样式，`v2026.10.01-04`。
 - [tgbot.css](tgbot.css)：TG Bot Mini App 完整样式，`v2026.09.21-01`。
 
 ## 安装
@@ -34,6 +34,8 @@
 同样为 Xray / 网站管理分页、入站向导、节点导入和模板预览补齐安全留白；保留原按钮尺寸、硬阴影与滚动裁切。节点导入的标签过多时可整体滚动，列表保留最小可操作高度。
 
 ## 手机轻量模式
+
+服务管理分组框与在线/离线按钮等高：默认桌面 38px、手机 40px，跟随 `--paper-button-height-reduction`，不低于相邻按钮原生高度。服务卡片的“自动”等模式菜单默认防误触：第一个 `:root` 中 `--paper-server-mode-pointer-events: none` 禁止鼠标/触屏点击，`auto` 恢复。不修改服务器模式，不影响 Agent / Xray 配置；不是原生 disabled，键盘仍可操作。
 
 宽度不超过 `767px`，或设备为无悬停的粗指针触屏时启用：
 
