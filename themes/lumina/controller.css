@@ -1,7 +1,7 @@
 /*
  * MiaoMiaoWuX · Lumina 白金 / 黑金
- * 版本：v2026.09.29-03
- * 更新日期：2026-09-29
+ * 版本：v2026.10.01-01
+ * 更新日期：2026-10-01
  * 跟随主控现有的 light / dark 外观开关，无需 JavaScript。
  */
 
@@ -22,9 +22,10 @@
   --lumina-premium-watermark-display: none;
 }
 
-/* 兼容旧版 container 与新版 max-w-[1600px] 页面外壳。 */
+/* 兼容新版页面外壳直属的 div.container；不扩展到弹窗或嵌套容器。 */
 #root main.container,
-#root main.max-w-\[1600px\] {
+#root main.max-w-\[1600px\],
+#root :is(.min-h-svh, .min-h-dvh).bg-background > div.container.mx-auto {
   width: min(100%, var(--lumina-content-max-width)) !important;
   max-width: var(--lumina-content-max-width) !important;
 }
