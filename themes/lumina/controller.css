@@ -1,6 +1,6 @@
 /*
  * MiaoMiaoWuX · Lumina 白金 / 黑金
- * 版本：v2026.10.01-02
+ * 版本：v2026.10.01-03
  * 更新日期：2026-10-01
  * 跟随主控现有的 light / dark 外观开关，无需 JavaScript。
  */
@@ -12,6 +12,10 @@
   --lumina-content-max-width: 1440px;
   /* 640px 及以上的页面两侧内边距；手机保留主控原生间距。 */
   --lumina-content-gutter: 24px;
+  /* 手机/触屏轻量模式：0s 关闭装饰过渡；不影响加载旋转或弹窗开合。 */
+  --lumina-mobile-motion-duration: 0s;
+  /* 手机卡片阴影；只影响阴影，不改变边框与焦点标识。 */
+  --lumina-mobile-card-shadow: 0 1px 3px rgb(0 0 0 / 12%);
   /* 背景固定开关：fixed = 固定（默认），scroll = 跟随页面滚动。 */
   --lumina-background-attachment: fixed;
   /* 面板背景透明度：0% = 完全不透明，100% = 完全透明；不影响文字。 */
@@ -1362,4 +1366,36 @@ body:has(#username):has(#password)
   color: color-mix(in srgb, var(--foreground) 82%, var(--muted-foreground)) !important;
   font-weight: 500 !important;
   text-shadow: 0 1px 2px color-mix(in srgb, var(--background) 72%, transparent) !important;
+}
+
+/* 手机轻量模式：只调整绘制特效，不隐藏内容、不建立额外合成层。
+ * 不处理 SVG / animate-spin，保留加载反馈；不覆盖弹窗定位或拖拽 transform。 */
+@media (max-width: 767px), (hover: none) and (pointer: coarse) {
+  :root :is(#root, [role="dialog"]) :is(
+    [data-slot="card"], .pixel-card, [data-slot="button"], .pixel-button,
+    [data-slot="input"], [data-slot="textarea"], [data-slot="select-trigger"],
+    [data-slot="tabs-trigger"], [data-slot="sidebar-menu-button"],
+    [data-slot="switch"], [data-slot="switch-thumb"],
+    [data-slot="progress-indicator"]
+  ) {
+    transition-duration: var(--lumina-mobile-motion-duration) !important;
+    transition-delay: 0s !important;
+  }
+
+  :root:root #root :is([data-slot="card"], .pixel-card),
+  :root:root body [role="dialog"] [data-slot="card"] {
+    box-shadow: var(--lumina-mobile-card-shadow) !important;
+    animation: none !important;
+  }
+
+  /* 仅清理液态玻璃卡片装饰，不涉及弹窗/抽屉的开合动画。 */
+  :root.theme-glass [data-slot="card"]::after {
+    display: none !important;
+  }
+
+  :root {
+    --miaomiao-glass-shadow: var(--lumina-mobile-card-shadow) !important;
+    --flat-glass-shadow: var(--lumina-mobile-card-shadow) !important;
+    --liquid-card-shadow: var(--lumina-mobile-card-shadow) !important;
+  }
 }

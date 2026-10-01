@@ -1,6 +1,6 @@
 /*
  * MiaoMiaoWuX · PaperMint 薄荷纸境
- * 版本：v2026.10.01-02
+ * 版本：v2026.10.01-03
  * 更新日期：2026-10-01
  * 独立主题：请单独粘贴使用，不要与 Lumina CSS 混用。
  * 视觉语言：清爽白底、学习绿、粉彩辅助色、深色描边、偏移硬阴影。
@@ -13,6 +13,10 @@
   --paper-content-max-width: 1440px;
   /* 640px 及以上的页面两侧内边距；手机保留主控原生间距。 */
   --paper-content-gutter: 24px;
+  /* 手机/触屏轻量模式：0s 关闭装饰过渡；不影响加载旋转或弹窗开合。 */
+  --paper-mobile-motion-duration: 0s;
+  /* 手机卡片阴影；只影响阴影，不改变边框与焦点标识。 */
+  --paper-mobile-card-shadow: calc(3px * var(--paper-effect-scale)) calc(3px * var(--paper-effect-scale)) 0 var(--paper-ink);
   /* 按钮减高：4px = 桌面 38px / 手机 40px；0px 恢复原高度。 */
   --paper-button-height-reduction: 4px;
   /* 全部描边与阴影比例：1 = 原始，0.666667 = 减少约三分之一。 */
@@ -217,9 +221,11 @@ h3,
     box-shadow 180ms ease;
 }
 
-[data-slot="card"]:hover {
-  transform: translate(-1px, -1px);
-  box-shadow: calc(6px * var(--paper-effect-scale)) calc(6px * var(--paper-effect-scale)) 0 var(--paper-ink), 0 calc(-4px * var(--paper-effect-scale)) 0 rgba(0, 0, 0, 0.05) inset !important;
+@media (hover: hover) and (pointer: fine) {
+  [data-slot="card"]:hover {
+    transform: translate(-1px, -1px);
+    box-shadow: calc(6px * var(--paper-effect-scale)) calc(6px * var(--paper-effect-scale)) 0 var(--paper-ink), 0 calc(-4px * var(--paper-effect-scale)) 0 rgba(0, 0, 0, 0.05) inset !important;
+  }
 }
 
 /* 关闭妙妙屋卡片的悬停斜纹层，保留卡片本体、描边与阴影。 */
@@ -256,10 +262,12 @@ h3,
   content: none !important;
 }
 
-:is([data-slot="button"], .pixel-button):hover:not(:disabled) {
-  filter: saturate(1.08) brightness(1.02);
-  transform: translate(-1px, -1px);
-  box-shadow: var(--paper-shadow) !important;
+@media (hover: hover) and (pointer: fine) {
+  :is([data-slot="button"], .pixel-button):hover:not(:disabled) {
+    filter: saturate(1.08) brightness(1.02);
+    transform: translate(-1px, -1px);
+    box-shadow: var(--paper-shadow) !important;
+  }
 }
 
 :is([data-slot="button"], .pixel-button):active:not(:disabled) {
@@ -458,10 +466,12 @@ nav .pixel-button:is([aria-current="page"], [data-status="active"]) {
     border-color 120ms ease;
 }
 
-[data-slot="sidebar-menu-button"]:hover {
-  border-color: var(--paper-ink);
-  background: var(--paper-blue) !important;
-  transform: translateX(2px);
+@media (hover: hover) and (pointer: fine) {
+  [data-slot="sidebar-menu-button"]:hover {
+    border-color: var(--paper-ink);
+    background: var(--paper-blue) !important;
+    transform: translateX(2px);
+  }
 }
 
 [data-slot="sidebar-menu-button"][data-active="true"] {
@@ -881,6 +891,52 @@ nav .pixel-button:is([aria-current="page"], [data-status="active"]) {
     max-width: calc(100vw - 24px);
     border-width: calc(2px * var(--paper-effect-scale)) !important;
     box-shadow: calc(4px * var(--paper-effect-scale)) calc(4px * var(--paper-effect-scale)) 0 var(--paper-ink) !important;
+  }
+}
+
+/* 手机轻量模式：只调整绘制特效，不隐藏内容、不建立额外合成层。
+ * 不处理 SVG / animate-spin，保留加载反馈；不覆盖弹窗定位或拖拽 transform。 */
+@media (max-width: 767px), (hover: none) and (pointer: coarse) {
+  :root :is(#root, [role="dialog"]) :is(
+    [data-slot="card"], .pixel-card, [data-slot="button"], .pixel-button,
+    [data-slot="input"], [data-slot="textarea"], [data-slot="select-trigger"],
+    [data-slot="tabs-trigger"], [data-slot="sidebar-menu-button"],
+    [data-slot="switch"], [data-slot="switch-thumb"],
+    [data-slot="progress-indicator"]
+  ) {
+    transition-duration: var(--paper-mobile-motion-duration) !important;
+    transition-delay: 0s !important;
+  }
+
+  :root:root #root :is([data-slot="card"], .pixel-card),
+  :root:root body [role="dialog"] [data-slot="card"] {
+    box-shadow: var(--paper-mobile-card-shadow) !important;
+    animation: none !important;
+  }
+
+  /* 仅清理液态玻璃卡片装饰，不涉及弹窗/抽屉的开合动画。 */
+  :root.theme-glass [data-slot="card"]::after {
+    display: none !important;
+  }
+
+  :root body {
+    background-attachment: scroll !important;
+  }
+
+  :root:root #root [data-slot="card"],
+  :root:root body [role="dialog"] [data-slot="card"] {
+    background: var(--card) !important;
+  }
+
+  :root body :is(
+    [data-slot="card"], .pixel-card, header.app-topbar,
+    [data-slot="sidebar-inner"], [data-slot="dialog-overlay"],
+    [data-slot="sheet-overlay"], [data-slot="dialog-content"],
+    [data-slot="sheet-content"], [data-slot="popover-content"],
+    [data-slot="dropdown-menu-content"], [data-slot="select-content"]
+  ) {
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
   }
 }
 

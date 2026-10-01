@@ -1,6 +1,6 @@
 /*
  * MiaoMiaoWuX · Claude Paper 陶纸
- * 版本：v2026.10.01-02
+ * 版本：v2026.10.01-03
  * 更新日期：2026-10-01
  * Claude 风格的非官方独立主题：暖纸色、陶土橙、衬线标题、克制的细边线。
  * 整份替换主控自定义 CSS；不要叠加其他主题。不含脚本或远程资源。
@@ -11,6 +11,10 @@
   --claude-content-max-width: 1440px;
   /* 640px 及以上的页面两侧内边距；手机保留主控原生间距。 */
   --claude-content-gutter: 24px;
+  /* 手机/触屏轻量模式：0s 关闭装饰过渡；不影响加载旋转或弹窗开合。 */
+  --claude-mobile-motion-duration: 0s;
+  /* 手机卡片阴影；只影响阴影，不改变边框与焦点标识。 */
+  --claude-mobile-card-shadow: none;
   /* 面板与控件圆角，互不影响控件的原生尺寸。 */
   --claude-card-radius: 16px;
   --claude-control-radius: 9px;
@@ -660,6 +664,32 @@ body:has(#username):has(#password) [data-slot="card-title"] { font-family: var(-
   }
 
 
+}
+
+/* 手机轻量模式：只调整绘制特效，不隐藏内容、不建立额外合成层。
+ * 不处理 SVG / animate-spin，保留加载反馈；不覆盖弹窗定位或拖拽 transform。 */
+@media (max-width: 767px), (hover: none) and (pointer: coarse) {
+  :root :is(#root, [role="dialog"]) :is(
+    [data-slot="card"], .pixel-card, [data-slot="button"], .pixel-button,
+    [data-slot="input"], [data-slot="textarea"], [data-slot="select-trigger"],
+    [data-slot="tabs-trigger"], [data-slot="sidebar-menu-button"],
+    [data-slot="switch"], [data-slot="switch-thumb"],
+    [data-slot="progress-indicator"]
+  ) {
+    transition-duration: var(--claude-mobile-motion-duration) !important;
+    transition-delay: 0s !important;
+  }
+
+  :root:root #root :is([data-slot="card"], .pixel-card),
+  :root:root body [role="dialog"] [data-slot="card"] {
+    box-shadow: var(--claude-mobile-card-shadow) !important;
+    animation: none !important;
+  }
+
+  /* 仅清理液态玻璃卡片装饰，不涉及弹窗/抽屉的开合动画。 */
+  :root.theme-glass [data-slot="card"]::after {
+    display: none !important;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
