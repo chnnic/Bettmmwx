@@ -6,9 +6,9 @@ MiaoMiaoWuX 的独立主题与界面扩展集合。每个主题单独维护主�
 
 | 主题 | 主控 CSS | TG Bot Mini App CSS | 说明 |
 | --- | --- | --- | --- |
-| Lumina 白金 / 黑金 | [controller.css](themes/lumina/controller.css) · v2026.10.01-11 | [tgbot.css](themes/lumina/tgbot.css) · v2026.09.21-02 | [安装与配置](themes/lumina/README.md) |
-| PaperMint 薄荷纸境 | [controller.css](themes/papermint/controller.css) · v2026.10.01-11 | [tgbot.css](themes/papermint/tgbot.css) · v2026.09.21-01 | [安装与配置](themes/papermint/README.md) |
-| Claude Paper 陶纸 | [controller.css](themes/claude-paper/controller.css) · v2026.10.01-12 | [tgbot.css](themes/claude-paper/tgbot.css) · v2026.10.01-01 | [安装与配置](themes/claude-paper/README.md) |
+| Lumina 白金 / 黑金 | [controller.css](themes/lumina/controller.css) · v2026.10.02-01 | [tgbot.css](themes/lumina/tgbot.css) · v2026.09.21-02 | [安装与配置](themes/lumina/README.md) |
+| PaperMint 薄荷纸境 | [controller.css](themes/papermint/controller.css) · v2026.10.02-01 | [tgbot.css](themes/papermint/tgbot.css) · v2026.09.21-01 | [安装与配置](themes/papermint/README.md) |
+| Claude Paper 陶纸 | [controller.css](themes/claude-paper/controller.css) · v2026.10.02-01 | [tgbot.css](themes/claude-paper/tgbot.css) · v2026.10.01-01 | [安装与配置](themes/claude-paper/README.md) |
 
 Lumina 使用暖金强调色和可选壁纸；PaperMint 使用圆角、描边、偏移硬阴影和粉彩辅助色；Claude Paper 是受 Claude 界面启发的非官方暖纸色主题，使用陶土橙和衬线标题。各主题兼容浅色与深色。
 
@@ -37,6 +37,8 @@ assets/
 ```
 
 ## 安装
+
+主控自定义 CSS 上限为 65,536 个 UTF-8 字节（包含中文注释、换行和空格），不是字符数。三套主控文件已保留顶部配置格式并压缩其余正文：陶纸 39,099 字节、Lumina 52,953 字节、PaperMint 42,227 字节。后续修改建议控制在 65,000 字节以内；可用 `wc -c themes/*/controller.css` 检查。
 
 先备份对应输入框里的旧 CSS，再打开需要的文件，点击 GitHub **Raw**，复制完整内容。
 
