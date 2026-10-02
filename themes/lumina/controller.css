@@ -1,6 +1,6 @@
 /*
  * MiaoMiaoWuX · Lumina 白金 / 黑金
- * 版本：v2026.10.02-04
+ * 版本：v2026.10.02-05
  * 更新日期：2026-10-02
  * 容量控制：保留顶部配置格式，其余按顶层规则压缩；完整文件按 UTF-8 字节计量。
  * 跟随主控现有的 light / dark 外观开关，无需 JavaScript。
@@ -196,6 +196,7 @@ body:has(#username):has(#password) #root [class~="top-4"][class~="right-4"] butt
 :root #root [data-slot="card-description"]:has(>[data-slot="dropdown-menu-trigger"]>svg.lucide-settings)>[data-slot="dropdown-menu-trigger"]:has(>svg.lucide-settings):has(>svg.lucide-chevron-down)+span>svg.lucide-wifi{display:none!important}
 @media (max-width:359px){:root #root [data-slot="card-description"]:has(>[data-slot="dropdown-menu-trigger"]>svg.lucide-settings){column-gap:4px!important}:root #root [data-slot="card-description"]>[data-slot="dropdown-menu-trigger"]:has(+span>svg.lucide-wifi)>svg.lucide-settings{display:none!important}}
 :root #root .ml-auto:has(>[data-slot="button"]>.bg-green-500):has(>[data-slot="button"]>.bg-red-500)>[data-slot="select-trigger"][data-size="sm"]{height:calc(var(--spacing, 0.25rem)*9)!important;min-height:0!important;flex-shrink:0}
+@media (max-width:767px){:root #root main>.container.mx-auto.p-6:has(>.space-y-4>.flex>h2){box-sizing:border-box;width:100%;max-width:none;min-width:0;padding-inline:0!important}}
 :root #root [data-slot="card-content"]:has(>.overflow-x-auto):has(>div>button[title="编辑转发链"]){display:grid!important;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:12px 16px}
 :root #root [data-slot="card-content"]:has(>.overflow-x-auto):has(>div>button[title="编辑转发链"])>span{grid-column:1;grid-row:1;min-width:0;overflow-wrap:anywhere}
 :root #root [data-slot="card-content"]:has(>.overflow-x-auto):has(>div>button[title="编辑转发链"])>div:has(>button[title="编辑转发链"]){grid-column:2;grid-row:1;justify-self:end;flex-wrap:nowrap}

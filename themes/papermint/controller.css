@@ -1,6 +1,6 @@
 /*
  * MiaoMiaoWuX · PaperMint 薄荷纸境
- * 版本：v2026.10.02-04
+ * 版本：v2026.10.02-05
  * 更新日期：2026-10-02
  * 容量控制：保留顶部配置格式，其余按顶层规则压缩；完整文件按 UTF-8 字节计量。
  * 独立主题：请单独粘贴使用，不要与 Lumina CSS 混用。
@@ -182,6 +182,7 @@ nav .pixel-button:is([aria-current="page"],[data-status="active"]){color:var(--p
 @media (max-width:359px){:root #root [data-slot="card-description"]:has(>[data-slot="dropdown-menu-trigger"]>svg.lucide-settings){column-gap:4px!important}:root #root [data-slot="card-description"]>[data-slot="dropdown-menu-trigger"]:has(+span>svg.lucide-wifi)>svg.lucide-settings{display:none!important}}
 :root #root .ml-auto:has(>[data-slot="button"]>.bg-green-500):has(>[data-slot="button"]>.bg-red-500)>[data-slot="select-trigger"][data-size="sm"]{height:max(calc(var(--spacing, 0.25rem)*9),calc(42px - var(--paper-button-height-reduction)))!important;min-height:0!important;flex-shrink:0}
 @media (max-width:640px){:root #root .ml-auto:has(>[data-slot="button"]>.bg-green-500):has(>[data-slot="button"]>.bg-red-500)>[data-slot="select-trigger"][data-size="sm"]{height:max(calc(var(--spacing, 0.25rem)*9),calc(44px - var(--paper-button-height-reduction)))!important}}
+@media (max-width:767px){:root #root main>.container.mx-auto.p-6:has(>.space-y-4>.flex>h2){box-sizing:border-box;width:100%;max-width:none;min-width:0;padding-inline:0!important}}
 :root #root [data-slot="card-content"]:has(>.overflow-x-auto):has(>div>button[title="编辑转发链"]){display:grid!important;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:12px 16px}
 :root #root [data-slot="card-content"]:has(>.overflow-x-auto):has(>div>button[title="编辑转发链"])>span{grid-column:1;grid-row:1;min-width:0;overflow-wrap:anywhere}
 :root #root [data-slot="card-content"]:has(>.overflow-x-auto):has(>div>button[title="编辑转发链"])>div:has(>button[title="编辑转发链"]){grid-column:2;grid-row:1;justify-self:end;flex-wrap:nowrap}

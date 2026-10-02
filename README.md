@@ -4,15 +4,17 @@ MiaoMiaoWuX 的独立主题与界面扩展集合。每个主题单独维护主�
 
 ## 主题
 
+手机转发链页面宽度与节点管理一致：767px 以下移除内层容器多余的两侧留白，保留卡片内边距和链路横向滚动；桌面布局不变。
+
 转发链入口域名行与 IPv6 前缀行保留至少 88px 前缀输入宽度，长域名在右侧省略显示，下拉菜单保留完整选项；不修改实际域名或转发配置。
 
 手机转发链表单中，名称全宽单独一行，端口范围与转发引擎并排下一行；桌面沿用原有布局。
 
 | 主题 | 主控 CSS | TG Bot Mini App CSS | 说明 |
 | --- | --- | --- | --- |
-| Lumina 白金 / 黑金 | [controller.css](themes/lumina/controller.css) · v2026.10.02-04 | [tgbot.css](themes/lumina/tgbot.css) · v2026.09.21-02 | [安装与配置](themes/lumina/README.md) |
-| PaperMint 薄荷纸境 | [controller.css](themes/papermint/controller.css) · v2026.10.02-04 | [tgbot.css](themes/papermint/tgbot.css) · v2026.09.21-01 | [安装与配置](themes/papermint/README.md) |
-| Claude Paper 陶纸 | [controller.css](themes/claude-paper/controller.css) · v2026.10.02-04 | [tgbot.css](themes/claude-paper/tgbot.css) · v2026.10.01-01 | [安装与配置](themes/claude-paper/README.md) |
+| Lumina 白金 / 黑金 | [controller.css](themes/lumina/controller.css) · v2026.10.02-05 | [tgbot.css](themes/lumina/tgbot.css) · v2026.09.21-02 | [安装与配置](themes/lumina/README.md) |
+| PaperMint 薄荷纸境 | [controller.css](themes/papermint/controller.css) · v2026.10.02-05 | [tgbot.css](themes/papermint/tgbot.css) · v2026.09.21-01 | [安装与配置](themes/papermint/README.md) |
+| Claude Paper 陶纸 | [controller.css](themes/claude-paper/controller.css) · v2026.10.02-05 | [tgbot.css](themes/claude-paper/tgbot.css) · v2026.10.01-01 | [安装与配置](themes/claude-paper/README.md) |
 
 三套主控样式已合并服务卡片的“模式 / WS”外观，并让信息行保持单行。模式防误触开关继续有效，未修改连接模式、真实状态或菜单选项。
 
@@ -44,7 +46,7 @@ assets/
 
 ## 安装
 
-主控自定义 CSS 上限为 65,536 个 UTF-8 字节（包含中文注释、换行和空格），不是字符数。三套主控文件已保留顶部配置格式并压缩其余正文：陶纸 46,566 字节、Lumina 60,420 字节、PaperMint 49,694 字节。后续修改建议控制在 65,000 字节以内；可用 `wc -c themes/*/controller.css` 检查。
+主控自定义 CSS 上限为 65,536 个 UTF-8 字节（包含中文注释、换行和空格），不是字符数。三套主控文件已保留顶部配置格式并压缩其余正文：陶纸 46,746 字节、Lumina 60,600 字节、PaperMint 49,874 字节。后续修改建议控制在 65,000 字节以内；可用 `wc -c themes/*/controller.css` 检查。
 
 先备份对应输入框里的旧 CSS，再打开需要的文件，点击 GitHub **Raw**，复制完整内容。
 

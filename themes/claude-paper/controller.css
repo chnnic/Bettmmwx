@@ -1,6 +1,6 @@
 /*
  * MiaoMiaoWuX · Claude Paper 陶纸
- * 版本：v2026.10.02-04
+ * 版本：v2026.10.02-05
  * 更新日期：2026-10-02
  * 容量控制：保留顶部配置格式，其余按顶层规则压缩；完整文件按 UTF-8 字节计量。
  * Claude 风格的非官方独立主题：暖纸色、陶土橙、衬线标题、克制的细边线。
@@ -145,6 +145,7 @@ body:has(#username):has(#password) [data-slot="card-title"]{font-family:var(--cl
 :is([data-slot="dialog-content"][class~="w-[50vw]"][class~="h-[85vh]"],[data-slot="sheet-content"][class~="h-[100dvh]"][class~="max-w-none"]) .mb-3.flex.flex-wrap.items-center>[data-slot="badge"]{max-width:100%;white-space:normal;overflow-wrap:anywhere;text-align:start}
 :is([data-slot="dialog-content"][class~="w-[50vw]"][class~="h-[85vh]"],[data-slot="sheet-content"][class~="h-[100dvh]"][class~="max-w-none"]) .mb-3.flex.flex-wrap.items-center>.flex.items-center.gap-2{min-width:0;max-width:100%;flex-wrap:wrap}
 @media (max-width:640px){#root [data-slot="card-content"].p-3:has(.line-clamp-2.break-all)>.flex.items-start.justify-between{flex-direction:column;align-items:stretch}#root [data-slot="card-content"].p-3:has(.line-clamp-2.break-all)>.flex.items-start.justify-between>.min-w-0.flex-1{flex:none;width:100%}#root [data-slot="card-content"].p-3:has(.line-clamp-2.break-all)>.flex.items-start.justify-between>.flex.shrink-0{flex-wrap:wrap;max-width:100%;row-gap:8px}#root [data-slot="card-content"].p-3 .line-clamp-2.break-all{display:block;-webkit-line-clamp:unset;overflow:visible;overflow-wrap:anywhere;word-break:normal}#root [data-slot="card-content"].p-3 .line-clamp-2.break-all+.truncate{white-space:normal;overflow-wrap:anywhere}}
+@media (max-width:767px){:root #root main>.container.mx-auto.p-6:has(>.space-y-4>.flex>h2){box-sizing:border-box;width:100%;max-width:none;min-width:0;padding-inline:0!important}}
 :root #root [data-slot="card-content"]:has(>.overflow-x-auto):has(>div>button[title="编辑转发链"]){display:grid!important;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:12px 16px}
 :root #root [data-slot="card-content"]:has(>.overflow-x-auto):has(>div>button[title="编辑转发链"])>span{grid-column:1;grid-row:1;min-width:0;overflow-wrap:anywhere}
 :root #root [data-slot="card-content"]:has(>.overflow-x-auto):has(>div>button[title="编辑转发链"])>div:has(>button[title="编辑转发链"]){grid-column:2;grid-row:1;justify-self:end;flex-wrap:nowrap}
