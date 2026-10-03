@@ -4,9 +4,9 @@ MiaoMiaoWuX 的独立主题与界面扩展集合。每个主题单独维护主�
 
 ## 主题
 
-本版修复手机链设置、组设置及服务器列表的滚动边界：内部滚动到顶部或底部后，可继续滑动整页，不再必须从画布区域起手。三套主题 390px 触摸模拟通过，iPhone 真机仍需复测。双指平移画布需要主控前端识别触点数量，目前纯 CSS 未实现。
+本版改进手机转发链画布：画布高度随屏幕计算，常见手机首屏可同时看到服务器池、整条链和缩放按钮；画布底部新增“按住此栏拖动画布”平移栏，空白画布仍用于滑动页面。连接点与“移出该组”按钮扩大触控范围，缩放按钮跟随深浅色主题，转发链列表标题在窄屏不再竖排。顶部 `--*-mobile-canvas-pan-strip` 为 `flex` 显示平移栏（默认），`none` 隐藏。桌面布局不变；iPhone 真机仍需复测，双指缩放画布需要主控前端支持。
 
-v2026.10.02-09：手机转发画布改为上下三块，默认在空白画布上滑动页面可到达下方设置；节点拖动、编辑和缩放保留。顶部 `--*-mobile-canvas-pan-pointer-events` 默认为 `none`，改为 `auto` 恢复空白画布拖动。手机服务管理四个辅助按钮恢复两列两行，适配新版按钮包装层。桌面布局不变；本次只更新三套主控 CSS，TG Bot 文件不变。
+v2026.10.03-01：手机转发画布改为上下三块，默认在空白画布上滑动页面可到达下方设置；节点拖动、编辑和缩放保留。顶部 `--*-mobile-canvas-pan-pointer-events` 默认为 `none`，改为 `auto` 恢复空白画布拖动。手机服务管理四个辅助按钮恢复两列两行，适配新版按钮包装层。桌面布局不变；本次只更新三套主控 CSS，TG Bot 文件不变。
 
 手机转发链页面宽度与节点管理一致：767px 以下移除内层容器多余的两侧留白，保留卡片内边距和链路横向滚动；桌面布局不变。
 
@@ -16,9 +16,9 @@ v2026.10.02-09：手机转发画布改为上下三块，默认在空白画布上
 
 | 主题 | 主控 CSS | TG Bot Mini App CSS | 说明 |
 | --- | --- | --- | --- |
-| Lumina 白金 / 黑金 | [controller.css](themes/lumina/controller.css) · v2026.10.02-09 | [tgbot.css](themes/lumina/tgbot.css) · v2026.09.21-02 | [安装与配置](themes/lumina/README.md) |
-| PaperMint 薄荷纸境 | [controller.css](themes/papermint/controller.css) · v2026.10.02-09 | [tgbot.css](themes/papermint/tgbot.css) · v2026.09.21-01 | [安装与配置](themes/papermint/README.md) |
-| Claude Paper 陶纸 | [controller.css](themes/claude-paper/controller.css) · v2026.10.02-09 | [tgbot.css](themes/claude-paper/tgbot.css) · v2026.10.01-01 | [安装与配置](themes/claude-paper/README.md) |
+| Lumina 白金 / 黑金 | [controller.css](themes/lumina/controller.css) · v2026.10.03-01 | [tgbot.css](themes/lumina/tgbot.css) · v2026.09.21-02 | [安装与配置](themes/lumina/README.md) |
+| PaperMint 薄荷纸境 | [controller.css](themes/papermint/controller.css) · v2026.10.03-01 | [tgbot.css](themes/papermint/tgbot.css) · v2026.09.21-01 | [安装与配置](themes/papermint/README.md) |
+| Claude Paper 陶纸 | [controller.css](themes/claude-paper/controller.css) · v2026.10.03-01 | [tgbot.css](themes/claude-paper/tgbot.css) · v2026.10.01-01 | [安装与配置](themes/claude-paper/README.md) |
 
 三套主控样式已合并服务卡片的“模式 / WS”外观，并让信息行保持单行。模式防误触开关继续有效，未修改连接模式、真实状态或菜单选项。
 
@@ -50,7 +50,7 @@ assets/
 
 ## 安装
 
-主控自定义 CSS 上限为 65,536 个 UTF-8 字节（包含中文注释、换行和空格），不是字符数。三套主控文件已保留顶部配置格式并压缩其余正文：陶纸 50,635 字节、Lumina 64,489 字节、PaperMint 53,761 字节。后续修改建议控制在 65,000 字节以内；可用 `wc -c themes/*/controller.css` 检查。
+主控自定义 CSS 上限为 65,536 个 UTF-8 字节（包含中文注释、换行和空格），不是字符数。三套主控文件已保留顶部配置格式并压缩其余正文：陶纸 51,785 字节、Lumina 64,645 字节、PaperMint 54,909 字节。后续修改建议控制在 65,000 字节以内；可用 `wc -c themes/*/controller.css` 检查。
 
 先备份对应输入框里的旧 CSS，再打开需要的文件，点击 GitHub **Raw**，复制完整内容。
 
