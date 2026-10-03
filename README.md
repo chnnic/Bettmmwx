@@ -2,9 +2,45 @@
 
 MiaoMiaoWuX 的独立主题与界面扩展集合。每个主题单独维护主控 CSS、TG Bot Mini App CSS、使用说明和资源，不混用不同端的样式。
 
+## 预览
+
+> 截图使用模拟数据：节点与链路名称为演示用名称，IP 使用 RFC 5737 / RFC 3849 文档地址段，流量与延迟为随机数值，不含任何真实服务器信息。
+
+### Lumina 白金 / 黑金
+
+| 桌面 · 首页（浅色） | 桌面 · 首页（深色） |
+| --- | --- |
+| ![Lumina 白金 / 黑金 首页浅色](themes/lumina/screenshots/home-light.jpg) | ![Lumina 白金 / 黑金 首页深色](themes/lumina/screenshots/home-dark.jpg) |
+
+![Lumina 白金 / 黑金 转发链画布与 iperf3 面板](themes/lumina/screenshots/forward-canvas.jpg)
+
+<p><img src="themes/lumina/screenshots/servers-mobile.jpg" alt="Lumina 白金 / 黑金 手机服务管理" width="300"> <img src="themes/lumina/screenshots/forward-mobile.jpg" alt="Lumina 白金 / 黑金 手机转发链" width="300"></p>
+
+### PaperMint 薄荷纸境
+
+| 桌面 · 首页（浅色） | 桌面 · 首页（深色） |
+| --- | --- |
+| ![PaperMint 薄荷纸境 首页浅色](themes/papermint/screenshots/home-light.jpg) | ![PaperMint 薄荷纸境 首页深色](themes/papermint/screenshots/home-dark.jpg) |
+
+![PaperMint 薄荷纸境 转发链画布与 iperf3 面板](themes/papermint/screenshots/forward-canvas.jpg)
+
+<p><img src="themes/papermint/screenshots/servers-mobile.jpg" alt="PaperMint 薄荷纸境 手机服务管理" width="300"> <img src="themes/papermint/screenshots/forward-mobile.jpg" alt="PaperMint 薄荷纸境 手机转发链" width="300"></p>
+
+### Claude Paper 陶纸
+
+| 桌面 · 首页（浅色） | 桌面 · 首页（深色） |
+| --- | --- |
+| ![Claude Paper 陶纸 首页浅色](themes/claude-paper/screenshots/home-light.jpg) | ![Claude Paper 陶纸 首页深色](themes/claude-paper/screenshots/home-dark.jpg) |
+
+![Claude Paper 陶纸 转发链画布与 iperf3 面板](themes/claude-paper/screenshots/forward-canvas.jpg)
+
+<p><img src="themes/claude-paper/screenshots/servers-mobile.jpg" alt="Claude Paper 陶纸 手机服务管理" width="300"> <img src="themes/claude-paper/screenshots/forward-mobile.jpg" alt="Claude Paper 陶纸 手机转发链" width="300"></p>
+
 ## 主题
 
-本版 v2026.10.03-03：转发链“延迟探测”的逐跳结果、端到端路径和“iperf3 测速”历史结果中，长链路名称改为自动换行完整显示，不再省略；“最优 / #N”徽标保持横排。
+本版 v2026.10.03-04：手机转发链卡片中新增的“画布编排”入口与编辑、服务器、删除按钮统一为 32×36px；Lumina 深度精简至 63,731 字节（等价写法与常量复用），逐元素计算样式比对 16 个页面快照、浅色 / 深色均无差异。
+
+v2026.10.03-03：转发链“延迟探测”的逐跳结果、端到端路径和“iperf3 测速”历史结果中，长链路名称改为自动换行完整显示，不再省略；“最优 / #N”徽标保持横排。
 
 v2026.10.03-02 改进桌面与手机易用性：手机图标按钮放大到 34px，复选框、开关、“解锁”图标和“点击…”文字按钮扩大触控范围；覆盖主控 PRO 模式缩小的顶部导航（13px）和首页卡片说明（12px）字号，10px 小字提到 11px；浅色模式加深证书“有效”徽标及绿色、琥珀、青色小字，Lumina、PaperMint 金色小标签改用深金色。按钮外观与业务操作不变；iPhone 真机仍需复测。
 
@@ -20,9 +56,9 @@ v2026.10.03-02：手机转发画布改为上下三块，默认在空白画布上
 
 | 主题 | 主控 CSS | TG Bot Mini App CSS | 说明 |
 | --- | --- | --- | --- |
-| Lumina 白金 / 黑金 | [controller.css](themes/lumina/controller.css) · v2026.10.03-03 | [tgbot.css](themes/lumina/tgbot.css) · v2026.09.21-02 | [安装与配置](themes/lumina/README.md) |
-| PaperMint 薄荷纸境 | [controller.css](themes/papermint/controller.css) · v2026.10.03-03 | [tgbot.css](themes/papermint/tgbot.css) · v2026.09.21-01 | [安装与配置](themes/papermint/README.md) |
-| Claude Paper 陶纸 | [controller.css](themes/claude-paper/controller.css) · v2026.10.03-03 | [tgbot.css](themes/claude-paper/tgbot.css) · v2026.10.01-01 | [安装与配置](themes/claude-paper/README.md) |
+| Lumina 白金 / 黑金 | [controller.css](themes/lumina/controller.css) · v2026.10.03-04 | [tgbot.css](themes/lumina/tgbot.css) · v2026.09.21-02 | [安装与配置](themes/lumina/README.md) |
+| PaperMint 薄荷纸境 | [controller.css](themes/papermint/controller.css) · v2026.10.03-04 | [tgbot.css](themes/papermint/tgbot.css) · v2026.09.21-01 | [安装与配置](themes/papermint/README.md) |
+| Claude Paper 陶纸 | [controller.css](themes/claude-paper/controller.css) · v2026.10.03-04 | [tgbot.css](themes/claude-paper/tgbot.css) · v2026.10.01-01 | [安装与配置](themes/claude-paper/README.md) |
 
 三套主控样式已合并服务卡片的“模式 / WS”外观，并让信息行保持单行。模式防误触开关继续有效，未修改连接模式、真实状态或菜单选项。
 
@@ -37,6 +73,7 @@ themes/
 │   ├── README.md
 │   ├── controller.css         # 主控
 │   ├── tgbot.css              # Telegram Mini App
+│   ├── screenshots/           # 模拟数据截图
 │   └── assets/wallpaper.jpg
 ├── papermint/
 │   ├── README.md
@@ -54,7 +91,7 @@ assets/
 
 ## 安装
 
-主控自定义 CSS 上限为 65,536 个 UTF-8 字节（包含中文注释、换行和空格），不是字符数。三套主控文件已保留顶部配置格式并压缩其余正文：陶纸 53,196 字节、Lumina 64,809 字节、PaperMint 56,403 字节。后续修改建议控制在 65,000 字节以内；可用 `wc -c themes/*/controller.css` 检查。
+主控自定义 CSS 上限为 65,536 个 UTF-8 字节（包含中文注释、换行和空格），不是字符数。三套主控文件已保留顶部配置格式并压缩其余正文：陶纸 53,203 字节、Lumina 63,731 字节、PaperMint 56,410 字节。后续修改建议控制在 65,000 字节以内；可用 `wc -c themes/*/controller.css` 检查。
 
 先备份对应输入框里的旧 CSS，再打开需要的文件，点击 GitHub **Raw**，复制完整内容。
 
