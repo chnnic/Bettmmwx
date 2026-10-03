@@ -1,6 +1,6 @@
 /*
  * MiaoMiaoWuX · Claude Paper 陶纸
- * 版本：v2026.10.04-02
+ * 版本：v2026.10.04-03
  * 更新日期：2026-10-04
  * 容量控制：保留顶部配置格式，其余按顶层规则压缩；完整文件按 UTF-8 字节计量。
  * Claude 风格的非官方独立主题：暖纸色、陶土橙、衬线标题、克制的细边线。
@@ -217,5 +217,7 @@ body:has(#username):has(#password) [data-slot="card-title"]{font-family:var(--cl
 [data-slot=card-content]:has([title="编辑转发链"]) .overflow-x-auto>.border{border-radius:10px;border-width:1.5px;padding:8px 12px}[data-slot=card-content]:has([title="编辑转发链"]) .overflow-x-auto>.border:has(.text-amber-600,.text-red-600){border-color:var(--fw)}[data-slot=card-content]:has([title="编辑转发链"]) .overflow-x-auto>.border>.mb-1:first-child{font-size:11px;font-weight:600;letter-spacing:.06em;color:var(--foreground)}
 [data-slot=card-content]:has([title="编辑转发链"]) .overflow-x-auto>div:not(.border){min-width:64px;gap:6px;padding-inline:6px}[data-slot=card-content]:has([title="编辑转发链"]) .overflow-x-auto>div:not(.border)>svg{display:none}[data-slot=card-content]:has([title="编辑转发链"]) .overflow-x-auto>div:not(.border)>span{font-size:11px;font-weight:600}[data-slot=card-content]:has([title="编辑转发链"]) .overflow-x-auto>div:not(.border)::after{content:"";align-self:stretch;height:3px;border-radius:3px;background:var(--fw,var(--border))}
 [data-slot=card-content]:has([title="编辑转发链"]) a[title="在画布中编排"]{background:var(--primary)!important;color:var(--primary-foreground)!important;border-color:var(--primary)!important}[data-slot=card-content]:has([title="编辑转发链"]) button:has(>svg.lucide-trash-2){margin-left:8px;color:var(--destructive)!important;border-color:color-mix(in srgb,var(--destructive) 50%,#0000)!important}
+/* 手机转发链纵向路线 */
+@media (max-width:767px){[data-slot=card-content]:has([title="编辑转发链"]) .overflow-x-auto{flex-direction:column;align-items:stretch;gap:0;overflow:visible!important;padding-bottom:0!important}[data-slot=card-content]:has([title="编辑转发链"]) .overflow-x-auto>div:not(.border){flex:none;width:auto;flex-direction:row;justify-content:flex-start;align-items:center;min-width:0;min-height:34px;padding:0 0 0 16px;gap:10px}[data-slot=card-content]:has([title="编辑转发链"]) .overflow-x-auto>div:not(.border)::after{order:-1;flex-shrink:0;width:3px;height:auto;align-self:stretch}[data-slot=card-content]:has([title="编辑转发链"]) .overflow-x-auto>div:not(.border)>span{font-size:12px}}
 /* 减少动画：关闭全站动画与过渡，保留加载转圈；删除本段可恢复 */
 *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.animate-spin{animation:spin 1s linear infinite!important}.sonner-loading-bar{animation:sonner-spin 1.2s linear infinite!important}
