@@ -1,6 +1,6 @@
 /*
  * MiaoMiaoWuX · Lumina 白金 / 黑金
- * 版本：v2026.10.03-02
+ * 版本：v2026.10.03-03
  * 更新日期：2026-10-03
  * 容量控制：保留顶部配置格式，其余按顶层规则压缩；完整文件按 UTF-8 字节计量。
  * 跟随主控现有的 light / dark 外观开关，无需 JavaScript。
@@ -244,3 +244,4 @@ body:has(#username):has(#password) #root [class~=top-4][class~=right-4] button.b
 @media (max-width:767px){#root main .justify-between:has(>h2.text-2xl+.flex.gap-2){flex-wrap:wrap;gap:8px}#root main .justify-between>h2.text-2xl{white-space:nowrap}}
 @media (max-width:767px){#root main :is(button,a).size-7{min-width:34px;min-height:34px}#root :is([title="修改昵称"],[title="拖动排序"]){min-width:32px;min-height:32px}#root main [data-slot=tabs-list].h-9{height:auto}#root main [data-slot=tabs-trigger]{min-height:36px}#root [title*="点击"]:not(.pixel-button){position:relative}#root [title*="点击"]:not(.pixel-button)::after{content:"";position:absolute;inset:-8px}}
 #root :is([data-slot=checkbox],[aria-label^="解锁"]){position:relative}#root :is([data-slot=checkbox],[data-slot=switch],[aria-label^="解锁"])::after{content:"";position:absolute;inset:-8px}#root [data-slot=switch]::after{inset:-8px 0}#root .text-\[10px\]{font-size:11px}:root:root .app-topbar nav [data-nav-item]{font-size:13px}:root:root :is([class*=dashboard-] [data-slot=card-description],.dashboard-range-control [data-slot=button]){font-size:12px}#root [data-slot=badge].bg-green-500{background:#2f7d4f}:root:not(.dark) #root :is(.text-green-600,.text-emerald-600){color:#22703f}:root:not(.dark) #root .text-amber-600{color:#985008}:root:not(.dark) #root .text-cyan-600{color:#0b6577}:root:not(.dark) #root .bg-primary\/10.text-primary{color:var(--accent-foreground)}
+#root main aside :is(.h-7,.border-t.py-1):has(>.truncate){height:auto;min-height:28px;padding-block:4px}#root main aside :is(.h-7,.border-t.py-1)>.truncate{white-space:normal;overflow-wrap:anywhere}#root main aside .h-7>span:first-child:not(.truncate){flex-shrink:0;white-space:nowrap}
