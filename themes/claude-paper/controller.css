@@ -1,6 +1,6 @@
 /*
  * MiaoMiaoWuX · Claude Paper 陶纸
- * 版本：v2026.10.04-05
+ * 版本：v2026.10.04-06
  * 更新日期：2026-10-04
  * 容量控制：保留顶部配置格式，其余按顶层规则压缩；完整文件按 UTF-8 字节计量。
  * Claude 风格的非官方独立主题：暖纸色、陶土橙、衬线标题、克制的细边线。
@@ -210,6 +210,9 @@ body:has(#username):has(#password) [data-slot="card-title"]{font-family:var(--cl
 #root :is([data-slot=checkbox],[aria-label^="解锁"]){position:relative}#root :is([data-slot=checkbox],[data-slot=switch],[aria-label^="解锁"])::after{content:"";position:absolute;inset:-8px}#root [data-slot=switch]::after{inset:-8px 0}#root .text-\[10px\]{font-size:11px}:root:root .app-topbar nav [data-nav-item]{font-size:13px}:root:root :is([class*=dashboard-] [data-slot=card-description],.dashboard-range-control [data-slot=button]){font-size:12px}#root [data-slot=badge].bg-green-500{background:#2f7d4f}:root:not(.dark) #root :is(.text-green-600,.text-emerald-600){color:#22703f}:root:not(.dark) #root .text-amber-600{color:#985008}:root:not(.dark) #root .text-cyan-600{color:#0b6577}
 #root main aside :is(.h-7,.border-t.py-1,.border-t.pt-1\.5):has(>.truncate){height:auto;min-height:28px;padding-block:4px}#root main aside :is(.h-7,.border-t.py-1,.border-t.pt-1\.5)>.truncate{white-space:normal;overflow-wrap:anywhere}#root main aside .pt-1\.5>.ml-auto:not(.truncate){flex-shrink:0;white-space:nowrap}#root main aside .h-7>span:first-child:not(.truncate){flex-shrink:0;white-space:nowrap}
 #root main .flex-wrap.justify-center.border-t.pt-2>span[class~="basis-[calc(50%-0.25rem)]"]{min-width:0}#root main .flex-wrap.justify-center.border-t.pt-2>span[class~="basis-[calc(50%-0.25rem)]"]>button{width:100%;min-width:0;height:36px;padding-inline:16px;font-size:14px;overflow:hidden}
+/* 手机画布：服务器池列表限高内滚、“新建一组 / 加入”栏吸底；“已选某组”浮条抬到平移栏上方 */
+@media (max-width:1023px){#root main>.fixed .relative:has(>.react-flow)>.absolute.bottom-2{bottom:52px}}
+@media (max-width:767px){#root main>.fixed:has(.react-flow) aside.order-3>.overflow-y-auto{flex:none;max-height:min(440px,52dvh);overscroll-behavior-y:contain}#root main>.fixed:has(.react-flow) aside.order-3>div:last-child:not(:first-child){position:sticky;bottom:0;z-index:5;background:var(--card)}}
 /* 转发链列表：状态汇总、问题置顶、描边、站点与连线 */
 :has(>*>*>*>[title="编辑转发链"]){counter-reset:fwt fwg fwy fwr}:has(>*>*>*>[title="编辑转发链"])::after{order:-3;content:"共 " counter(fwt) " 条 · 正常 " counter(fwg) " · 偏慢 " counter(fwy) " · 异常 " counter(fwr);font-size:13px;color:var(--muted-foreground)}
 :has(>*>*>[title="编辑转发链"]){--fw-ok:#2f9e6b;--fw-warn:#d18a1b;--fw-down:#d64545;counter-increment:fwt;outline:2px solid color-mix(in srgb,var(--fw,#0000) var(--fw-a,100%),#0000);outline-offset:-1px}:has(>*>*>[title="编辑转发链"]):has(.overflow-x-auto .text-emerald-600){--fw:var(--fw-ok);--fw-a:45%;counter-increment:fwt fwg}:has(>*>*>[title="编辑转发链"]):has(.overflow-x-auto .text-amber-600){--fw:var(--fw-warn);--fw-a:100%;counter-increment:fwt fwy;order:-1}:has(>*>*>[title="编辑转发链"]):has(.overflow-x-auto .text-red-600){--fw:var(--fw-down);--fw-a:100%;counter-increment:fwt fwr;order:-2}
