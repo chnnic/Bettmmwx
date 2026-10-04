@@ -1,6 +1,6 @@
 /*
  * MiaoMiaoWuX · Lumina 白金 / 黑金
- * 版本：v2026.10.04-09
+ * 版本：v2026.10.04-10
  * 更新日期：2026-10-04
  * 顶部为配置区，其余已压缩；跟随主控 light / dark，无需 JS。
  */
@@ -9,8 +9,8 @@
 :root {
   /* 手机画布空白：none 滑动页面（默认），auto 拖动画布。 */
   --lumina-mobile-canvas-pan-pointer-events: none;
-  /* 手机画布平移栏：flex 显示，none 隐藏。 */
-  --lumina-mobile-canvas-pan-strip: flex;
+  /* 手机画布平移栏：主控新版手机端已禁用拖动画布，默认 none 隐藏；旧版主控可改 flex。 */
+  --lumina-mobile-canvas-pan-strip: none;
   /* 服务卡片模式菜单：none 禁止点击，auto 恢复。 */
   --lumina-server-mode-pointer-events: none;
   --lumina-wallpaper: url("https://raw.githubusercontent.com/chnnic/Bettmmwx/90225bdb65067c9ee771c5457b786092132ba49d/themes/lumina/assets/wallpaper.jpg");
@@ -241,7 +241,7 @@ body:has(#username):has(#password) #root [class~=top-4][class~=right-4] button.b
 #root main aside :is(.h-7,.border-t.py-1,.border-t.pt-1\.5)>.truncate{white-space:normal;overflow-wrap:anywhere}#root main aside .pt-1\.5>.ml-auto:not(.truncate){flex-shrink:0;white-space:nowrap}
 #root main aside .h-7>span:first-child:not(.truncate){flex-shrink:0;white-space:nowrap}
 #root main .flex-wrap.justify-center.border-t.pt-2>span[class~="basis-[calc(50%-0.25rem)]"]{min-width:0}#root main .flex-wrap.justify-center.border-t.pt-2>span[class~="basis-[calc(50%-0.25rem)]"]>button{width:100%;min-width:0;height:36px;padding-inline:16px;font-size:14px;overflow:hidden}
-/* 手机画布：服务器池列表限高内滚、“新建一组 / 加入”栏吸底；“已选某组”浮条抬到平移栏上方 */
+/* 手机画布：服务器池列表限高内滚、“新建一组 / 加入”栏吸底；“已选某组”浮条抬到缩放按钮上方 */
 @media (max-width:1023px){#root main>.fixed .relative:has(>.react-flow)>.absolute.bottom-2{bottom:52px}}
 @media (max-width:767px){#root main>.fixed:has(.react-flow) aside.order-3>.overflow-y-auto{flex:none;max-height:min(440px,52dvh);overscroll-behavior-y:contain}#root main>.fixed:has(.react-flow) aside.order-3>div:last-child:not(:first-child){position:sticky;bottom:0;z-index:5;background:var(--card)}}
 /* 转发链列表：状态汇总、问题置顶、描边、站点与连线 */
