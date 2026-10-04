@@ -1,6 +1,6 @@
 /*
  * MiaoMiaoWuX · Lumina 白金 / 黑金
- * 版本：v2026.10.04-08
+ * 版本：v2026.10.04-09
  * 更新日期：2026-10-04
  * 顶部为配置区，其余已压缩；跟随主控 light / dark，无需 JS。
  */
@@ -228,7 +228,7 @@ body:has(#username):has(#password) #root [class~=top-4][class~=right-4] button.b
 @media(max-width:767px){#root main :is(button,a).size-7{min-width:34px;min-height:34px}#root :is([title=\4fee\6539\6635\79f0],[title=\62d6\52a8\6392\5e8f]){min-width:32px;min-height:32px}#root main [data-slot=tabs-list].h-9{height:auto}#root main [data-slot=tabs-trigger]{min-height:36px}#root [title*=\70b9\51fb]:not(.pixel-button){position:relative}#root [title*=\70b9\51fb]:not(.pixel-button):after{content:"";position:absolute;inset:-8px}}
 #root :is([data-slot=checkbox],[aria-label^=\89e3\9501]){position:relative}
 #root :is([data-slot=checkbox],[data-slot=switch],[aria-label^=\89e3\9501]):after{content:"";position:absolute;inset:-8px}
-#root [data-slot=switch]:after{inset:-8px 0}
+#root [data-slot=switch]{position:relative}#root [data-slot=switch]:after{inset:-8px 0}
 #root .text-\[10px\]{font-size:11px}
 :root:root .app-topbar nav [data-nav-item]{font-size:13px}
 :root:root :is([class*=dashboard-] [data-slot=card-description],.dashboard-range-control [data-slot=button]){font-size:12px}

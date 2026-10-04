@@ -38,6 +38,8 @@ MiaoMiaoWuX 的独立主题与界面扩展集合。每个主题单独维护主�
 
 ## 主题
 
+开关点击区修复：修复开关透明点击区铺满整页，画布“探测延迟”、证书管理、系统设置不再误切开关（Lumina v2026.10.04-09）。
+
 手机画布适配主控新版：手机画布服务器池列表限高内滚、“新建一组 / 加入”栏吸底，“已选某组”浮条不再遮挡平移栏与缩放按钮（适配主控新版）（Lumina v2026.10.04-08，PaperMint / 陶纸 v2026.10.04-06）。
 
 穿链握手不再截断：转发链画布“延迟探测”面板中，穿链握手结果行的节点名完整换行，“链内 xx ms”保持单行，不再被截断（Lumina v2026.10.04-07，PaperMint / 陶纸 v2026.10.04-05）。
@@ -72,7 +74,7 @@ v2026.10.03-02：手机转发画布改为上下三块，默认在空白画布上
 
 | 主题 | 主控 CSS | TG Bot Mini App CSS | 说明 |
 | --- | --- | --- | --- |
-| Lumina 白金 / 黑金 | [controller.css](themes/lumina/controller.css) · v2026.10.04-08 | [tgbot.css](themes/lumina/tgbot.css) · v2026.09.21-02 | [安装与配置](themes/lumina/README.md) |
+| Lumina 白金 / 黑金 | [controller.css](themes/lumina/controller.css) · v2026.10.04-09 | [tgbot.css](themes/lumina/tgbot.css) · v2026.09.21-02 | [安装与配置](themes/lumina/README.md) |
 | PaperMint 薄荷纸境 | [controller.css](themes/papermint/controller.css) · v2026.10.04-06 | [tgbot.css](themes/papermint/tgbot.css) · v2026.09.21-01 | [安装与配置](themes/papermint/README.md) |
 | Claude Paper 陶纸 | [controller.css](themes/claude-paper/controller.css) · v2026.10.04-06 | [tgbot.css](themes/claude-paper/tgbot.css) · v2026.10.01-01 | [安装与配置](themes/claude-paper/README.md) |
 
@@ -107,7 +109,7 @@ assets/
 
 ## 安装
 
-主控自定义 CSS 上限为 65,536 个 UTF-8 字节（包含中文注释、换行和空格），不是字符数。三套主控文件已保留顶部配置格式并压缩其余正文：陶纸 57,893 字节、Lumina 64,584 字节、PaperMint 61,100 字节。后续修改建议控制在 65,000 字节以内；可用 `wc -c themes/*/controller.css` 检查。
+主控自定义 CSS 上限为 65,536 个 UTF-8 字节（包含中文注释、换行和空格），不是字符数。三套主控文件已保留顶部配置格式并压缩其余正文：陶纸 57,893 字节、Lumina 64,627 字节、PaperMint 61,100 字节。后续修改建议控制在 65,000 字节以内；可用 `wc -c themes/*/controller.css` 检查。
 
 先备份对应输入框里的旧 CSS，再打开需要的文件，点击 GitHub **Raw**，复制完整内容。
 
