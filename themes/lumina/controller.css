@@ -1,15 +1,15 @@
 /*
  * MiaoMiaoWuX · Lumina 白金 / 黑金
- * 版本：v2026.10.04-10
+ * 版本：v2026.10.04-11
  * 更新日期：2026-10-04
  * 顶部为配置区，其余已压缩；跟随主控 light / dark，无需 JS。
  */
 
 /* 配置区：换背景改 --lumina-wallpaper。 */
 :root {
-  /* 手机画布空白：none 滑动页面（默认），auto 拖动画布。 */
+  /* ≤767px 画布空白：none 滑动页面（主控已禁拖）；横屏可直接拖。 */
   --lumina-mobile-canvas-pan-pointer-events: none;
-  /* 手机画布平移栏：主控新版手机端已禁用拖动画布，默认 none 隐藏；旧版主控可改 flex。 */
+  /* 平移栏：新版主控无效，默认 none；旧版可改 flex。 */
   --lumina-mobile-canvas-pan-strip: none;
   /* 服务卡片模式菜单：none 禁止点击，auto 恢复。 */
   --lumina-server-mode-pointer-events: none;
@@ -223,7 +223,8 @@ body:has(#username):has(#password) #root [class~=top-4][class~=right-4] button.b
 :root body [data-slot=dialog-content]:has(input[placeholder=\5206\7ec4\540d\79f0])>[data-slot=dialog-header]{flex:0 0 auto}
 :root body [data-slot=dialog-content]:has(input[placeholder=\5206\7ec4\540d\79f0])>.space-y-4{flex:1 1 0;min-height:0;min-width:0;overflow-y:auto;overflow-x:hidden;overscroll-behavior-y:contain;touch-action:pan-y;padding:4px 8px 8px 4px;scroll-padding-block:8px}
 @media(max-width:767px),(hover:none)and (pointer:coarse){:root:root #root :is([data-slot=card],.pixel-card),:root:root body [role=dialog] [data-slot=card]{box-shadow:var(--lumina-mobile-card-shadow)!important}:root{--miaomiao-glass-shadow:var(--lumina-mobile-card-shadow)!important;--flat-glass-shadow:var(--lumina-mobile-card-shadow)!important;--liquid-card-shadow:var(--lumina-mobile-card-shadow)!important}}
-@media(max-width:1023px){:root #root main>.fixed:has(.react-flow) :is(.react-flow,.react-flow__renderer,.react-flow__pane){pointer-events:var(--lumina-mobile-canvas-pan-pointer-events,none)!important;touch-action:none!important}:root #root main>.fixed:has(.react-flow) .react-flow__controls{pointer-events:auto}main .react-flow__renderer:after{content:"\6309\4f4f\6b64\680f\62d6\52a8\753b\5e03";display:var(--lumina-mobile-canvas-pan-strip,flex);position:absolute;inset:auto 0 0;z-index:5;height:44px;padding-left:132px;align-items:center;justify-content:center;letter-spacing:.2em;font-size:11px;color:var(--muted-foreground);background:color-mix(in srgb,var(--muted) 82%,#0000);border-top:1px dashed var(--border);pointer-events:auto}main .react-flow{--xy-controls-button-background-color:var(--card);--xy-controls-button-background-color-hover:var(--accent);--xy-controls-button-color:var(--foreground);--xy-controls-button-border-color:var(--border)}main .react-flow__node button.nodrag{position:relative}main .react-flow__handle:after{content:"";position:absolute;inset:-14px}main .react-flow__node button.nodrag:after{content:"";position:absolute;inset:-8px}}
+@media (max-width:767px){:root #root main>.fixed:has(.react-flow) :is(.react-flow,.react-flow__renderer,.react-flow__pane){pointer-events:var(--lumina-mobile-canvas-pan-pointer-events,none)!important;touch-action:none!important}}
+@media(max-width:1023px){:root #root main>.fixed:has(.react-flow) .react-flow__controls{pointer-events:auto}main .react-flow__renderer:after{content:"\6309\4f4f\6b64\680f\62d6\52a8\753b\5e03";display:var(--lumina-mobile-canvas-pan-strip,flex);position:absolute;inset:auto 0 0;z-index:5;height:44px;padding-left:132px;align-items:center;justify-content:center;letter-spacing:.2em;font-size:11px;color:var(--muted-foreground);background:color-mix(in srgb,var(--muted) 82%,#0000);border-top:1px dashed var(--border);pointer-events:auto}main .react-flow{--xy-controls-button-background-color:var(--card);--xy-controls-button-background-color-hover:var(--accent);--xy-controls-button-color:var(--foreground);--xy-controls-button-border-color:var(--border)}main .react-flow__node button.nodrag{position:relative}main .react-flow__handle:after{content:"";position:absolute;inset:-14px}main .react-flow__node button.nodrag:after{content:"";position:absolute;inset:-8px}}
 @media(max-width:767px){#root main .justify-between:has(>h2.text-2xl+.flex.gap-2){flex-wrap:wrap;gap:8px}#root main .justify-between>h2.text-2xl{white-space:nowrap}}
 @media(max-width:767px){#root main :is(button,a).size-7{min-width:34px;min-height:34px}#root :is([title=\4fee\6539\6635\79f0],[title=\62d6\52a8\6392\5e8f]){min-width:32px;min-height:32px}#root main [data-slot=tabs-list].h-9{height:auto}#root main [data-slot=tabs-trigger]{min-height:36px}#root [title*=\70b9\51fb]:not(.pixel-button){position:relative}#root [title*=\70b9\51fb]:not(.pixel-button):after{content:"";position:absolute;inset:-8px}}
 #root :is([data-slot=checkbox],[aria-label^=\89e3\9501]){position:relative}
