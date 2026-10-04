@@ -1,6 +1,6 @@
 /*
  * MiaoMiaoWuX · Claude Paper 陶纸
- * 版本：v2026.10.04-08
+ * 版本：v2026.10.04-09
  * 更新日期：2026-10-04
  * 容量控制：保留顶部配置格式，其余按顶层规则压缩；完整文件按 UTF-8 字节计量。
  * Claude 风格的非官方独立主题：暖纸色、陶土橙、衬线标题、克制的细边线。
@@ -12,7 +12,7 @@
   --claude-mobile-canvas-pan-pointer-events: none;
   /* 手机画布平移栏：主控新版手机端已禁用拖动画布，默认 none 隐藏；旧版主控可改 flex。 */
   --claude-mobile-canvas-pan-strip: none;
-  /* 服务卡片“自动”等模式菜单防误触：none = 禁止鼠标/触屏点击（默认），auto = 恢复。
+  /* 服务卡片（含共享服务器）“自动”等模式菜单防误触：none = 禁止鼠标/触屏点击（默认），auto = 恢复。
    * 仅 CSS 防误触，不修改服务器模式；不等同于原生 disabled，键盘仍可操作。 */
   --claude-server-mode-pointer-events: none;
   /* 内容最大宽度；100% 取消限宽。 */
@@ -83,7 +83,7 @@ html,body,body *,body::before,body::after,body *::before,body *::after{-webkit-b
 :root body .premium-pro-badge{color:var(--accent-foreground)!important;border:1px solid var(--border)!important;border-radius:var(--claude-control-radius)!important;background:var(--accent)!important;box-shadow:none!important;text-shadow:none!important}
 :root body .premium-pro-badge svg{color:var(--primary)!important}
 :root body :is([data-slot="input"],[data-slot="textarea"],[data-slot="select-trigger"]){color:var(--foreground)!important;border:1px solid var(--input)!important;border-radius:var(--claude-control-radius)!important;background:var(--card)!important;box-shadow:none!important;font-weight:400}
-:root #root [data-slot="card-description"]>[data-slot="dropdown-menu-trigger"]:has(>svg.lucide-settings):has(>svg.lucide-chevron-down),:root #root [data-slot="card-description"]>[data-slot="dropdown-menu-trigger"]:has(>svg.lucide-settings):has(>svg.lucide-chevron-down) *{pointer-events:var(--claude-server-mode-pointer-events)!important}
+:root #root [data-slot="card-description"]>[data-slot="dropdown-menu-trigger"]:has(>svg.lucide-chevron-down),:root #root [data-slot="card-description"]>[data-slot="dropdown-menu-trigger"]:has(>svg.lucide-chevron-down) *{pointer-events:var(--claude-server-mode-pointer-events)!important}
 :root #root [data-slot="card-description"]:has(>[data-slot="dropdown-menu-trigger"]>svg.lucide-settings){display:grid!important;grid-template-columns:minmax(24px,1fr) max-content max-content max-content;align-items:center;column-gap:6px!important;row-gap:0!important;min-width:0}
 :root #root [data-slot="card-description"]:has(>[data-slot="dropdown-menu-trigger"]>svg.lucide-settings)>*{grid-row:1;min-width:0;white-space:nowrap}
 :root #root [data-slot="card-description"]:has(>[data-slot="dropdown-menu-trigger"]>svg.lucide-settings)>:first-child{grid-column:1;overflow:hidden}

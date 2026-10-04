@@ -1,6 +1,6 @@
 /*
  * MiaoMiaoWuX · Lumina 白金 / 黑金
- * 版本：v2026.10.04-11
+ * 版本：v2026.10.04-12
  * 更新日期：2026-10-04
  * 顶部为配置区，其余已压缩；跟随主控 light / dark，无需 JS。
  */
@@ -11,7 +11,7 @@
   --lumina-mobile-canvas-pan-pointer-events: none;
   /* 平移栏：新版主控无效，默认 none；旧版可改 flex。 */
   --lumina-mobile-canvas-pan-strip: none;
-  /* 服务卡片模式菜单：none 禁止点击，auto 恢复。 */
+  /* 服务卡片（含共享）模式菜单：none 禁止点击，auto 恢复。 */
   --lumina-server-mode-pointer-events: none;
   --lumina-wallpaper: url("https://raw.githubusercontent.com/chnnic/Bettmmwx/90225bdb65067c9ee771c5457b786092132ba49d/themes/lumina/assets/wallpaper.jpg");
   /* 内容最大宽度，如 1360px、1600px。 */
@@ -155,7 +155,7 @@ body:has(#username):has(#password) #root [class~=top-4][class~=right-4] button.b
 @media(min-width:1024px){body:has(#username):has(#password) #root .min-h-svh:has(>[data-slot=card]){justify-content:flex-end!important;padding-inline:7vw!important}}
 @media(max-width:640px){body:has(#username):has(#password) #root .min-h-svh:has(>[data-slot=card]){padding:4.5rem .9rem 2rem!important}body:has(#username):has(#password) [data-slot=card-content],body:has(#username):has(#password) [data-slot=card-header]{padding-inline:1.2rem!important}body:has(#username):has(#password) [data-slot=card-title] span[class*="!text-3xl"]{font-size:1.55rem!important}}
 #root h1+p,#root :has(>h1)+p,#root h1+div>p{color:color-mix(in srgb,var(--foreground) 82%,var(--muted-foreground))!important;font-weight:500!important;text-shadow:0 1px 2px color-mix(in srgb,var(--background) 72%,#0000)!important}
-:root #root [data-slot=card-description]>[data-slot=dropdown-menu-trigger]:has(>svg.lucide-settings):has(>svg.lucide-chevron-down),:root #root [data-slot=card-description]>[data-slot=dropdown-menu-trigger]:has(>svg.lucide-settings):has(>svg.lucide-chevron-down) *{pointer-events:var(--lumina-server-mode-pointer-events)!important}
+:root #root [data-slot=card-description]>[data-slot=dropdown-menu-trigger]:has(>svg.lucide-chevron-down),:root #root [data-slot=card-description]>[data-slot=dropdown-menu-trigger]:has(>svg.lucide-chevron-down) *{pointer-events:var(--lumina-server-mode-pointer-events)!important}
 :root #root [data-slot=card-description]:has(>[data-slot=dropdown-menu-trigger]>svg.lucide-settings){display:grid!important;grid-template-columns:minmax(24px,1fr) max-content max-content max-content;align-items:center;column-gap:6px!important;row-gap:0!important;min-width:0}
 :root #root [data-slot=card-description]:has(>[data-slot=dropdown-menu-trigger]>svg.lucide-settings)>*{grid-row:1;min-width:0;white-space:nowrap}
 :root #root [data-slot=card-description]:has(>[data-slot=dropdown-menu-trigger]>svg.lucide-settings)>:first-child{grid-column:1;overflow:hidden}

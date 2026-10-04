@@ -1,6 +1,6 @@
 /*
  * MiaoMiaoWuX · PaperMint 薄荷纸境
- * 版本：v2026.10.04-08
+ * 版本：v2026.10.04-09
  * 更新日期：2026-10-04
  * 容量控制：保留顶部配置格式，其余按顶层规则压缩；完整文件按 UTF-8 字节计量。
  * 独立主题：请单独粘贴使用，不要与 Lumina CSS 混用。
@@ -14,7 +14,7 @@
   --paper-mobile-canvas-pan-pointer-events: none;
   /* 手机画布平移栏：主控新版手机端已禁用拖动画布，默认 none 隐藏；旧版主控可改 flex。 */
   --paper-mobile-canvas-pan-strip: none;
-  /* 服务卡片“自动”等模式菜单：none = 禁止鼠标/触屏点击，auto = 恢复；键盘仍可操作。 */
+  /* 服务卡片（含共享服务器）“自动”等模式菜单：none = 禁止鼠标/触屏点击，auto = 恢复；键盘仍可操作。 */
   --paper-server-mode-pointer-events: none;
   /* 页面内容最大宽度：可改为 1360px、1600px；100% 表示不限制。 */
   --paper-content-max-width: 1440px;
@@ -170,7 +170,7 @@ nav .pixel-button:is([aria-current="page"],[data-status="active"]){color:var(--p
 [data-slot="card"].max-w-sm [data-slot="card-title"]{font-size:clamp(1.5rem,4vw,2rem)}
 [data-slot="card"].max-w-sm [data-slot="card-content"]{padding-inline:clamp(1.25rem,5vw,2rem)}
 @media (max-width:640px){body{background-image:radial-gradient(circle at 0 8%,color-mix(in srgb,var(--paper-blue) 38%,transparent)0 44px,transparent 46px),radial-gradient(circle at 100% 92%,color-mix(in srgb,var(--paper-mint) 28%,transparent)0 58px,transparent 60px)}[data-slot="card"]{border-width:calc(2px*var(--paper-effect-scale));border-radius:18px;box-shadow:calc(4px*var(--paper-effect-scale)) calc(4px*var(--paper-effect-scale))0 var(--paper-ink)}:is([data-slot="button"],.pixel-button){min-height:calc(44px - var(--paper-button-height-reduction));border-width:calc(2px*var(--paper-effect-scale))!important;box-shadow:var(--paper-shadow-sm)!important}#root [data-slot="card-content"].p-3:has(.line-clamp-2.break-all)>.flex.items-start.justify-between{flex-direction:column;align-items:stretch}#root [data-slot="card-content"].p-3:has(.line-clamp-2.break-all)>.flex.items-start.justify-between>.min-w-0.flex-1{flex:none;width:100%}#root [data-slot="card-content"].p-3:has(.line-clamp-2.break-all)>.flex.items-start.justify-between>.flex.shrink-0{flex-wrap:wrap;max-width:100%;row-gap:8px}#root [data-slot="card-content"].p-3 .line-clamp-2.break-all{display:block;-webkit-line-clamp:unset;overflow:visible;overflow-wrap:anywhere;word-break:normal}#root [data-slot="card-content"].p-3 .line-clamp-2.break-all+.truncate{white-space:normal;overflow-wrap:anywhere}[data-slot="dialog-content"],[data-slot="alert-dialog-content"],[data-slot="sheet-content"]{max-width:calc(100vw - 24px);border-width:calc(2px*var(--paper-effect-scale))!important;box-shadow:calc(4px*var(--paper-effect-scale)) calc(4px*var(--paper-effect-scale))0 var(--paper-ink)!important}}
-:root #root [data-slot="card-description"]>[data-slot="dropdown-menu-trigger"]:has(>svg.lucide-settings):has(>svg.lucide-chevron-down),:root #root [data-slot="card-description"]>[data-slot="dropdown-menu-trigger"]:has(>svg.lucide-settings):has(>svg.lucide-chevron-down) *{pointer-events:var(--paper-server-mode-pointer-events)!important}
+:root #root [data-slot="card-description"]>[data-slot="dropdown-menu-trigger"]:has(>svg.lucide-chevron-down),:root #root [data-slot="card-description"]>[data-slot="dropdown-menu-trigger"]:has(>svg.lucide-chevron-down) *{pointer-events:var(--paper-server-mode-pointer-events)!important}
 :root #root [data-slot="card-description"]:has(>[data-slot="dropdown-menu-trigger"]>svg.lucide-settings){display:grid!important;grid-template-columns:minmax(24px,1fr) max-content max-content max-content;align-items:center;column-gap:6px!important;row-gap:0!important;min-width:0}
 :root #root [data-slot="card-description"]:has(>[data-slot="dropdown-menu-trigger"]>svg.lucide-settings)>*{grid-row:1;min-width:0;white-space:nowrap}
 :root #root [data-slot="card-description"]:has(>[data-slot="dropdown-menu-trigger"]>svg.lucide-settings)>:first-child{grid-column:1;overflow:hidden}
