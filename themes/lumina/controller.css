@@ -1,37 +1,34 @@
 /*
  * MiaoMiaoWuX · Lumina 白金 / 黑金
- * 版本：v2026.10.04-05
+ * 版本：v2026.10.04-07
  * 更新日期：2026-10-04
- * 容量控制：保留顶部配置格式，其余按顶层规则压缩；完整文件按 UTF-8 字节计量。
- * 跟随主控现有的 light / dark 外观开关，无需 JavaScript。
+ * 顶部为配置区，其余已压缩；跟随主控 light / dark，无需 JS。
  */
 
-/* 分享或更换背景时，只需修改下面这一处图片链接。 */
+/* 配置区：换背景改 --lumina-wallpaper。 */
 :root {
-  /* 手机画布空白：none = 滑动页面（默认）；auto = 恢复拖动画布。节点与缩放不变。 */
+  /* 手机画布空白：none 滑动页面（默认），auto 拖动画布。 */
   --lumina-mobile-canvas-pan-pointer-events: none;
-  /* 手机画布底部平移栏：flex = 显示，none = 隐藏。 */
+  /* 手机画布平移栏：flex 显示，none 隐藏。 */
   --lumina-mobile-canvas-pan-strip: flex;
-  /* 服务卡片“自动”等模式菜单：none = 禁止鼠标/触屏点击，auto = 恢复；键盘仍可操作。 */
+  /* 服务卡片模式菜单：none 禁止点击，auto 恢复。 */
   --lumina-server-mode-pointer-events: none;
   --lumina-wallpaper: url("https://raw.githubusercontent.com/chnnic/Bettmmwx/90225bdb65067c9ee771c5457b786092132ba49d/themes/lumina/assets/wallpaper.jpg");
-  /* 全站内容最大宽度：当前 1440px，可改成 1600px、1360px 等。 */
+  /* 内容最大宽度，如 1360px、1600px。 */
   --lumina-content-max-width: 1440px;
-  /* 640px 及以上的页面两侧内边距；手机保留主控原生间距。 */
+  /* 640px 及以上的两侧内边距。 */
   --lumina-content-gutter: 24px;
-  /* 手机/触屏轻量模式：0s 关闭装饰过渡；不影响加载旋转或弹窗开合。 */
-  --lumina-mobile-motion-duration: 0s;
-  /* 手机卡片阴影；只影响阴影，不改变边框与焦点标识。 */
+  /* 手机卡片阴影。 */
   --lumina-mobile-card-shadow: 0 1px 3px rgb(0 0 0 / 12%);
-  /* 背景固定开关：fixed = 固定（默认），scroll = 跟随页面滚动。 */
+  /* 背景：fixed 固定（默认），scroll 随页面滚动。 */
   --lumina-background-attachment: fixed;
-  /* 面板背景透明度：0% = 完全不透明，100% = 完全透明；不影响文字。 */
+  /* 面板透明度：0% 不透明，100% 全透明，不影响文字。 */
   --lumina-surface-transparency: 0%;
-  /* 内部换算：只控制背景填充，不使用整块元素的 opacity。 */
+  /* 内部换算，勿改。 */
   --lumina-surface-opacity: calc(100% - clamp(0%, var(--lumina-surface-transparency), 100%));
-  /* 卡片悬停/点击斜纹：0 = 关闭（默认），1 = 开启。 */
+  /* 卡片悬停斜纹：0 关（默认），1 开。 */
   --lumina-card-hover-stripes: 0;
-  /* Premium 背景水印：none = 关闭（默认），block = 开启。 */
+  /* Premium 水印：none 关（默认），block 开。 */
   --lumina-premium-watermark-display: none;
 }
 :root{--lc0:linear-gradient(105deg,#b87b1e,#e3bd63);--lc1:0 1px #fff1b975 inset,0 5px 14px -9px #b87b1ec7;--lc2:linear-gradient(90deg,#b87b1e,#e3bd63);--lc3: calc(100dvh - 16px - env(safe-area-inset-top) - env(safe-area-inset-bottom)) ;--lc4:clamp(16rem,45dvh,30rem)}
@@ -225,7 +222,7 @@ body:has(#username):has(#password) #root [class~=top-4][class~=right-4] button.b
 :root body [data-slot=dialog-content]:has(input[placeholder=\5206\7ec4\540d\79f0]){display:flex!important;flex-direction:column;height:min(44rem,calc(100dvh - 32px));max-height:calc(100dvh - 32px)!important;overflow:hidden!important}
 :root body [data-slot=dialog-content]:has(input[placeholder=\5206\7ec4\540d\79f0])>[data-slot=dialog-header]{flex:0 0 auto}
 :root body [data-slot=dialog-content]:has(input[placeholder=\5206\7ec4\540d\79f0])>.space-y-4{flex:1 1 0;min-height:0;min-width:0;overflow-y:auto;overflow-x:hidden;overscroll-behavior-y:contain;touch-action:pan-y;padding:4px 8px 8px 4px;scroll-padding-block:8px}
-@media(max-width:767px),(hover:none)and (pointer:coarse){:root :is(#root,[role=dialog]) :is([data-slot=card],.pixel-card,[data-slot=button],.pixel-button,[data-slot=input],[data-slot=textarea],[data-slot=select-trigger],[data-slot=tabs-trigger],[data-slot=sidebar-menu-button],[data-slot=switch],[data-slot=switch-thumb],[data-slot=progress-indicator]){transition-duration:var(--lumina-mobile-motion-duration)!important;transition-delay:0s!important}:root:root #root :is([data-slot=card],.pixel-card),:root:root body [role=dialog] [data-slot=card]{box-shadow:var(--lumina-mobile-card-shadow)!important;animation:none!important}:root{--miaomiao-glass-shadow:var(--lumina-mobile-card-shadow)!important;--flat-glass-shadow:var(--lumina-mobile-card-shadow)!important;--liquid-card-shadow:var(--lumina-mobile-card-shadow)!important}}
+@media(max-width:767px),(hover:none)and (pointer:coarse){:root:root #root :is([data-slot=card],.pixel-card),:root:root body [role=dialog] [data-slot=card]{box-shadow:var(--lumina-mobile-card-shadow)!important}:root{--miaomiao-glass-shadow:var(--lumina-mobile-card-shadow)!important;--flat-glass-shadow:var(--lumina-mobile-card-shadow)!important;--liquid-card-shadow:var(--lumina-mobile-card-shadow)!important}}
 @media(max-width:1023px){:root #root main>.fixed:has(.react-flow) :is(.react-flow,.react-flow__renderer,.react-flow__pane){pointer-events:var(--lumina-mobile-canvas-pan-pointer-events,none)!important;touch-action:none!important}:root #root main>.fixed:has(.react-flow) .react-flow__controls{pointer-events:auto}main .react-flow__renderer:after{content:"\6309\4f4f\6b64\680f\62d6\52a8\753b\5e03";display:var(--lumina-mobile-canvas-pan-strip,flex);position:absolute;inset:auto 0 0;z-index:5;height:44px;padding-left:132px;align-items:center;justify-content:center;letter-spacing:.2em;font-size:11px;color:var(--muted-foreground);background:color-mix(in srgb,var(--muted) 82%,#0000);border-top:1px dashed var(--border);pointer-events:auto}main .react-flow{--xy-controls-button-background-color:var(--card);--xy-controls-button-background-color-hover:var(--accent);--xy-controls-button-color:var(--foreground);--xy-controls-button-border-color:var(--border)}main .react-flow__node button.nodrag{position:relative}main .react-flow__handle:after{content:"";position:absolute;inset:-14px}main .react-flow__node button.nodrag:after{content:"";position:absolute;inset:-8px}}
 @media(max-width:767px){#root main .justify-between:has(>h2.text-2xl+.flex.gap-2){flex-wrap:wrap;gap:8px}#root main .justify-between>h2.text-2xl{white-space:nowrap}}
 @media(max-width:767px){#root main :is(button,a).size-7{min-width:34px;min-height:34px}#root :is([title=\4fee\6539\6635\79f0],[title=\62d6\52a8\6392\5e8f]){min-width:32px;min-height:32px}#root main [data-slot=tabs-list].h-9{height:auto}#root main [data-slot=tabs-trigger]{min-height:36px}#root [title*=\70b9\51fb]:not(.pixel-button){position:relative}#root [title*=\70b9\51fb]:not(.pixel-button):after{content:"";position:absolute;inset:-8px}}
@@ -240,8 +237,8 @@ body:has(#username):has(#password) #root [class~=top-4][class~=right-4] button.b
 :root:not(.dark) #root .text-amber-600{color:#985008}
 :root:not(.dark) #root .text-cyan-600{color:#0b6577}
 :root:not(.dark) #root .bg-primary\/10.text-primary{color:var(--accent-foreground)}
-#root main aside :is(.h-7,.border-t.py-1):has(>.truncate){height:auto;min-height:28px;padding-block:4px}
-#root main aside :is(.h-7,.border-t.py-1)>.truncate{white-space:normal;overflow-wrap:anywhere}
+#root main aside :is(.h-7,.border-t.py-1,.border-t.pt-1\.5):has(>.truncate){height:auto;min-height:28px;padding-block:4px}
+#root main aside :is(.h-7,.border-t.py-1,.border-t.pt-1\.5)>.truncate{white-space:normal;overflow-wrap:anywhere}#root main aside .pt-1\.5>.ml-auto:not(.truncate){flex-shrink:0;white-space:nowrap}
 #root main aside .h-7>span:first-child:not(.truncate){flex-shrink:0;white-space:nowrap}
 #root main .flex-wrap.justify-center.border-t.pt-2>span[class~="basis-[calc(50%-0.25rem)]"]{min-width:0}#root main .flex-wrap.justify-center.border-t.pt-2>span[class~="basis-[calc(50%-0.25rem)]"]>button{width:100%;min-width:0;height:36px;padding-inline:16px;font-size:14px;overflow:hidden}
 /* 转发链列表：状态汇总、问题置顶、描边、站点与连线 */
