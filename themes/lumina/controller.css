@@ -1,6 +1,6 @@
 /*
  * MiaoMiaoWuX · Lumina 白金 / 黑金
- * 版本：v2026.10.05-02
+ * 版本：v2026.10.05-03
  * 更新日期：2026-10-05
  * 顶部为配置区，其余已压缩；跟随主控 light / dark，无需 JS。
  */
@@ -35,7 +35,7 @@
 html,body{min-height:100%;overscroll-behavior:auto;background-color:var(--background);color:var(--foreground)}
 :root:not(.theme-glass) body{background-image:linear-gradient(#f7f4ec1a,#f7f4ec1a),radial-gradient(circle at 12% -8%,#b792461a,#0000 30rem),radial-gradient(circle at 92% 4%,#6f787414,#0000 28rem),var(--lumina-wallpaper)!important;background-position:center,center,center,center!important;background-repeat:no-repeat!important;background-size:auto,auto,auto,cover!important;background-attachment:var(--lumina-background-attachment)!important}
 :root.dark:not(.theme-glass) body{background-image:linear-gradient(#0809094d,#0809094d),radial-gradient(circle at 14% -8%,#ddb1541f,#0000 32rem),radial-gradient(circle at 92% 8%,#79602d14,#0000 30rem),var(--lumina-wallpaper)!important}
-:root.theme-premium body:before{display:var(--lumina-premium-watermark-display,none)!important}
+@media(min-width:1181px){:root.theme-premium body:before{display:var(--lumina-premium-watermark-display,none)!important}}
 #root .min-h-svh.bg-background,#root .min-h-dvh.bg-background,#root .h-svh.bg-background,#root .h-dvh.bg-background{background-color:#0000!important}
 #root [class~="bg-background/50"]{background-color:var(--card)!important}
 .dark #root [class~="bg-background/50"]{background-color:#12110e!important}
@@ -102,11 +102,10 @@ tbody tr:hover,[data-slot=table-row]:hover{background-color:color-mix(in srgb,va
 :root:is(.theme-premium,.theme-anime) :is(header.app-topbar,footer,[data-slot=sidebar],[data-sidebar=sidebar]){background-color:var(--sidebar)!important}
 :root:not(.theme-flat):not(.theme-anime):not(.theme-premium):not(.theme-glass){--miaomiao-glass-background:#fffefa;--miaomiao-glass-foreground:#24211b;--miaomiao-glass-shadow:0 1px 3px rgb(0,0,0,.1),0 1px 2px -1px rgb(0,0,0,.1)}
 :root:not(.theme-flat):not(.theme-anime):not(.theme-premium):not(.theme-glass).dark{--miaomiao-glass-background:linear-gradient( 145deg,#16140f,#0e0e0b );--miaomiao-glass-foreground:#f2eadb;--miaomiao-glass-shadow:0 1px 3px rgb(0,0,0,.1),0 1px 2px -1px rgb(0,0,0,.1)}
-:root:not(.theme-flat):not(.theme-anime):not(.theme-premium):not(.theme-glass) #root .min-h-screen.bg-background{background-color:#0000!important}
+:root:not(.theme-glass) #root .min-h-screen.bg-background{background-color:#0000!important}
 :root:not(.theme-flat):not(.theme-anime):not(.theme-premium):not(.theme-glass) #root :where([data-slot=card],.pixel-card,[class~="bg-background/50"],[data-slot=tabs-list],[data-slot=sidebar],[data-sidebar=sidebar]),:root:not(.theme-flat):not(.theme-anime):not(.theme-premium):not(.theme-glass) :where(header.app-topbar,footer,[data-slot=popover-content],[data-slot=dropdown-menu-content],[data-slot=select-content],[data-slot=hover-card-content],[data-slot=sheet-content],[data-slot=drawer-content],[data-slot=alert-dialog-content],[data-slot=dialog-content],[data-slot=command],[role=dialog]){color:var(--miaomiao-glass-foreground)!important;border:0!important;background:var(--miaomiao-glass-background)!important;box-shadow:var(--miaomiao-glass-shadow)!important}
 :root.theme-flat{--flat-glass-background:#fffefa;--flat-glass-foreground:#24211b;--flat-glass-shadow:0 1px 3px rgb(0,0,0,.1),0 1px 2px -1px rgb(0,0,0,.1)}
 :root.theme-flat.dark{--flat-glass-background:linear-gradient( 145deg,#16140f,#0e0e0b );--flat-glass-foreground:#f2eadb}
-:root.theme-flat #root .min-h-screen.bg-background{background-color:#0000!important}
 :root.theme-flat #root [data-slot=card],:root.theme-flat #root .pixel-card,:root.theme-flat #root :where([class~="bg-background/50"],[data-slot=tabs-list],[data-slot=sidebar],[data-sidebar=sidebar]),:root.theme-flat :where(header.app-topbar,footer,[data-slot=popover-content],[data-slot=dropdown-menu-content],[data-slot=select-content],[data-slot=hover-card-content],[data-slot=sheet-content],[data-slot=drawer-content],[data-slot=alert-dialog-content],[data-slot=dialog-content],[data-slot=command],[role=dialog]){color:var(--flat-glass-foreground)!important;border:0!important;background:var(--flat-glass-background)!important;box-shadow:var(--flat-glass-shadow)!important}
 :root:not(.theme-glass) [role=dialog] .bg-muted>button.bg-background.shadow-sm{color:#171107!important;border-color:#a87c22ad!important;background:var(--lc0)!important;box-shadow:var(--lc1)!important}
 [data-slot=dialog-content][class~="w-[96vw]"][class~="xl:max-w-[1400px]"]{width:100%;max-width:min(96vw,1400px)!important;min-width:0}
