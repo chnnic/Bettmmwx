@@ -1,6 +1,6 @@
 /*
  * MiaoMiaoWuX · Claude Paper 陶纸
- * 版本：v2026.10.05-01
+ * 版本：v2026.10.05-02
  * 更新日期：2026-10-05
  * 容量控制：保留顶部配置格式，其余按顶层规则压缩；完整文件按 UTF-8 字节计量。
  * Claude 风格的非官方独立主题：暖纸色、陶土橙、衬线标题、克制的细边线。
@@ -8,9 +8,9 @@
  */
 
 :root {
-  /* 767px 以下画布空白：none = 滑动页面（默认，主控新版此宽度已禁用拖动画布）；横屏 / 平板（≥768px）可直接拖动画布。 */
+  /* 767px 以下、未开启画布“拖动画布”按钮时的空白区：none = 滑动页面（默认）；开启该按钮后可直接拖动画布。 */
   --claude-mobile-canvas-pan-pointer-events: none;
-  /* 手机画布平移栏：主控新版手机端已禁用拖动画布，默认 none 隐藏；旧版主控可改 flex。 */
+  /* 手机画布平移栏：主控新版已自带“拖动画布”按钮，默认 none 隐藏；旧版主控可改 flex。 */
   --claude-mobile-canvas-pan-strip: none;
   /* 服务卡片（含共享服务器）“自动”等模式菜单防误触：none = 禁止鼠标/触屏点击（默认），auto = 恢复。
    * 仅 CSS 防误触，不修改服务器模式；不等同于原生 disabled，键盘仍可操作。 */
@@ -192,7 +192,7 @@ body:has(#username):has(#password) [data-slot="card-title"]{font-family:var(--cl
 :root body [data-slot="dialog-content"]:has(input[placeholder="分组名称"])>.space-y-4{flex:1 1 0;min-height:0;min-width:0;overflow-y:auto;overflow-x:hidden;overscroll-behavior-y:contain;touch-action:pan-y;padding:4px 8px 8px 4px;scroll-padding-block:8px}
 @media (max-width:767px),(hover:none) and (pointer:coarse){:root:root #root :is([data-slot="card"],.pixel-card),:root:root body [role="dialog"] [data-slot="card"]{box-shadow:var(--claude-mobile-card-shadow)!important}:root.theme-glass [data-slot="card"]::after{display:none!important}}
 @media (prefers-contrast:more){:root:root{--border: var(--muted-foreground) !important;--input: var(--foreground) !important}}
-@media (max-width:767px){:root #root main>.fixed:has(.react-flow) :is(.react-flow,.react-flow__renderer,.react-flow__pane){pointer-events:var(--claude-mobile-canvas-pan-pointer-events,none)!important;touch-action:none!important}}
+@media (max-width:767px){:root #root main>.fixed:has(.react-flow__pane:not(.draggable)) :is(.react-flow,.react-flow__renderer,.react-flow__pane){pointer-events:var(--claude-mobile-canvas-pan-pointer-events,none)!important;touch-action:none!important}}
 @media (max-width:1023px){:root #root main>.fixed:has(.react-flow) .react-flow__controls{pointer-events:auto}main .react-flow__renderer::after{content:"按住此栏拖动画布";display:var(--claude-mobile-canvas-pan-strip,flex);position:absolute;inset:auto 0 0;z-index:5;height:44px;padding-left:132px;align-items:center;justify-content:center;letter-spacing:.2em;font-size:11px;color:var(--muted-foreground);background:color-mix(in srgb,var(--muted) 82%,transparent);border-top:1px dashed var(--border);pointer-events:auto}main .react-flow{--xy-controls-button-background-color:var(--card);--xy-controls-button-background-color-hover:var(--accent);--xy-controls-button-color:var(--foreground);--xy-controls-button-border-color:var(--border)}main .react-flow__node button.nodrag{position:relative}main .react-flow__handle::after{content:"";position:absolute;inset:-14px}main .react-flow__node button.nodrag::after{content:"";position:absolute;inset:-8px}}
 @media (max-width:767px){#root main .justify-between:has(>h2.text-2xl+.flex.gap-2){flex-wrap:wrap;gap:8px}#root main .justify-between>h2.text-2xl{white-space:nowrap}}
 @media (max-width:767px){#root main :is(button,a).size-7{min-width:34px;min-height:34px}#root :is([title="修改昵称"],[title="拖动排序"]){min-width:32px;min-height:32px}#root main [data-slot=tabs-list].h-9{height:auto}#root main [data-slot=tabs-trigger]{min-height:36px}#root [title*="点击"]:not(.pixel-button){position:relative}#root [title*="点击"]:not(.pixel-button)::after{content:"";position:absolute;inset:-8px}}
