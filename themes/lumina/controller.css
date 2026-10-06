@@ -1,7 +1,7 @@
 /*
  * MiaoMiaoWuX · Lumina 白金 / 黑金
- * 版本：v2026.10.05-07
- * 更新日期：2026-10-05
+ * 版本：v2026.10.06-01
+ * 更新日期：2026-10-06
  * 顶部为配置区，其余已压缩；跟随主控 light / dark，无需 JS。
  */
 
@@ -240,5 +240,11 @@ body:has(#username):has(#password) #root [class~=top-4][class~=right-4] button.b
 /* 节点卡片：“更多操作”并入底部操作行；更多操作面板改为居中浮动 */
 #root .space-y-2.p-3:has(>.flex>[aria-label="更多操作"]){position:relative}#root .space-y-2.p-3>.flex>[aria-label="更多操作"]{position:absolute;right:12px;bottom:12px;width:36px!important;height:36px!important}#root .space-y-2.p-3:has(>.flex>[aria-label="更多操作"])>.border-t:last-child{padding-right:44px}#root .space-y-2.p-3:has(>.flex>[aria-label="更多操作"])>.border-t:last-child>[data-slot=button]{flex:1 1 0;min-width:0;padding-inline:6px!important;gap:4px!important}
 [data-slot=sheet-content].rounded-t-2xl{inset:50% auto auto 50%!important;transform:translate(-50%,-50%)!important;width:min(380px,calc(100vw - 24px))!important;max-height:72svh!important;border:1px solid var(--border)!important;border-radius:16px!important;padding:12px 12px 14px!important}[data-slot=sheet-content].rounded-t-2xl .grid.grid-cols-4>*{padding:6px 2px!important;gap:2px!important}[data-slot=sheet-content].rounded-t-2xl .grid.grid-cols-4 [data-slot=button]{width:32px!important;height:32px!important;min-height:32px!important}
+/* 柱状条与进度条渐变：SVG 柱底实顶浅；主色与金色条用 --lc2；其他颜色条末端提亮，保留状态色 */
+#root .recharts-bar-rectangle{-webkit-mask-image:linear-gradient(to top,#000 20%,rgb(0 0 0/.5));mask-image:linear-gradient(to top,#000 20%,rgb(0 0 0/.5))}#root :is(.bg-muted:is(.h-1,.h-1\.5,.h-2,.h-2\.5,.h-3,.rounded-full),.flex.h-1\.5.gap-0\.5)>:not(.rainbow-flow-bar,[style*=repeating]){background-image:linear-gradient(90deg,rgb(255 255 255/0) 15%,rgb(255 255 255/.45))!important}#root .bg-muted:is(.h-1,.h-1\.5,.h-2,.h-2\.5,.h-3,.rounded-full)>:is(.bg-primary,[style*="168, 124, 34"]):not(.x){background:var(--lc2)!important}#root .flex-col-reverse.overflow-hidden>*{background-image:linear-gradient(to top,rgb(255 255 255/0) 15%,rgb(255 255 255/.4))!important}
+/* 分段按钮组（如转发链“路线 / 紧凑”）：去掉外层边框，避免与按钮边框框套框 */
+#root .flex.overflow-hidden.rounded-md.border:has(>[data-slot=button]):not(:has(>:not([data-slot=button]))){border-color:transparent!important;overflow:visible;gap:6px}
+/* 转发链详情“事件”：长错误信息（含长网址）可折行，避免手机页面横向溢出 */
+#root li.border-l-2>.flex-col{min-width:0;overflow-wrap:anywhere}
 /* 减少动画：关闭全站动画与过渡，保留加载转圈；删除本段可恢复 */
 *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.animate-spin{animation:spin 1s linear infinite!important}.sonner-loading-bar{animation:sonner-spin 1.2s linear infinite!important}
