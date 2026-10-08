@@ -38,7 +38,7 @@ MiaoMiaoWuX 的独立主题与界面扩展集合。每个主题单独维护主�
 
 ## 主题
 
-液态玻璃 / Meow 界面风格：主控新增 Meow 风格；在液态玻璃与 Meow 下撤销其对配色、圆角、卡片、按钮、顶栏、输入框的覆盖，保持本主题原有设计（Lumina 因体积限制，Meow 下图表数据配色等少数细节未复位）（Lumina、PaperMint、陶纸 v2026.10.08-02）。
+液态玻璃 / Meow 界面风格：选这两种风格时主题整体让开，保持它们自己的原生设计；其他界面风格显示不变。本版用到 CSS 嵌套，需 Chrome 112+、Safari / iOS 16.5+、Firefox 117+（作废 v2026.10.08-02 的反向覆盖）（Lumina、PaperMint、陶纸 v2026.10.08-03）。
 
 节点表格快捷操作：“节点名称”列的编辑 / 路由 / 链路图标恢复主控原版两行排法；PaperMint 图标按钮恢复 28×28px，行高与原版一致（Lumina、PaperMint、陶纸 v2026.10.08-01）。
 
@@ -106,9 +106,9 @@ v2026.10.03-02：手机转发画布改为上下三块，默认在空白画布上
 
 | 主题 | 主控 CSS | TG Bot Mini App CSS | 说明 |
 | --- | --- | --- | --- |
-| Lumina 白金 / 黑金 | [controller.css](themes/lumina/controller.css) · v2026.10.08-02 | [tgbot.css](themes/lumina/tgbot.css) · v2026.09.21-02 | [安装与配置](themes/lumina/README.md) |
-| PaperMint 薄荷纸境 | [controller.css](themes/papermint/controller.css) · v2026.10.08-02 | [tgbot.css](themes/papermint/tgbot.css) · v2026.09.21-01 | [安装与配置](themes/papermint/README.md) |
-| Claude Paper 陶纸 | [controller.css](themes/claude-paper/controller.css) · v2026.10.08-02 | [tgbot.css](themes/claude-paper/tgbot.css) · v2026.10.01-01 | [安装与配置](themes/claude-paper/README.md) |
+| Lumina 白金 / 黑金 | [controller.css](themes/lumina/controller.css) · v2026.10.08-03 | [tgbot.css](themes/lumina/tgbot.css) · v2026.09.21-02 | [安装与配置](themes/lumina/README.md) |
+| PaperMint 薄荷纸境 | [controller.css](themes/papermint/controller.css) · v2026.10.08-03 | [tgbot.css](themes/papermint/tgbot.css) · v2026.09.21-01 | [安装与配置](themes/papermint/README.md) |
+| Claude Paper 陶纸 | [controller.css](themes/claude-paper/controller.css) · v2026.10.08-03 | [tgbot.css](themes/claude-paper/tgbot.css) · v2026.10.01-01 | [安装与配置](themes/claude-paper/README.md) |
 
 三套主控样式已合并服务卡片的“模式 / WS”外观，并让信息行保持单行。模式防误触开关继续有效，未修改连接模式、真实状态或菜单选项。
 
@@ -141,7 +141,7 @@ assets/
 
 ## 安装
 
-主控自定义 CSS 上限为 65,536 个 UTF-8 字节（包含中文注释、换行和空格），不是字符数。三套主控文件已保留顶部配置格式并压缩其余正文：陶纸 61,574 字节、Lumina 64,989 字节、PaperMint 63,960 字节。后续修改建议控制在 65,000 字节以内；可用 `wc -c themes/*/controller.css` 检查。
+主控自定义 CSS 上限为 65,536 个 UTF-8 字节（包含中文注释、换行和空格），不是字符数。三套主控文件已保留顶部配置格式并压缩其余正文：陶纸 57,773 字节、Lumina 59,892 字节、PaperMint 59,005 字节。后续修改建议控制在 65,000 字节以内；可用 `wc -c themes/*/controller.css` 检查。
 
 先备份对应输入框里的旧 CSS，再打开需要的文件，点击 GitHub **Raw**，复制完整内容。
 
