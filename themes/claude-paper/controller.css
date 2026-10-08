@@ -1,6 +1,6 @@
 /*
  * MiaoMiaoWuX · Claude Paper 陶纸
- * 版本：v2026.10.08-08
+ * 版本：v2026.10.08-09
  * 更新日期：2026-10-08
  * 容量控制：保留顶部配置格式，其余按顶层规则压缩；完整文件按 UTF-8 字节计量。
  * Claude 风格的非官方独立主题：暖纸色、陶土橙、衬线标题、克制的细边线。
@@ -163,6 +163,10 @@ body:has(#username):has(#password) [data-slot="card"].max-w-sm{max-width:27rem}
 :root.theme-meow .pixel-card :is(.bg-card,[data-slot=card]){background:var(--meow-card2);border:1px solid var(--meow-line)}
 :root.theme-meow .pixel-card :is(.bg-card,[data-slot=card]) .pixel-button[class*="bg-background/75"]{background:var(--meow-card)}
 :root.theme-glass .pixel-card :is(.bg-card,[data-slot=card]){border:1px solid var(--border)}
+/* 节点表格选中行：主控 bg-primary/15 底色与 2px、50% 描边过重，减淡为 7% 底色、1px 30% 描边（液态玻璃只减描边） */
+:root:not(.theme-glass) tr[data-slot=table-row][class*="bg-primary/15"]{background-color:color-mix(in oklab,var(--primary) 7%,transparent)!important}
+:root:not(.theme-glass) tr[data-slot=table-row][class*="bg-primary/15"]:hover{background-color:color-mix(in oklab,var(--primary) 10%,transparent)!important}
+tr[data-slot=table-row][class*="bg-primary/15"]{--tw-ring-color:color-mix(in oklab,var(--primary) 30%,transparent);--tw-ring-shadow:var(--tw-ring-inset,) 0 0 0 1px var(--tw-ring-color)}
 /* 视觉设计：配色、背景、描边、圆角、阴影、字体与动画，液态玻璃 / Meow 下让开 */:where(:root:not(.theme-glass,.theme-meow)){
 
 &:root:root{color-scheme:light;--background: var(--claude-light-page) !important;--foreground: var(--claude-light-ink) !important;--card: var(--claude-light-surface) !important;--card-foreground: var(--foreground) !important;--popover: var(--card) !important;--popover-foreground: var(--foreground) !important;--primary: var(--claude-light-accent) !important;--primary-foreground: #fffaf5 !important;--secondary: #efede6 !important;--secondary-foreground: #45423b !important;--muted: #eeece5 !important;--muted-foreground: #746f65 !important;--accent: #f1e3d9 !important;--accent-foreground: #8f432d !important;--destructive: #b7403d !important;--destructive-foreground: #fffafa !important;--border: #dedad0 !important;--input: #ccc7ba !important;--ring: var(--primary) !important;--sidebar: #eeece5 !important;--sidebar-foreground: var(--foreground) !important;--sidebar-primary: var(--primary) !important;--sidebar-primary-foreground: var(--primary-foreground) !important;--sidebar-accent: #e5dfd3 !important;--sidebar-accent-foreground: var(--accent-foreground) !important;--sidebar-border: var(--border) !important;--sidebar-ring: var(--ring) !important;--chart-1: var(--claude-light-accent) !important;--chart-2: #668373 !important;--chart-3: #8b7d9b !important;--chart-4: #b18b43 !important;--chart-5: #628398 !important;--radius: var(--claude-control-radius) !important;--font-sans: var(--claude-body-font) !important;--claude-card-shadow: 0 1px 3px rgb(48 46 41 / 4%);--claude-overlay-shadow: 0 12px 36px -16px rgb(48 46 41 / 30%)}
