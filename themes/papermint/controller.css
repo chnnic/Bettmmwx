@@ -1,6 +1,6 @@
 /*
  * MiaoMiaoWuX · PaperMint 薄荷纸境
- * 版本：v2026.10.08-04
+ * 版本：v2026.10.08-05
  * 更新日期：2026-10-08
  * 容量控制：保留顶部配置格式，其余按顶层规则压缩；完整文件按 UTF-8 字节计量。
  * 独立主题：请单独粘贴使用，不要与 Lumina CSS 混用。
@@ -208,8 +208,8 @@
 @container (max-width:511px){.overflow-x-auto>.relative.rounded-lg[style*=width]{zoom:.7}}
 @container (max-width:447px){.overflow-x-auto>.relative.rounded-lg[style*=width]{zoom:.6}}
 [data-slot="table-cell"] .grid.grid-flow-col>.accent-action-btn{min-height:0}
-/* Meow 深色可读性：原生深色背景近黑、卡片与背景几乎无层次，提亮背景 / 卡片 / 分隔线与次要文字（同色相）；删除本段恢复 Meow 原生深色 */
-:root.theme-meow.dark{--meow-bg:#221d29;--meow-card:#382f42;--meow-card2:#463d51;--meow-hero:#43293a;--meow-line:#ffffff29;--meow-ink2:#cfc4d1;--meow-bar:#382f42eb;--input:#ffffff33;--fwd-nodata:#4a4252;--ledger-other:#5a5163}
+/* Meow 深色可读性：原生深色背景近黑，改用陶纸深色的底色、卡片、内层与分隔线（文字仍用 Meow 原色）；删除本段恢复 Meow 原生深色 */
+:root.theme-meow.dark{--meow-bg:#242320;--meow-card:#2d2c28;--meow-card2:#35342f;--meow-hero:#49372e;--meow-line:#48463e;--meow-bar:#2d2c28eb;--input:#615b50;--fwd-nodata:#48463e;--ledger-other:#5a5750}
 /* 视觉设计：配色、背景、描边、圆角、阴影、字体与动画，液态玻璃 / Meow 下让开 */:where(:root:not(.theme-glass,.theme-meow)){
 
 &.dark{--primary: #4ade80;--primary-foreground: #102117;--background: #111827;--foreground: #f8fafc;--card: #1e293b;--card-foreground: #f8fafc;--popover: #1e293b;--popover-foreground: #f8fafc;--secondary: #31576a;--secondary-foreground: #f8fafc;--muted: #263449;--muted-foreground: #cbd5e1;--accent: #473f67;--accent-foreground: #f8fafc;--destructive: #fb7185;--destructive-foreground: #1f1115;--border: #d7e0ec;--input: #64748b;--ring: rgba(74, 222, 128, 0.52);--sidebar: #172033;--sidebar-foreground: #f8fafc;--sidebar-primary: #4ade80;--sidebar-primary-foreground: #102117;--sidebar-accent: #473f67;--sidebar-accent-foreground: #f8fafc;--sidebar-border: #d7e0ec;--sidebar-ring: rgba(74, 222, 128, 0.52);--paper-ink: #d7e0ec;--paper-green: #4ade80;--paper-green-dark: #22c55e;--paper-blue: #31576a;--paper-pink: #704a50;--paper-mint: #285c3b;--paper-lavender: #473f67;--paper-cream: #111827}
