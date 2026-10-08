@@ -1,7 +1,7 @@
 /*
  * MiaoMiaoWuX · Lumina 白金 / 黑金
- * 版本：v2026.10.06-02
- * 更新日期：2026-10-06
+ * 版本：v2026.10.08-01
+ * 更新日期：2026-10-08
  * 顶部为配置区，其余已压缩；跟随主控 light / dark，无需 JS。
  */
 
@@ -91,7 +91,6 @@ tbody tr:hover,[data-slot=table-row]:hover{background-color:color-mix(in srgb,va
 [data-slot=card]:has(#probe-metrics-persist) [data-slot=card-content]>div>.flex:has(>.flex-1+.flex.flex-col [data-slot=switch]){display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,24rem),1fr));align-items:start}
 [data-slot=card]:has(#probe-metrics-persist) [data-slot=card-content]>div>.flex:has(>.flex-1+.flex.flex-col [data-slot=switch])>:is(.flex-1,.flex.flex-col){width:100%;min-width:0;max-width:100%}
 [data-slot=card]:has(#probe-metrics-persist) [data-slot=card-content]>div>.flex:has(>.flex-1+.flex.flex-col [data-slot=switch]) p{overflow-wrap:anywhere}
-[data-slot=table-cell]>.flex.items-center>.grid.grid-flow-col:has(>.accent-action-btn){grid-template-rows:auto}
 @media(min-width:768px){td.max-w-\[300px\].min-w-\[200px\]{min-width:28rem!important;max-width:40rem!important;white-space:normal}td.max-w-\[300px\].min-w-\[200px\]>.min-w-0:has(>.flex>.min-w-0.flex-1.truncate){display:grid;grid-template-columns:minmax(10rem,1fr);grid-template-rows:repeat(3,auto);grid-auto-columns:max-content;grid-auto-flow:column;column-gap:.5rem;align-items:center}td.max-w-\[300px\].min-w-\[200px\]>.min-w-0>.flex:has(>.min-w-0.flex-1.truncate){display:contents!important}td.max-w-\[300px\].min-w-\[200px\]>.min-w-0>.flex>.min-w-0.flex-1.truncate{grid-column:1;grid-row:1;overflow:visible;white-space:normal;text-overflow:clip;overflow-wrap:anywhere;line-height:1.35}td.max-w-\[300px\].min-w-\[200px\]>.min-w-0>.flex:has(>.min-w-0.flex-1.truncate)>:is(svg,button){grid-column:auto;grid-row:1/-1;align-self:center}td.max-w-\[300px\].min-w-\[200px\]>.min-w-0>.text-muted-foreground.truncate{grid-column:1;grid-row:2;overflow:visible;white-space:normal;text-overflow:clip;overflow-wrap:anywhere;line-height:1.35}td.max-w-\[300px\].min-w-\[200px\]>.min-w-0>button{grid-column:1;grid-row:3;min-width:0}td.max-w-\[300px\].min-w-\[200px\]>.min-w-0>.flex:has(>input[data-slot=input]){display:grid!important;grid-template-columns:minmax(14rem,1fr) 1.75rem 1.75rem;grid-template-rows:2rem;align-items:center}td.max-w-\[300px\].min-w-\[200px\]>.min-w-0>.flex>input[data-slot=input]{width:100%!important;min-width:0!important;height:2rem;font-size:.875rem}}
 ::selection{color:var(--primary-foreground);background:var(--primary)}
 @media(max-width:1180px){:root:not(.theme-glass) body{position:relative;isolation:isolate;background-color:#0000!important;background-image:none!important;background-attachment:scroll!important}:root:not(.theme-glass) body:before{content:"";position:fixed;inset:0;z-index:-1;width:100%;height:100vh;height:100lvh;pointer-events:none;background-image:linear-gradient(#f7f4ec75,#f7f4ec75),radial-gradient(circle at 50% -6rem,#b792461a,#0000 24rem),var(--lumina-wallpaper);background-position:center,center,center top;background-repeat:no-repeat;background-size:auto,auto,cover;transform:translateZ(0);backface-visibility:hidden;will-change:transform}:root.dark:not(.theme-glass) body:before{background-image:linear-gradient(#08090994,#08090994),radial-gradient(circle at 50% -6rem,#ddb1541f,#0000 24rem),var(--lumina-wallpaper)}}

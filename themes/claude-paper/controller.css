@@ -1,7 +1,7 @@
 /*
  * MiaoMiaoWuX · Claude Paper 陶纸
- * 版本：v2026.10.06-02
- * 更新日期：2026-10-06
+ * 版本：v2026.10.08-01
+ * 更新日期：2026-10-08
  * 容量控制：保留顶部配置格式，其余按顶层规则压缩；完整文件按 UTF-8 字节计量。
  * Claude 风格的非官方独立主题：暖纸色、陶土橙、衬线标题、克制的细边线。
  * 整份替换主控自定义 CSS；不要叠加其他主题。不含脚本或远程资源。
@@ -128,7 +128,6 @@ body:has(#username):has(#password) [data-slot="card-title"]{font-family:var(--cl
 [data-slot="card"]:has(#probe-metrics-persist) [data-slot="card-content"]>div>.flex:has(>.flex-1+.flex.flex-col [data-slot="switch"]){display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,24rem),1fr));align-items:start}
 [data-slot="card"]:has(#probe-metrics-persist) [data-slot="card-content"]>div>.flex:has(>.flex-1+.flex.flex-col [data-slot="switch"])>:is(.flex-1,.flex.flex-col){width:100%;min-width:0;max-width:100%}
 [data-slot="card"]:has(#probe-metrics-persist) [data-slot="card-content"]>div>.flex:has(>.flex-1+.flex.flex-col [data-slot="switch"]) p{overflow-wrap:anywhere}
-[data-slot="table-cell"]>.flex.items-center>.grid.grid-flow-col:has(>.accent-action-btn){grid-template-rows:auto}
 @media (min-width:768px){td[class~="max-w-[300px]"][class~="min-w-[200px]"]{min-width:28rem!important;max-width:40rem!important;white-space:normal}td[class~="max-w-[300px]"][class~="min-w-[200px]"]>.min-w-0:has(>.flex>.min-w-0.flex-1.truncate){display:grid;grid-template-columns:minmax(10rem,1fr);grid-template-rows:repeat(3,auto);grid-auto-columns:max-content;grid-auto-flow:column;column-gap:0.5rem;align-items:center}td[class~="max-w-[300px]"][class~="min-w-[200px]"]>.min-w-0>.flex:has(>.min-w-0.flex-1.truncate){display:contents!important}td[class~="max-w-[300px]"][class~="min-w-[200px]"]>.min-w-0>.flex>.min-w-0.flex-1.truncate{grid-column:1;grid-row:1;overflow:visible;white-space:normal;text-overflow:clip;overflow-wrap:anywhere;line-height:1.35}td[class~="max-w-[300px]"][class~="min-w-[200px]"]>.min-w-0>.flex:has(>.min-w-0.flex-1.truncate)>:is(svg,button){grid-column:auto;grid-row:1/-1;align-self:center}td[class~="max-w-[300px]"][class~="min-w-[200px]"]>.min-w-0>.text-muted-foreground.truncate{grid-column:1;grid-row:2;overflow:visible;white-space:normal;text-overflow:clip;overflow-wrap:anywhere;line-height:1.35}td[class~="max-w-[300px]"][class~="min-w-[200px]"]>.min-w-0>button{grid-column:1;grid-row:3;min-width:0}}
 [data-slot="table-cell"]>.flex.flex-wrap.gap-1:has(>[data-slot="button"]:first-child+[data-slot="button"]+[data-slot="button"]+[data-slot="popover-trigger"]:last-child){flex-wrap:nowrap;width:max-content}
 [data-slot="dialog-content"][class~="w-[96vw]"][class~="xl:max-w-[1400px]"]{width:100%;max-width:min(96vw,1400px)!important;min-width:0}
