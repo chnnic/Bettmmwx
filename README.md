@@ -116,6 +116,18 @@ v2026.10.03-02：手机转发画布改为上下三块，默认在空白画布上
 
 Lumina 使用暖金强调色和可选壁纸；PaperMint 使用圆角、描边、偏移硬阴影和粉彩辅助色；Claude Paper 是受 Claude 界面启发的非官方暖纸色主题，使用陶土橙和衬线标题。各主题兼容浅色与深色。
 
+## 旧版主控备份
+
+主控 0.5.6-beta.6 起新增 Meow 界面风格、调整了节点表格等结构，主题从 v2026.10.08-01 开始按 beta.6 适配。仍在使用 beta.6 之前主控（beta.4 及更早）的，请使用各主题 `legacy/` 目录中的最后一版 v2026.10.06-02：
+
+| 主题 | 旧版主控 CSS |
+| --- | --- |
+| Lumina 白金 / 黑金 | [controller-v2026.10.06-02.css](themes/lumina/legacy/controller-v2026.10.06-02.css) |
+| PaperMint 薄荷纸境 | [controller-v2026.10.06-02.css](themes/papermint/legacy/controller-v2026.10.06-02.css) |
+| Claude Paper 陶纸 | [controller-v2026.10.06-02.css](themes/claude-paper/legacy/controller-v2026.10.06-02.css) |
+
+备份为原样文件，不再更新；TG Bot Mini App CSS 不受主控版本影响，无需替换。
+
 ## 目录结构
 
 ```text
@@ -126,6 +138,7 @@ themes/
 │   ├── controller.css         # 主控
 │   ├── tgbot.css              # Telegram Mini App
 │   ├── screenshots/           # 模拟数据截图
+│   ├── legacy/                # 旧版主控（beta.6 之前）备份
 │   └── assets/wallpaper.jpg
 ├── papermint/
 │   ├── README.md

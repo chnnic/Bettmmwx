@@ -3,6 +3,7 @@
 暖金强调色、白金浅色与黑金深色，搭配独立壁纸和轻薄边线。
 
 - [controller.css](controller.css)：主控完整样式，`v2026.10.08-04`。
+- [legacy/controller-v2026.10.06-02.css](legacy/controller-v2026.10.06-02.css)：旧版主控备份，适用于主控 0.5.6-beta.6 之前（beta.4 及更早）；新版主控请用上面的 `controller.css`。
 - [tgbot.css](tgbot.css)：TG Bot Mini App 完整样式，`v2026.09.21-02`。
 - [assets/wallpaper.jpg](assets/wallpaper.jpg)：两端共用的背景图。
 

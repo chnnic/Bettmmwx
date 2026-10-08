@@ -3,6 +3,7 @@
 受 Claude 界面启发的非官方主控与 TG Bot Mini App 主题。暖米白背景、陶土橙强调色、衬线标题与细边线；深色模式使用暖炭灰。不是 Anthropic 官方产品，不替换主控标识。
 
 - [controller.css](controller.css)：主控完整样式，`v2026.10.08-04`。
+- [legacy/controller-v2026.10.06-02.css](legacy/controller-v2026.10.06-02.css)：旧版主控备份，适用于主控 0.5.6-beta.6 之前（beta.4 及更早）；新版主控请用上面的 `controller.css`。
 - [tgbot.css](tgbot.css)：TG Bot Mini App 完整样式，`v2026.10.01-01`；不要与主控文件混用。
 - 独立文件，不依赖 Lumina、PaperMint、远程字体、图片或 JavaScript。
 
