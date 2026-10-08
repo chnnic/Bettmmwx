@@ -1,6 +1,6 @@
 /*
  * MiaoMiaoWuX · Lumina 白金 / 黑金
- * 版本：v2026.10.08-09
+ * 版本：v2026.10.08-10
  * 更新日期：2026-10-08
  * 顶部为配置区，其余已压缩；跟随主控 light / dark，无需 JS。
  */
@@ -180,6 +180,8 @@ body:has(#username):has(#password) #root [class~=top-4][class~=right-4] button{m
 :root:not(.theme-glass) tr[data-slot=table-row][class*="bg-primary/15"]{background-color:color-mix(in oklab,var(--primary) 7%,transparent)!important}
 :root:not(.theme-glass) tr[data-slot=table-row][class*="bg-primary/15"]:hover{background-color:color-mix(in oklab,var(--primary) 10%,transparent)!important}
 tr[data-slot=table-row][class*="bg-primary/15"]{--tw-ring-color:color-mix(in oklab,var(--primary) 30%,transparent);--tw-ring-shadow:var(--tw-ring-inset,) 0 0 0 1px var(--tw-ring-color)}
+/* Meow 顶栏 / 侧栏：底色已 92% 不透明，去掉背景模糊减轻滚动重绘 */
+:root.theme-meow :is(.app-topbar-inner,aside.app-blur-shell){-webkit-backdrop-filter:none;backdrop-filter:none}
 /* 视觉设计：配色、背景、描边、圆角、阴影、字体与动画，液态玻璃 / Meow 下让开 */:where(:root:not(.theme-glass,.theme-meow)){
 &:root{--lc0:linear-gradient(105deg,#b87b1e,#e3bd63);--lc1:0 1px #fff1b975 inset,0 5px 14px -9px #b87b1ec7;--lc2:linear-gradient(90deg,#b87b1e,#e3bd63)}
 &:root,&.light{color-scheme:light;--background:#f4f3ef;--foreground:#24211b;--card:#fffefa;--card-foreground:#24211b;--popover:#fffefa;--popover-foreground:#24211b;--primary:#a67c2e;--primary-foreground:#fffdf7;--secondary:#ebe8e1;--secondary-foreground:#39342b;--muted:#efede8;--muted-foreground:#746e63;--accent:#e7ddca;--accent-foreground:#6f511d;--destructive:#be4b45;--destructive-foreground:#fffafa;--border:#b8aa90;--input:#b89d69;--ring:#b88c37;--sidebar:#ebe9e4;--sidebar-foreground:#29261f;--sidebar-primary:#a67c2e;--sidebar-primary-foreground:#fffdf7;--sidebar-accent:#ded8cc;--sidebar-accent-foreground:#5f471c;--sidebar-border:#bca878;--sidebar-ring:#b88c37;--chart-1:#b4862f;--chart-2:#657d75;--chart-3:#8c7958;--chart-4:#c5a65d;--chart-5:#4f6660;--radius:.75rem;--font-sans:Inter,"OPPO Sans 3","PingFang SC","Microsoft YaHei",sans-serif}
@@ -300,6 +302,6 @@ html&,& body,& body *,& body:before,& body:after,& body *:before,& body *:after{
 /* 转发链详情“事件”：长错误信息（含长网址）可折行，避免手机页面横向溢出 */
 /* 转发链网络拓扑：1279px 以下“链路一览”移到图下方，图取整行宽；容器窄于 640px 时分档缩小（最小 0.6） */
 /* 卡片内的卡片（如手机节点管理的节点卡片）加描边，深色用内层色 */
-& :is(.pixel-card,[data-slot=card]) :is(.bg-card,[data-slot=card]){border:1px solid var(--border)}&.dark :is(.pixel-card,[data-slot=card]) :is(.bg-card,[data-slot=card]){background:var(--muted)}
-/* 减少动画：关闭全站动画与过渡，保留加载转圈；删除本段可恢复 */
-& *,& *::before,& *::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.animate-spin{animation:spin 1s linear infinite!important}.sonner-loading-bar{animation:sonner-spin 1.2s linear infinite!important}}
+& :is(.pixel-card,[data-slot=card]) :is(.bg-card,[data-slot=card]){border:1px solid var(--border)}&.dark :is(.pixel-card,[data-slot=card]) :is(.bg-card,[data-slot=card]){background:var(--muted)}}
+/* 减少动画：关闭全站动画与过渡，保留加载转圈；所有界面风格生效，删除本段可恢复 */
+*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.animate-spin{animation:spin 1s linear infinite!important}.sonner-loading-bar{animation:sonner-spin 1.2s linear infinite!important}
