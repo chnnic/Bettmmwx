@@ -1,6 +1,6 @@
 /*
  * MiaoMiaoWuX · Claude Paper 陶纸
- * 版本：v2026.10.08-01
+ * 版本：v2026.10.08-02
  * 更新日期：2026-10-08
  * 容量控制：保留顶部配置格式，其余按顶层规则压缩；完整文件按 UTF-8 字节计量。
  * Claude 风格的非官方独立主题：暖纸色、陶土橙、衬线标题、克制的细边线。
@@ -222,5 +222,29 @@ body:has(#username):has(#password) [data-slot="card-title"]{font-family:var(--cl
 #root li.border-l-2>.flex-col{min-width:0;overflow-wrap:anywhere}
 /* 转发链网络拓扑：1279px 以下“链路一览”移到图下方，图取整行宽；容器窄于 640px 时分档缩小（最小 0.6） */
 @media (max-width:1279px){#root .grid[class*="lg:grid-cols-[minmax(0,1fr)_300px]"]{grid-template-columns:minmax(0,1fr)!important}}#root .grid[class*="lg:grid-cols-[minmax(0,1fr)_300px]"]>.overflow-x-auto{container-type:inline-size}@container (max-width:639px){.overflow-x-auto>.relative.rounded-lg[style*=width]{zoom:.9}}@container (max-width:575px){.overflow-x-auto>.relative.rounded-lg[style*=width]{zoom:.8}}@container (max-width:511px){.overflow-x-auto>.relative.rounded-lg[style*=width]{zoom:.7}}@container (max-width:447px){.overflow-x-auto>.relative.rounded-lg[style*=width]{zoom:.6}}
+/* 液态玻璃 / Meow：复位变量，用 revert-layer 撤销其组件覆盖，保持主题设计 */
+:root:root:is(.theme-glass,.theme-meow){--radius-sm:0;--radius-md:0;--radius-lg:0;--radius-xl:0}
+:root:root.theme-meow{--fwd-ok:#2f7a4f;--fwd-warn:#b5761c;--fwd-bad:#b83a2e;--fwd-unknown:#a8a29e;--fwd-nodata:#d6d3d1;--ledger-c5:#8a6bb0;--ledger-c6:#c08a2a;--ledger-fwd:#3f7d58;--ledger-fwd-2:#8db79d;--ledger-node:#b9532f;--ledger-other:#cfc5b5;--ledger-relay:#2f5f8a;--ledger-user:#7a5c46}
+:root:root.theme-meow.dark{--fwd-ok:#5bb37e;--fwd-warn:#e0a347;--fwd-bad:#e06a5c;--fwd-unknown:#57534e;--fwd-nodata:#44403c;--ledger-c5:#b39ad8;--ledger-c6:#e0b35c;--ledger-fwd:#6bbf8a;--ledger-fwd-2:#3f7d58;--ledger-node:#e07a55;--ledger-other:#57534e;--ledger-relay:#6ea4d6;--ledger-user:#c39a7c}
+:root.theme-glass :is(.rounded-xs,.rounded-sm,.rounded-md,.rounded-lg,.rounded-xl,.rounded-full,.rounded,.rounded-t,.rounded-l,.rounded-t-lg,.rounded-l-md,.rounded-r,.rounded-r-md,.rounded-b,.rounded-b-lg){border-radius:revert-layer}
+:root.theme-glass :is([data-slot=sidebar-container],[data-slot=dialog-content],[data-slot=alert-dialog-content],[data-slot=sheet-content],[data-slot=input],[data-slot=textarea],[data-slot=select-trigger],[data-slot=table-header]){backdrop-filter:revert-layer;background:revert-layer;border:revert-layer;box-shadow:revert-layer;-webkit-backdrop-filter:revert-layer}
+:root.theme-glass [data-slot=table] tbody tr{background:revert-layer;border:revert-layer}
+:root.theme-glass .bg-background{background:revert-layer}
+:root.theme-glass [class*="bg-background/"]{background:revert-layer}
+:root.theme-glass [class*="border-[color:rgba(241,140,110"],:root.theme-glass [class*="border-[color:rgba(137,110,96"]{border:revert-layer}
+:root.theme-meow :is(.rounded-xs,.rounded-sm,.rounded-md,.rounded-lg,.rounded-xl,.rounded-t,.rounded-l,.rounded-r,.rounded-b){border-radius:revert-layer}
+:root.theme-meow .app-topbar-inner{backdrop-filter:revert-layer;background:revert-layer;border:revert-layer;border-radius:revert-layer;box-shadow:revert-layer;margin:revert-layer;padding:revert-layer;-webkit-backdrop-filter:revert-layer}
+:root.theme-meow :is(.app-brand-link img,[data-slot=dropdown-menu-content],[data-slot=dropdown-menu-sub-content],[data-slot=select-content],[data-slot=popover-content],[data-sonner-toast]){border:revert-layer;border-radius:revert-layer;box-shadow:revert-layer}
+:root.theme-meow :is(.login-pixel-bg,.animated-x-text,.animated-x-glow,.nav-overflow-menu){background:revert-layer}
+:root.theme-meow :is(header .pixel-button.pixel-button,aside .pixel-button.pixel-button){background:revert-layer;box-shadow:revert-layer;color:revert-layer;font-weight:revert-layer;letter-spacing:revert-layer;text-transform:revert-layer}
+:root.theme-meow [class*="border-[color:rgba(241,140,110"],:root.theme-meow [class*="border-[color:rgba(137,110,96"],:root.theme-meow [class*="border-[color:rgba(217,119,87"]{border:revert-layer}
+:root.theme-meow :is(h1,h2){font-family:revert-layer;letter-spacing:revert-layer}
+:root.theme-meow :is([data-slot=card-title],[data-slot=dialog-title],[data-slot=alert-dialog-title]){font-family:revert-layer;letter-spacing:revert-layer}
+:root.theme-meow .pixel-text{font-family:revert-layer;letter-spacing:revert-layer;text-shadow:revert-layer;text-transform:revert-layer}
+:root.theme-meow .app-brand-link .pixel-text{color:revert-layer;font-size:revert-layer;font-weight:revert-layer;letter-spacing:revert-layer;text-shadow:revert-layer;text-transform:revert-layer}
+:root.theme-meow [data-slot=table-head]{color:revert-layer;font-size:revert-layer;font-weight:revert-layer}
+:root.theme-glass .glass-indicator{display:none}
+:root.theme-meow :is(.accent-action-btn,.accent-action-btn:hover){border-color:var(--input)!important;border-radius:var(--claude-control-radius)!important}
+:root.theme-meow .accent-action-btn:hover{background:color-mix(in oklab,var(--primary)10%,transparent)!important}
 /* 减少动画：关闭全站动画与过渡，保留加载转圈；删除本段可恢复 */
 *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.animate-spin{animation:spin 1s linear infinite!important}.sonner-loading-bar{animation:sonner-spin 1.2s linear infinite!important}
