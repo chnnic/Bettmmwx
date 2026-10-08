@@ -38,6 +38,8 @@ MiaoMiaoWuX 的独立主题与界面扩展集合。每个主题单独维护主�
 
 ## 主题
 
+Meow 深色模式下卡片、输入框与标签栏加细描边，区分卡片与背景（Lumina、PaperMint、陶纸 v2026.10.08-06）。
+
 Meow 深色改用陶纸深色的底色、卡片与分隔线（文字仍用 Meow 原色）（Lumina、PaperMint、陶纸 v2026.10.08-05）。
 
 细节修复移植到液态玻璃 / Meow：这两种风格下保持其原生视觉，同时沿用主题的布局、尺寸、溢出、换行、触控等细节修复；Meow 深色模式提亮背景与卡片层次（删除 CSS 中“Meow 深色可读性”一段可恢复原生）。需 Chrome 112+、Safari / iOS 16.5+、Firefox 117+（Lumina、PaperMint、陶纸 v2026.10.08-04）。
@@ -110,9 +112,9 @@ v2026.10.03-02：手机转发画布改为上下三块，默认在空白画布上
 
 | 主题 | 主控 CSS | TG Bot Mini App CSS | 说明 |
 | --- | --- | --- | --- |
-| Lumina 白金 / 黑金 | [controller.css](themes/lumina/controller.css) · v2026.10.08-05 | [tgbot.css](themes/lumina/tgbot.css) · v2026.09.21-02 | [安装与配置](themes/lumina/README.md) |
-| PaperMint 薄荷纸境 | [controller.css](themes/papermint/controller.css) · v2026.10.08-05 | [tgbot.css](themes/papermint/tgbot.css) · v2026.09.21-01 | [安装与配置](themes/papermint/README.md) |
-| Claude Paper 陶纸 | [controller.css](themes/claude-paper/controller.css) · v2026.10.08-05 | [tgbot.css](themes/claude-paper/tgbot.css) · v2026.10.01-01 | [安装与配置](themes/claude-paper/README.md) |
+| Lumina 白金 / 黑金 | [controller.css](themes/lumina/controller.css) · v2026.10.08-06 | [tgbot.css](themes/lumina/tgbot.css) · v2026.09.21-02 | [安装与配置](themes/lumina/README.md) |
+| PaperMint 薄荷纸境 | [controller.css](themes/papermint/controller.css) · v2026.10.08-06 | [tgbot.css](themes/papermint/tgbot.css) · v2026.09.21-01 | [安装与配置](themes/papermint/README.md) |
+| Claude Paper 陶纸 | [controller.css](themes/claude-paper/controller.css) · v2026.10.08-06 | [tgbot.css](themes/claude-paper/tgbot.css) · v2026.10.01-01 | [安装与配置](themes/claude-paper/README.md) |
 
 三套主控样式已合并服务卡片的“模式 / WS”外观，并让信息行保持单行。模式防误触开关继续有效，未修改连接模式、真实状态或菜单选项。
 
@@ -158,7 +160,7 @@ assets/
 
 ## 安装
 
-主控自定义 CSS 上限为 65,536 个 UTF-8 字节（包含中文注释、换行和空格），不是字符数。三套主控文件已保留顶部配置格式并压缩其余正文：陶纸 59,659 字节、Lumina 62,668 字节、PaperMint 61,302 字节。后续修改建议控制在 65,000 字节以内；可用 `wc -c themes/*/controller.css` 检查。
+主控自定义 CSS 上限为 65,536 个 UTF-8 字节（包含中文注释、换行和空格），不是字符数。三套主控文件已保留顶部配置格式并压缩其余正文：陶纸 59,982 字节、Lumina 62,991 字节、PaperMint 61,625 字节。后续修改建议控制在 65,000 字节以内；可用 `wc -c themes/*/controller.css` 检查。
 
 先备份对应输入框里的旧 CSS，再打开需要的文件，点击 GitHub **Raw**，复制完整内容。
 

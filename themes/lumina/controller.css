@@ -1,6 +1,6 @@
 /*
  * MiaoMiaoWuX · Lumina 白金 / 黑金
- * 版本：v2026.10.08-05
+ * 版本：v2026.10.08-06
  * 更新日期：2026-10-08
  * 顶部为配置区，其余已压缩；跟随主控 light / dark，无需 JS。
  */
@@ -168,8 +168,10 @@ body:has(#username):has(#password) #root [class~=top-4][class~=right-4] button{m
 @container (max-width:575px){.overflow-x-auto>.relative.rounded-lg[style*=width]{zoom:.8}}
 @container (max-width:511px){.overflow-x-auto>.relative.rounded-lg[style*=width]{zoom:.7}}
 @container (max-width:447px){.overflow-x-auto>.relative.rounded-lg[style*=width]{zoom:.6}}
-/* Meow 深色可读性：原生深色背景近黑，改用陶纸深色的底色、卡片、内层与分隔线（文字仍用 Meow 原色）；删除本段恢复 Meow 原生深色 */
+/* Meow 深色可读性：原生深色背景近黑，改用陶纸深色的底色、卡片、内层与分隔线（文字仍用 Meow 原色），卡片与输入框加细描边区分层次；删除本段三行恢复 Meow 原生深色 */
 :root.theme-meow.dark{--meow-bg:#242320;--meow-card:#2d2c28;--meow-card2:#35342f;--meow-hero:#49372e;--meow-line:#48463e;--meow-bar:#2d2c28eb;--input:#615b50;--fwd-nodata:#48463e;--ledger-other:#5a5750}
+:root.theme-meow.dark :is(.pixel-card,[data-slot=card]){border:1px solid var(--meow-line);box-shadow:0 1px 3px #0000001f}
+:root.theme-meow.dark :is([data-slot=input],[data-slot=textarea],[data-slot=select-trigger],[data-slot=tabs-list]){border:1px solid var(--meow-line)}
 /* 视觉设计：配色、背景、描边、圆角、阴影、字体与动画，液态玻璃 / Meow 下让开 */:where(:root:not(.theme-glass,.theme-meow)){
 &:root{--lc0:linear-gradient(105deg,#b87b1e,#e3bd63);--lc1:0 1px #fff1b975 inset,0 5px 14px -9px #b87b1ec7;--lc2:linear-gradient(90deg,#b87b1e,#e3bd63)}
 &:root,&.light{color-scheme:light;--background:#f4f3ef;--foreground:#24211b;--card:#fffefa;--card-foreground:#24211b;--popover:#fffefa;--popover-foreground:#24211b;--primary:#a67c2e;--primary-foreground:#fffdf7;--secondary:#ebe8e1;--secondary-foreground:#39342b;--muted:#efede8;--muted-foreground:#746e63;--accent:#e7ddca;--accent-foreground:#6f511d;--destructive:#be4b45;--destructive-foreground:#fffafa;--border:#b8aa90;--input:#b89d69;--ring:#b88c37;--sidebar:#ebe9e4;--sidebar-foreground:#29261f;--sidebar-primary:#a67c2e;--sidebar-primary-foreground:#fffdf7;--sidebar-accent:#ded8cc;--sidebar-accent-foreground:#5f471c;--sidebar-border:#bca878;--sidebar-ring:#b88c37;--chart-1:#b4862f;--chart-2:#657d75;--chart-3:#8c7958;--chart-4:#c5a65d;--chart-5:#4f6660;--radius:.75rem;--font-sans:Inter,"OPPO Sans 3","PingFang SC","Microsoft YaHei",sans-serif}
