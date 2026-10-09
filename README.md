@@ -6,13 +6,15 @@ MiaoMiaoWuX 的独立主题集合。每个主题单独提供主控 CSS、TG Bot 
 
 | 主题 | 主控 CSS | TG Bot Mini App CSS | 说明 |
 | --- | --- | --- | --- |
-| Lumina 白金 / 黑金 | [controller.css](themes/lumina/controller.css) · v2026.10.08-11 | [tgbot.css](themes/lumina/tgbot.css) · v2026.09.21-02 | [安装与配置](themes/lumina/README.md) |
-| PaperMint 薄荷纸境 | [controller.css](themes/papermint/controller.css) · v2026.10.08-11 | [tgbot.css](themes/papermint/tgbot.css) · v2026.09.21-01 | [安装与配置](themes/papermint/README.md) |
-| Claude Paper 陶纸 | [controller.css](themes/claude-paper/controller.css) · v2026.10.08-11 | [tgbot.css](themes/claude-paper/tgbot.css) · v2026.10.01-01 | [安装与配置](themes/claude-paper/README.md) |
+| Lumina 白金 / 黑金 | [controller.css](themes/lumina/controller.css) · v2026.10.09-03 | [tgbot.css](themes/lumina/tgbot.css) · v2026.09.21-02 | [安装与配置](themes/lumina/README.md) |
+| PaperMint 薄荷纸境 | [controller.css](themes/papermint/controller.css) · v2026.10.09-03 | [tgbot.css](themes/papermint/tgbot.css) · v2026.09.21-01 | [安装与配置](themes/papermint/README.md) |
+| Claude Paper 陶纸 | [controller.css](themes/claude-paper/controller.css) · v2026.10.09-04 | [tgbot.css](themes/claude-paper/tgbot.css) · v2026.10.01-01 | [安装与配置](themes/claude-paper/README.md) |
+| Ink Mint 墨薄荷 | [controller.css](themes/ink-mint/controller.css) · v2026.10.09-04 | [tgbot.css](themes/ink-mint/tgbot.css) · v2026.10.09-01 | [安装与配置](themes/ink-mint/README.md) |
 
 - **Lumina**：暖金强调色，可选壁纸。
 - **PaperMint**：圆角、描边、偏移硬阴影和粉彩辅助色。
 - **Claude Paper 陶纸**：受 Claude 界面启发的非官方暖纸色主题，陶土橙与衬线标题。
+- **Ink Mint 墨薄荷**：暖纸白 / 蓝墨黑底色、薄荷绿强调，几何无衬线标题，数据用等宽字体。
 
 各主题均支持浅色与深色，逐版更新记录见 [CHANGELOG.md](CHANGELOG.md)。
 
@@ -50,12 +52,23 @@ MiaoMiaoWuX 的独立主题集合。每个主题单独提供主控 CSS、TG Bot 
 
 <p><img src="themes/claude-paper/screenshots/servers-mobile.jpg" alt="Claude Paper 陶纸 手机服务管理" width="300"> <img src="themes/claude-paper/screenshots/forward-mobile.jpg" alt="Claude Paper 陶纸 手机转发链" width="300"></p>
 
+### Ink Mint 墨薄荷
+
+| 桌面 · 首页（浅色） | 桌面 · 首页（深色） |
+| --- | --- |
+| ![Ink Mint 墨薄荷 首页浅色](themes/ink-mint/screenshots/home-light.jpg) | ![Ink Mint 墨薄荷 首页深色](themes/ink-mint/screenshots/home-dark.jpg) |
+
+![Ink Mint 墨薄荷 转发链画布与 iperf3 面板](themes/ink-mint/screenshots/forward-canvas.jpg)
+
+<p><img src="themes/ink-mint/screenshots/servers-mobile.jpg" alt="Ink Mint 墨薄荷 手机服务管理" width="300"> <img src="themes/ink-mint/screenshots/forward-mobile.jpg" alt="Ink Mint 墨薄荷 手机转发链" width="300"></p>
+
 ## 当前版本要点
 
 - 适配主控 0.5.6-beta.6。
 - **液态玻璃 / Meow 界面风格**：主题的配色、描边、圆角、阴影、字体等视觉设计让开，保留这两种风格的原生外观；布局、尺寸、溢出、换行、触控等细节修复仍然生效。Meow 深色改用陶纸深色底色，卡片与输入框加细描边；删除 CSS 中“Meow 深色可读性”一段可恢复原生。
 - 关闭全站装饰动画与过渡（保留加载转圈），所有界面风格生效，减轻卡顿；删除 CSS 末尾“减少动画”一段可恢复。
 - 卡片内的卡片（如手机节点管理的节点卡片）加描边区分；桌面节点表格选中行减淡。
+- 选中的分段按钮（首页今天 / 本周 / 本月、转发链路线 / 紧凑、画布页上行 / 下行、TCP / UDP、服务器池 / 节点池等）统一用各主题的主题色；手机批量操作栏改为等分整行，不再横向滑动。
 - 需要支持 CSS 嵌套的浏览器：Chrome 112+、Safari / iOS 16.5+、Firefox 117+，更旧的浏览器整套主题不生效。
 
 ## 安装
@@ -67,7 +80,7 @@ MiaoMiaoWuX 的独立主题集合。每个主题单独提供主控 CSS、TG Bot 
 
 每个输入框只用一套主题，不要合并 `controller.css` 与 `tgbot.css`，也不要叠加不同主题。TG Bot 主题只作用于 Mini App 网页，不改变 Telegram 聊天界面。
 
-主控自定义 CSS 上限为 65,536 个 UTF-8 字节（不是字符数）。当前大小：Lumina 57,513、PaperMint 56,567、陶纸 55,453 字节。授权与版本要求见 [官方 CSS 文档](https://miaomiaowux.com/docs/custom-css/)，Mini App 说明见 [官方 TG Bot 文档](https://miaomiaowux.com/docs/tool-mmwx-tgbot/)。
+主控自定义 CSS 上限为 65,536 个 UTF-8 字节（不是字符数）。当前大小：Lumina 57,981、PaperMint 57,201、陶纸 55,872、Ink Mint 53,266 字节。授权与版本要求见 [官方 CSS 文档](https://miaomiaowux.com/docs/custom-css/)，Mini App 说明见 [官方 TG Bot 文档](https://miaomiaowux.com/docs/tool-mmwx-tgbot/)。
 
 ## 配置
 
@@ -79,7 +92,7 @@ MiaoMiaoWuX 的独立主题集合。每个主题单独提供主控 CSS、TG Bot 
 
 ## 旧版主控备份
 
-仍在使用 0.5.6-beta.6 之前主控（beta.4 及更早）的，请用各主题 `legacy/` 中的最后一版 v2026.10.06-02（原样备份，不再更新；TG Bot CSS 无需替换）：
+仍在使用 0.5.6-beta.6 之前主控（beta.4 及更早）的，请用各主题 `legacy/` 中的最后一版 v2026.10.06-02（原样备份，不再更新；TG Bot CSS 无需替换；Ink Mint 为 beta.6 之后新增，没有旧版）：
 
 | 主题 | 旧版主控 CSS |
 | --- | --- |
@@ -92,12 +105,12 @@ MiaoMiaoWuX 的独立主题集合。每个主题单独提供主控 CSS、TG Bot 
 ```text
 themes/
 ├── README.md              # 主题目录约定
-└── <theme-id>/            # lumina / papermint / claude-paper
+└── <theme-id>/            # lumina / papermint / claude-paper / ink-mint
     ├── README.md
     ├── controller.css     # 主控
     ├── tgbot.css          # TG Bot Mini App
     ├── screenshots/       # 模拟数据截图
-    ├── legacy/            # 旧版主控（beta.6 之前）备份
+    ├── legacy/            # 旧版主控（beta.6 之前）备份，Ink Mint 无
     └── assets/            # 主题资源（Lumina 壁纸）
 extensions/README.md       # 未来可选功能的扩展约定
 assets/lumina-wallpaper.jpg  # 旧壁纸直链兼容副本

@@ -1,0 +1,244 @@
+/*
+ * MiaoMiaoWuX · Ink Mint 墨薄荷 · TG Bot Mini App
+ * 版本：v2026.10.09-01
+ * 更新日期：2026-10-09
+ * 使用：系统设置 → TG Bot → Mini App 自定义 CSS，完整替换旧样式。
+ * 独立文件，无远程图片、字体或脚本；不要放入主控 CSS 栏。
+ */
+
+:root {
+  /* 用户配置：100% 取消限宽；按钮最小高度保留手机触控空间。 */
+  --ink-mini-content-max-width: 900px;
+  --ink-mini-button-height: 40px;
+  --ink-mini-card-radius: 12px;
+  --ink-mini-control-radius: 10px;
+  /* 浅色：暖纸白底、纯白卡片、墨色文字；薄荷绿按钮配墨色字，绿色文字用深绿保证可读。 */
+  --ink-mini-light-page: #f6f4ef;
+  --ink-mini-light-surface: #ffffff;
+  --ink-mini-light-ink: #11151b;
+  --ink-mini-light-accent: #3ddc97;
+  --ink-mini-light-accent-text: #11151b;
+  /* 深色：蓝墨黑底、深灰蓝卡片，薄荷绿强调。 */
+  --ink-mini-dark-page: #11151b;
+  --ink-mini-dark-surface: #181e26;
+  --ink-mini-dark-ink: #f6f4ef;
+  --ink-mini-dark-accent: #3ddc97;
+  --ink-mini-dark-accent-text: #11151b;
+  /* 本地字体：正文系统无衬线，大号数字用几何无衬线。 */
+  --ink-mini-body-font: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+  --ink-mini-heading-font: "Avenir Next", "Segoe UI Variable Display", "Segoe UI", -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+
+/* 显式覆盖内置基底；深浅跟随 Mini App 的 html.dark，不改认证或角色状态。 */
+html:root {
+  color-scheme: light;
+  --brand: var(--ink-mini-light-accent) !important;
+  --brand-soft: #e2f7ec !important;
+  --bg: var(--ink-mini-light-page) !important;
+  --text: var(--ink-mini-light-ink) !important;
+  --card: var(--ink-mini-light-surface) !important;
+  --muted: #64707d !important;
+  --border: #dddcd5 !important;
+  --radius: var(--ink-mini-card-radius) !important;
+  --warn: #c2413b !important;
+  --ink-mini-accent-text: var(--ink-mini-light-accent-text);
+  --ink-mini-accent-ink: #0b6e48;
+  --ink-mini-secondary: #eeece6;
+  --ink-mini-input: #cfcdc4;
+  --ink-mini-warn-text: #fffafa;
+  --ink-mini-shadow: 0 1px 2px rgb(17 21 27 / 5%);
+}
+
+html:root.dark {
+  color-scheme: dark;
+  --brand: var(--ink-mini-dark-accent) !important;
+  --brand-soft: #173528 !important;
+  --bg: var(--ink-mini-dark-page) !important;
+  --text: var(--ink-mini-dark-ink) !important;
+  --card: var(--ink-mini-dark-surface) !important;
+  --muted: #9aa3ae !important;
+  --border: #2a313b !important;
+  --warn: #f0857e !important;
+  --ink-mini-accent-text: var(--ink-mini-dark-accent-text);
+  --ink-mini-accent-ink: #3ddc97;
+  --ink-mini-secondary: #1d242e;
+  --ink-mini-input: #3a4350;
+  --ink-mini-warn-text: #2a1110;
+  --ink-mini-shadow: 0 1px 3px rgb(0 0 0 / 30%);
+}
+
+html body {
+  color: var(--text);
+  background: var(--bg) !important;
+  font-family: var(--ink-mini-body-font);
+  -webkit-font-smoothing: antialiased;
+  padding-bottom: calc(90px + env(safe-area-inset-bottom, 0px));
+}
+
+html main,
+html #notice {
+  width: 100%;
+  max-width: var(--ink-mini-content-max-width);
+  min-width: 0;
+  margin-inline: auto;
+}
+
+html :is(.card, header, nav, .inp, .seg button) {
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+
+html .card {
+  min-width: 0;
+  margin-bottom: 12px;
+  padding: 14px !important;
+  color: var(--text);
+  background: var(--card) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: var(--radius) !important;
+  box-shadow: var(--ink-mini-shadow) !important;
+  overflow-wrap: anywhere;
+}
+
+/* 清除内置装饰，保留卡片内容；不触碰 .hide 隐藏与权限规则。 */
+html.theme-anime .card::after,
+html.theme-glass .card::after { display: none !important; }
+
+html header,
+html nav {
+  color: var(--text);
+  border-color: var(--border) !important;
+  background: var(--card) !important;
+  box-shadow: none !important;
+}
+
+html header .brand { color: var(--text); }
+html .ax-t { color: var(--ink-mini-accent-ink) !important; background: none !important; animation: none !important; filter: none !important; }
+html :is(.ax-g, .ax-p) { display: none !important; }
+html .title { color: var(--muted); font-weight: 500; letter-spacing: 0.02em; }
+html .big {
+  color: var(--text);
+  font-family: var(--ink-mini-heading-font);
+  font-weight: 650;
+  font-size: 28px;
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+  font-variant-numeric: tabular-nums;
+}
+
+html :is(.btn, .seg button) {
+  min-height: var(--ink-mini-button-height);
+  max-width: 100%;
+  padding: 8px 12px;
+  border: 1px solid var(--ink-mini-input);
+  border-radius: var(--ink-mini-control-radius);
+  box-shadow: none !important;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  cursor: pointer;
+  transition: background-color 120ms ease, border-color 120ms ease;
+}
+
+html .btn:not([style*="--warn"]):not([style*="--unknown"]) {
+  color: var(--ink-mini-accent-text) !important;
+  border-color: var(--brand);
+  background: var(--brand) !important;
+}
+
+/* 删除/撤销继续为红色；未知状态按钮保持中性，不染成薄荷绿。 */
+html .btn[style*="--warn"] { color: var(--ink-mini-warn-text) !important; background: var(--warn) !important; border-color: var(--warn); }
+html .btn[style*="--unknown"] { color: #11151b !important; background: var(--unknown) !important; border-color: var(--unknown); }
+
+html .seg { flex-wrap: wrap; gap: 6px; padding: 4px; background: var(--ink-mini-secondary); border-radius: calc(var(--ink-mini-control-radius) + 3px); }
+html .seg button { flex: 1 1 5rem; min-width: 0; color: var(--muted); background: transparent !important; border-color: transparent; }
+html .seg button.active { color: var(--ink-mini-accent-ink) !important; background: var(--card) !important; border-color: var(--border); }
+
+html .inp {
+  min-width: 0;
+  max-width: 100%;
+  color: var(--text) !important;
+  background: var(--card) !important;
+  border: 1px solid var(--ink-mini-input);
+  border-radius: var(--ink-mini-control-radius);
+  box-shadow: none !important;
+  font: inherit;
+  font-size: 16px;
+}
+html .inp::placeholder { color: var(--muted); opacity: 1; }
+html input:is([type="checkbox"], [type="radio"]) { accent-color: var(--brand); }
+html :is(.inp, .btn, .seg button, nav button, .xsw, a):focus-visible { outline: 2px solid var(--brand); outline-offset: 3px; }
+
+html .row,
+html main .sub { gap: 8px; flex-wrap: wrap; }
+html .row > *,
+html main .sub > * { min-width: 0; max-width: 100%; overflow-wrap: anywhere; }
+html main .sub .u { flex-basis: 12rem; }
+html .badge { display: inline-block; max-width: 100%; color: var(--ink-mini-accent-ink); background: var(--brand-soft); border-radius: 6px; white-space: normal; font-weight: 600; }
+html .bar { height: 8px; border: 0; border-radius: 999px; background: var(--ink-mini-secondary); }
+html .bar > i { background: var(--brand); }
+html .st { gap: 10px; }
+html .st > :first-child { min-width: 0; overflow-wrap: anywhere; }
+html .xctl { flex-shrink: 0; }
+
+/* 圆点不依赖按钮字体或通用尺寸；业务状态仍由 .on / disabled 控制。 */
+html .xsw {
+  position: relative;
+  box-sizing: border-box;
+  width: 44px;
+  height: 26px;
+  flex: 0 0 44px;
+  padding: 0;
+  border: 1px solid var(--ink-mini-input);
+  border-radius: 999px;
+  background: var(--ink-mini-input);
+  box-shadow: none;
+}
+html .xsw.on { background: var(--brand); border-color: var(--brand); }
+html .xsw::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 3px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 1px 2px rgb(0 0 0 / 18%);
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+html .xsw.on::after { transform: translate(18px, -50%); }
+html :is(.btn, .inp, .seg button, nav button, .xsw):disabled { opacity: 0.45; cursor: not-allowed; }
+
+/* 六项管理员导航适配手机；不重设 display，保留未授权时的 .hide。 */
+html nav {
+  z-index: 20;
+  max-width: var(--ink-mini-content-max-width);
+  margin-inline: auto;
+  padding: 6px 4px calc(6px + env(safe-area-inset-bottom, 0px));
+  border-top: 1px solid var(--border);
+  border-radius: 14px 14px 0 0;
+}
+html nav button { min-width: 0; min-height: 50px; margin-inline: 1px; padding: 7px 2px; color: var(--muted); background: transparent; border-radius: var(--ink-mini-control-radius); font-family: var(--ink-mini-body-font); font-size: 11px; overflow-wrap: anywhere; }
+html nav button.active { color: var(--ink-mini-accent-ink); background: var(--brand-soft); font-weight: 600; }
+html nav svg { flex-shrink: 0; }
+
+@media (hover: hover) {
+  html .btn:not(:disabled):not([style*="--warn"]):not([style*="--unknown"]):hover { background: color-mix(in srgb, var(--brand) 90%, var(--text)) !important; }
+  html .seg button:not(.active):not(:disabled):hover,
+  html nav button:not(.active):not(:disabled):hover { color: var(--text); background: var(--ink-mini-secondary) !important; }
+}
+
+html ::selection { color: var(--text); background: color-mix(in srgb, var(--brand) 27%, var(--card)); text-shadow: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  html *, html *::before, html *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
+
+@media (prefers-contrast: more) {
+  html:root,
+  html:root.dark { --border: var(--muted) !important; --ink-mini-input: var(--text); }
+}
