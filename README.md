@@ -2,6 +2,20 @@
 
 MiaoMiaoWuX 的独立主题集合。每个主题单独提供主控 CSS、TG Bot Mini App CSS、说明和资源。
 
+## 主题
+
+| 主题 | 主控 CSS | TG Bot Mini App CSS | 说明 |
+| --- | --- | --- | --- |
+| Lumina 白金 / 黑金 | [controller.css](themes/lumina/controller.css) · v2026.10.08-11 | [tgbot.css](themes/lumina/tgbot.css) · v2026.09.21-02 | [安装与配置](themes/lumina/README.md) |
+| PaperMint 薄荷纸境 | [controller.css](themes/papermint/controller.css) · v2026.10.08-11 | [tgbot.css](themes/papermint/tgbot.css) · v2026.09.21-01 | [安装与配置](themes/papermint/README.md) |
+| Claude Paper 陶纸 | [controller.css](themes/claude-paper/controller.css) · v2026.10.08-11 | [tgbot.css](themes/claude-paper/tgbot.css) · v2026.10.01-01 | [安装与配置](themes/claude-paper/README.md) |
+
+- **Lumina**：暖金强调色，可选壁纸。
+- **PaperMint**：圆角、描边、偏移硬阴影和粉彩辅助色。
+- **Claude Paper 陶纸**：受 Claude 界面启发的非官方暖纸色主题，陶土橙与衬线标题。
+
+各主题均支持浅色与深色，逐版更新记录见 [CHANGELOG.md](CHANGELOG.md)。
+
 ## 预览
 
 > 截图使用模拟数据：名称为演示用，IP 为 RFC 5737 / RFC 3849 文档地址段，流量与延迟为随机数值。
@@ -35,20 +49,6 @@ MiaoMiaoWuX 的独立主题集合。每个主题单独提供主控 CSS、TG Bot 
 ![Claude Paper 陶纸 转发链画布与 iperf3 面板](themes/claude-paper/screenshots/forward-canvas.jpg)
 
 <p><img src="themes/claude-paper/screenshots/servers-mobile.jpg" alt="Claude Paper 陶纸 手机服务管理" width="300"> <img src="themes/claude-paper/screenshots/forward-mobile.jpg" alt="Claude Paper 陶纸 手机转发链" width="300"></p>
-
-## 主题
-
-| 主题 | 主控 CSS | TG Bot Mini App CSS | 说明 |
-| --- | --- | --- | --- |
-| Lumina 白金 / 黑金 | [controller.css](themes/lumina/controller.css) · v2026.10.08-11 | [tgbot.css](themes/lumina/tgbot.css) · v2026.09.21-02 | [安装与配置](themes/lumina/README.md) |
-| PaperMint 薄荷纸境 | [controller.css](themes/papermint/controller.css) · v2026.10.08-11 | [tgbot.css](themes/papermint/tgbot.css) · v2026.09.21-01 | [安装与配置](themes/papermint/README.md) |
-| Claude Paper 陶纸 | [controller.css](themes/claude-paper/controller.css) · v2026.10.08-11 | [tgbot.css](themes/claude-paper/tgbot.css) · v2026.10.01-01 | [安装与配置](themes/claude-paper/README.md) |
-
-- **Lumina**：暖金强调色，可选壁纸。
-- **PaperMint**：圆角、描边、偏移硬阴影和粉彩辅助色。
-- **Claude Paper 陶纸**：受 Claude 界面启发的非官方暖纸色主题，陶土橙与衬线标题。
-
-各主题均支持浅色与深色，逐版更新记录见 [CHANGELOG.md](CHANGELOG.md)。
 
 ## 当前版本要点
 
