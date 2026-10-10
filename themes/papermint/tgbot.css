@@ -1,7 +1,7 @@
 /*
  * MiaoMiaoWuX · PaperMint 薄荷纸境 · TG Bot Mini App
- * 版本：v2026.09.21-01
- * 更新日期：2026-09-21
+ * 版本：v2026.10.11-01
+ * 更新日期：2026-10-11
  * 使用：系统设置 → TG Bot → Mini App 自定义 CSS。
  * 独立完整文件，无字体或图片外部依赖；不与主控 CSS 混用。
  */
@@ -145,8 +145,9 @@ html .xsw.on {
 html .btn[style*="--warn"] { color: #fff !important; background: var(--warn) !important; }
 html .btn[style*="--unknown"] { color: #17212e !important; background: var(--unknown) !important; }
 html .seg button:not(.active) { color: var(--text); background: var(--paper-mini-secondary) !important; }
-html .seg { flex-wrap: wrap; gap: 8px; margin-block: 10px; }
-html .seg button { flex: 1 1 5rem; min-width: 0; }
+html .seg { flex-wrap: wrap; gap: 4px; margin-block: 10px; }
+/* 分段按钮按文字宽度排布、不换行（与主控 beta.9 原生一致）：七个“有效期”选项手机上排一行，排不下时整个选项换到下一排。 */
+html .seg button { flex: 1 0 auto; min-width: 0; padding-inline: 4px; white-space: nowrap; overflow-wrap: normal; }
 
 html .inp {
   min-width: 0;

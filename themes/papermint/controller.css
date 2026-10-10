@@ -1,7 +1,7 @@
 /*
  * MiaoMiaoWuX · PaperMint 薄荷纸境
- * 版本：v2026.10.09-03
- * 更新日期：2026-10-09
+ * 版本：v2026.10.11-01
+ * 更新日期：2026-10-11
  * 容量控制：保留顶部配置格式，其余按顶层规则压缩；完整文件按 UTF-8 字节计量。
  * 独立主题：请单独粘贴使用，不要与 Lumina CSS 混用。
  * 视觉语言：清爽白底、学习绿、粉彩辅助色、深色描边、偏移硬阴影。
@@ -190,6 +190,8 @@ tr[data-slot=table-row][class*="bg-primary/15"]{--tw-ring-color:color-mix(in okl
 :root.theme-meow :is(.app-topbar-inner,aside.app-blur-shell){-webkit-backdrop-filter:none;backdrop-filter:none}
 /* 手机批量操作栏：按钮固定 64px 宽超出屏幕需横向滑动，改为等分整行 */
 .fixed.inset-x-0.bottom-0>.flex.overflow-x-auto:has(>button.w-16.shrink-0){display:grid;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);gap:4px;overflow-x:visible}.fixed.inset-x-0.bottom-0>.flex.overflow-x-auto>button.w-16.shrink-0{width:auto;min-width:0}
+/* 转发链详情“路线与成员”：组名不被后面的说明挤成两行，说明自行截断 */
+.flex-col.gap-2>.flex.items-baseline.justify-between>b.text-lg{flex-shrink:0;max-width:100%}
 /* 视觉设计：配色、背景、描边、圆角、阴影、字体与动画，液态玻璃 / Meow 下让开 */:where(:root:not(.theme-glass,.theme-meow)){
 
 &.dark{--primary: #4ade80;--primary-foreground: #102117;--background: #111827;--foreground: #f8fafc;--card: #1e293b;--card-foreground: #f8fafc;--popover: #1e293b;--popover-foreground: #f8fafc;--secondary: #31576a;--secondary-foreground: #f8fafc;--muted: #263449;--muted-foreground: #cbd5e1;--accent: #473f67;--accent-foreground: #f8fafc;--destructive: #fb7185;--destructive-foreground: #1f1115;--border: #d7e0ec;--input: #64748b;--ring: rgba(74, 222, 128, .52);--sidebar: #172033;--sidebar-foreground: #f8fafc;--sidebar-primary: #4ade80;--sidebar-primary-foreground: #102117;--sidebar-accent: #473f67;--sidebar-accent-foreground: #f8fafc;--sidebar-border: #d7e0ec;--sidebar-ring: rgba(74, 222, 128, .52);--paper-ink: #d7e0ec;--paper-green: #4ade80;--paper-green-dark: #22c55e;--paper-blue: #31576a;--paper-pink: #704a50;--paper-mint: #285c3b;--paper-lavender: #473f67;--paper-cream: #111827}
