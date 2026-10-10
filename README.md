@@ -9,7 +9,7 @@ MiaoMiaoWuX 的独立主题集合。每个主题单独提供主控 CSS、TG Bot 
 | Lumina 白金 / 黑金 | [controller.css](themes/lumina/controller.css) · v2026.10.09-03 | [tgbot.css](themes/lumina/tgbot.css) · v2026.09.21-02 | [安装与配置](themes/lumina/README.md) |
 | PaperMint 薄荷纸境 | [controller.css](themes/papermint/controller.css) · v2026.10.09-03 | [tgbot.css](themes/papermint/tgbot.css) · v2026.09.21-01 | [安装与配置](themes/papermint/README.md) |
 | Claude Paper 陶纸 | [controller.css](themes/claude-paper/controller.css) · v2026.10.09-04 | [tgbot.css](themes/claude-paper/tgbot.css) · v2026.10.01-01 | [安装与配置](themes/claude-paper/README.md) |
-| Ink Mint 墨薄荷 | [controller.css](themes/ink-mint/controller.css) · v2026.10.09-05 | [tgbot.css](themes/ink-mint/tgbot.css) · v2026.10.09-01 | [安装与配置](themes/ink-mint/README.md) |
+| Ink Mint 墨薄荷 | [controller.css](themes/ink-mint/controller.css) · v2026.10.10-01 | [tgbot.css](themes/ink-mint/tgbot.css) · v2026.10.09-01 | [安装与配置](themes/ink-mint/README.md) |
 
 - **Lumina**：暖金强调色，可选壁纸。
 - **PaperMint**：圆角、描边、偏移硬阴影和粉彩辅助色。
@@ -80,7 +80,7 @@ MiaoMiaoWuX 的独立主题集合。每个主题单独提供主控 CSS、TG Bot 
 
 每个输入框只用一套主题，不要合并 `controller.css` 与 `tgbot.css`，也不要叠加不同主题。TG Bot 主题只作用于 Mini App 网页，不改变 Telegram 聊天界面。
 
-主控自定义 CSS 上限为 65,536 个 UTF-8 字节（不是字符数）。当前大小：Lumina 57,981、PaperMint 57,201、陶纸 55,872、Ink Mint 53,472 字节。授权与版本要求见 [官方 CSS 文档](https://miaomiaowux.com/docs/custom-css/)，Mini App 说明见 [官方 TG Bot 文档](https://miaomiaowux.com/docs/tool-mmwx-tgbot/)。
+主控自定义 CSS 上限为 65,536 个 UTF-8 字节（不是字符数）。当前大小：Lumina 57,981、PaperMint 57,201、陶纸 55,872、Ink Mint 53,523 字节。授权与版本要求见 [官方 CSS 文档](https://miaomiaowux.com/docs/custom-css/)，Mini App 说明见 [官方 TG Bot 文档](https://miaomiaowux.com/docs/tool-mmwx-tgbot/)。
 
 ## 配置
 
