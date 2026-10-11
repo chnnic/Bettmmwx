@@ -1,6 +1,6 @@
 /*
  * MiaoMiaoWuX · Lumina 白金 / 黑金
- * 版本：v2026.10.11-03
+ * 版本：v2026.10.11-04
  * 更新日期：2026-10-11
  * 顶部为配置区，其余已压缩；跟随主控 light / dark，无需 JS。
  */
@@ -158,7 +158,7 @@ html&,& body,& body *,& body:before,& body:after,& body *:before,& body *:after{
 &.dark [data-slot=input],&.dark [data-slot=textarea],&.dark [data-slot=select-trigger],&.dark input,&.dark textarea,&.dark select{color:#f2eadb;border-color:#dfb65a6b;background-color:#2a261e;box-shadow:0 1px #ffe8b40f inset}
 &.dark [data-slot=input]:focus-visible,&.dark [data-slot=textarea]:focus-visible,&.dark [data-slot=select-trigger]:focus-visible,&.dark input:focus-visible,&.dark textarea:focus-visible,&.dark select:focus-visible{border-color:#dfb65ac2;background-color:#342f24}
 &.dark input::placeholder,&.dark textarea::placeholder{color:#b8ad98;opacity:.92}
-[data-slot=input]:focus-visible,[data-slot=textarea]:focus-visible,[data-slot=select-trigger]:focus-visible,& input:focus-visible,& textarea:focus-visible,& select:focus-visible{border-color:var(--ring);box-shadow:0 0 0 3px color-mix(in srgb,var(--ring) 22%,#0000)}
+[data-slot=input]:focus-visible,[data-slot=textarea]:focus-visible,[data-slot=select-trigger]:focus-visible,& input:is([data-slot],:not(.outline-none)):focus-visible,& textarea:focus-visible,& select:focus-visible,& label.border-input:has(>input:not([data-slot]).outline-none:focus-visible){border-color:var(--ring);box-shadow:0 0 0 3px color-mix(in srgb,var(--ring) 22%,#0000)}
 [data-slot=tabs-list]{border:1px solid color-mix(in srgb,var(--border) 88%,var(--primary));background-color:var(--muted)}
 &:root:not(.theme-glass) [data-slot=tabs-trigger][data-state=active]{color:var(--accent-foreground);background-color:var(--card);box-shadow:0 4px 14px #362d1d14}
 &:root.dark:not(.theme-glass) [data-slot=tabs-trigger][data-state=active]{color:var(--primary);box-shadow:0 5px 16px #0000003d}

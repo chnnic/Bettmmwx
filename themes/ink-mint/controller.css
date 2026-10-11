@@ -1,6 +1,6 @@
 /*
  * MiaoMiaoWuX · Ink Mint 墨薄荷
- * 版本：v2026.10.11-05
+ * 版本：v2026.10.11-06
  * 更新日期：2026-10-11
  * 容量控制：保留顶部配置格式，其余按顶层规则压缩；完整文件按 UTF-8 字节计量。
  * 独立主题：暖纸白 / 蓝墨黑底色，薄荷绿强调，几何无衬线标题，数据用等宽字体，细描边、少阴影。
@@ -193,7 +193,7 @@ html&,& body,& body *,& body:before,& body:after,& body *:before,& body *:after{
 &:root body :is([data-slot=input],[data-slot=textarea],[data-slot=select-trigger]){color:var(--foreground)!important;border:1px solid var(--input)!important;border-radius:var(--ink-control-radius)!important;background:var(--card)!important;box-shadow:none!important;font-weight:400}
 &:root #root [data-slot=card-description]:has(>[data-slot=dropdown-menu-trigger]>svg.lucide-settings)>[data-slot=dropdown-menu-trigger]:has(>svg.lucide-settings):has(>svg.lucide-chevron-down)+span:has(>svg.lucide-wifi){border:0!important;border-left:1px solid currentColor!important;border-radius:0!important;background:transparent!important;box-shadow:none!important}
 &:root body :is(input,textarea)::placeholder{color:var(--muted-foreground)!important;opacity:1}
-&:root body :is(button,a,input,textarea,select,[tabindex="0"]):focus-visible{outline:2px solid var(--ring)!important;outline-offset:2px;box-shadow:none!important}
+&:root body :is(button,a,input:is([data-slot],:not(.outline-none)),textarea,select,[tabindex="0"]):focus-visible{outline:2px solid var(--ring)!important;outline-offset:2px;box-shadow:none!important}
 &:root body [data-slot=switch]{box-sizing:border-box;flex-shrink:0;width:38px!important;min-width:38px!important;height:22px!important;min-height:22px!important;padding:0!important;border:1px solid var(--input)!important;border-radius:999px!important;background:var(--input)!important;box-shadow:none!important}
 &:root body [data-slot=switch][data-state=checked]{background:var(--primary)!important;border-color:var(--primary)!important}
 &:root body [data-slot=switch]>[data-slot=switch-thumb]{position:absolute!important;inset-block-start:50%!important;inset-inline-start:2px!important;width:16px!important;height:16px!important;margin:0!important;border:0!important;border-radius:50%!important;background:#fffdf9!important;box-shadow:0 1px 2px #0000002e!important;opacity:1!important;visibility:visible!important;translate:none!important;transform:translateY(-50%)!important;pointer-events:none}
@@ -231,7 +231,8 @@ html&{scrollbar-width:thin;scrollbar-color:var(--input) var(--background)}
 &.dark :is(.text-gray-500,.text-gray-600,.text-gray-700){color:var(--muted-foreground)}
 &:root body #root :is([data-slot=button],.pixel-button).bg-primary:is([data-active=true],[title$=\89c6\56fe],:not(:has(svg),:last-child):is(:has(~*~*),*~*)){color:var(--primary-foreground)!important;border-color:var(--primary)!important;background:var(--primary)!important}
 &:root body .rainbow-flow-bar{background:color-mix(in srgb,var(--primary) 14%,transparent)!important}&:root body .rainbow-flow-bar:before{background-image:repeating-linear-gradient(-45deg,color-mix(in srgb,var(--primary) 70%,transparent) 0 4px,transparent 4px 8px)!important}
-&:root body :is(input:not([type=checkbox],[type=radio]),textarea,[data-slot=select-trigger]):focus-visible{outline:none!important;border-color:var(--primary)!important;box-shadow:0 0 0 3px color-mix(in srgb,var(--primary) 18%,transparent)!important}
+/* 外层带框、内层透明的搜索框（如“选择服务器”）：焦点光晕加在外框上，不在框里再套一层 */
+&:root body :is(input:is([data-slot],:not(.outline-none)):not([type=checkbox],[type=radio]),textarea,[data-slot=select-trigger]):focus-visible,&:root body label.border-input:has(>input:not([data-slot]).outline-none:focus-visible){outline:none!important;border-color:var(--primary)!important;box-shadow:0 0 0 3px color-mix(in srgb,var(--primary) 18%,transparent)!important}
 &:root body #root [data-slot=card]{[data-slot=button].text-red-500.bg-transparent{color:var(--muted-foreground)!important;border-color:transparent!important;background:transparent!important}[data-slot=button].text-red-500.bg-transparent:hover{color:var(--destructive)!important;background:color-mix(in srgb,var(--destructive) 10%,transparent)!important}}
 /* 手机画布：服务器池列表限高内滚、“新建一组 / 加入”栏吸底；“已选某组”浮条抬到缩放按钮上方 */
 @media(max-width:767px){#root main>.fixed:has(.react-flow) aside.order-3>div:last-child:not(:first-child){background:var(--card)}}

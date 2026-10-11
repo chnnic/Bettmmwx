@@ -2,7 +2,7 @@
 
 暖纸白 / 蓝墨黑底色、薄荷绿强调的主控与 TG Bot Mini App 主题：几何无衬线标题，IP、延迟等数据用等宽字体，细描边、少阴影。配色思路参考 nodecloak.com 的明暗两套界面；非官方，不使用其标识、字体或图片素材。
 
-- [controller.css](controller.css)：主控完整样式，`v2026.10.11-05`，适用于主控 0.5.6-beta.6 及以后（已核对 beta.9）。
+- [controller.css](controller.css)：主控完整样式，`v2026.10.11-06`，适用于主控 0.5.6-beta.6 及以后（已核对 beta.9）。
 - [tgbot.css](tgbot.css)：TG Bot Mini App 完整样式，`v2026.10.11-01`；不要与主控文件混用。
 - 独立文件，不依赖其他主题，不加载远程字体、图片或脚本。
 
@@ -27,7 +27,7 @@
 
 两端样式分别保存，更新主控 CSS 不会自动更新 Mini App。Mini App 主题不改变 Telegram 原生聊天界面。
 
-主控 CSS 完整文件 55,659 个 UTF-8 字节，低于 65,536 字节上限。需要支持 CSS 嵌套的浏览器：Chrome 112+、Safari / iOS 16.5+、Firefox 117+。
+主控 CSS 完整文件 55,951 个 UTF-8 字节，低于 65,536 字节上限。需要支持 CSS 嵌套的浏览器：Chrome 112+、Safari / iOS 16.5+、Firefox 117+。
 
 ## 界面风格与深浅色
 
