@@ -4,7 +4,7 @@
 
 - [controller.css](controller.css)：主控完整样式，`v2026.10.11-04`。
 - [legacy/controller-v2026.10.06-02.css](legacy/controller-v2026.10.06-02.css)：旧版主控备份，适用于主控 0.5.6-beta.6 之前（beta.4 及更早）；新版主控请用上面的 `controller.css`。
-- [tgbot.css](tgbot.css)：TG Bot Mini App 完整样式，`v2026.10.11-01`；不要与主控文件混用。
+- [tgbot.css](tgbot.css)：TG Bot Mini App 完整样式，`v2026.10.12-01`；不要与主控文件混用。
 - 独立文件，不依赖 Lumina、PaperMint、远程字体、图片或 JavaScript。
 
 ## 预览
@@ -20,6 +20,8 @@
 <p><img src="screenshots/servers-mobile.jpg" alt="Claude Paper 陶纸 手机服务管理" width="300"> <img src="screenshots/forward-mobile.jpg" alt="Claude Paper 陶纸 手机转发链" width="300"></p>
 
 ## 安装
+
+本版（TG Bot Mini App v2026.10.12-01）：适配主控 0.5.6 正式版：Mini App 选用 Meow 外观（默认主题为 Meow 时）主题整体让开，保持 Meow 原生样式。
 
 本版 v2026.10.11-04：“选择服务器”等外框里带搜索图标的输入框，聚焦时不再在框里再套一层带颜色的框，焦点描边改加在外框上。
 

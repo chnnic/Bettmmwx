@@ -4,7 +4,7 @@
 
 - [controller.css](controller.css)：主控完整样式，`v2026.10.11-03`。
 - [legacy/controller-v2026.10.06-02.css](legacy/controller-v2026.10.06-02.css)：旧版主控备份，适用于主控 0.5.6-beta.6 之前（beta.4 及更早）；新版主控请用上面的 `controller.css`。
-- [tgbot.css](tgbot.css)：TG Bot Mini App 完整样式，`v2026.10.11-01`。
+- [tgbot.css](tgbot.css)：TG Bot Mini App 完整样式，`v2026.10.12-01`。
 
 ## 预览
 
@@ -19,6 +19,8 @@
 <p><img src="screenshots/servers-mobile.jpg" alt="PaperMint 薄荷纸境 手机服务管理" width="300"> <img src="screenshots/forward-mobile.jpg" alt="PaperMint 薄荷纸境 手机转发链" width="300"></p>
 
 ## 安装
+
+本版（TG Bot Mini App v2026.10.12-01）：适配主控 0.5.6 正式版：Mini App 选用 Meow 外观（默认主题为 Meow 时）主题整体让开，保持 Meow 原生样式。
 
 本版 v2026.10.11-03：“添加远程服务器”弹窗里的安装命令、Docker 环境变量框不再被撑成大块空白，恢复主控的按内容高度；规则、模板等可编辑代码框仍保持加大。
 

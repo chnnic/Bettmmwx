@@ -1,9 +1,10 @@
 /*
  * MiaoMiaoWuX · Claude Paper 陶纸 · TG Bot Mini App
- * 版本：v2026.10.11-01
- * 更新日期：2026-10-11
+ * 版本：v2026.10.12-01
+ * 更新日期：2026-10-12
  * 使用：系统设置 → TG Bot → Mini App 自定义 CSS，完整替换旧样式。
  * 独立文件，无远程图片、字体或脚本；不要放入主控 CSS 栏。
+ * Mini App 选用 Meow 外观（html.theme-meow）时本主题整体让开，保持 Meow 原生样式。
  */
 
 :root {
@@ -27,7 +28,7 @@
 }
 
 /* 显式覆盖内置基底；深浅跟随 Mini App 的 html.dark，不改认证或角色状态。 */
-html:root {
+html:not(.theme-meow):root {
   color-scheme: light;
   --brand: var(--claude-mini-light-accent) !important;
   --brand-soft: #f1e3d9 !important;
@@ -46,7 +47,7 @@ html:root {
   --claude-mini-shadow: 0 1px 3px rgb(48 46 41 / 4%);
 }
 
-html:root.dark {
+html:not(.theme-meow):root.dark {
   color-scheme: dark;
   --brand: var(--claude-mini-dark-accent) !important;
   --brand-soft: #49372e !important;
@@ -64,7 +65,7 @@ html:root.dark {
   --claude-mini-shadow: 0 1px 3px rgb(0 0 0 / 12%);
 }
 
-html body {
+html:not(.theme-meow) body {
   color: var(--text);
   background: var(--bg) !important;
   font-family: var(--claude-mini-body-font);
@@ -72,20 +73,20 @@ html body {
   padding-bottom: calc(90px + env(safe-area-inset-bottom, 0px));
 }
 
-html main,
-html #notice {
+html:not(.theme-meow) main,
+html:not(.theme-meow) #notice {
   width: 100%;
   max-width: var(--claude-mini-content-max-width);
   min-width: 0;
   margin-inline: auto;
 }
 
-html :is(.card, header, nav, .inp, .seg button) {
+html:not(.theme-meow) :is(.card, header, nav, .inp, .seg button) {
   -webkit-backdrop-filter: none !important;
   backdrop-filter: none !important;
 }
 
-html .card {
+html:not(.theme-meow) .card {
   min-width: 0;
   margin-bottom: 12px;
   padding: 14px !important;
@@ -98,22 +99,22 @@ html .card {
 }
 
 /* 清除内置装饰，保留卡片内容；不触碰 .hide 隐藏与权限规则。 */
-html.theme-anime .card::after,
-html.theme-glass .card::after { display: none !important; }
+html:not(.theme-meow).theme-anime .card::after,
+html:not(.theme-meow).theme-glass .card::after { display: none !important; }
 
-html header,
-html nav {
+html:not(.theme-meow) header,
+html:not(.theme-meow) nav {
   color: var(--text);
   border-color: var(--border) !important;
   background: var(--card) !important;
   box-shadow: none !important;
 }
 
-html header .brand { color: var(--text); }
-html .ax-t { color: var(--brand) !important; background: none !important; animation: none !important; filter: none !important; }
-html :is(.ax-g, .ax-p) { display: none !important; }
-html .title { color: var(--muted); font-weight: 500; letter-spacing: 0.02em; }
-html .big {
+html:not(.theme-meow) header .brand { color: var(--text); }
+html:not(.theme-meow) .ax-t { color: var(--brand) !important; background: none !important; animation: none !important; filter: none !important; }
+html:not(.theme-meow) :is(.ax-g, .ax-p) { display: none !important; }
+html:not(.theme-meow) .title { color: var(--muted); font-weight: 500; letter-spacing: 0.02em; }
+html:not(.theme-meow) .big {
   color: var(--text);
   font-family: var(--claude-mini-heading-font);
   font-weight: 500;
@@ -122,7 +123,7 @@ html .big {
   font-variant-numeric: tabular-nums;
 }
 
-html :is(.btn, .seg button) {
+html:not(.theme-meow) :is(.btn, .seg button) {
   min-height: var(--claude-mini-button-height);
   max-width: 100%;
   padding: 8px 12px;
@@ -138,22 +139,22 @@ html :is(.btn, .seg button) {
   transition: background-color 120ms ease, border-color 120ms ease;
 }
 
-html .btn:not([style*="--warn"]):not([style*="--unknown"]) {
+html:not(.theme-meow) .btn:not([style*="--warn"]):not([style*="--unknown"]) {
   color: var(--claude-mini-accent-text) !important;
   border-color: var(--brand);
   background: var(--brand) !important;
 }
 
 /* 删除/撤销继续为红色；未知状态按钮保持中性，不染成陶土橙。 */
-html .btn[style*="--warn"] { color: var(--claude-mini-warn-text) !important; background: var(--warn) !important; border-color: var(--warn); }
-html .btn[style*="--unknown"] { color: #25231f !important; background: var(--unknown) !important; border-color: var(--unknown); }
+html:not(.theme-meow) .btn[style*="--warn"] { color: var(--claude-mini-warn-text) !important; background: var(--warn) !important; border-color: var(--warn); }
+html:not(.theme-meow) .btn[style*="--unknown"] { color: #25231f !important; background: var(--unknown) !important; border-color: var(--unknown); }
 
-html .seg { flex-wrap: wrap; gap: 4px; padding: 4px; background: var(--claude-mini-secondary); border-radius: calc(var(--claude-mini-control-radius) + 3px); }
+html:not(.theme-meow) .seg { flex-wrap: wrap; gap: 4px; padding: 4px; background: var(--claude-mini-secondary); border-radius: calc(var(--claude-mini-control-radius) + 3px); }
 /* 分段按钮按文字宽度排布、不换行（与主控 beta.9 原生一致）：七个“有效期”选项手机上排一行，排不下时整个选项换到下一排。 */
-html .seg button { flex: 1 0 auto; min-width: 0; padding-inline: 4px; white-space: nowrap; overflow-wrap: normal; color: var(--muted); background: transparent !important; border-color: transparent; }
-html .seg button.active { color: var(--claude-mini-accent-ink) !important; background: var(--card) !important; border-color: var(--border); }
+html:not(.theme-meow) .seg button { flex: 1 0 auto; min-width: 0; padding-inline: 4px; white-space: nowrap; overflow-wrap: normal; color: var(--muted); background: transparent !important; border-color: transparent; }
+html:not(.theme-meow) .seg button.active { color: var(--claude-mini-accent-ink) !important; background: var(--card) !important; border-color: var(--border); }
 
-html .inp {
+html:not(.theme-meow) .inp {
   min-width: 0;
   max-width: 100%;
   color: var(--text) !important;
@@ -164,24 +165,24 @@ html .inp {
   font: inherit;
   font-size: 16px;
 }
-html .inp::placeholder { color: var(--muted); opacity: 1; }
-html input:is([type="checkbox"], [type="radio"]) { accent-color: var(--brand); }
-html :is(.inp, .btn, .seg button, nav button, .xsw, a):focus-visible { outline: 2px solid var(--brand); outline-offset: 3px; }
+html:not(.theme-meow) .inp::placeholder { color: var(--muted); opacity: 1; }
+html:not(.theme-meow) input:is([type="checkbox"], [type="radio"]) { accent-color: var(--brand); }
+html:not(.theme-meow) :is(.inp, .btn, .seg button, nav button, .xsw, a):focus-visible { outline: 2px solid var(--brand); outline-offset: 3px; }
 
-html .row,
-html main .sub { gap: 8px; flex-wrap: wrap; }
-html .row > *,
-html main .sub > * { min-width: 0; max-width: 100%; overflow-wrap: anywhere; }
-html main .sub .u { flex-basis: 12rem; }
-html .badge { display: inline-block; max-width: 100%; color: var(--claude-mini-accent-ink); background: var(--brand-soft); border-radius: 6px; white-space: normal; font-weight: 500; }
-html .bar { height: 8px; border: 0; border-radius: 999px; background: var(--claude-mini-secondary); }
-html .bar > i { background: var(--brand); }
-html .st { gap: 10px; }
-html .st > :first-child { min-width: 0; overflow-wrap: anywhere; }
-html .xctl { flex-shrink: 0; }
+html:not(.theme-meow) .row,
+html:not(.theme-meow) main .sub { gap: 8px; flex-wrap: wrap; }
+html:not(.theme-meow) .row > *,
+html:not(.theme-meow) main .sub > * { min-width: 0; max-width: 100%; overflow-wrap: anywhere; }
+html:not(.theme-meow) main .sub .u { flex-basis: 12rem; }
+html:not(.theme-meow) .badge { display: inline-block; max-width: 100%; color: var(--claude-mini-accent-ink); background: var(--brand-soft); border-radius: 6px; white-space: normal; font-weight: 500; }
+html:not(.theme-meow) .bar { height: 8px; border: 0; border-radius: 999px; background: var(--claude-mini-secondary); }
+html:not(.theme-meow) .bar > i { background: var(--brand); }
+html:not(.theme-meow) .st { gap: 10px; }
+html:not(.theme-meow) .st > :first-child { min-width: 0; overflow-wrap: anywhere; }
+html:not(.theme-meow) .xctl { flex-shrink: 0; }
 
 /* 圆点不依赖按钮字体或通用尺寸；业务状态仍由 .on / disabled 控制。 */
-html .xsw {
+html:not(.theme-meow) .xsw {
   position: relative;
   box-sizing: border-box;
   width: 44px;
@@ -193,8 +194,8 @@ html .xsw {
   background: var(--claude-mini-input);
   box-shadow: none;
 }
-html .xsw.on { background: var(--brand); border-color: var(--brand); }
-html .xsw::after {
+html:not(.theme-meow) .xsw.on { background: var(--brand); border-color: var(--brand); }
+html:not(.theme-meow) .xsw::after {
   content: "";
   position: absolute;
   top: 50%;
@@ -207,11 +208,11 @@ html .xsw::after {
   transform: translateY(-50%);
   pointer-events: none;
 }
-html .xsw.on::after { transform: translate(18px, -50%); }
-html :is(.btn, .inp, .seg button, nav button, .xsw):disabled { opacity: 0.45; cursor: not-allowed; }
+html:not(.theme-meow) .xsw.on::after { transform: translate(18px, -50%); }
+html:not(.theme-meow) :is(.btn, .inp, .seg button, nav button, .xsw):disabled { opacity: 0.45; cursor: not-allowed; }
 
 /* 六项管理员导航适配手机；不重设 display，保留未授权时的 .hide。 */
-html nav {
+html:not(.theme-meow) nav {
   z-index: 20;
   max-width: var(--claude-mini-content-max-width);
   margin-inline: auto;
@@ -219,23 +220,23 @@ html nav {
   border-top: 1px solid var(--border);
   border-radius: 14px 14px 0 0;
 }
-html nav button { min-width: 0; min-height: 50px; margin-inline: 1px; padding: 7px 2px; color: var(--muted); background: transparent; border-radius: var(--claude-mini-control-radius); font-family: var(--claude-mini-body-font); font-size: 11px; overflow-wrap: anywhere; }
-html nav button.active { color: var(--claude-mini-accent-ink); background: var(--brand-soft); font-weight: 600; }
-html nav svg { flex-shrink: 0; }
+html:not(.theme-meow) nav button { min-width: 0; min-height: 50px; margin-inline: 1px; padding: 7px 2px; color: var(--muted); background: transparent; border-radius: var(--claude-mini-control-radius); font-family: var(--claude-mini-body-font); font-size: 11px; overflow-wrap: anywhere; }
+html:not(.theme-meow) nav button.active { color: var(--claude-mini-accent-ink); background: var(--brand-soft); font-weight: 600; }
+html:not(.theme-meow) nav svg { flex-shrink: 0; }
 
 @media (hover: hover) {
-  html .btn:not(:disabled):not([style*="--warn"]):not([style*="--unknown"]):hover { background: color-mix(in srgb, var(--brand) 90%, var(--text)) !important; }
-  html .seg button:not(.active):not(:disabled):hover,
-  html nav button:not(.active):not(:disabled):hover { color: var(--text); background: var(--claude-mini-secondary) !important; }
+  html:not(.theme-meow) .btn:not(:disabled):not([style*="--warn"]):not([style*="--unknown"]):hover { background: color-mix(in srgb, var(--brand) 90%, var(--text)) !important; }
+  html:not(.theme-meow) .seg button:not(.active):not(:disabled):hover,
+  html:not(.theme-meow) nav button:not(.active):not(:disabled):hover { color: var(--text); background: var(--claude-mini-secondary) !important; }
 }
 
-html ::selection { color: var(--text); background: color-mix(in srgb, var(--brand) 27%, var(--card)); text-shadow: none; }
+html:not(.theme-meow) ::selection { color: var(--text); background: color-mix(in srgb, var(--brand) 27%, var(--card)); text-shadow: none; }
 
 @media (prefers-reduced-motion: reduce) {
-  html *, html *::before, html *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+  html:not(.theme-meow) *, html:not(.theme-meow) *::before, html:not(.theme-meow) *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
 }
 
 @media (prefers-contrast: more) {
-  html:root,
-  html:root.dark { --border: var(--muted) !important; --claude-mini-input: var(--text); }
+  html:not(.theme-meow):root,
+  html:not(.theme-meow):root.dark { --border: var(--muted) !important; --claude-mini-input: var(--text); }
 }
