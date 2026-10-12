@@ -1,6 +1,6 @@
 /*
  * MiaoMiaoWuX · Ink Mint 墨薄荷
- * 版本：v2026.10.12-01
+ * 版本：v2026.10.12-02
  * 更新日期：2026-10-12
  * 容量控制：保留顶部配置格式，其余按顶层规则压缩；完整文件按 UTF-8 字节计量。
  * 独立主题：暖纸白 / 蓝墨黑底色，薄荷绿强调，几何无衬线标题，数据用等宽字体，细描边、少阴影。
@@ -34,6 +34,8 @@
   --ink-light-icon: #119a63;
   /* 转发链“降级”的颜色（可用性格子、拓扑方块）：亮橙，与薄荷绿明度相近；只用于填充，不作文字。 */
   --ink-warn: #fb923c;
+  /* 首页配额“预计提前用完”的进度条与散点颜色：偏红的橙，与“用得比周期快”的琥珀色区分开。 */
+  --ink-quota-over: #ea580c;
   /* 深色：蓝墨黑底、深灰蓝面板，薄荷绿强调。 */
   --ink-dark-page: #11151b;
   --ink-dark-surface: #181e26;
@@ -167,7 +169,7 @@ html&,& body,& body *,& body:before,& body:after,& body *:before,& body *:after{
 &:root body :is(.tabular-nums,[data-slot=table-cell]){font-variant-numeric:tabular-nums}
 &:root body :is(.text-primary,.accent-action-btn,.accent-svg-icon){color:var(--ink-accent-text)!important}
 /* 主控的深绿统一为薄荷绿：状态圆点、细条等填充用薄荷绿；绿色图标用 --ink-icon（浅色为可读的薄荷绿 #119a63）；绿色文字仍用深绿保证可读 */
-& #root :is(.bg-green-400,.bg-green-500,.bg-green-600,.bg-green-700,.bg-emerald-400,.bg-emerald-500,.bg-emerald-600,.bg-emerald-700){background-color:var(--primary)!important}&:root:not(.dark) #root :is(.accent-svg-icon,.accent-action-btn svg),& #root :is(.text-primary,.text-green-500,.text-green-600,.text-green-700,.text-emerald-500,.text-emerald-600,.text-emerald-700):is(svg,svg *),& #root :is(.text-primary,.text-green-500,.text-green-600,.text-green-700,.text-emerald-500,.text-emerald-600,.text-emerald-700) svg{color:var(--ink-icon)!important}&:root:not(.dark) #root :is(.bg-green-50,.bg-green-100,.bg-emerald-50,.bg-emerald-100){background-color:var(--accent)!important}
+& #root :is(.bg-green-400,.bg-green-500,.bg-green-600,.bg-green-700,.bg-emerald-400,.bg-emerald-500,.bg-emerald-600,.bg-emerald-700,.bg-teal-500,.bg-teal-600){background-color:var(--primary)!important}&:root:not(.dark) #root :is(.accent-svg-icon,.accent-action-btn svg),& #root :is(.text-primary,.text-green-500,.text-green-600,.text-green-700,.text-emerald-500,.text-emerald-600,.text-emerald-700):is(svg,svg *),& #root :is(.text-primary,.text-green-500,.text-green-600,.text-green-700,.text-emerald-500,.text-emerald-600,.text-emerald-700) svg{color:var(--ink-icon)!important}&:root:not(.dark) #root :is(.bg-green-50,.bg-green-100,.bg-emerald-50,.bg-emerald-100){background-color:var(--accent)!important}
 &:root #root :is([data-slot=card],.pixel-card),&:root body [role=dialog] [data-slot=card]{color:var(--foreground)!important;border:1px solid var(--border)!important;border-radius:var(--ink-card-radius)!important;background:var(--card)!important;box-shadow:var(--ink-card-shadow)!important;transform:none!important}
 &:root #root [class~="bg-background/50"]{border-color:var(--border)!important;border-radius:var(--ink-card-radius);background:var(--card)!important}
 &:root body :is(header.app-topbar,[data-slot=sidebar],[data-slot=sidebar-inner],[data-sidebar=sidebar]){color:var(--foreground)!important;border-color:var(--border)!important;background:var(--sidebar)!important;box-shadow:none!important}
@@ -237,8 +239,8 @@ html&{scrollbar-width:thin;scrollbar-color:var(--input) var(--background)}
 /* 手机画布：服务器池列表限高内滚、“新建一组 / 加入”栏吸底；“已选某组”浮条抬到缩放按钮上方 */
 @media(max-width:767px){#root main>.fixed:has(.react-flow) aside.order-3>div:last-child:not(:first-child){background:var(--card)}}
 /* 手机转发链详情：测速行可收缩，不截断 */
-/* 流量信息“配额会不会提前用完”散点图：主控写死的“进度正常”青绿 #0d9488 改用薄荷绿 */
-#root [fill="#0d9488"]{fill:var(--primary)}#root [stroke="#0d9488"]{stroke:var(--primary)}#root span[style*="13, 148, 136"]{background-color:var(--primary)!important}
+/* 首页配额进度条、散点图与清单：“进度正常”青绿改薄荷绿，“预计提前用完”红改橙（--ink-quota-over）；离线红点不变 */
+#root [fill="#0d9488"]{fill:var(--primary)}#root [stroke="#0d9488"]{stroke:var(--primary)}#root [style*="13, 148, 136"]{background-color:var(--primary)!important}#root :is(.absolute.inset-y-0.left-0:is(.bg-red-500,.bg-red-600),.inline-block.size-2\.5.bg-red-600,.inline-block.rounded-full[style*="220, 38, 38"]){background-color:var(--ink-quota-over)!important}#root .recharts-scatter [fill="#dc2626"]{fill:var(--ink-quota-over)}#root :is(.col-span-2.col-start-2.font-medium,.text-muted-foreground.flex.justify-between>.font-medium).text-red-600{color:#c2410c}&.dark #root :is(.col-span-2.col-start-2.font-medium,.text-muted-foreground.flex.justify-between>.font-medium).text-red-600{color:#fb923c}
 /* 实时网速图：主控写死的亮蓝、亮绿改用主题图表色 */
 #root [stroke="#2563eb"]{stroke:var(--chart-5)}#root [fill="#2563eb"]{fill:var(--chart-5)}#root [stroke="#16a34a"]{stroke:var(--chart-2)}#root [fill="#16a34a"]{fill:var(--chart-2)}#root span[style*="37, 99, 235"]{color:var(--chart-5)!important}#root span[style*="22, 163, 74"]{color:var(--chart-2)!important}
 /* 首页用户 / 节点用量排行：进度条由主控按 --chart-1 / --chart-4 写入行内底色，统一改用主色 */
