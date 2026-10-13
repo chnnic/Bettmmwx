@@ -1,6 +1,6 @@
 /*
  * MiaoMiaoWuX · PaperMint 薄荷纸境
- * 版本：v2026.10.12-02
+ * 版本：v2026.10.12-03
  * 更新日期：2026-10-12
  * 容量控制：保留顶部配置格式，其余按顶层规则压缩；完整文件按 UTF-8 字节计量。
  * 独立主题：请单独粘贴使用，不要与 Lumina CSS 混用。
@@ -204,6 +204,8 @@ tr[data-slot=table-row][class*="bg-primary/15"]{--tw-ring-color:color-mix(in okl
 /* 视觉设计：配色、背景、描边、圆角、阴影、字体与动画，液态玻璃 / Meow 下让开 */:where(:root:not(.theme-glass,.theme-meow)){
 /* 首页配额进度条、散点图与清单：“进度正常”青绿改主题色，“预计提前用完”红改橙；离线红点不变 */
 & #root :is(.bg-teal-500,.bg-teal-600){background-color:var(--primary)!important}& #root [fill="#0d9488"]{fill:var(--primary)}& #root [stroke="#0d9488"]{stroke:var(--primary)}& #root [style*="13, 148, 136"]{background-color:var(--primary)!important}& #root :is(.absolute.inset-y-0.left-0:is(.bg-red-500,.bg-red-600),.inline-block.size-2\.5.bg-red-600,.inline-block.rounded-full[style*="220, 38, 38"]){background-color:#ea580c!important}& #root .recharts-scatter [fill="#dc2626"]{fill:#ea580c}& #root :is(.col-span-2.col-start-2.font-medium,.text-muted-foreground.flex.justify-between>.font-medium).text-red-600{color:#c2410c}&.dark #root :is(.col-span-2.col-start-2.font-medium,.text-muted-foreground.flex.justify-between>.font-medium).text-red-600{color:#fb923c}
+/* 流量明细：节点流量用主题绿，中转蓝、转发青等配色与主题协调；“重置前会用完”红改橙（与首页配额一致） */
+&:root:root{--ledger-node:var(--primary);--ledger-relay:#4f7cac;--ledger-other:#ddd6cf;--ledger-fwd:#3f9fb3;--ledger-fwd-2:#a6d8e2;--ledger-user:#8a7f78;--ledger-c5:#8b6fb0;--ledger-c6:#c9a03a}&:root:root.dark{--ledger-node:var(--primary);--ledger-relay:#7aa7d6;--ledger-other:#334155;--ledger-fwd:#5cc8d6;--ledger-fwd-2:#2f7f8f;--ledger-user:#a8a29e;--ledger-c5:#b39ad8;--ledger-c6:#e0b35c}#root :is([style*="repeating-linear-gradient(135deg, var(--fwd-bad)"],i.rounded-full[style*="background: var(--fwd-bad)"]){--fwd-bad:#ea580c}#root span[style*="color: var(--fwd-bad)"]{--fwd-bad:#c2410c}&.dark #root span[style*="color: var(--fwd-bad)"]{--fwd-bad:#fb923c}
 &.dark{--primary: #4ade80;--primary-foreground: #102117;--background: #111827;--foreground: #f8fafc;--card: #1e293b;--card-foreground: #f8fafc;--popover: #1e293b;--popover-foreground: #f8fafc;--secondary: #31576a;--secondary-foreground: #f8fafc;--muted: #263449;--muted-foreground: #cbd5e1;--accent: #473f67;--accent-foreground: #f8fafc;--destructive: #fb7185;--destructive-foreground: #1f1115;--border: #d7e0ec;--input: #64748b;--ring: rgba(74, 222, 128, .52);--sidebar: #172033;--sidebar-foreground: #f8fafc;--sidebar-primary: #4ade80;--sidebar-primary-foreground: #102117;--sidebar-accent: #473f67;--sidebar-accent-foreground: #f8fafc;--sidebar-border: #d7e0ec;--sidebar-ring: rgba(74, 222, 128, .52);--paper-ink: #d7e0ec;--paper-green: #4ade80;--paper-green-dark: #22c55e;--paper-blue: #31576a;--paper-pink: #704a50;--paper-mint: #285c3b;--paper-lavender: #473f67;--paper-cream: #111827}
 &:root.theme-premium{--paper-nav-active-bg: var(--paper-premium-accent-bg);--paper-nav-active-fg: var(--paper-premium-accent-fg);--paper-green: var(--primary);--paper-green-dark: color-mix(in srgb, var(--primary) 85%, black);--paper-mint: var(--paper-premium-selection-bg);--sidebar-primary: var(--primary);--sidebar-primary-foreground: var(--primary-foreground);--sidebar-ring: var(--ring)}
 &:root.theme-premium .dashboard-ranking-toolbar,&:root.theme-premium .dashboard-range-control{border:0!important;background:transparent!important;box-shadow:none!important}
