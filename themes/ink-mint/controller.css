@@ -1,9 +1,9 @@
 /*
  * MiaoMiaoWuX · Ink Mint 墨薄荷
- * 版本：v2026.10.12-04
- * 更新日期：2026-10-12
+ * 版本：v2026.10.14-01
+ * 更新日期：2026-10-14
  * 容量控制：保留顶部配置格式，其余按顶层规则压缩；完整文件按 UTF-8 字节计量。
- * 独立主题：暖纸白 / 蓝墨黑底色，薄荷绿强调，几何无衬线标题，数据用等宽字体，细描边、少阴影。
+ * 独立主题：暖纸白 / 蓝墨黑底色，薄荷绿强调，正文与标题用主控自带的 OPlusSans3，数据用等宽字体，细描边、少阴影。
  * 整份替换主控自定义 CSS；不要叠加其他主题。不含脚本或远程资源。
  */
 
@@ -42,9 +42,9 @@
   --ink-dark-ink: #f6f4ef;
   --ink-dark-accent: #3ddc97;
   --ink-dark-accent-text: #3ddc97;
-  /* 本地字体，无需在线字体：正文与标题用系统无衬线，IP、延迟等数据用系统等宽字体。 */
-  --ink-body-font: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
-  --ink-heading-font: "Avenir Next", "Segoe UI Variable Display", "Segoe UI", -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+  /* 正文与标题以主控自带的 OPlusSans3 为主（由主控自身提供，无需在线字体），缺字时用系统无衬线；IP、延迟等数据用系统等宽字体。 */
+  --ink-body-font: "OPlusSans3", -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+  --ink-heading-font: "OPlusSans3", "Avenir Next", "Segoe UI Variable Display", "Segoe UI", -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
   --ink-mono-font: ui-monospace, "SF Mono", Menlo, Consolas, "JetBrains Mono", "Cascadia Mono", monospace;
 }
 
