@@ -1,6 +1,6 @@
 /*
  * MiaoMiaoWuX · Claude Paper 陶纸
- * 版本：v2026.10.15-01
+ * 版本：v2026.10.15-02
  * 更新日期：2026-10-15
  * 容量控制：保留顶部配置格式，其余按顶层规则压缩；完整文件按 UTF-8 字节计量。
  * Claude 风格的非官方独立主题：暖纸色、陶土橙、衬线标题、克制的细边线。
@@ -153,9 +153,11 @@ tr[data-slot=table-row][class*="bg-primary/15"]{--tw-ring-color:color-mix(in okl
 .grid.grid-cols-2.gap-x-3>.flex.items-start.gap-2.text-xs:has(a[href^="https://t.me/"]){grid-column:1/-1}
 /* 主控 0.5.8 转发链卡片展开的“入口各台的线路”：手机上出口名被挤成一字一行，改为名称、标签、延迟一行，线路另起一行 */
 @media(max-width:639px){.flex.flex-wrap.items-center.gap-x-2.gap-y-1.px-3.py-2.text-sm:has(>b.w-32.truncate)>b.w-32{flex:1 1 0;width:auto;min-width:0}.flex.flex-wrap.items-center.gap-x-2.gap-y-1.px-3.py-2.text-sm:has(>b.w-32.truncate)>span.flex-1{order:9;flex-basis:100%}.flex.flex-wrap.items-center.gap-x-2.gap-y-1.px-3.py-2.text-sm:has(>b.w-32.truncate)>b.w-20{width:auto}}
-/* 主控 0.5.8 流量审计“高频访问网站”表格：平板宽度下“用户数”“访问天数”等表头不再被挤成竖排 */
-#root table.w-full.text-sm th.py-2.font-normal{white-space:nowrap}
+/* 主控 0.5.8 流量审计“高频访问网站”表格：平板宽度下“用户数”“访问天数”等表头不再被挤成竖排，右对齐的表头留出间距 */
+#root table.w-full.text-sm th.py-2.font-normal{white-space:nowrap}#root table.w-full.text-sm th.py-2.text-right.font-normal{padding-left:.75rem}
 /* 视觉设计：配色、背景、描边、圆角、阴影、字体与动画，液态玻璃 / Meow 下让开 */:where(:root:not(.theme-glass,.theme-meow)){
+/* 订阅链接“卡片 / 列表”等视图切换（role=group 的按钮组）：与页面标签同样式，去掉两颗按钮各自的方框，选中项一眼可辨 */
+&:root body #root [role=group].bg-muted.inline-flex:has(>[data-slot=button][aria-pressed]){padding:4px!important;border:0!important;border-radius:calc(var(--claude-control-radius) + 3px)!important;background:var(--muted)!important;box-shadow:none!important;>[data-slot=button]{color:var(--muted-foreground)!important;border:1px solid transparent!important;border-radius:var(--claude-control-radius)!important;background:transparent!important;box-shadow:none!important;transform:none!important}>[aria-pressed=true]{color:var(--accent-foreground)!important;background:var(--card)!important;border-color:var(--border)!important;font-weight:600!important}}
 /* 首页配额进度条、散点图与清单：“进度正常”青绿改主题陶土色；“预计提前用完”保持红色（避免与陶土色相近） */
 & #root :is(.bg-teal-500,.bg-teal-600){background-color:var(--primary)!important}& #root [fill="#0d9488"]{fill:var(--primary)}& #root [stroke="#0d9488"]{stroke:var(--primary)}& #root [style*="13, 148, 136"]{background-color:var(--primary)!important}
 /* 流量明细：节点流量用陶土主色，中转、转发、用户等改用主题图表的蓝灰、鼠尾草绿、灰紫、麦黄；“重置前会用完”保持红色（与首页配额一致） */
