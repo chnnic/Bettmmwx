@@ -1,7 +1,7 @@
 /*
  * MiaoMiaoWuX · Lumina 白金 / 黑金
- * 版本：v2026.10.12-03
- * 更新日期：2026-10-12
+ * 版本：v2026.10.15-01
+ * 更新日期：2026-10-15
  * 顶部为配置区，其余已压缩；跟随主控 light / dark，无需 JS。
  */
 
@@ -143,6 +143,10 @@ tr[data-slot=table-row][class*="bg-primary/15"]{--tw-ring-color:color-mix(in okl
 [data-slot=dialog-content].inset-0.w-screen .flex.flex-col.space-y-2>.flex.flex-wrap.gap-1:has(>button:nth-child(13)){max-height:9.5rem;overflow-y:auto;overscroll-behavior:contain}
 /* 0.5.7 手机用户卡片：已绑定 Telegram 时用户名与“解绑”按钮挤在半格里被压成竖排，改为占满整行 */
 .grid.grid-cols-2.gap-x-3>.flex.items-start.gap-2.text-xs:has(a[href^="https://t.me/"]){grid-column:1/-1}
+/* 主控 0.5.8 转发链卡片展开的“入口各台的线路”：手机上出口名被挤成一字一行，改为名称、标签、延迟一行，线路另起一行 */
+@media(max-width:639px){.flex.flex-wrap.items-center.gap-x-2.gap-y-1.px-3.py-2.text-sm:has(>b.w-32.truncate)>b.w-32{flex:1 1 0;width:auto;min-width:0}.flex.flex-wrap.items-center.gap-x-2.gap-y-1.px-3.py-2.text-sm:has(>b.w-32.truncate)>span.flex-1{order:9;flex-basis:100%}.flex.flex-wrap.items-center.gap-x-2.gap-y-1.px-3.py-2.text-sm:has(>b.w-32.truncate)>b.w-20{width:auto}}
+/* 主控 0.5.8 流量审计“高频访问网站”表格：平板宽度下“用户数”“访问天数”等表头不再被挤成竖排 */
+#root table.w-full.text-sm th.py-2.font-normal{white-space:nowrap}
 /* 视觉设计：配色、背景、描边、圆角、阴影、字体与动画，液态玻璃 / Meow 下让开 */:where(:root:not(.theme-glass,.theme-meow)){
 /* 首页配额进度条、散点图与清单：“进度正常”青绿改主题金，“预计提前用完”红改橙，深色下“用得比周期快”琥珀改黄（与金色区分）；离线红点不变 */
 & #root :is(.bg-teal-500,.bg-teal-600){background-color:var(--primary)!important}& #root [fill="#0d9488"]{fill:var(--primary)}& #root [stroke="#0d9488"]{stroke:var(--primary)}& #root [style*="13, 148, 136"]{background-color:var(--primary)!important}& #root :is(.absolute.inset-y-0.left-0:is(.bg-red-500,.bg-red-600),.inline-block.size-2\.5.bg-red-600,.inline-block.rounded-full[style*="220, 38, 38"]){background-color:#ea580c!important}& #root .recharts-scatter [fill="#dc2626"]{fill:#ea580c}& #root :is(.col-span-2.col-start-2.font-medium,.text-muted-foreground.flex.justify-between>.font-medium).text-red-600{color:#c2410c}&.dark #root :is(.col-span-2.col-start-2.font-medium,.text-muted-foreground.flex.justify-between>.font-medium).text-red-600{color:#fb923c}&.dark #root :is(.absolute.inset-y-0.left-0:is(.bg-amber-400,.bg-amber-500),.inline-block.size-2\.5.bg-amber-500,.inline-block.rounded-full[style*="217, 119, 6"]){background-color:#facc15!important}&.dark #root .recharts-scatter [fill="#d97706"]{fill:#facc15}
