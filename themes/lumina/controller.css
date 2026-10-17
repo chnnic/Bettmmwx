@@ -1,7 +1,7 @@
 /*
  * MiaoMiaoWuX · Lumina 白金 / 黑金
- * 版本：v2026.10.15-02
- * 更新日期：2026-10-15
+ * 版本：v2026.10.18-01
+ * 更新日期：2026-10-18
  * 顶部为配置区，其余已压缩；跟随主控 light / dark，无需 JS。
  */
 
@@ -147,6 +147,10 @@ tr[data-slot=table-row][class*="bg-primary/15"]{--tw-ring-color:color-mix(in okl
 @media(max-width:639px){.flex.flex-wrap.items-center.gap-x-2.gap-y-1.px-3.py-2.text-sm:has(>b.w-32.truncate)>b.w-32{flex:1 1 0;width:auto;min-width:0}.flex.flex-wrap.items-center.gap-x-2.gap-y-1.px-3.py-2.text-sm:has(>b.w-32.truncate)>span.flex-1{order:9;flex-basis:100%}.flex.flex-wrap.items-center.gap-x-2.gap-y-1.px-3.py-2.text-sm:has(>b.w-32.truncate)>b.w-20{width:auto}}
 /* 主控 0.5.8 流量审计“高频访问网站”表格：平板宽度下“用户数”“访问天数”等表头不再被挤成竖排，右对齐的表头留出间距 */
 #root table.w-full.text-sm th.py-2.font-normal{white-space:nowrap}#root table.w-full.text-sm th.py-2.text-right.font-normal{padding-left:.75rem}
+/* 主控 0.5.8-beta.5 桌面套餐编辑“节点”分区：节点标签多时标签区限高约 4 行、区内滚动，节点表不再被挤到只剩几行 */
+@media(min-width:768px){[data-slot=dialog-content] .flex.min-h-0.flex-1.flex-col.space-y-2>.flex.flex-wrap.gap-1:has(>button:nth-child(13)){max-height:6.75rem;overflow-y:auto;overscroll-behavior:contain;flex-shrink:0}}
+/* 手机套餐卡片：订阅模板标签换行时不再整体靠右，与其他卡片一样靠左 */
+:is(.pixel-card,[data-slot=card])>.flex.px-4>.flex.flex-wrap.justify-end.gap-1{justify-content:flex-start}
 /* 视觉设计：配色、背景、描边、圆角、阴影、字体与动画，液态玻璃 / Meow 下让开 */:where(:root:not(.theme-glass,.theme-meow)){
 /* 订阅链接“卡片 / 列表”等视图切换（role=group 的按钮组）：与页面标签同样式，去掉两颗按钮各自的方框，选中项一眼可辨 */
 &:root body #root [role=group].bg-muted.inline-flex:has(>[data-slot=button][aria-pressed]){padding:3px!important;border:0!important;background:var(--card)!important;box-shadow:0 1px 3px #0000001a,0 1px 2px -1px #0000001a!important;>[data-slot=button]{border-color:#0000!important;background:#0000!important;box-shadow:none!important;transform:none!important}>[aria-pressed=true]{color:#171107!important;border-color:#a87c22ad!important;background:var(--lc0)!important;box-shadow:var(--lc1)!important}}
