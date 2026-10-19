@@ -1,7 +1,7 @@
 /*
  * MiaoMiaoWuX · Lumina 白金 / 黑金
- * 版本：v2026.10.18-01
- * 更新日期：2026-10-18
+ * 版本：v2026.10.19-01
+ * 更新日期：2026-10-19
  * 顶部为配置区，其余已压缩；跟随主控 light / dark，无需 JS。
  */
 
@@ -137,26 +137,30 @@ tr[data-slot=table-row][class*="bg-primary/15"]{--tw-ring-color:color-mix(in okl
 .flex-col.gap-2>.flex.items-baseline.justify-between>b.text-lg{flex-shrink:0;max-width:100%}
 /* 浅色“解锁”等琥珀色图标加深一档；按钮红字浅色加深、深色（主控没写深色变体时）改用浅红 */
 :root:not(.dark) #root :is(.text-amber-500,.text-amber-400):is(svg,svg *),:root:not(.dark) #root :is(.text-amber-500,.text-amber-400) svg{color:#b45309}:root:not(.dark) #root :is(button,a).text-red-600{color:#c10007}:root.dark #root :is(button,a).text-red-600:not([class*="dark:text-"]){color:#f87171}
-/* 主控手机端的全屏弹窗（如 0.5.7 起的套餐编辑）：保持铺满整屏，不加圆角、描边与阴影 */
+/* 手机全屏弹窗（如套餐编辑）：铺满整屏，不加圆角、描边与阴影 */
 [data-slot=dialog-content].inset-0.w-screen{border-radius:0!important;border-width:0!important;box-shadow:none!important}
-/* 0.5.7 手机全屏套餐编辑：标签多时标签区限高约 4 行、区内滚动，节点列表不被挤到下面 */
+/* 手机全屏套餐编辑：标签多时标签区限高、区内滚动 */
 [data-slot=dialog-content].inset-0.w-screen .flex.flex-col.space-y-2>.flex.flex-wrap.gap-1:has(>button:nth-child(13)){max-height:9.5rem;overflow-y:auto;overscroll-behavior:contain}
-/* 0.5.7 手机用户卡片：已绑定 Telegram 时用户名与“解绑”按钮挤在半格里被压成竖排，改为占满整行 */
+/* 手机用户卡片：已绑定 Telegram 时占满一行 */
 .grid.grid-cols-2.gap-x-3>.flex.items-start.gap-2.text-xs:has(a[href^="https://t.me/"]){grid-column:1/-1}
-/* 主控 0.5.8 转发链卡片展开的“入口各台的线路”：手机上出口名被挤成一字一行，改为名称、标签、延迟一行，线路另起一行 */
+/* 手机转发链展开的“入口各台的线路”：出口名不再一字一行，线路另起一行 */
 @media(max-width:639px){.flex.flex-wrap.items-center.gap-x-2.gap-y-1.px-3.py-2.text-sm:has(>b.w-32.truncate)>b.w-32{flex:1 1 0;width:auto;min-width:0}.flex.flex-wrap.items-center.gap-x-2.gap-y-1.px-3.py-2.text-sm:has(>b.w-32.truncate)>span.flex-1{order:9;flex-basis:100%}.flex.flex-wrap.items-center.gap-x-2.gap-y-1.px-3.py-2.text-sm:has(>b.w-32.truncate)>b.w-20{width:auto}}
-/* 主控 0.5.8 流量审计“高频访问网站”表格：平板宽度下“用户数”“访问天数”等表头不再被挤成竖排，右对齐的表头留出间距 */
+/* 流量审计网站表：平板宽度表头不竖排、右对齐表头留间距 */
 #root table.w-full.text-sm th.py-2.font-normal{white-space:nowrap}#root table.w-full.text-sm th.py-2.text-right.font-normal{padding-left:.75rem}
-/* 主控 0.5.8-beta.5 桌面套餐编辑“节点”分区：节点标签多时标签区限高约 4 行、区内滚动，节点表不再被挤到只剩几行 */
+/* 桌面套餐编辑“节点”：标签多时标签区限高、区内滚动 */
 @media(min-width:768px){[data-slot=dialog-content] .flex.min-h-0.flex-1.flex-col.space-y-2>.flex.flex-wrap.gap-1:has(>button:nth-child(13)){max-height:6.75rem;overflow-y:auto;overscroll-behavior:contain;flex-shrink:0}}
-/* 手机套餐卡片：订阅模板标签换行时不再整体靠右，与其他卡片一样靠左 */
+/* 手机套餐卡片：模板标签换行时靠左 */
 :is(.pixel-card,[data-slot=card])>.flex.px-4>.flex.flex-wrap.justify-end.gap-1{justify-content:flex-start}
+/* 弹窗标签内容带吸底保存栏（如 DNS 设置）：去掉底部内边距，保存栏贴底 */
+:is([data-slot=dialog-content],[data-slot=sheet-content]) [data-slot=tabs-content].flex-1.overflow-y-auto:has(.sticky.bottom-0){padding-bottom:0}
 /* 视觉设计：配色、背景、描边、圆角、阴影、字体与动画，液态玻璃 / Meow 下让开 */:where(:root:not(.theme-glass,.theme-meow)){
-/* 订阅链接“卡片 / 列表”等视图切换（role=group 的按钮组）：与页面标签同样式，去掉两颗按钮各自的方框，选中项一眼可辨 */
+/* 视图切换按钮组（如订阅链接“卡片 / 列表”）：与页面标签同样式，去掉按钮方框 */
 &:root body #root [role=group].bg-muted.inline-flex:has(>[data-slot=button][aria-pressed]){padding:3px!important;border:0!important;background:var(--card)!important;box-shadow:0 1px 3px #0000001a,0 1px 2px -1px #0000001a!important;>[data-slot=button]{border-color:#0000!important;background:#0000!important;box-shadow:none!important;transform:none!important}>[aria-pressed=true]{color:#171107!important;border-color:#a87c22ad!important;background:var(--lc0)!important;box-shadow:var(--lc1)!important}}
-/* 首页配额进度条、散点图与清单：“进度正常”青绿改主题金，“预计提前用完”红改橙，深色下“用得比周期快”琥珀改黄（与金色区分）；离线红点不变 */
+/* 弹窗里的吸底保存栏用弹窗底色，不用页面底色 */
+&:root body :is([data-slot=dialog-content],[data-slot=sheet-content]) .sticky.bottom-0.bg-background{background:var(--popover)!important}
+/* 首页配额：“正常”青绿改金，“提前用完”红改橙，深色“用得快”琥珀改黄 */
 & #root :is(.bg-teal-500,.bg-teal-600){background-color:var(--primary)!important}& #root [fill="#0d9488"]{fill:var(--primary)}& #root [stroke="#0d9488"]{stroke:var(--primary)}& #root [style*="13, 148, 136"]{background-color:var(--primary)!important}& #root :is(.absolute.inset-y-0.left-0:is(.bg-red-500,.bg-red-600),.inline-block.size-2\.5.bg-red-600,.inline-block.rounded-full[style*="220, 38, 38"]){background-color:#ea580c!important}& #root .recharts-scatter [fill="#dc2626"]{fill:#ea580c}& #root :is(.col-span-2.col-start-2.font-medium,.text-muted-foreground.flex.justify-between>.font-medium).text-red-600{color:#c2410c}&.dark #root :is(.col-span-2.col-start-2.font-medium,.text-muted-foreground.flex.justify-between>.font-medium).text-red-600{color:#fb923c}&.dark #root :is(.absolute.inset-y-0.left-0:is(.bg-amber-400,.bg-amber-500),.inline-block.size-2\.5.bg-amber-500,.inline-block.rounded-full[style*="217, 119, 6"]){background-color:#facc15!important}&.dark #root .recharts-scatter [fill="#d97706"]{fill:#facc15}
-/* 流量明细：节点流量用主题金，中转、转发、用户等改用冷灰蓝、灰绿、暖灰、灰紫、铜色；“重置前会用完”红改橙；用量 85% 以上的实色条浅色改琥珀、深色改黄（原生琥珀与金色相近） */
+/* 流量明细：节点用主题金，其余分类改冷色系；“会用完”改橙；85% 以上实色条浅色琥珀、深色黄 */
 &:root:root{--ledger-node:var(--primary);--ledger-relay:#5b7590;--ledger-other:#dcd8cf;--ledger-fwd:#657d75;--ledger-fwd-2:#b7c8c1;--ledger-user:#8a8275;--ledger-c5:#8a7aa8;--ledger-c6:#b0705a}&:root:root.dark{--ledger-node:var(--primary);--ledger-relay:#8aa3c0;--ledger-other:#3a3731;--ledger-fwd:#7bb39f;--ledger-fwd-2:#3f5a50;--ledger-user:#a39a8c;--ledger-c5:#b3a3cf;--ledger-c6:#d69a80}#root :is([style*="repeating-linear-gradient(135deg, var(--fwd-bad)"],i.rounded-full[style*="background: var(--fwd-bad)"]){--fwd-bad:#ea580c}#root span[style*="color: var(--fwd-bad)"]{--fwd-bad:#c2410c}&.dark #root span[style*="color: var(--fwd-bad)"]{--fwd-bad:#fb923c}#root .bg-muted.relative.overflow-hidden.rounded-full>[style*="background: var(--fwd-warn)"]{--fwd-warn:#d97706}&.dark #root .bg-muted.relative.overflow-hidden.rounded-full>[style*="background: var(--fwd-warn)"]{--fwd-warn:#facc15}
 &:root{--lc0:linear-gradient(105deg,#b87b1e,#e3bd63);--lc1:0 1px #fff1b975 inset,0 5px 14px -9px #b87b1ec7;--lc2:linear-gradient(90deg,#b87b1e,#e3bd63)}
 &:root,&.light{color-scheme:light;--background:#f4f3ef;--foreground:#24211b;--card:#fffefa;--card-foreground:#24211b;--popover:#fffefa;--popover-foreground:#24211b;--primary:#a67c2e;--primary-foreground:#fffdf7;--secondary:#ebe8e1;--secondary-foreground:#39342b;--muted:#efede8;--muted-foreground:#746e63;--accent:#e7ddca;--accent-foreground:#6f511d;--destructive:#be4b45;--destructive-foreground:#fffafa;--border:#b8aa90;--input:#b89d69;--ring:#b88c37;--sidebar:#ebe9e4;--sidebar-foreground:#29261f;--sidebar-primary:#a67c2e;--sidebar-primary-foreground:#fffdf7;--sidebar-accent:#ded8cc;--sidebar-accent-foreground:#5f471c;--sidebar-border:#bca878;--sidebar-ring:#b88c37;--chart-1:#b4862f;--chart-2:#657d75;--chart-3:#8c7958;--chart-4:#c5a65d;--chart-5:#4f6660;--radius:.75rem;--font-sans:Inter,"OPPO Sans 3","PingFang SC","Microsoft YaHei",sans-serif}
@@ -174,11 +178,11 @@ html&,& body,& body *,& body:before,& body:after,& body *:before,& body *:after{
 [data-slot=sidebar],& header,[data-sidebar=sidebar]{border-color:var(--sidebar-border);border-width:1px;background-color:var(--sidebar)!important}
 [data-slot=popover-content],[data-slot=dropdown-menu-content],[data-slot=select-content],[data-slot=tooltip-content],[data-slot=hover-card-content],[data-slot=command],[role=dialog]{border-color:var(--border);border-width:1px;background-color:var(--popover)!important;color:var(--popover-foreground);box-shadow:0 18px 44px #1c181129}
 &.dark [data-slot=popover-content],&.dark [data-slot=dropdown-menu-content],&.dark [data-slot=select-content],&.dark [role=dialog]{box-shadow:0 20px 48px #0000006b}
-[data-slot=input],[data-slot=textarea],[data-slot=select-trigger],& input,& textarea,& select{border-width:1px;border-color:var(--input);background-color:var(--card)}
-&.dark [data-slot=input],&.dark [data-slot=textarea],&.dark [data-slot=select-trigger],&.dark input,&.dark textarea,&.dark select{color:#f2eadb;border-color:#dfb65a6b;background-color:#2a261e;box-shadow:0 1px #ffe8b40f inset}
-&.dark [data-slot=input]:focus-visible,&.dark [data-slot=textarea]:focus-visible,&.dark [data-slot=select-trigger]:focus-visible,&.dark input:focus-visible,&.dark textarea:focus-visible,&.dark select:focus-visible{border-color:#dfb65ac2;background-color:#342f24}
+[data-slot=input],[data-slot=textarea],[data-slot=select-trigger],& input:not([data-slot=command-input]),& textarea,& select{border-width:1px;border-color:var(--input);background-color:var(--card)}
+&.dark [data-slot=input],&.dark [data-slot=textarea],&.dark [data-slot=select-trigger],&.dark input:not([data-slot=command-input]),&.dark textarea,&.dark select{color:#f2eadb;border-color:#dfb65a6b;background-color:#2a261e;box-shadow:0 1px #ffe8b40f inset}
+&.dark [data-slot=input]:focus-visible,&.dark [data-slot=textarea]:focus-visible,&.dark [data-slot=select-trigger]:focus-visible,&.dark input:not([data-slot=command-input]):focus-visible,&.dark textarea:focus-visible,&.dark select:focus-visible{border-color:#dfb65ac2;background-color:#342f24}
 &.dark input::placeholder,&.dark textarea::placeholder{color:#b8ad98;opacity:.92}
-[data-slot=input]:focus-visible,[data-slot=textarea]:focus-visible,[data-slot=select-trigger]:focus-visible,& input:is([data-slot],:not(.outline-none)):focus-visible,& textarea:focus-visible,& select:focus-visible,& label.border-input:has(>input:not([data-slot]).outline-none:focus-visible){border-color:var(--ring);box-shadow:0 0 0 3px color-mix(in srgb,var(--ring) 22%,#0000)}
+[data-slot=input]:focus-visible,[data-slot=textarea]:focus-visible,[data-slot=select-trigger]:focus-visible,& input:is([data-slot],:not(.outline-none)):not([data-slot=command-input]):focus-visible,& textarea:focus-visible,& select:focus-visible,& label.border-input:has(>input:not([data-slot]).outline-none:focus-visible){border-color:var(--ring);box-shadow:0 0 0 3px color-mix(in srgb,var(--ring) 22%,#0000)}
 [data-slot=tabs-list]{border:1px solid color-mix(in srgb,var(--border) 88%,var(--primary));background-color:var(--muted)}
 &:root:not(.theme-glass) [data-slot=tabs-trigger][data-state=active]{color:var(--accent-foreground);background-color:var(--card);box-shadow:0 4px 14px #362d1d14}
 &:root.dark:not(.theme-glass) [data-slot=tabs-trigger][data-state=active]{color:var(--primary);box-shadow:0 5px 16px #0000003d}

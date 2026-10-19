@@ -1,7 +1,7 @@
 /*
  * MiaoMiaoWuX · Claude Paper 陶纸
- * 版本：v2026.10.18-01
- * 更新日期：2026-10-18
+ * 版本：v2026.10.19-01
+ * 更新日期：2026-10-19
  * 容量控制：保留顶部配置格式，其余按顶层规则压缩；完整文件按 UTF-8 字节计量。
  * Claude 风格的非官方独立主题：暖纸色、陶土橙、衬线标题、克制的细边线。
  * 整份替换主控自定义 CSS；不要叠加其他主题。不含脚本或远程资源。
@@ -145,26 +145,30 @@ tr[data-slot=table-row][class*="bg-primary/15"]{--tw-ring-color:color-mix(in okl
 .flex-col.gap-2>.flex.items-baseline.justify-between>b.text-lg{flex-shrink:0;max-width:100%}
 /* 浅色“解锁”等琥珀色图标加深一档；按钮红字浅色加深、深色（主控没写深色变体时）改用浅红 */
 :root:not(.dark) #root :is(.text-amber-500,.text-amber-400):is(svg,svg *),:root:not(.dark) #root :is(.text-amber-500,.text-amber-400) svg{color:#b45309}:root:not(.dark) #root :is(button,a).text-red-600{color:#c10007}:root.dark #root :is(button,a).text-red-600:not([class*="dark:text-"]){color:#f87171}
-/* 主控手机端的全屏弹窗（如 0.5.7 起的套餐编辑）：保持铺满整屏，不加圆角、描边与阴影 */
+/* 手机全屏弹窗（如套餐编辑）：铺满整屏，不加圆角、描边与阴影 */
 [data-slot=dialog-content].inset-0.w-screen{border-radius:0!important;border-width:0!important;box-shadow:none!important}
-/* 0.5.7 手机全屏套餐编辑：标签多时标签区限高约 4 行、区内滚动，节点列表不被挤到下面 */
+/* 手机全屏套餐编辑：标签多时标签区限高、区内滚动 */
 [data-slot=dialog-content].inset-0.w-screen .flex.flex-col.space-y-2>.flex.flex-wrap.gap-1:has(>button:nth-child(13)){max-height:9.5rem;overflow-y:auto;overscroll-behavior:contain}
-/* 0.5.7 手机用户卡片：已绑定 Telegram 时用户名与“解绑”按钮挤在半格里被压成竖排，改为占满整行 */
+/* 手机用户卡片：已绑定 Telegram 时占满一行 */
 .grid.grid-cols-2.gap-x-3>.flex.items-start.gap-2.text-xs:has(a[href^="https://t.me/"]){grid-column:1/-1}
-/* 主控 0.5.8 转发链卡片展开的“入口各台的线路”：手机上出口名被挤成一字一行，改为名称、标签、延迟一行，线路另起一行 */
+/* 手机转发链展开的“入口各台的线路”：出口名不再一字一行，线路另起一行 */
 @media(max-width:639px){.flex.flex-wrap.items-center.gap-x-2.gap-y-1.px-3.py-2.text-sm:has(>b.w-32.truncate)>b.w-32{flex:1 1 0;width:auto;min-width:0}.flex.flex-wrap.items-center.gap-x-2.gap-y-1.px-3.py-2.text-sm:has(>b.w-32.truncate)>span.flex-1{order:9;flex-basis:100%}.flex.flex-wrap.items-center.gap-x-2.gap-y-1.px-3.py-2.text-sm:has(>b.w-32.truncate)>b.w-20{width:auto}}
-/* 主控 0.5.8 流量审计“高频访问网站”表格：平板宽度下“用户数”“访问天数”等表头不再被挤成竖排，右对齐的表头留出间距 */
+/* 流量审计网站表：平板宽度表头不竖排、右对齐表头留间距 */
 #root table.w-full.text-sm th.py-2.font-normal{white-space:nowrap}#root table.w-full.text-sm th.py-2.text-right.font-normal{padding-left:.75rem}
-/* 主控 0.5.8-beta.5 桌面套餐编辑“节点”分区：节点标签多时标签区限高约 4 行、区内滚动，节点表不再被挤到只剩几行 */
+/* 桌面套餐编辑“节点”：标签多时标签区限高、区内滚动 */
 @media(min-width:768px){[data-slot=dialog-content] .flex.min-h-0.flex-1.flex-col.space-y-2>.flex.flex-wrap.gap-1:has(>button:nth-child(13)){max-height:6.75rem;overflow-y:auto;overscroll-behavior:contain;flex-shrink:0}}
-/* 手机套餐卡片：订阅模板标签换行时不再整体靠右，与其他卡片一样靠左 */
+/* 手机套餐卡片：模板标签换行时靠左 */
 :is(.pixel-card,[data-slot=card])>.flex.px-4>.flex.flex-wrap.justify-end.gap-1{justify-content:flex-start}
+/* 弹窗标签内容带吸底保存栏（如 DNS 设置）：去掉底部内边距，保存栏贴底 */
+:is([data-slot=dialog-content],[data-slot=sheet-content]) [data-slot=tabs-content].flex-1.overflow-y-auto:has(.sticky.bottom-0){padding-bottom:0}
 /* 视觉设计：配色、背景、描边、圆角、阴影、字体与动画，液态玻璃 / Meow 下让开 */:where(:root:not(.theme-glass,.theme-meow)){
-/* 订阅链接“卡片 / 列表”等视图切换（role=group 的按钮组）：与页面标签同样式，去掉两颗按钮各自的方框，选中项一眼可辨 */
+/* 视图切换按钮组（如订阅链接“卡片 / 列表”）：与页面标签同样式，去掉按钮方框 */
 &:root body #root [role=group].bg-muted.inline-flex:has(>[data-slot=button][aria-pressed]){padding:4px!important;border:0!important;border-radius:calc(var(--claude-control-radius) + 3px)!important;background:var(--muted)!important;box-shadow:none!important;>[data-slot=button]{color:var(--muted-foreground)!important;border:1px solid transparent!important;border-radius:var(--claude-control-radius)!important;background:transparent!important;box-shadow:none!important;transform:none!important}>[aria-pressed=true]{color:var(--accent-foreground)!important;background:var(--card)!important;border-color:var(--border)!important;font-weight:600!important}}
-/* 首页配额进度条、散点图与清单：“进度正常”青绿改主题陶土色；“预计提前用完”保持红色（避免与陶土色相近） */
+/* 弹窗里的吸底保存栏用弹窗底色，不用页面底色 */
+&:root body :is([data-slot=dialog-content],[data-slot=sheet-content]) .sticky.bottom-0.bg-background{background:var(--popover)!important}
+/* 首页配额：“正常”青绿改陶土色，“提前用完”保持红 */
 & #root :is(.bg-teal-500,.bg-teal-600){background-color:var(--primary)!important}& #root [fill="#0d9488"]{fill:var(--primary)}& #root [stroke="#0d9488"]{stroke:var(--primary)}& #root [style*="13, 148, 136"]{background-color:var(--primary)!important}
-/* 流量明细：节点流量用陶土主色，中转、转发、用户等改用主题图表的蓝灰、鼠尾草绿、灰紫、麦黄；“重置前会用完”保持红色（与首页配额一致） */
+/* 流量明细：节点用陶土色，其余分类用主题图表色；“会用完”保持红 */
 &:root:root{--ledger-node:var(--primary);--ledger-relay:#628398;--ledger-other:#d8d2c6;--ledger-fwd:#668373;--ledger-fwd-2:#b3c8b9;--ledger-user:#8a7666;--ledger-c5:#8b7d9b;--ledger-c6:#b18b43}&:root:root.dark{--ledger-node:var(--primary);--ledger-relay:#8caebe;--ledger-other:#4a4842;--ledger-fwd:#8faf98;--ledger-fwd-2:#4f6858;--ledger-user:#b8a594;--ledger-c5:#b5a0c3;--ledger-c6:#ccaf76}
 &:root:root{color-scheme:light;--background: var(--claude-light-page) !important;--foreground: var(--claude-light-ink) !important;--card: var(--claude-light-surface) !important;--card-foreground: var(--foreground) !important;--popover: var(--card) !important;--popover-foreground: var(--foreground) !important;--primary: var(--claude-light-accent) !important;--primary-foreground: #fffaf5 !important;--secondary: #efede6 !important;--secondary-foreground: #45423b !important;--muted: #eeece5 !important;--muted-foreground: #6b665d !important;--claude-accent-ink: var(--claude-light-accent-ink);--accent: #f1e3d9 !important;--accent-foreground: #8f432d !important;--destructive: #b7403d !important;--destructive-foreground: #fffafa !important;--border: #dedad0 !important;--input: #ccc7ba !important;--ring: var(--primary) !important;--sidebar: #eeece5 !important;--sidebar-foreground: var(--foreground) !important;--sidebar-primary: var(--primary) !important;--sidebar-primary-foreground: var(--primary-foreground) !important;--sidebar-accent: #e5dfd3 !important;--sidebar-accent-foreground: var(--accent-foreground) !important;--sidebar-border: var(--border) !important;--sidebar-ring: var(--ring) !important;--chart-1: var(--claude-light-accent) !important;--chart-2: #668373 !important;--chart-3: #8b7d9b !important;--chart-4: #b18b43 !important;--chart-5: #628398 !important;--radius: var(--claude-control-radius) !important;--font-sans: var(--claude-body-font) !important;--claude-card-shadow: 0 1px 3px rgb(48 46 41 / 4%);--claude-overlay-shadow: 0 12px 36px -16px rgb(48 46 41 / 30%)}
 &:root:root.dark{color-scheme:dark;--claude-accent-ink: var(--claude-dark-accent-ink);--background: var(--claude-dark-page) !important;--foreground: var(--claude-dark-ink) !important;--card: var(--claude-dark-surface) !important;--primary: var(--claude-dark-accent) !important;--primary-foreground: #251b16 !important;--secondary: #35342f !important;--secondary-foreground: #e6e1d6 !important;--muted: #35342f !important;--muted-foreground: #b2ab9e !important;--accent: #49372e !important;--accent-foreground: #efb79d !important;--destructive: #e68b85 !important;--destructive-foreground: #301815 !important;--border: #48463e !important;--input: #615b50 !important;--sidebar: #201f1c !important;--sidebar-accent: #3e332b !important;--chart-1: #df967a !important;--chart-2: #8faf98 !important;--chart-3: #b5a0c3 !important;--chart-4: #ccaf76 !important;--chart-5: #8caebe !important;--claude-card-shadow: 0 1px 3px rgb(0 0 0 / 12%);--claude-overlay-shadow: 0 16px 44px -16px rgb(0 0 0 / 55%)}
@@ -205,7 +209,7 @@ html&,& body,& body *,& body:before,& body:after,& body *:before,& body *:after{
 &:root body :is([data-slot=input],[data-slot=textarea],[data-slot=select-trigger]){color:var(--foreground)!important;border:1px solid var(--input)!important;border-radius:var(--claude-control-radius)!important;background:var(--card)!important;box-shadow:none!important;font-weight:400}
 &:root #root [data-slot=card-description]:has(>[data-slot=dropdown-menu-trigger]>svg.lucide-settings)>[data-slot=dropdown-menu-trigger]:has(>svg.lucide-settings):has(>svg.lucide-chevron-down)+span:has(>svg.lucide-wifi){border:0!important;border-left:1px solid currentColor!important;border-radius:0!important;background:transparent!important;box-shadow:none!important}
 &:root body :is(input,textarea)::placeholder{color:var(--muted-foreground)!important;opacity:1}
-&:root body :is(button,a,input:is([data-slot],:not(.outline-none)),textarea,select,[tabindex="0"]):focus-visible{outline:2px solid var(--ring)!important;outline-offset:2px;box-shadow:none!important}
+&:root body :is(button,a,input:is([data-slot],:not(.outline-none)):not([data-slot=command-input]),textarea,select,[tabindex="0"]):focus-visible{outline:2px solid var(--ring)!important;outline-offset:2px;box-shadow:none!important}
 &:root body [data-slot=switch]{box-sizing:border-box;flex-shrink:0;width:38px!important;min-width:38px!important;height:22px!important;min-height:22px!important;padding:0!important;border:1px solid var(--input)!important;border-radius:999px!important;background:var(--input)!important;box-shadow:none!important}
 &:root body [data-slot=switch][data-state=checked]{background:var(--primary)!important;border-color:var(--primary)!important}
 &:root body [data-slot=switch]>[data-slot=switch-thumb]{position:absolute!important;inset-block-start:50%!important;inset-inline-start:2px!important;width:16px!important;height:16px!important;margin:0!important;border:0!important;border-radius:50%!important;background:#fffdf9!important;box-shadow:0 1px 2px #0000002e!important;opacity:1!important;visibility:visible!important;translate:none!important;transform:translateY(-50%)!important;pointer-events:none}
@@ -244,7 +248,7 @@ html&{scrollbar-width:thin;scrollbar-color:var(--input) var(--background)}
 &:root body #root :is([data-slot=button],.pixel-button).bg-primary:is([data-active=true],[title$=\89c6\56fe],:not(:has(svg),:last-child):is(:has(~*~*),*~*)){color:var(--primary-foreground)!important;border-color:var(--primary)!important;background:var(--primary)!important}
 &:root body .rainbow-flow-bar{background:color-mix(in srgb,var(--primary) 14%,transparent)!important}&:root body .rainbow-flow-bar:before{background-image:repeating-linear-gradient(-45deg,color-mix(in srgb,var(--primary) 70%,transparent) 0 4px,transparent 4px 8px)!important}
 /* 外层带框、内层透明的搜索框（如“选择服务器”）：焦点光晕加在外框上，不在框里再套一层 */
-&:root body :is(input:is([data-slot],:not(.outline-none)):not([type=checkbox],[type=radio]),textarea,[data-slot=select-trigger]):focus-visible,&:root body label.border-input:has(>input:not([data-slot]).outline-none:focus-visible){outline:none!important;border-color:var(--primary)!important;box-shadow:0 0 0 3px color-mix(in srgb,var(--primary) 18%,transparent)!important}
+&:root body :is(input:is([data-slot],:not(.outline-none)):not([data-slot=command-input]):not([type=checkbox],[type=radio]),textarea,[data-slot=select-trigger]):focus-visible,&:root body label.border-input:has(>input:not([data-slot]).outline-none:focus-visible){outline:none!important;border-color:var(--primary)!important;box-shadow:0 0 0 3px color-mix(in srgb,var(--primary) 18%,transparent)!important}
 &:root body #root [data-slot=card]{[data-slot=button].text-red-500.bg-transparent{color:var(--muted-foreground)!important;border-color:transparent!important;background:transparent!important}[data-slot=button].text-red-500.bg-transparent:hover{color:var(--destructive)!important;background:color-mix(in srgb,var(--destructive) 10%,transparent)!important}}
 /* 手机画布：服务器池列表限高内滚、“新建一组 / 加入”栏吸底；“已选某组”浮条抬到缩放按钮上方 */
 @media(max-width:767px){#root main>.fixed:has(.react-flow) aside.order-3>div:last-child:not(:first-child){background:var(--card)}}
