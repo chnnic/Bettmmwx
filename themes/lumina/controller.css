@@ -1,6 +1,6 @@
 /*
  * MiaoMiaoWuX · Lumina 白金 / 黑金
- * 版本：v2026.10.19-01
+ * 版本：v2026.10.19-03
  * 更新日期：2026-10-19
  * 顶部为配置区，其余已压缩；跟随主控 light / dark，无需 JS。
  */
@@ -118,24 +118,24 @@ body:has(#username):has(#password){#root .min-h-svh:has(>[data-slot=card]){justi
 @container (max-width:575px){.overflow-x-auto>.relative.rounded-lg[style*=width]{zoom:.8}}
 @container (max-width:511px){.overflow-x-auto>.relative.rounded-lg[style*=width]{zoom:.7}}
 @container (max-width:447px){.overflow-x-auto>.relative.rounded-lg[style*=width]{zoom:.6}}
-/* Meow 深色可读性：原生深色背景近黑，改用陶纸深色的底色、卡片、内层与分隔线（文字仍用 Meow 原色），卡片与输入框加细描边区分层次；删除本段前两行恢复 Meow 原生深色 */
+/* Meow 深色可读性：改用较亮的暖炭底色、卡片与分隔线，卡片与输入框加细描边；删除本段前两行恢复 Meow 原生深色 */
 :root.theme-meow.dark{--meow-bg:#242320;--meow-card:#2d2c28;--meow-card2:#35342f;--meow-hero:#49372e;--meow-line:#48463e;--meow-bar:#2d2c28eb;--input:#615b50;--fwd-nodata:#48463e;--ledger-other:#5a5750}
 :root.theme-meow.dark :is(.pixel-card,[data-slot=card]){border:1px solid var(--meow-line);box-shadow:0 1px 3px #0000001f}
 :root.theme-meow.dark :is([data-slot=input],[data-slot=textarea],[data-slot=select-trigger],[data-slot=tabs-list]){border:1px solid var(--meow-line)}
-/* 卡片内的卡片（如手机节点管理的节点卡片）：主控原版与外层卡片同色、无描边，Meow 用内层色并描边，液态玻璃补 1px 描边 */
+/* 卡片内的卡片：加描边区分层次 */
 :root.theme-meow .pixel-card{:is(.bg-card,[data-slot=card]){background:var(--meow-card2);border:1px solid var(--meow-line)}:is(.bg-card,[data-slot=card]) .pixel-button[class*="bg-background/75"]{background:var(--meow-card)}}
 :root.theme-glass .pixel-card :is(.bg-card,[data-slot=card]){border:1px solid var(--border)}
-/* 节点表格选中行：主控 bg-primary/15 底色与 2px、50% 描边过重，减淡为 7% 底色、1px 30% 描边（液态玻璃只减描边） */
+/* 节点表格选中行：减淡底色与描边 */
 :root:not(.theme-glass) tr[data-slot=table-row][class*="bg-primary/15"]{background-color:color-mix(in oklab,var(--primary) 7%,transparent)!important}
 :root:not(.theme-glass) tr[data-slot=table-row][class*="bg-primary/15"]:hover{background-color:color-mix(in oklab,var(--primary) 10%,transparent)!important}
 tr[data-slot=table-row][class*="bg-primary/15"]{--tw-ring-color:color-mix(in oklab,var(--primary) 30%,transparent);--tw-ring-shadow:var(--tw-ring-inset,) 0 0 0 1px var(--tw-ring-color)}
 /* Meow 顶栏 / 侧栏：底色已 92% 不透明，去掉背景模糊减轻滚动重绘 */
 :root.theme-meow :is(.app-topbar-inner,aside.app-blur-shell){-webkit-backdrop-filter:none;backdrop-filter:none}
-/* 手机批量操作栏：按钮固定 64px 宽超出屏幕需横向滑动，改为等分整行 */
+/* 手机批量操作栏：按钮等分整行 */
 .fixed.inset-x-0.bottom-0>.flex.overflow-x-auto:has(>button.w-16.shrink-0){display:grid;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);gap:4px;overflow-x:visible}.fixed.inset-x-0.bottom-0>.flex.overflow-x-auto>button.w-16.shrink-0{width:auto;min-width:0}
-/* 转发链详情“路线与成员”：组名不被后面的说明挤成两行，说明自行截断 */
+/* 转发链详情“路线与成员”：组名不换行 */
 .flex-col.gap-2>.flex.items-baseline.justify-between>b.text-lg{flex-shrink:0;max-width:100%}
-/* 浅色“解锁”等琥珀色图标加深一档；按钮红字浅色加深、深色（主控没写深色变体时）改用浅红 */
+/* 浅色琥珀图标加深；按钮红字浅色加深、深色改浅红 */
 :root:not(.dark) #root :is(.text-amber-500,.text-amber-400):is(svg,svg *),:root:not(.dark) #root :is(.text-amber-500,.text-amber-400) svg{color:#b45309}:root:not(.dark) #root :is(button,a).text-red-600{color:#c10007}:root.dark #root :is(button,a).text-red-600:not([class*="dark:text-"]){color:#f87171}
 /* 手机全屏弹窗（如套餐编辑）：铺满整屏，不加圆角、描边与阴影 */
 [data-slot=dialog-content].inset-0.w-screen{border-radius:0!important;border-width:0!important;box-shadow:none!important}
@@ -153,11 +153,17 @@ tr[data-slot=table-row][class*="bg-primary/15"]{--tw-ring-color:color-mix(in okl
 :is(.pixel-card,[data-slot=card])>.flex.px-4>.flex.flex-wrap.justify-end.gap-1{justify-content:flex-start}
 /* 弹窗标签内容带吸底保存栏（如 DNS 设置）：去掉底部内边距，保存栏贴底 */
 :is([data-slot=dialog-content],[data-slot=sheet-content]) [data-slot=tabs-content].flex-1.overflow-y-auto:has(.sticky.bottom-0){padding-bottom:0}
+/* 许可证卡片：称号牌过长时换到下一行，不撑出卡片 */
+.mb-3.flex.items-center.gap-2:has(>span>.license-nameplate){flex-wrap:wrap;row-gap:.375rem;>span{white-space:nowrap}>span:has(>.license-nameplate){max-width:100%}}
+/* 可探测的外部节点等滚动列表：按容器宽度排布，长名字显示省略号，不被裁掉 */
+[data-radix-scroll-area-viewport]>div:has(>.divide-y>.flex.items-center.gap-3>[data-slot=checkbox]){display:block!important;min-width:0!important}
 /* 视觉设计：配色、背景、描边、圆角、阴影、字体与动画，液态玻璃 / Meow 下让开 */:where(:root:not(.theme-glass,.theme-meow)){
 /* 视图切换按钮组（如订阅链接“卡片 / 列表”）：与页面标签同样式，去掉按钮方框 */
 &:root body #root [role=group].bg-muted.inline-flex:has(>[data-slot=button][aria-pressed]){padding:3px!important;border:0!important;background:var(--card)!important;box-shadow:0 1px 3px #0000001a,0 1px 2px -1px #0000001a!important;>[data-slot=button]{border-color:#0000!important;background:#0000!important;box-shadow:none!important;transform:none!important}>[aria-pressed=true]{color:#171107!important;border-color:#a87c22ad!important;background:var(--lc0)!important;box-shadow:var(--lc1)!important}}
 /* 弹窗里的吸底保存栏用弹窗底色，不用页面底色 */
 &:root body :is([data-slot=dialog-content],[data-slot=sheet-content]) .sticky.bottom-0.bg-background{background:var(--popover)!important}
+/* 可搜索下拉框（如流量审计“节点 / 用户”筛选）：与普通下拉框同样式 */
+&:root body #root [data-slot=popover-trigger][role=combobox]{height:2rem;border:1px solid var(--input)!important;background:var(--card)!important;box-shadow:none!important}&.dark body #root [data-slot=popover-trigger][role=combobox]{color:#f2eadb!important;border-color:#dfb65a6b!important;background:#2a261e!important;box-shadow:0 1px #ffe8b40f inset!important}
 /* 首页配额：“正常”青绿改金，“提前用完”红改橙，深色“用得快”琥珀改黄 */
 & #root :is(.bg-teal-500,.bg-teal-600){background-color:var(--primary)!important}& #root [fill="#0d9488"]{fill:var(--primary)}& #root [stroke="#0d9488"]{stroke:var(--primary)}& #root [style*="13, 148, 136"]{background-color:var(--primary)!important}& #root :is(.absolute.inset-y-0.left-0:is(.bg-red-500,.bg-red-600),.inline-block.size-2\.5.bg-red-600,.inline-block.rounded-full[style*="220, 38, 38"]){background-color:#ea580c!important}& #root .recharts-scatter [fill="#dc2626"]{fill:#ea580c}& #root :is(.col-span-2.col-start-2.font-medium,.text-muted-foreground.flex.justify-between>.font-medium).text-red-600{color:#c2410c}&.dark #root :is(.col-span-2.col-start-2.font-medium,.text-muted-foreground.flex.justify-between>.font-medium).text-red-600{color:#fb923c}&.dark #root :is(.absolute.inset-y-0.left-0:is(.bg-amber-400,.bg-amber-500),.inline-block.size-2\.5.bg-amber-500,.inline-block.rounded-full[style*="217, 119, 6"]){background-color:#facc15!important}&.dark #root .recharts-scatter [fill="#d97706"]{fill:#facc15}
 /* 流量明细：节点用主题金，其余分类改冷色系；“会用完”改橙；85% 以上实色条浅色琥珀、深色黄 */
@@ -244,20 +250,20 @@ html&,& body,& body *,& body:before,& body:after,& body *:before,& body *:after{
 &:root:not(.dark) #root .text-amber-600{color:#985008}
 &:root:not(.dark) #root .text-cyan-600{color:#0b6577}
 &:root:not(.dark) #root .bg-primary\/10.text-primary{color:var(--accent-foreground)}
-/* 浅色：金色文字（导航选中项、文字链接）用深金，主色金在浅底上对比度只有 3.0–3.8 */
+/* 浅色：金色文字用深金，保证对比度 */
 &:root:not(.dark) #root .text-primary:not(.bg-primary){color:var(--accent-foreground)}
 /* 手机画布：服务器池内滚、操作栏吸底、选中浮条上移 */
 @media(max-width:767px){#root main>.fixed:has(.react-flow) aside.order-3>div:last-child:not(:first-child){background:var(--card)}}
 /* 手机转发链详情：测速行可收缩，不截断 */
-/* 节点卡片：“更多操作”并入底部操作行；更多操作面板改为居中浮动 */
+/* 节点卡片：更多操作并入底部，面板居中浮动 */
 [data-slot=sheet-content].rounded-t-2xl{border:1px solid var(--border)!important;border-radius:16px!important}
-/* 柱状条与进度条渐变：SVG 柱底实顶浅；主色与金色条用 --lc2；其他颜色条末端提亮，保留状态色 */
+/* 柱状条与进度条渐变（保留状态色） */
 #root .recharts-bar-rectangle{-webkit-mask-image:linear-gradient(to top,#000 20%,rgb(0 0 0/.5));mask-image:linear-gradient(to top,#000 20%,#00000080)}#root :is(.bg-muted:is(.h-1,.h-1\.5,.h-2,.h-2\.5,.h-3,.rounded-full),.flex.h-1\.5.gap-0\.5)>:not(.rainbow-flow-bar,[style*=repeating]){background-image:linear-gradient(90deg,#fff0 15%,#ffffff73)!important}#root .bg-muted:is(.h-1,.h-1\.5,.h-2,.h-2\.5,.h-3,.rounded-full)>:is(.bg-primary,[style*="168, 124, 34"]):not(.x){background:var(--lc2)!important}#root .flex-col-reverse.overflow-hidden>*{background-image:linear-gradient(to top,#fff0 15%,#fff6)!important}
-/* 分段按钮组（如转发链“路线 / 紧凑”）：去掉外层边框，避免与按钮边框框套框 */
+/* 分段按钮组：去掉外层边框，避免框套框 */
 #root .flex.overflow-hidden.rounded-md.border:has(>[data-slot=button]):not(:has(>:not([data-slot=button]))){border-color:transparent!important}
-/* 转发链详情“事件”：长错误信息（含长网址）可折行，避免手机页面横向溢出 */
-/* 转发链网络拓扑：1279px 以下“链路一览”移到图下方，图取整行宽；容器窄于 640px 时分档缩小（最小 0.6） */
-/* 卡片内的卡片（如手机节点管理的节点卡片）加描边，深色用内层色 */
+/* 转发链详情“事件”：长错误信息可折行 */
+/* 转发链网络拓扑：窄屏“链路一览”移到图下方，图按宽度缩小 */
+/* 卡片内的卡片：加描边区分层次 */
 :is(.pixel-card,[data-slot=card]) :is(.bg-card,[data-slot=card]){border:1px solid var(--border)}&.dark :is(.pixel-card,[data-slot=card]) :is(.bg-card,[data-slot=card]){background:var(--muted)}}
 /* 减少动画：关闭全站动画与过渡，保留加载转圈；所有界面风格生效，删除本段可恢复 */
 *,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.animate-spin{animation:spin 1s linear infinite!important}.sonner-loading-bar{animation:sonner-spin 1.2s linear infinite!important}

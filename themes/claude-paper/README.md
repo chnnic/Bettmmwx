@@ -2,7 +2,7 @@
 
 受 Claude 界面启发的非官方主控与 TG Bot Mini App 主题。暖米白背景、陶土橙强调色、衬线标题与细边线；深色模式使用暖炭灰。不是 Anthropic 官方产品，不替换主控标识。
 
-- [controller.css](controller.css)：主控完整样式，`v2026.10.19-01`。
+- [controller.css](controller.css)：主控完整样式，`v2026.10.19-03`。
 - [legacy/controller-v2026.10.06-02.css](legacy/controller-v2026.10.06-02.css)：旧版主控备份，适用于主控 0.5.6-beta.6 之前（beta.4 及更早）；新版主控请用上面的 `controller.css`。
 - [tgbot.css](tgbot.css)：TG Bot Mini App 完整样式，`v2026.10.12-01`；不要与主控文件混用。
 - 独立文件，不依赖 Lumina、PaperMint、远程字体、图片或 JavaScript。
@@ -20,6 +20,10 @@
 <p><img src="screenshots/servers-mobile.jpg" alt="Claude Paper 陶纸 手机服务管理" width="300"> <img src="screenshots/forward-mobile.jpg" alt="Claude Paper 陶纸 手机转发链" width="300"></p>
 
 ## 安装
+
+本版 v2026.10.19-03：手机系统设置：许可证卡片的套餐称号牌过长时换到下一行，不再撑出卡片、“当前状态”不再挤成两行；“订阅”里“可探测的外部节点”等滚动列表按容器宽度排布，长节点名显示省略号，右侧状态不再被裁掉（均为主控原生问题）。
+
+本版 v2026.10.19-02：流量审计“节点 / 用户”等可搜索下拉框与普通下拉框同样式（PaperMint 原为浅蓝底粗墨线按钮、Lumina 原为半透明，墨薄荷、陶纸统一高度与字重）；精简部分区块注释，样式不变。
 
 本版 v2026.10.19-01：适配主控 0.5.8 正式版：流量审计等处新的可搜索下拉框，搜索框聚焦时不再在框里再套一层带颜色的框（Lumina 另去掉搜索框自带的边框和深色底色块）。
 
