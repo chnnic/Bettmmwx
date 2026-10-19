@@ -1,6 +1,6 @@
 /*
  * MiaoMiaoWuX · Claude Paper 陶纸
- * 版本：v2026.10.19-03
+ * 版本：v2026.10.19-04
  * 更新日期：2026-10-19
  * 容量控制：保留顶部配置格式，其余按顶层规则压缩；完整文件按 UTF-8 字节计量。
  * Claude 风格的非官方独立主题：暖纸色、陶土橙、衬线标题、克制的细边线。
@@ -151,26 +151,28 @@ tr[data-slot=table-row][class*="bg-primary/15"]{--tw-ring-color:color-mix(in okl
 [data-slot=dialog-content].inset-0.w-screen .flex.flex-col.space-y-2>.flex.flex-wrap.gap-1:has(>button:nth-child(13)){max-height:9.5rem;overflow-y:auto;overscroll-behavior:contain}
 /* 手机用户卡片：已绑定 Telegram 时占满一行 */
 .grid.grid-cols-2.gap-x-3>.flex.items-start.gap-2.text-xs:has(a[href^="https://t.me/"]){grid-column:1/-1}
-/* 手机转发链展开的“入口各台的线路”：出口名不再一字一行，线路另起一行 */
+/* 手机转发链展开线路：出口名不竖排 */
 @media(max-width:639px){.flex.flex-wrap.items-center.gap-x-2.gap-y-1.px-3.py-2.text-sm:has(>b.w-32.truncate)>b.w-32{flex:1 1 0;width:auto;min-width:0}.flex.flex-wrap.items-center.gap-x-2.gap-y-1.px-3.py-2.text-sm:has(>b.w-32.truncate)>span.flex-1{order:9;flex-basis:100%}.flex.flex-wrap.items-center.gap-x-2.gap-y-1.px-3.py-2.text-sm:has(>b.w-32.truncate)>b.w-20{width:auto}}
-/* 流量审计网站表：平板宽度表头不竖排、右对齐表头留间距 */
+/* 流量审计表头不竖排 */
 #root table.w-full.text-sm th.py-2.font-normal{white-space:nowrap}#root table.w-full.text-sm th.py-2.text-right.font-normal{padding-left:.75rem}
-/* 桌面套餐编辑“节点”：标签多时标签区限高、区内滚动 */
+/* 桌面套餐编辑：节点标签区限高 */
 @media(min-width:768px){[data-slot=dialog-content] .flex.min-h-0.flex-1.flex-col.space-y-2>.flex.flex-wrap.gap-1:has(>button:nth-child(13)){max-height:6.75rem;overflow-y:auto;overscroll-behavior:contain;flex-shrink:0}}
 /* 手机套餐卡片：模板标签换行时靠左 */
 :is(.pixel-card,[data-slot=card])>.flex.px-4>.flex.flex-wrap.justify-end.gap-1{justify-content:flex-start}
-/* 弹窗标签内容带吸底保存栏（如 DNS 设置）：去掉底部内边距，保存栏贴底 */
+/* 弹窗吸底保存栏贴底 */
 :is([data-slot=dialog-content],[data-slot=sheet-content]) [data-slot=tabs-content].flex-1.overflow-y-auto:has(.sticky.bottom-0){padding-bottom:0}
-/* 许可证卡片：称号牌过长时换到下一行，不撑出卡片 */
+/* 许可证称号牌过长时换行 */
 .mb-3.flex.items-center.gap-2:has(>span>.license-nameplate){flex-wrap:wrap;row-gap:.375rem;>span{white-space:nowrap}>span:has(>.license-nameplate){max-width:100%}}
-/* 可探测的外部节点等滚动列表：按容器宽度排布，长名字显示省略号，不被裁掉 */
+/* 滚动列表按容器宽度排布，长名省略 */
 [data-radix-scroll-area-viewport]>div:has(>.divide-y>.flex.items-center.gap-3>[data-slot=checkbox]){display:block!important;min-width:0!important}
+/* 手机设置：标题旁状态不竖排、长网址可折行 */
+.flex.items-center.justify-between.gap-4>.flex.items-center.gap-2:has(>[data-slot=switch]){flex-shrink:0;>span{white-space:nowrap}}p.text-muted-foreground.text-xs>span.font-mono{overflow-wrap:anywhere}
 /* 视觉设计：配色、背景、描边、圆角、阴影、字体与动画，液态玻璃 / Meow 下让开 */:where(:root:not(.theme-glass,.theme-meow)){
-/* 视图切换按钮组（如订阅链接“卡片 / 列表”）：与页面标签同样式，去掉按钮方框 */
+/* 视图切换按钮组同页面标签样式 */
 &:root body #root [role=group].bg-muted.inline-flex:has(>[data-slot=button][aria-pressed]){padding:4px!important;border:0!important;border-radius:calc(var(--claude-control-radius) + 3px)!important;background:var(--muted)!important;box-shadow:none!important;>[data-slot=button]{color:var(--muted-foreground)!important;border:1px solid transparent!important;border-radius:var(--claude-control-radius)!important;background:transparent!important;box-shadow:none!important;transform:none!important}>[aria-pressed=true]{color:var(--accent-foreground)!important;background:var(--card)!important;border-color:var(--border)!important;font-weight:600!important}}
-/* 弹窗里的吸底保存栏用弹窗底色，不用页面底色 */
+/* 弹窗吸底保存栏用弹窗底色 */
 &:root body :is([data-slot=dialog-content],[data-slot=sheet-content]) .sticky.bottom-0.bg-background{background:var(--popover)!important}
-/* 可搜索下拉框（如流量审计“节点 / 用户”筛选）：与普通下拉框同样式 */
+/* 可搜索下拉框同普通下拉框 */
 &:root body #root [data-slot=popover-trigger][role=combobox]{height:2rem;font-weight:400!important}
 /* 首页配额：“正常”青绿改陶土色，“提前用完”保持红 */
 & #root :is(.bg-teal-500,.bg-teal-600){background-color:var(--primary)!important}& #root [fill="#0d9488"]{fill:var(--primary)}& #root [stroke="#0d9488"]{stroke:var(--primary)}& #root [style*="13, 148, 136"]{background-color:var(--primary)!important}
@@ -270,5 +272,5 @@ html&{scrollbar-width:thin;scrollbar-color:var(--input) var(--background)}
 /* 转发链网络拓扑：窄屏“链路一览”移到图下方，图按宽度缩小 */
 /* 卡片内的卡片：加描边区分层次 */
 :is(.pixel-card,[data-slot=card]) :is(.bg-card,[data-slot=card]){border:1px solid var(--border)}&.dark :is(.pixel-card,[data-slot=card]) :is(.bg-card,[data-slot=card]){background:var(--muted)}}
-/* 减少动画：关闭全站动画与过渡，保留加载转圈；所有界面风格生效，删除本段可恢复 */
-*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.animate-spin{animation:spin 1s linear infinite!important}.sonner-loading-bar{animation:sonner-spin 1.2s linear infinite!important}
+/* 减少动画：关闭全站动画与过渡，保留加载转圈与长 IP 滚动显示；所有界面风格生效，删除本段可恢复 */
+*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.animate-spin{animation:spin 1s linear infinite!important}.sonner-loading-bar{animation:sonner-spin 1.2s linear infinite!important}.mmw-ip-marquee{animation:mmw-ip-marquee var(--mmw-marquee-dur,8s) ease-in-out infinite!important}

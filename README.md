@@ -6,10 +6,10 @@ MiaoMiaoWuX 的独立主题集合。每个主题单独提供主控 CSS、TG Bot 
 
 | 主题 | 主控 CSS | TG Bot Mini App CSS | 说明 |
 | --- | --- | --- | --- |
-| Lumina 白金 / 黑金 | [controller.css](themes/lumina/controller.css) · v2026.10.19-03 | [tgbot.css](themes/lumina/tgbot.css) · v2026.10.12-01 | [安装与配置](themes/lumina/README.md) |
-| PaperMint 薄荷纸境 | [controller.css](themes/papermint/controller.css) · v2026.10.19-03 | [tgbot.css](themes/papermint/tgbot.css) · v2026.10.12-01 | [安装与配置](themes/papermint/README.md) |
-| Claude Paper 陶纸 | [controller.css](themes/claude-paper/controller.css) · v2026.10.19-03 | [tgbot.css](themes/claude-paper/tgbot.css) · v2026.10.12-01 | [安装与配置](themes/claude-paper/README.md) |
-| Ink Mint 墨薄荷 | [controller.css](themes/ink-mint/controller.css) · v2026.10.19-03 | [tgbot.css](themes/ink-mint/tgbot.css) · v2026.10.12-01 | [安装与配置](themes/ink-mint/README.md) |
+| Lumina 白金 / 黑金 | [controller.css](themes/lumina/controller.css) · v2026.10.19-04 | [tgbot.css](themes/lumina/tgbot.css) · v2026.10.12-01 | [安装与配置](themes/lumina/README.md) |
+| PaperMint 薄荷纸境 | [controller.css](themes/papermint/controller.css) · v2026.10.19-04 | [tgbot.css](themes/papermint/tgbot.css) · v2026.10.12-01 | [安装与配置](themes/papermint/README.md) |
+| Claude Paper 陶纸 | [controller.css](themes/claude-paper/controller.css) · v2026.10.19-04 | [tgbot.css](themes/claude-paper/tgbot.css) · v2026.10.12-01 | [安装与配置](themes/claude-paper/README.md) |
+| Ink Mint 墨薄荷 | [controller.css](themes/ink-mint/controller.css) · v2026.10.19-04 | [tgbot.css](themes/ink-mint/tgbot.css) · v2026.10.12-01 | [安装与配置](themes/ink-mint/README.md) |
 
 - **Lumina**：暖金强调色，可选壁纸。
 - **PaperMint**：圆角、描边、偏移硬阴影和粉彩辅助色。
@@ -66,7 +66,7 @@ MiaoMiaoWuX 的独立主题集合。每个主题单独提供主控 CSS、TG Bot 
 
 - 适配主控 0.5.6、0.5.7、0.5.8；主控“系统设置 → 外观 → 自定义 CSS → 社区主题”可一键拉取本仓库的最新版。
 - **液态玻璃 / Meow 界面风格**：主题的配色、描边、圆角、阴影、字体等视觉设计让开，保留这两种风格的原生外观；布局、尺寸、溢出、换行、触控等细节修复仍然生效。Meow 深色改用陶纸深色底色，卡片与输入框加细描边；删除 CSS 中“Meow 深色可读性”一段可恢复原生。
-- 关闭全站装饰动画与过渡（保留加载转圈），所有界面风格生效，减轻卡顿；删除 CSS 末尾“减少动画”一段可恢复。
+- 关闭全站装饰动画与过渡（保留加载转圈与长 IP 滚动显示），所有界面风格生效，减轻卡顿；删除 CSS 末尾“减少动画”一段可恢复。
 - 卡片内的卡片（如手机节点管理的节点卡片）加描边区分；桌面节点表格选中行减淡。
 - 选中的分段按钮（首页今天 / 本周 / 本月、转发链路线 / 紧凑、画布页上行 / 下行、TCP / UDP、服务器池 / 节点池等）统一用各主题的主题色；手机批量操作栏改为等分整行，不再横向滑动。
 - 需要支持 CSS 嵌套的浏览器：Chrome 112+、Safari / iOS 16.5+、Firefox 117+，更旧的浏览器整套主题不生效。
@@ -80,7 +80,7 @@ MiaoMiaoWuX 的独立主题集合。每个主题单独提供主控 CSS、TG Bot 
 
 每个输入框只用一套主题，不要合并 `controller.css` 与 `tgbot.css`，也不要叠加不同主题。TG Bot 主题只作用于 Mini App 网页，不改变 Telegram 聊天界面。
 
-主控自定义 CSS 上限为 65,536 个 UTF-8 字节（不是字符数）。当前大小：Lumina 64,370、PaperMint 63,908、陶纸 61,089、Ink Mint 61,002 字节。授权与版本要求见 [官方 CSS 文档](https://miaomiaowux.com/docs/custom-css/)，Mini App 说明见 [官方 TG Bot 文档](https://miaomiaowux.com/docs/tool-mmwx-tgbot/)。
+主控自定义 CSS 上限为 65,536 个 UTF-8 字节（不是字符数）。当前大小：Lumina 64,301、PaperMint 63,839、陶纸 61,020、Ink Mint 60,933 字节。授权与版本要求见 [官方 CSS 文档](https://miaomiaowux.com/docs/custom-css/)，Mini App 说明见 [官方 TG Bot 文档](https://miaomiaowux.com/docs/tool-mmwx-tgbot/)。
 
 ## 配置
 
