@@ -1,7 +1,7 @@
 /*
  * MiaoMiaoWuX · PaperMint 薄荷纸境
- * 版本：v2026.10.19-04
- * 更新日期：2026-10-19
+ * 版本：v2026.10.20-01
+ * 更新日期：2026-10-20
  * 容量控制：保留顶部配置格式，其余按顶层规则压缩；完整文件按 UTF-8 字节计量。
  * 独立主题：请单独粘贴使用，不要与 Lumina CSS 混用。
  * 视觉语言：清爽白底、学习绿、粉彩辅助色、深色描边、偏移硬阴影。
@@ -217,6 +217,8 @@ tr[data-slot=table-row][class*="bg-primary/15"]{--tw-ring-color:color-mix(in okl
 [data-radix-scroll-area-viewport]>div:has(>.divide-y>.flex.items-center.gap-3>[data-slot=checkbox]){display:block!important;min-width:0!important}
 /* 手机设置：标题旁状态不竖排、长网址可折行 */
 .flex.items-center.justify-between.gap-4>.flex.items-center.gap-2:has(>[data-slot=switch]){flex-shrink:0;>span{white-space:nowrap}}p.text-muted-foreground.text-xs>span.font-mono{overflow-wrap:anywhere}
+/* 共享服务器离线（无加密盾牌）时标志点改红 */
+:is(.pixel-card,[data-slot=card],[data-slot=table-row],tr):has(.rounded-full.bg-violet-500):not(:has(svg.cursor-help[class*=lucide-shield])) .rounded-full.bg-violet-500:is(.h-3,.h-2\.5){background-color:var(--color-red-500)!important}
 /* 视觉设计：配色、背景、描边、圆角、阴影、字体与动画，液态玻璃 / Meow 下让开 */:where(:root:not(.theme-glass,.theme-meow)){
 /* 视图切换按钮组同页面标签样式 */
 &:root body #root [role=group].bg-muted.inline-flex:has(>[data-slot=button][aria-pressed]){padding:5px!important;border:calc(2px*var(--paper-effect-scale)) solid var(--paper-ink)!important;border-radius:14px!important;background:var(--muted)!important;box-shadow:none!important;>[data-slot=button]{border-color:transparent!important;border-radius:10px!important;background:transparent!important;box-shadow:none!important;transform:none!important;font-weight:800!important}>[aria-pressed=true]{color:#102117!important;background:var(--paper-mint)!important;box-shadow:calc(2px*var(--paper-effect-scale)) calc(2px*var(--paper-effect-scale)) 0 var(--paper-ink)!important}}&.dark body #root [role=group].bg-muted.inline-flex:has(>[data-slot=button][aria-pressed])>[aria-pressed=true]{color:var(--primary-foreground)!important;background:var(--primary)!important}

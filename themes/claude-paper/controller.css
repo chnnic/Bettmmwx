@@ -1,7 +1,7 @@
 /*
  * MiaoMiaoWuX · Claude Paper 陶纸
- * 版本：v2026.10.19-04
- * 更新日期：2026-10-19
+ * 版本：v2026.10.20-01
+ * 更新日期：2026-10-20
  * 容量控制：保留顶部配置格式，其余按顶层规则压缩；完整文件按 UTF-8 字节计量。
  * Claude 风格的非官方独立主题：暖纸色、陶土橙、衬线标题、克制的细边线。
  * 整份替换主控自定义 CSS；不要叠加其他主题。不含脚本或远程资源。
@@ -167,6 +167,8 @@ tr[data-slot=table-row][class*="bg-primary/15"]{--tw-ring-color:color-mix(in okl
 [data-radix-scroll-area-viewport]>div:has(>.divide-y>.flex.items-center.gap-3>[data-slot=checkbox]){display:block!important;min-width:0!important}
 /* 手机设置：标题旁状态不竖排、长网址可折行 */
 .flex.items-center.justify-between.gap-4>.flex.items-center.gap-2:has(>[data-slot=switch]){flex-shrink:0;>span{white-space:nowrap}}p.text-muted-foreground.text-xs>span.font-mono{overflow-wrap:anywhere}
+/* 共享服务器离线（无加密盾牌）时标志点改红 */
+:is(.pixel-card,[data-slot=card],[data-slot=table-row],tr):has(.rounded-full.bg-violet-500):not(:has(svg.cursor-help[class*=lucide-shield])) .rounded-full.bg-violet-500:is(.h-3,.h-2\.5){background-color:var(--color-red-500)!important}
 /* 视觉设计：配色、背景、描边、圆角、阴影、字体与动画，液态玻璃 / Meow 下让开 */:where(:root:not(.theme-glass,.theme-meow)){
 /* 视图切换按钮组同页面标签样式 */
 &:root body #root [role=group].bg-muted.inline-flex:has(>[data-slot=button][aria-pressed]){padding:4px!important;border:0!important;border-radius:calc(var(--claude-control-radius) + 3px)!important;background:var(--muted)!important;box-shadow:none!important;>[data-slot=button]{color:var(--muted-foreground)!important;border:1px solid transparent!important;border-radius:var(--claude-control-radius)!important;background:transparent!important;box-shadow:none!important;transform:none!important}>[aria-pressed=true]{color:var(--accent-foreground)!important;background:var(--card)!important;border-color:var(--border)!important;font-weight:600!important}}
