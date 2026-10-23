@@ -1,6 +1,6 @@
 /*
  * MiaoMiaoWuX · Ink Mint 墨薄荷
- * 版本：v2026.10.23-02
+ * 版本：v2026.10.23-03
  * 更新日期：2026-10-23
  * 容量控制：保留顶部配置格式，其余按顶层规则压缩；完整文件按 UTF-8 字节计量。
  * 独立主题：暖纸白 / 蓝墨黑底色，薄荷绿强调，正文与标题用主控自带的 OPlusSans3，数据用等宽字体，细描边、少阴影。
@@ -168,18 +168,14 @@ tr[data-slot=table-row][class*="bg-primary/15"]{--tw-ring-color:color-mix(in okl
 :is(.pixel-card,[data-slot=card])>.flex.px-4>.flex.flex-wrap.justify-end.gap-1{justify-content:flex-start}
 /* 弹窗吸底保存栏贴底 */
 :is([data-slot=dialog-content],[data-slot=sheet-content]) [data-slot=tabs-content].flex-1.overflow-y-auto:has(.sticky.bottom-0){padding-bottom:0}
-/* 许可证称号牌过长时换行 */
-.mb-3.flex.items-center.gap-2:has(>span>.license-nameplate){flex-wrap:wrap;row-gap:.375rem;>span{white-space:nowrap}>span:has(>.license-nameplate){max-width:100%}}
 /* 滚动列表按容器宽度排布，长名省略 */
 [data-radix-scroll-area-viewport]>div:has(>.divide-y>.flex.items-center.gap-3>[data-slot=checkbox]){display:block!important;min-width:0!important}
 /* 手机设置：标题旁状态不竖排、长网址可折行 */
 .flex.items-center.justify-between.gap-4>.flex.items-center.gap-2:has(>[data-slot=switch]){flex-shrink:0;>span{white-space:nowrap}}p.text-muted-foreground.text-xs>span.font-mono{overflow-wrap:anywhere}
 /* 共享服务器离线（无加密盾牌）时标志点改红 */
 :is(.pixel-card,[data-slot=card],[data-slot=table-row],tr):has(.rounded-full.bg-violet-500):not(:has(svg.cursor-help[class*=lucide-shield])) .rounded-full.bg-violet-500:is(.h-3,.h-2\.5){background-color:var(--color-red-500)!important}
-/* 用户菜单风格按钮：选中项图标不被染灰 */
-[data-slot=dropdown-menu-item] button.h-7.bg-primary svg{color:currentColor!important}
-/* 手机用户菜单加宽，风格按钮更好点 */
-@media(max-width:767px){[data-slot=dropdown-menu-content]:has([data-slot=dropdown-menu-item] button.h-7){min-width:17.5rem;[data-slot=dropdown-menu-item] button.h-7{height:2rem}}}
+/* 手机设置“默认主题”：风格按钮可换行，不跑出屏幕 */
+.px-6>.flex.gap-2:has(>button[data-slot=button]:nth-child(6)){flex-wrap:wrap}
 /* 视觉设计：配色、背景、描边、圆角、阴影、字体与动画，液态玻璃 / Meow 下让开 */:where(:root:not(.theme-glass,.theme-meow)){
 
 &:root:root{color-scheme:light;--background: var(--ink-light-page) !important;--foreground: var(--ink-light-ink) !important;--card: var(--ink-light-surface) !important;--card-foreground: var(--foreground) !important;--popover: var(--card) !important;--popover-foreground: var(--foreground) !important;--primary: var(--ink-light-accent) !important;--primary-foreground: #11151b !important;--ink-accent-text: var(--ink-light-accent-text);--secondary: #eeece6 !important;--secondary-foreground: #485361 !important;--muted: #eeece6 !important;--muted-foreground: #5f6b78 !important;--accent: #e2f7ec !important;--accent-foreground: #0b6e48 !important;--destructive: #c2413b !important;--destructive-foreground: #fffafa !important;--border: #dddcd5 !important;--input: #cfcdc4 !important;--ring: #0b6e48 !important;--sidebar: #eeece6 !important;--sidebar-foreground: var(--foreground) !important;--sidebar-primary: var(--primary) !important;--sidebar-primary-foreground: var(--primary-foreground) !important;--sidebar-accent: #e2f7ec !important;--sidebar-accent-foreground: #0b6e48 !important;--sidebar-border: var(--border) !important;--sidebar-ring: var(--ring) !important;--chart-1: var(--ink-light-accent) !important;--fwd-ok: var(--ink-light-accent) !important;--fwd-warn: var(--ink-warn) !important;--ink-icon: var(--ink-light-icon);--chart-2: #4f7cac !important;--chart-3: #8b6fb0 !important;--chart-4: #c9a03a !important;--chart-5: #3f9fb3 !important;--radius: var(--ink-control-radius) !important;--font-sans: var(--ink-body-font) !important;--font-mono: var(--ink-mono-font) !important;--ink-card-shadow: 0 1px 2px rgb(17 21 27 / 5%);--ink-overlay-shadow: 0 16px 44px -16px rgb(17 21 27 / 30%)}

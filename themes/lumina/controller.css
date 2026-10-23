@@ -1,6 +1,6 @@
 /*
  * MiaoMiaoWuX · Lumina 白金 / 黑金
- * 版本：v2026.10.23-02
+ * 版本：v2026.10.23-04
  * 更新日期：2026-10-23
  * 顶部为配置区，其余已压缩；跟随主控 light / dark，无需 JS。
  */
@@ -153,18 +153,14 @@ tr[data-slot=table-row][class*="bg-primary/15"]{--tw-ring-color:color-mix(in okl
 :is(.pixel-card,[data-slot=card])>.flex.px-4>.flex.flex-wrap.justify-end.gap-1{justify-content:flex-start}
 /* 弹窗吸底保存栏贴底 */
 :is([data-slot=dialog-content],[data-slot=sheet-content]) [data-slot=tabs-content].flex-1.overflow-y-auto:has(.sticky.bottom-0){padding-bottom:0}
-/* 许可证称号牌过长时换行 */
-.mb-3.flex.items-center.gap-2:has(>span>.license-nameplate){flex-wrap:wrap;row-gap:.375rem;>span{white-space:nowrap}>span:has(>.license-nameplate){max-width:100%}}
 /* 滚动列表按容器宽度排布，长名省略 */
 [data-radix-scroll-area-viewport]>div:has(>.divide-y>.flex.items-center.gap-3>[data-slot=checkbox]){display:block!important;min-width:0!important}
 /* 手机设置：标题旁状态不竖排、长网址可折行 */
 .flex.items-center.justify-between.gap-4>.flex.items-center.gap-2:has(>[data-slot=switch]){flex-shrink:0;>span{white-space:nowrap}}p.text-muted-foreground.text-xs>span.font-mono{overflow-wrap:anywhere}
 /* 共享服务器离线（无加密盾牌）时标志点改红 */
 :is(.pixel-card,[data-slot=card],[data-slot=table-row],tr):has(.rounded-full.bg-violet-500):not(:has(svg.cursor-help[class*=lucide-shield])) .rounded-full.bg-violet-500:is(.h-3,.h-2\.5){background-color:var(--color-red-500)!important}
-/* 用户菜单风格按钮：选中项图标不被染灰 */
-[data-slot=dropdown-menu-item] button.h-7.bg-primary svg{color:currentColor!important}
-/* 手机用户菜单加宽，风格按钮更好点 */
-@media(max-width:767px){[data-slot=dropdown-menu-content]:has([data-slot=dropdown-menu-item] button.h-7){min-width:17.5rem;[data-slot=dropdown-menu-item] button.h-7{height:2rem}}}
+/* 手机设置“默认主题”：风格按钮可换行，不跑出屏幕 */
+.px-6>.flex.gap-2:has(>button[data-slot=button]:nth-child(6)){flex-wrap:wrap}
 /* 视觉设计：配色、背景、描边、圆角、阴影、字体与动画，液态玻璃 / Meow 下让开 */:where(:root:not(.theme-glass,.theme-meow)){
 /* 视图切换按钮组同页面标签样式 */
 &:root body #root [role=group].bg-muted.inline-flex:has(>[data-slot=button][aria-pressed]){padding:3px!important;border:0!important;background:var(--card)!important;box-shadow:0 1px 3px #0000001a,0 1px 2px -1px #0000001a!important;>[data-slot=button]{border-color:#0000!important;background:#0000!important;box-shadow:none!important;transform:none!important}>[aria-pressed=true]{color:#171107!important;border-color:#a87c22ad!important;background:var(--lc0)!important;box-shadow:var(--lc1)!important}}
@@ -172,6 +168,10 @@ tr[data-slot=table-row][class*="bg-primary/15"]{--tw-ring-color:color-mix(in okl
 &:root body :is([data-slot=dialog-content],[data-slot=sheet-content]) .sticky.bottom-0.bg-background{background:var(--popover)!important}
 /* 可搜索下拉框同普通下拉框 */
 &:root body #root [data-slot=popover-trigger][role=combobox]{height:2rem;border:1px solid var(--input)!important;background:var(--card)!important;box-shadow:none!important}&.dark body #root [data-slot=popover-trigger][role=combobox]{color:#f2eadb!important;border-color:#dfb65a6b!important;background:#2a261e!important;box-shadow:0 1px #ffe8b40f inset!important}
+/* 二次元浅色：顶栏当前页高亮紫底配白字 */
+&.theme-anime:not(.dark) #root header :is(a,button).bg-primary\/20.text-primary{color:#fff!important}
+/* 不限流量的流量条：彩虹改主色斜纹 */
+&:root body .rainbow-flow-bar{background:color-mix(in srgb,var(--primary) 14%,transparent)!important}&:root body .rainbow-flow-bar:before{background-image:repeating-linear-gradient(-45deg,color-mix(in srgb,var(--primary) 70%,transparent) 0 4px,transparent 4px 8px)!important}
 /* 首页配额：正常改金，提前用完改橙，深色用得快改黄 */
 & #root :is(.bg-teal-500,.bg-teal-600){background-color:var(--primary)!important}& #root [fill="#0d9488"]{fill:var(--primary)}& #root [stroke="#0d9488"]{stroke:var(--primary)}& #root [style*="13, 148, 136"]{background-color:var(--primary)!important}& #root :is(.absolute.inset-y-0.left-0:is(.bg-red-500,.bg-red-600),.inline-block.size-2\.5.bg-red-600,.inline-block.rounded-full[style*="220, 38, 38"]){background-color:#ea580c!important}& #root .recharts-scatter [fill="#dc2626"]{fill:#ea580c}& #root :is(.col-span-2.col-start-2.font-medium,.text-muted-foreground.flex.justify-between>.font-medium).text-red-600{color:#c2410c}&.dark #root :is(.col-span-2.col-start-2.font-medium,.text-muted-foreground.flex.justify-between>.font-medium).text-red-600{color:#fb923c}&.dark #root :is(.absolute.inset-y-0.left-0:is(.bg-amber-400,.bg-amber-500),.inline-block.size-2\.5.bg-amber-500,.inline-block.rounded-full[style*="217, 119, 6"]){background-color:#facc15!important}&.dark #root .recharts-scatter [fill="#d97706"]{fill:#facc15}
 /* 流量明细：主题配色，“会用完”改橙，85% 以上条改琥珀 / 黄 */
