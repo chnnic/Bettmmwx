@@ -1,7 +1,7 @@
 /*
  * MiaoMiaoWuX · Lumina 白金 / 黑金
- * 版本：v2026.10.23-05
- * 更新日期：2026-10-23
+ * 版本：v2026.10.24-01
+ * 更新日期：2026-10-24
  * 顶部为配置区，其余已压缩；跟随主控 light / dark，无需 JS。
  */
 
@@ -162,7 +162,7 @@ tr[data-slot=table-row][class*="bg-primary/15"]{--tw-ring-color:color-mix(in okl
 /* 手机设置“默认主题” */
 .px-6>.flex.gap-2:has(>button[data-slot=button]:nth-child(6)){flex-wrap:wrap}
 /* 服务卡片 */
-:root #root [data-slot=card-header]:has(>[data-slot=card-description]+.flex.text-xs){display:flex!important;flex-wrap:wrap;align-items:center;gap:6px 8px;>*{flex:1 1 100%;min-width:0}>[data-slot=card-description]{display:contents!important;>*{flex:0 0 auto;order:2}>.font-mono{order:1;flex:0 1 auto}>[data-slot=dropdown-menu-trigger]{order:3;margin-left:auto;&~*{order:4}&+span:has(>.lucide-wifi){margin:0 22px 0 -51px!important;align-self:center}}&+.flex{display:contents!important;>*{flex:0 0 auto;order:2}&~*{order:5}}}}
+:root #root [data-slot=card-header]:has(>[data-slot=card-description]+.flex.text-xs){display:flex!important;flex-wrap:wrap;align-items:center;gap:6px 8px;>*{flex:1 1 100%;min-width:0}>[data-slot=card-description]{display:contents!important;>*{flex:0 0 auto;order:2}>:first-child>[class~="w-[120px]"]{width:120px!important;flex:none!important}>.font-mono{order:1;flex:0 1 auto}>[data-slot=dropdown-menu-trigger]{order:3;margin-left:auto;&~*{order:4}&+span:has(>.lucide-wifi){margin:0 22px 0 -51px!important;align-self:center}}&+.flex{display:contents!important;>*{flex:0 0 auto;order:2}&~*{order:5}}}}
 /* 视觉设计：配色、背景、描边、圆角、阴影、字体与动画，液态玻璃 / Meow 下让开 */:where(:root:not(.theme-glass,.theme-meow)){
 /* 视图切换按钮组同页面标签样式 */
 &:root body #root [role=group].bg-muted.inline-flex:has(>[data-slot=button][aria-pressed]){padding:3px!important;border:0!important;background:var(--card)!important;box-shadow:0 1px 3px #0000001a,0 1px 2px -1px #0000001a!important;>[data-slot=button]{border-color:#0000!important;background:#0000!important;box-shadow:none!important;transform:none!important}>[aria-pressed=true]{color:#171107!important;border-color:#a87c22ad!important;background:var(--lc0)!important;box-shadow:var(--lc1)!important}}
