@@ -1,7 +1,7 @@
 /*
  * MiaoMiaoWuX · Lumina 白金 / 黑金
- * 版本：v2026.10.24-01
- * 更新日期：2026-10-24
+ * 版本：v2026.10.25-01
+ * 更新日期：2026-10-25
  * 顶部为配置区，其余已压缩；跟随主控 light / dark，无需 JS。
  */
 
@@ -163,6 +163,10 @@ tr[data-slot=table-row][class*="bg-primary/15"]{--tw-ring-color:color-mix(in okl
 .px-6>.flex.gap-2:has(>button[data-slot=button]:nth-child(6)){flex-wrap:wrap}
 /* 服务卡片 */
 :root #root [data-slot=card-header]:has(>[data-slot=card-description]+.flex.text-xs){display:flex!important;flex-wrap:wrap;align-items:center;gap:6px 8px;>*{flex:1 1 100%;min-width:0}>[data-slot=card-description]{display:contents!important;>*{flex:0 0 auto;order:2}>:first-child>[class~="w-[120px]"]{width:120px!important;flex:none!important}>.font-mono{order:1;flex:0 1 auto}>[data-slot=dropdown-menu-trigger]{order:3;margin-left:auto;&~*{order:4}&+span:has(>.lucide-wifi){margin:0 22px 0 -51px!important;align-self:center}}&+.flex{display:contents!important;>*{flex:0 0 auto;order:2}&~*{order:5}}}}
+/* 服务卡片实时网速不换行，卡片高度不随网速跳动 */
+[data-slot=card-header]>.bg-muted\/50>.flex.flex-wrap.justify-between:has(>.font-mono.tabular-nums){flex-wrap:nowrap;>.font-mono{flex-shrink:0;gap:8px}}
+/* 手机共享套餐 Pro 角标不压说明 */
+@media(max-width:639px){.relative:has(>.pro-label-badge)>div>.space-y-4>.flex-col:first-child>button{order:-1}}
 /* 视觉设计：配色、背景、描边、圆角、阴影、字体与动画，液态玻璃 / Meow 下让开 */:where(:root:not(.theme-glass,.theme-meow)){
 /* 视图切换按钮组同页面标签样式 */
 &:root body #root [role=group].bg-muted.inline-flex:has(>[data-slot=button][aria-pressed]){padding:3px!important;border:0!important;background:var(--card)!important;box-shadow:0 1px 3px #0000001a,0 1px 2px -1px #0000001a!important;>[data-slot=button]{border-color:#0000!important;background:#0000!important;box-shadow:none!important;transform:none!important}>[aria-pressed=true]{color:#171107!important;border-color:#a87c22ad!important;background:var(--lc0)!important;box-shadow:var(--lc1)!important}}
@@ -174,6 +178,8 @@ tr[data-slot=table-row][class*="bg-primary/15"]{--tw-ring-color:color-mix(in okl
 &.theme-anime:not(.dark) #root header :is(a,button).bg-primary\/20.text-primary{color:#fff!important}
 /* 不限流量的流量条 */
 &:root body .rainbow-flow-bar{background:color-mix(in srgb,var(--primary) 14%,transparent)!important}&:root body .rainbow-flow-bar:before{background-image:repeating-linear-gradient(-45deg,color-mix(in srgb,var(--primary) 70%,transparent) 0 4px,transparent 4px 8px)!important}
+/* 共享套餐说明 */
+.relative:has(>.pro-label-badge) .flex-col>p.max-w-2xl{padding:6px 10px;border-radius:.6rem;background:color-mix(in srgb,var(--card) 88%,#0000)}
 /* 首页配额 */
 & #root :is(.bg-teal-500,.bg-teal-600){background-color:var(--primary)!important}& #root [fill="#0d9488"]{fill:var(--primary)}& #root [stroke="#0d9488"]{stroke:var(--primary)}& #root [style*="13, 148, 136"]{background-color:var(--primary)!important}& #root :is(.absolute.inset-y-0.left-0:is(.bg-red-500,.bg-red-600),.inline-block.size-2\.5.bg-red-600,.inline-block.rounded-full[style*="220, 38, 38"]){background-color:#ea580c!important}& #root .recharts-scatter [fill="#dc2626"]{fill:#ea580c}& #root :is(.col-span-2.col-start-2.font-medium,.text-muted-foreground.flex.justify-between>.font-medium).text-red-600{color:#c2410c}&.dark #root :is(.col-span-2.col-start-2.font-medium,.text-muted-foreground.flex.justify-between>.font-medium).text-red-600{color:#fb923c}&.dark #root :is(.absolute.inset-y-0.left-0:is(.bg-amber-400,.bg-amber-500),.inline-block.size-2\.5.bg-amber-500,.inline-block.rounded-full[style*="217, 119, 6"]){background-color:#facc15!important}&.dark #root .recharts-scatter [fill="#d97706"]{fill:#facc15}
 /* 流量明细 */
@@ -235,15 +241,15 @@ html&,& body,& body *,& body:before,& body:after,& body *:before,& body *:after{
 @media(max-width:640px){&:root,&.light,&.dark{--radius:.65rem}[data-slot=card]{box-shadow:0 8px 22px #2f2a200f}}
 &:root.theme-anime{--sidebar:#fbf9fd!important}
 &:root.theme-anime.dark{--card:#231c30!important;--popover:#231c30!important;--sidebar:#231c30!important}
-&:root:is(.theme-premium,.theme-anime) #root :is([data-slot=card],.pixel-card,[class~="bg-background/50"]){background-color:var(--card)!important}
+&:root:is(.theme-premium,.theme-anime) #root :is([data-slot=card],.pixel-card,section.border,[class~="bg-background/50"]){background-color:var(--card)!important}
 &:root:is(.theme-premium,.theme-anime) :is(header.app-topbar,footer,[data-slot=sidebar],[data-sidebar=sidebar]){background-color:var(--sidebar)!important}
 &:root:not(.theme-flat):not(.theme-anime):not(.theme-premium):not(.theme-glass){--miaomiao-glass-background:#fffefa;--miaomiao-glass-foreground:#24211b;--miaomiao-glass-shadow:0 1px 3px rgb(0,0,0,.1),0 1px 2px -1px rgb(0,0,0,.1)}
 &:root:not(.theme-flat):not(.theme-anime):not(.theme-premium):not(.theme-glass).dark{--miaomiao-glass-background:linear-gradient( 145deg,#16140f,#0e0e0b );--miaomiao-glass-foreground:#f2eadb;--miaomiao-glass-shadow:0 1px 3px rgb(0,0,0,.1),0 1px 2px -1px rgb(0,0,0,.1)}
 &:root:not(.theme-glass) #root .min-h-screen.bg-background{background-color:#0000!important}
-&:root:not(.theme-flat):not(.theme-anime):not(.theme-premium):not(.theme-glass) #root :where([data-slot=card],.pixel-card,[class~="bg-background/50"],[data-slot=tabs-list],[data-slot=sidebar],[data-sidebar=sidebar]),&:root:not(.theme-flat):not(.theme-anime):not(.theme-premium):not(.theme-glass) :where(header.app-topbar,footer,[data-slot=popover-content],[data-slot=dropdown-menu-content],[data-slot=select-content],[data-slot=hover-card-content],[data-slot=sheet-content],[data-slot=drawer-content],[data-slot=alert-dialog-content],[data-slot=dialog-content],[data-slot=command],[role=dialog]){color:var(--miaomiao-glass-foreground)!important;border:0!important;background:var(--miaomiao-glass-background)!important;box-shadow:var(--miaomiao-glass-shadow)!important}
+&:root:not(.theme-flat):not(.theme-anime):not(.theme-premium):not(.theme-glass) #root :where([data-slot=card],.pixel-card,section.border,[class~="bg-background/50"],[data-slot=tabs-list],[data-slot=sidebar],[data-sidebar=sidebar]),&:root:not(.theme-flat):not(.theme-anime):not(.theme-premium):not(.theme-glass) :where(header.app-topbar,footer,[data-slot=popover-content],[data-slot=dropdown-menu-content],[data-slot=select-content],[data-slot=hover-card-content],[data-slot=sheet-content],[data-slot=drawer-content],[data-slot=alert-dialog-content],[data-slot=dialog-content],[data-slot=command],[role=dialog]){color:var(--miaomiao-glass-foreground)!important;border:0!important;background:var(--miaomiao-glass-background)!important;box-shadow:var(--miaomiao-glass-shadow)!important}
 &:root.theme-flat{--flat-glass-background:#fffefa;--flat-glass-foreground:#24211b;--flat-glass-shadow:0 1px 3px rgb(0,0,0,.1),0 1px 2px -1px rgb(0,0,0,.1)}
 &:root.theme-flat.dark{--flat-glass-background:linear-gradient( 145deg,#16140f,#0e0e0b );--flat-glass-foreground:#f2eadb}
-&:root.theme-flat #root [data-slot=card],&:root.theme-flat #root .pixel-card,&:root.theme-flat #root :where([class~="bg-background/50"],[data-slot=tabs-list],[data-slot=sidebar],[data-sidebar=sidebar]),&:root.theme-flat :where(header.app-topbar,footer,[data-slot=popover-content],[data-slot=dropdown-menu-content],[data-slot=select-content],[data-slot=hover-card-content],[data-slot=sheet-content],[data-slot=drawer-content],[data-slot=alert-dialog-content],[data-slot=dialog-content],[data-slot=command],[role=dialog]){color:var(--flat-glass-foreground)!important;border:0!important;background:var(--flat-glass-background)!important;box-shadow:var(--flat-glass-shadow)!important}
+&:root.theme-flat #root [data-slot=card],&:root.theme-flat #root .pixel-card,&:root.theme-flat #root :where(section.border,[class~="bg-background/50"],[data-slot=tabs-list],[data-slot=sidebar],[data-sidebar=sidebar]),&:root.theme-flat :where(header.app-topbar,footer,[data-slot=popover-content],[data-slot=dropdown-menu-content],[data-slot=select-content],[data-slot=hover-card-content],[data-slot=sheet-content],[data-slot=drawer-content],[data-slot=alert-dialog-content],[data-slot=dialog-content],[data-slot=command],[role=dialog]){color:var(--flat-glass-foreground)!important;border:0!important;background:var(--flat-glass-background)!important;box-shadow:var(--flat-glass-shadow)!important}
 &:root:not(.theme-glass) [role=dialog] .bg-muted>button.bg-background.shadow-sm{color:#171107!important;border-color:#a87c22ad!important;background:var(--lc0)!important;box-shadow:var(--lc1)!important}
 & body:has(#username):has(#password) #root{.min-h-svh:has(>[data-slot=card]){background:#0000!important}.min-h-svh>[data-slot=card]{color:var(--foreground)!important;border:1px solid color-mix(in srgb,var(--border) 74%,#0000)!important;border-radius:1rem!important;background:var(--card)!important;box-shadow:0 1px color-mix(in srgb,var(--foreground) 5%,#0000) inset,0 18px 48px #1c181129!important;transform:none!important;isolation:isolate}}
 &:root.dark body:has(#username):has(#password) #root .min-h-svh>[data-slot=card]{box-shadow:0 1px #ffe09d0f inset,0 20px 52px #0000006b!important}
@@ -264,15 +270,12 @@ html&,& body,& body *,& body:before,& body:after,& body *:before,& body *:after{
 &:root:not(.dark) #root .text-primary:not(.bg-primary){color:var(--accent-foreground)}
 /* 手机画布 */
 @media(max-width:767px){#root main>.fixed:has(.react-flow) aside.order-3>div:last-child:not(:first-child){background:var(--card)}}
-/* 手机转发链详情 */
 /* 节点卡片 */
 [data-slot=sheet-content].rounded-t-2xl{border:1px solid var(--border)!important;border-radius:16px!important}
 /* 柱状条与进度条渐变 */
 #root .recharts-bar-rectangle{-webkit-mask-image:linear-gradient(to top,#000 20%,rgb(0 0 0/.5));mask-image:linear-gradient(to top,#000 20%,#00000080)}#root :is(.bg-muted:is(.h-1,.h-1\.5,.h-2,.h-2\.5,.h-3,.rounded-full),.flex.h-1\.5.gap-0\.5)>:not(.rainbow-flow-bar,[style*=repeating]){background-image:linear-gradient(90deg,#fff0 15%,#ffffff73)!important}#root .bg-muted:is(.h-1,.h-1\.5,.h-2,.h-2\.5,.h-3,.rounded-full)>:is(.bg-primary,[style*="168, 124, 34"]):not(.x){background:var(--lc2)!important}#root .flex-col-reverse.overflow-hidden>*{background-image:linear-gradient(to top,#fff0 15%,#fff6)!important}
 /* 分段按钮组 */
 #root .flex.overflow-hidden.rounded-md.border:has(>[data-slot=button]):not(:has(>:not([data-slot=button]))){border-color:transparent!important}
-/* 转发链详情“事件” */
-/* 转发链拓扑 */
 /* 卡片内的卡片 */
 :is(.pixel-card,[data-slot=card]) :is(.bg-card,[data-slot=card]){border:1px solid var(--border)}&.dark :is(.pixel-card,[data-slot=card]) :is(.bg-card,[data-slot=card]){background:var(--muted)}}
 /* 减少动画：关闭全站动画与过渡，保留加载转圈与长 IP 滚动显示；所有界面风格生效，删除本段可恢复 */
