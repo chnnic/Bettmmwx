@@ -1,7 +1,7 @@
 /*
  * MiaoMiaoWuX · Lumina 白金 / 黑金
- * 版本：v2026.10.25-02
- * 更新日期：2026-10-25
+ * 版本：v2026.10.28-01
+ * 更新日期：2026-10-28
  * 顶部为配置区，其余已压缩；跟随主控 light / dark，无需 JS。
  */
 
@@ -29,7 +29,7 @@
 }
 
 
-/* 细节修复：布局、尺寸、溢出、显示与触控，所有界面风格下生效 */
+/* 细节修复：所有界面风格下生效 */
 :root{--lc3: calc(100dvh - 16px - env(safe-area-inset-top) - env(safe-area-inset-bottom)) ;--lc4:clamp(16rem,45dvh,30rem)}
 #root main.container,#root main.max-w-\[1600px\],#root :is(.min-h-svh,.min-h-dvh).bg-background>div.container.mx-auto{width:min(100%,var(--lumina-content-max-width))!important;max-width:var(--lumina-content-max-width)!important}
 @media(min-width:640px){#root main.container,#root main[class~="max-w-[1600px]"],#root :is(.min-h-svh,.min-h-dvh).bg-background>div.container.mx-auto{padding-inline:var(--lumina-content-gutter)!important}}
@@ -118,7 +118,7 @@ body:has(#username):has(#password){#root .min-h-svh:has(>[data-slot=card]){justi
 @container (max-width:575px){.overflow-x-auto>.relative.rounded-lg[style*=width]{zoom:.8}}
 @container (max-width:511px){.overflow-x-auto>.relative.rounded-lg[style*=width]{zoom:.7}}
 @container (max-width:447px){.overflow-x-auto>.relative.rounded-lg[style*=width]{zoom:.6}}
-/* Meow 深色可读性：改用较亮的暖炭底色、卡片与分隔线，卡片与输入框加细描边；删除本段前两行恢复 Meow 原生深色 */
+/* Meow 深色可读性：较亮暖炭底与细描边；删前两行恢复原生深色 */
 :root.theme-meow.dark{--meow-bg:#242320;--meow-card:#2d2c28;--meow-card2:#35342f;--meow-hero:#49372e;--meow-line:#48463e;--meow-bar:#2d2c28eb;--input:#615b50;--fwd-nodata:#48463e;--ledger-other:#5a5750}
 :root.theme-meow.dark :is(.pixel-card,[data-slot=card]){border:1px solid var(--meow-line);box-shadow:0 1px 3px #0000001f}
 :root.theme-meow.dark :is([data-slot=input],[data-slot=textarea],[data-slot=select-trigger],[data-slot=tabs-list]){border:1px solid var(--meow-line)}
@@ -167,7 +167,9 @@ tr[data-slot=table-row][class*="bg-primary/15"]{--tw-ring-color:color-mix(in okl
 [data-slot=card-header]>.bg-muted\/50>.flex.flex-wrap.justify-between:has(>.font-mono.tabular-nums){flex-wrap:nowrap;>.font-mono{flex-shrink:0;gap:8px}}
 /* 共享套餐 Pro 角标 */
 @media(max-width:639px){.relative:has(>.pro-label-badge)>div>.space-y-4>.flex-col:first-child>button{order:-1}}
-/* 视觉设计：配色、背景、描边、圆角、阴影、字体与动画，液态玻璃 / Meow 下让开 */:where(:root:not(.theme-glass,.theme-meow)){
+/* 共享服务器标签行 */
+.flex-wrap:has(>.hidden>*>.lucide-share-2){gap:3px;[data-slot=badge]{padding-inline:5px}>.hidden svg{display:none}}@container card-header (max-width:340px){.flex-wrap>.hidden:has(>*>.lucide-share-2){display:none}}
+/* 视觉设计：液态玻璃 / Meow 下让开 */:where(:root:not(.theme-glass,.theme-meow)){
 /* 视图切换按钮组同页面标签样式 */
 &:root body #root [role=group].bg-muted.inline-flex:has(>[data-slot=button][aria-pressed]){padding:3px!important;border:0!important;background:var(--card)!important;box-shadow:0 1px 3px #0000001a,0 1px 2px -1px #0000001a!important;>[data-slot=button]{border-color:#0000!important;background:#0000!important;box-shadow:none!important;transform:none!important}>[aria-pressed=true]{color:#171107!important;border-color:#a87c22ad!important;background:var(--lc0)!important;box-shadow:var(--lc1)!important}}
 /* 弹窗吸底保存栏用弹窗底色 */
@@ -278,5 +280,5 @@ html&,& body,& body *,& body:before,& body:after,& body *:before,& body *:after{
 #root .flex.overflow-hidden.rounded-md.border:has(>[data-slot=button]):not(:has(>:not([data-slot=button]))){border-color:transparent!important}
 /* 卡片内的卡片 */
 :is(.pixel-card,[data-slot=card]) :is(.bg-card,[data-slot=card]){border:1px solid var(--border)}&.dark :is(.pixel-card,[data-slot=card]) :is(.bg-card,[data-slot=card]){background:var(--muted)}}
-/* 减少动画：关闭全站动画与过渡，保留加载转圈与长 IP 滚动显示；所有界面风格生效，删除本段可恢复 */
+/* 减少动画：保留加载转圈与长 IP 滚动；删除本段可恢复 */
 *,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.animate-spin{animation:spin 1s linear infinite!important}.sonner-loading-bar{animation:sonner-spin 1.2s linear infinite!important}.mmw-ip-marquee{animation:mmw-ip-marquee var(--mmw-marquee-dur,8s) ease-in-out infinite!important}
