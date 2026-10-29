@@ -1,6 +1,6 @@
 /*
  * MiaoMiaoWuX · PaperMint 薄荷纸境
- * 版本：v2026.10.28-01
+ * 版本：v2026.10.28-02
  * 更新日期：2026-10-28
  * 容量控制：保留顶部配置格式，其余按顶层规则压缩；完整文件按 UTF-8 字节计量。
  * 独立主题：请单独粘贴使用，不要与 Lumina CSS 混用。
@@ -226,7 +226,7 @@ tr[data-slot=table-row][class*="bg-primary/15"]{--tw-ring-color:color-mix(in okl
 /* 手机共享套餐 Pro 角标不压说明 */
 @media(max-width:639px){.relative:has(>.pro-label-badge)>div>.space-y-4>.flex-col:first-child>button{order:-1}}
 /* 共享服务器标签行：收紧间距，卡片窄时藏起重复的“共享服务器” */
-.flex-wrap:has(>.hidden>*>.lucide-share-2){gap:3px;[data-slot=badge]{padding-inline:5px}>.hidden svg{display:none}}@container card-header (max-width:340px){.flex-wrap>.hidden:has(>*>.lucide-share-2){display:none}}
+.flex-wrap:has(>.hidden>*>.lucide-share-2){gap:3px;[data-slot=badge]{padding-inline:5px}>.hidden svg{display:none}}@container card-header (max-width:340px){.flex-wrap:has(>.hidden>*>.lucide-share-2){>.hidden{display:none}[data-slot=badge]{padding-inline:4px}}}
 /* 视觉设计：配色、背景、描边、圆角、阴影、字体与动画，液态玻璃 / Meow 下让开 */:where(:root:not(.theme-glass,.theme-meow)){
 /* 视图切换按钮组同页面标签样式 */
 &:root body #root [role=group].bg-muted.inline-flex:has(>[data-slot=button][aria-pressed]){padding:5px!important;border:calc(2px*var(--paper-effect-scale)) solid var(--paper-ink)!important;border-radius:14px!important;background:var(--muted)!important;box-shadow:none!important;>[data-slot=button]{border-color:transparent!important;border-radius:10px!important;background:transparent!important;box-shadow:none!important;transform:none!important;font-weight:800!important}>[aria-pressed=true]{color:#102117!important;background:var(--paper-mint)!important;box-shadow:calc(2px*var(--paper-effect-scale)) calc(2px*var(--paper-effect-scale)) 0 var(--paper-ink)!important}}&.dark body #root [role=group].bg-muted.inline-flex:has(>[data-slot=button][aria-pressed])>[aria-pressed=true]{color:var(--primary-foreground)!important;background:var(--primary)!important}
