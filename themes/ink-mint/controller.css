@@ -1,7 +1,7 @@
 /*
  * MiaoMiaoWuX · Ink Mint 墨薄荷
- * 版本：v2026.10.28-02
- * 更新日期：2026-10-28
+ * 版本：v2026.10.29-01
+ * 更新日期：2026-10-29
  * 容量控制：保留顶部配置格式，其余按顶层规则压缩；完整文件按 UTF-8 字节计量。
  * 独立主题：暖纸白 / 蓝墨黑底色，薄荷绿强调，正文与标题用主控自带的 OPlusSans3，数据用等宽字体，细描边、少阴影。
  * 整份替换主控自定义 CSS；不要叠加其他主题。不含脚本或远程资源。
@@ -123,7 +123,7 @@ body:has(#username):has(#password) [data-slot=card].max-w-sm{max-width:27rem}
 #root .space-y-2.p-3:has(>.flex>[aria-label=\66f4\591a\64cd\4f5c]){position:relative}
 #root .space-y-2.p-3>.flex>[aria-label=\66f4\591a\64cd\4f5c]{position:absolute;right:12px;bottom:12px;width:36px!important;height:36px!important}
 #root .space-y-2.p-3:has(>.flex>[aria-label=\66f4\591a\64cd\4f5c]){>.border-t:last-child{padding-right:44px}>.border-t:last-child>[data-slot=button]{flex:1 1 0;min-width:0;padding-inline:6px!important;gap:4px!important}}
-[data-slot=sheet-content].rounded-t-2xl{inset:50% auto auto 50%!important;transform:translate(-50%,-50%)!important;width:min(380px,calc(100vw - 24px))!important;max-height:72svh!important;padding:12px 12px 14px!important}
+[data-slot=sheet-content].rounded-t-2xl{inset:50% auto auto 50%!important;transform:translate(-50%,-50%)!important;width:min(380px,calc(100vw - 24px))!important;max-height:72svh!important;padding:12px 12px 14px!important;&.pt-12{padding-top:40px!important}}
 [data-slot=sheet-content].rounded-t-2xl .grid.grid-cols-4{>*{padding:6px 2px!important;gap:2px!important}[data-slot=button]{width:32px!important;height:32px!important;min-height:32px!important}}
 #root .flex.overflow-hidden.rounded-md.border:has(>[data-slot=button]):not(:has(>:not([data-slot=button]))){overflow:visible;gap:6px}
 #root li.border-l-2>.flex-col{min-width:0;overflow-wrap:anywhere}
