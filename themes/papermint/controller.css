@@ -1,7 +1,7 @@
 /*
  * MiaoMiaoWuX · PaperMint 薄荷纸境
- * 版本：v2026.10.29-01
- * 更新日期：2026-10-29
+ * 版本：v2026.10.31-01
+ * 更新日期：2026-10-31
  * 容量控制：保留顶部配置格式，其余按顶层规则压缩；完整文件按 UTF-8 字节计量。
  * 独立主题：请单独粘贴使用，不要与 Lumina CSS 混用。
  * 视觉语言：清爽白底、学习绿、粉彩辅助色、深色描边、偏移硬阴影。
@@ -162,6 +162,7 @@
 @media(max-width:1023px){#root main>.fixed .relative:has(>.react-flow)>.absolute.bottom-2{bottom:52px}}
 @media(max-width:767px){#root main>.fixed:has(.react-flow) aside.order-3{>.overflow-y-auto{flex:none;max-height:min(440px,52dvh);overscroll-behavior-y:contain}>div:last-child:not(:first-child){position:sticky;bottom:0;z-index:5}}}
 #root .flex-\[1_1_280px\]{min-width:0}
+@media(max-width:359px){#root .flex-wrap>.flex-\[1_1_240px\]{padding-inline:12px;>.flex.gap-2>.flex-1{padding-inline:8px}}}
 #root .space-y-2.p-3:has(>.flex>[aria-label=\66f4\591a\64cd\4f5c]){position:relative}
 #root .space-y-2.p-3>.flex>[aria-label=\66f4\591a\64cd\4f5c]{position:absolute;right:12px;bottom:12px;width:36px!important;height:36px!important}
 #root .space-y-2.p-3:has(>.flex>[aria-label=\66f4\591a\64cd\4f5c]){>.border-t:last-child{padding-right:44px}>.border-t:last-child>[data-slot=button]{flex:1 1 0;min-width:0;padding-inline:6px!important;gap:4px!important}}
