@@ -1,10 +1,10 @@
 /*
  * MiaoMiaoWuX · Claude Paper 陶纸 · TG Bot Mini App
- * 版本：v2026.10.12-01
- * 更新日期：2026-10-12
+ * 版本：v2026.11.01-01
+ * 更新日期：2026-11-01
  * 使用：系统设置 → TG Bot → Mini App 自定义 CSS，完整替换旧样式。
  * 独立文件，无远程图片、字体或脚本；不要放入主控 CSS 栏。
- * Mini App 选用 Meow 外观（html.theme-meow）时本主题整体让开，保持 Meow 原生样式。
+ * Mini App 选用 Meow / 天真外观（html.theme-meow / theme-sweet）时本主题整体让开，保持其原生样式。
  */
 
 :root {
@@ -28,9 +28,10 @@
 }
 
 /* 显式覆盖内置基底；深浅跟随 Mini App 的 html.dark，不改认证或角色状态。 */
-html:not(.theme-meow):root {
+html:not(.theme-meow,.theme-sweet):root {
   color-scheme: light;
   --brand: var(--claude-mini-light-accent) !important;
+  --ok: #2e7d4f !important; /* “在线 / 续费成功”绿字与开关：原生 #22c55e 在白底上对比度约 2.3:1，加深到 5:1 以上 */
   --brand-soft: #f1e3d9 !important;
   --bg: var(--claude-mini-light-page) !important;
   --text: var(--claude-mini-light-ink) !important;
@@ -47,9 +48,10 @@ html:not(.theme-meow):root {
   --claude-mini-shadow: 0 1px 3px rgb(48 46 41 / 4%);
 }
 
-html:not(.theme-meow):root.dark {
+html:not(.theme-meow,.theme-sweet):root.dark {
   color-scheme: dark;
   --brand: var(--claude-mini-dark-accent) !important;
+  --ok: #22c55e !important;
   --brand-soft: #49372e !important;
   --bg: var(--claude-mini-dark-page) !important;
   --text: var(--claude-mini-dark-ink) !important;
@@ -65,7 +67,7 @@ html:not(.theme-meow):root.dark {
   --claude-mini-shadow: 0 1px 3px rgb(0 0 0 / 12%);
 }
 
-html:not(.theme-meow) body {
+html:not(.theme-meow,.theme-sweet) body {
   color: var(--text);
   background: var(--bg) !important;
   font-family: var(--claude-mini-body-font);
@@ -73,20 +75,20 @@ html:not(.theme-meow) body {
   padding-bottom: calc(90px + env(safe-area-inset-bottom, 0px));
 }
 
-html:not(.theme-meow) main,
-html:not(.theme-meow) #notice {
+html:not(.theme-meow,.theme-sweet) main,
+html:not(.theme-meow,.theme-sweet) #notice {
   width: 100%;
   max-width: var(--claude-mini-content-max-width);
   min-width: 0;
   margin-inline: auto;
 }
 
-html:not(.theme-meow) :is(.card, header, nav, .inp, .seg button) {
+html:not(.theme-meow,.theme-sweet) :is(.card, header, nav, .inp, .seg button) {
   -webkit-backdrop-filter: none !important;
   backdrop-filter: none !important;
 }
 
-html:not(.theme-meow) .card {
+html:not(.theme-meow,.theme-sweet) .card {
   min-width: 0;
   margin-bottom: 12px;
   padding: 14px !important;
@@ -99,22 +101,22 @@ html:not(.theme-meow) .card {
 }
 
 /* 清除内置装饰，保留卡片内容；不触碰 .hide 隐藏与权限规则。 */
-html:not(.theme-meow).theme-anime .card::after,
-html:not(.theme-meow).theme-glass .card::after { display: none !important; }
+html:not(.theme-meow,.theme-sweet).theme-anime .card::after,
+html:not(.theme-meow,.theme-sweet).theme-glass .card::after { display: none !important; }
 
-html:not(.theme-meow) header,
-html:not(.theme-meow) nav {
+html:not(.theme-meow,.theme-sweet) header,
+html:not(.theme-meow,.theme-sweet) nav {
   color: var(--text);
   border-color: var(--border) !important;
   background: var(--card) !important;
   box-shadow: none !important;
 }
 
-html:not(.theme-meow) header .brand { color: var(--text); }
-html:not(.theme-meow) .ax-t { color: var(--brand) !important; background: none !important; animation: none !important; filter: none !important; }
-html:not(.theme-meow) :is(.ax-g, .ax-p) { display: none !important; }
-html:not(.theme-meow) .title { color: var(--muted); font-weight: 500; letter-spacing: 0.02em; }
-html:not(.theme-meow) .big {
+html:not(.theme-meow,.theme-sweet) header .brand { color: var(--text); }
+html:not(.theme-meow,.theme-sweet) .ax-t { color: var(--brand) !important; background: none !important; animation: none !important; filter: none !important; }
+html:not(.theme-meow,.theme-sweet) :is(.ax-g, .ax-p) { display: none !important; }
+html:not(.theme-meow,.theme-sweet) .title { color: var(--muted); font-weight: 500; letter-spacing: 0.02em; }
+html:not(.theme-meow,.theme-sweet) .big {
   color: var(--text);
   font-family: var(--claude-mini-heading-font);
   font-weight: 500;
@@ -123,7 +125,7 @@ html:not(.theme-meow) .big {
   font-variant-numeric: tabular-nums;
 }
 
-html:not(.theme-meow) :is(.btn, .seg button) {
+html:not(.theme-meow,.theme-sweet) :is(.btn, .seg button) {
   min-height: var(--claude-mini-button-height);
   max-width: 100%;
   padding: 8px 12px;
@@ -139,22 +141,22 @@ html:not(.theme-meow) :is(.btn, .seg button) {
   transition: background-color 120ms ease, border-color 120ms ease;
 }
 
-html:not(.theme-meow) .btn:not([style*="--warn"]):not([style*="--unknown"]) {
+html:not(.theme-meow,.theme-sweet) .btn:not([style*="--warn"]):not([style*="--unknown"]) {
   color: var(--claude-mini-accent-text) !important;
   border-color: var(--brand);
   background: var(--brand) !important;
 }
 
 /* 删除/撤销继续为红色；未知状态按钮保持中性，不染成陶土橙。 */
-html:not(.theme-meow) .btn[style*="--warn"] { color: var(--claude-mini-warn-text) !important; background: var(--warn) !important; border-color: var(--warn); }
-html:not(.theme-meow) .btn[style*="--unknown"] { color: #25231f !important; background: var(--unknown) !important; border-color: var(--unknown); }
+html:not(.theme-meow,.theme-sweet) .btn[style*="--warn"] { color: var(--claude-mini-warn-text) !important; background: var(--warn) !important; border-color: var(--warn); }
+html:not(.theme-meow,.theme-sweet) .btn[style*="--unknown"] { color: #25231f !important; background: var(--unknown) !important; border-color: var(--unknown); }
 
-html:not(.theme-meow) .seg { flex-wrap: wrap; gap: 4px; padding: 4px; background: var(--claude-mini-secondary); border-radius: calc(var(--claude-mini-control-radius) + 3px); }
+html:not(.theme-meow,.theme-sweet) .seg { flex-wrap: wrap; gap: 4px; padding: 4px; background: var(--claude-mini-secondary); border-radius: calc(var(--claude-mini-control-radius) + 3px); }
 /* 分段按钮按文字宽度排布、不换行（与主控 beta.9 原生一致）：七个“有效期”选项手机上排一行，排不下时整个选项换到下一排。 */
-html:not(.theme-meow) .seg button { flex: 1 0 auto; min-width: 0; padding-inline: 4px; white-space: nowrap; overflow-wrap: normal; color: var(--muted); background: transparent !important; border-color: transparent; }
-html:not(.theme-meow) .seg button.active { color: var(--claude-mini-accent-ink) !important; background: var(--card) !important; border-color: var(--border); }
+html:not(.theme-meow,.theme-sweet) .seg button { flex: 1 0 auto; min-width: 0; padding-inline: 4px; white-space: nowrap; overflow-wrap: normal; color: var(--muted); background: transparent !important; border-color: transparent; }
+html:not(.theme-meow,.theme-sweet) .seg button.active { color: var(--claude-mini-accent-ink) !important; background: var(--card) !important; border-color: var(--border); }
 
-html:not(.theme-meow) .inp {
+html:not(.theme-meow,.theme-sweet) .inp {
   min-width: 0;
   max-width: 100%;
   color: var(--text) !important;
@@ -165,24 +167,24 @@ html:not(.theme-meow) .inp {
   font: inherit;
   font-size: 16px;
 }
-html:not(.theme-meow) .inp::placeholder { color: var(--muted); opacity: 1; }
-html:not(.theme-meow) input:is([type="checkbox"], [type="radio"]) { accent-color: var(--brand); }
-html:not(.theme-meow) :is(.inp, .btn, .seg button, nav button, .xsw, a):focus-visible { outline: 2px solid var(--brand); outline-offset: 3px; }
+html:not(.theme-meow,.theme-sweet) .inp::placeholder { color: var(--muted); opacity: 1; }
+html:not(.theme-meow,.theme-sweet) input:is([type="checkbox"], [type="radio"]) { accent-color: var(--brand); }
+html:not(.theme-meow,.theme-sweet) :is(.inp, .btn, .seg button, nav button, .xsw, a):focus-visible { outline: 2px solid var(--brand); outline-offset: 3px; }
 
-html:not(.theme-meow) .row,
-html:not(.theme-meow) main .sub { gap: 8px; flex-wrap: wrap; }
-html:not(.theme-meow) .row > *,
-html:not(.theme-meow) main .sub > * { min-width: 0; max-width: 100%; overflow-wrap: anywhere; }
-html:not(.theme-meow) main .sub .u { flex-basis: 12rem; }
-html:not(.theme-meow) .badge { display: inline-block; max-width: 100%; color: var(--claude-mini-accent-ink); background: var(--brand-soft); border-radius: 6px; white-space: normal; font-weight: 500; }
-html:not(.theme-meow) .bar { height: 8px; border: 0; border-radius: 999px; background: var(--claude-mini-secondary); }
-html:not(.theme-meow) .bar > i { background: var(--brand); }
-html:not(.theme-meow) .st { gap: 10px; }
-html:not(.theme-meow) .st > :first-child { min-width: 0; overflow-wrap: anywhere; }
-html:not(.theme-meow) .xctl { flex-shrink: 0; }
+html:not(.theme-meow,.theme-sweet) .row,
+html:not(.theme-meow,.theme-sweet) main .sub { gap: 8px; flex-wrap: wrap; }
+html:not(.theme-meow,.theme-sweet) .row > *,
+html:not(.theme-meow,.theme-sweet) main .sub > * { min-width: 0; max-width: 100%; overflow-wrap: anywhere; }
+html:not(.theme-meow,.theme-sweet) main .sub .u { flex-basis: 12rem; }
+html:not(.theme-meow,.theme-sweet) .badge { display: inline-block; max-width: 100%; color: var(--claude-mini-accent-ink); background: var(--brand-soft); border-radius: 6px; white-space: normal; font-weight: 500; }
+html:not(.theme-meow,.theme-sweet) .bar { height: 8px; border: 0; border-radius: 999px; background: var(--claude-mini-secondary); }
+html:not(.theme-meow,.theme-sweet) .bar > i { background: var(--brand); }
+html:not(.theme-meow,.theme-sweet) .st { gap: 10px; }
+html:not(.theme-meow,.theme-sweet) .st > :first-child { min-width: 0; overflow-wrap: anywhere; }
+html:not(.theme-meow,.theme-sweet) .xctl { flex-shrink: 0; }
 
 /* 圆点不依赖按钮字体或通用尺寸；业务状态仍由 .on / disabled 控制。 */
-html:not(.theme-meow) .xsw {
+html:not(.theme-meow,.theme-sweet) .xsw {
   position: relative;
   box-sizing: border-box;
   width: 44px;
@@ -194,8 +196,8 @@ html:not(.theme-meow) .xsw {
   background: var(--claude-mini-input);
   box-shadow: none;
 }
-html:not(.theme-meow) .xsw.on { background: var(--brand); border-color: var(--brand); }
-html:not(.theme-meow) .xsw::after {
+html:not(.theme-meow,.theme-sweet) .xsw.on { background: var(--brand); border-color: var(--brand); }
+html:not(.theme-meow,.theme-sweet) .xsw::after {
   content: "";
   position: absolute;
   top: 50%;
@@ -208,11 +210,11 @@ html:not(.theme-meow) .xsw::after {
   transform: translateY(-50%);
   pointer-events: none;
 }
-html:not(.theme-meow) .xsw.on::after { transform: translate(18px, -50%); }
-html:not(.theme-meow) :is(.btn, .inp, .seg button, nav button, .xsw):disabled { opacity: 0.45; cursor: not-allowed; }
+html:not(.theme-meow,.theme-sweet) .xsw.on::after { transform: translate(18px, -50%); }
+html:not(.theme-meow,.theme-sweet) :is(.btn, .inp, .seg button, nav button, .xsw):disabled { opacity: 0.45; cursor: not-allowed; }
 
 /* 六项管理员导航适配手机；不重设 display，保留未授权时的 .hide。 */
-html:not(.theme-meow) nav {
+html:not(.theme-meow,.theme-sweet) nav {
   z-index: 20;
   max-width: var(--claude-mini-content-max-width);
   margin-inline: auto;
@@ -220,23 +222,35 @@ html:not(.theme-meow) nav {
   border-top: 1px solid var(--border);
   border-radius: 14px 14px 0 0;
 }
-html:not(.theme-meow) nav button { min-width: 0; min-height: 50px; margin-inline: 1px; padding: 7px 2px; color: var(--muted); background: transparent; border-radius: var(--claude-mini-control-radius); font-family: var(--claude-mini-body-font); font-size: 11px; overflow-wrap: anywhere; }
-html:not(.theme-meow) nav button.active { color: var(--claude-mini-accent-ink); background: var(--brand-soft); font-weight: 600; }
-html:not(.theme-meow) nav svg { flex-shrink: 0; }
+html:not(.theme-meow,.theme-sweet) nav button { min-width: 0; min-height: 50px; margin-inline: 1px; padding: 7px 2px; color: var(--muted); background: transparent; border-radius: var(--claude-mini-control-radius); font-family: var(--claude-mini-body-font); font-size: 11px; overflow-wrap: anywhere; }
+html:not(.theme-meow,.theme-sweet) nav button.active { color: var(--claude-mini-accent-ink); background: var(--brand-soft); font-weight: 600; }
+html:not(.theme-meow,.theme-sweet) nav svg { flex-shrink: 0; }
+
+
+/* 对照主控 0.6.1 官方各外观补齐 */
+/* 公告卡：保留主控行内的 3px 左色条（普通公告用主题色、节点被墙告警用红色），卡片描边不再盖掉它。 */
+html:not(.theme-meow,.theme-sweet) .card[style*="border-left"] { border-left: 3px solid var(--brand) !important; }
+html:not(.theme-meow,.theme-sweet) .card[style*="border-left:3px solid var(--warn)"] { border-left-color: var(--warn) !important; }
+/* 行内用主题色写的文字（公告标题、续费“等待管理员确认 / 正在处理”）改用可读的深色调。 */
+html:not(.theme-meow,.theme-sweet) [style*="color:var(--brand)"] { color: var(--claude-mini-accent-ink) !important; }
+/* 电脑版 Telegram 的下拉列表（.sel-menu）跟随主题圆角，选中项用可读的强调色。 */
+html:not(.theme-meow,.theme-sweet) .sel-menu { padding: 4px; border-color: var(--border); border-radius: var(--claude-mini-control-radius); }
+html:not(.theme-meow,.theme-sweet) .sel-menu div { border-radius: 6px; }
+html:not(.theme-meow,.theme-sweet) .sel-menu div.on { color: var(--claude-mini-accent-ink); }
 
 @media (hover: hover) {
-  html:not(.theme-meow) .btn:not(:disabled):not([style*="--warn"]):not([style*="--unknown"]):hover { background: color-mix(in srgb, var(--brand) 90%, var(--text)) !important; }
-  html:not(.theme-meow) .seg button:not(.active):not(:disabled):hover,
-  html:not(.theme-meow) nav button:not(.active):not(:disabled):hover { color: var(--text); background: var(--claude-mini-secondary) !important; }
+  html:not(.theme-meow,.theme-sweet) .btn:not(:disabled):not([style*="--warn"]):not([style*="--unknown"]):hover { background: color-mix(in srgb, var(--brand) 90%, var(--text)) !important; }
+  html:not(.theme-meow,.theme-sweet) .seg button:not(.active):not(:disabled):hover,
+  html:not(.theme-meow,.theme-sweet) nav button:not(.active):not(:disabled):hover { color: var(--text); background: var(--claude-mini-secondary) !important; }
 }
 
-html:not(.theme-meow) ::selection { color: var(--text); background: color-mix(in srgb, var(--brand) 27%, var(--card)); text-shadow: none; }
+html:not(.theme-meow,.theme-sweet) ::selection { color: var(--text); background: color-mix(in srgb, var(--brand) 27%, var(--card)); text-shadow: none; }
 
 @media (prefers-reduced-motion: reduce) {
-  html:not(.theme-meow) *, html:not(.theme-meow) *::before, html:not(.theme-meow) *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+  html:not(.theme-meow,.theme-sweet) *, html:not(.theme-meow,.theme-sweet) *::before, html:not(.theme-meow,.theme-sweet) *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
 }
 
 @media (prefers-contrast: more) {
-  html:not(.theme-meow):root,
-  html:not(.theme-meow):root.dark { --border: var(--muted) !important; --claude-mini-input: var(--text); }
+  html:not(.theme-meow,.theme-sweet):root,
+  html:not(.theme-meow,.theme-sweet):root.dark { --border: var(--muted) !important; --claude-mini-input: var(--text); }
 }

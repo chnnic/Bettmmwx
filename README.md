@@ -6,10 +6,10 @@ MiaoMiaoWuX 的独立主题集合。每个主题单独提供主控 CSS、TG Bot 
 
 | 主题 | 主控 CSS | TG Bot Mini App CSS | 说明 |
 | --- | --- | --- | --- |
-| Lumina 白金 / 黑金 | [controller.css](themes/lumina/controller.css) · v2026.11.01-01 | [tgbot.css](themes/lumina/tgbot.css) · v2026.10.12-01 | [安装与配置](themes/lumina/README.md) |
-| PaperMint 薄荷纸境 | [controller.css](themes/papermint/controller.css) · v2026.11.01-01 | [tgbot.css](themes/papermint/tgbot.css) · v2026.10.12-01 | [安装与配置](themes/papermint/README.md) |
-| Claude Paper 陶纸 | [controller.css](themes/claude-paper/controller.css) · v2026.11.01-01 | [tgbot.css](themes/claude-paper/tgbot.css) · v2026.10.12-01 | [安装与配置](themes/claude-paper/README.md) |
-| Ink Mint 墨薄荷 | [controller.css](themes/ink-mint/controller.css) · v2026.11.01-01 | [tgbot.css](themes/ink-mint/tgbot.css) · v2026.10.12-01 | [安装与配置](themes/ink-mint/README.md) |
+| Lumina 白金 / 黑金 | [controller.css](themes/lumina/controller.css) · v2026.11.01-01 | [tgbot.css](themes/lumina/tgbot.css) · v2026.11.01-01 | [安装与配置](themes/lumina/README.md) |
+| PaperMint 薄荷纸境 | [controller.css](themes/papermint/controller.css) · v2026.11.01-01 | [tgbot.css](themes/papermint/tgbot.css) · v2026.11.01-01 | [安装与配置](themes/papermint/README.md) |
+| Claude Paper 陶纸 | [controller.css](themes/claude-paper/controller.css) · v2026.11.01-01 | [tgbot.css](themes/claude-paper/tgbot.css) · v2026.11.01-01 | [安装与配置](themes/claude-paper/README.md) |
+| Ink Mint 墨薄荷 | [controller.css](themes/ink-mint/controller.css) · v2026.11.01-01 | [tgbot.css](themes/ink-mint/tgbot.css) · v2026.11.01-01 | [安装与配置](themes/ink-mint/README.md) |
 
 - **Lumina**：暖金强调色，可选壁纸。
 - **PaperMint**：圆角、描边、偏移硬阴影和粉彩辅助色。
