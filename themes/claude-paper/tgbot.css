@@ -1,6 +1,6 @@
 /*
  * MiaoMiaoWuX · Claude Paper 陶纸 · TG Bot Mini App
- * 版本：v2026.11.01-01
+ * 版本：v2026.11.01-02
  * 更新日期：2026-11-01
  * 使用：系统设置 → TG Bot → Mini App 自定义 CSS，完整替换旧样式。
  * 独立文件，无远程图片、字体或脚本；不要放入主控 CSS 栏。
@@ -237,6 +237,8 @@ html:not(.theme-meow,.theme-sweet) [style*="color:var(--brand)"] { color: var(--
 html:not(.theme-meow,.theme-sweet) .sel-menu { padding: 4px; border-color: var(--border); border-radius: var(--claude-mini-control-radius); }
 html:not(.theme-meow,.theme-sweet) .sel-menu div { border-radius: 6px; }
 html:not(.theme-meow,.theme-sweet) .sel-menu div.on { color: var(--claude-mini-accent-ink); }
+/* 管理页·用户：套餐下拉框去掉继承的下边距，与右侧「改套餐 / 绑定」按钮上下对齐。 */
+html:not(.theme-meow,.theme-sweet) #u-list select.inp { margin-bottom: 0; }
 
 @media (hover: hover) {
   html:not(.theme-meow,.theme-sweet) .btn:not(:disabled):not([style*="--warn"]):not([style*="--unknown"]):hover { background: color-mix(in srgb, var(--brand) 90%, var(--text)) !important; }

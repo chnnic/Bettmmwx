@@ -1,6 +1,6 @@
 /*
  * MiaoMiaoWuX · PaperMint 薄荷纸境 · TG Bot Mini App
- * 版本：v2026.11.01-01
+ * 版本：v2026.11.01-02
  * 更新日期：2026-11-01
  * 使用：系统设置 → TG Bot → Mini App 自定义 CSS。
  * 独立完整文件，无字体或图片外部依赖；不与主控 CSS 混用。
@@ -237,6 +237,8 @@ html:not(.theme-meow,.theme-sweet) .card[style*="border-left:3px solid var(--war
 html:not(.theme-meow,.theme-sweet) .sel-menu { padding: 4px; border-color: var(--border); border-radius: 10px; }
 html:not(.theme-meow,.theme-sweet) .sel-menu div { border-radius: 6px; }
 html:not(.theme-meow,.theme-sweet) .sel-menu div.on { color: var(--brand); }
+/* 管理页·用户：套餐下拉框去掉继承的下边距，与右侧「改套餐 / 绑定」按钮上下对齐。 */
+html:not(.theme-meow,.theme-sweet) #u-list select.inp { margin-bottom: 0; }
 /* 标题里的动效 X 用主题色（随界面风格的薄荷 / 紫 / 蓝 / 金），不再是原生橙红渐变。 */
 html:not(.theme-meow,.theme-sweet) .ax-t { color: var(--brand) !important; background: none !important; animation: none !important; filter: none !important; }
 html:not(.theme-meow,.theme-sweet) :is(.ax-g, .ax-p) { display: none !important; }
