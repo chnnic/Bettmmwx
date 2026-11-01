@@ -1,7 +1,7 @@
 /*
  * MiaoMiaoWuX · Ink Mint 墨薄荷
- * 版本：v2026.10.31-02
- * 更新日期：2026-10-31
+ * 版本：v2026.11.01-01
+ * 更新日期：2026-11-01
  * 容量控制：保留顶部配置格式，其余按顶层规则压缩；完整文件按 UTF-8 字节计量。
  * 独立主题：暖纸白 / 蓝墨黑底色，薄荷绿强调，正文与标题用主控自带的 OPlusSans3，数据用等宽字体，细描边、少阴影。
  * 整份替换主控自定义 CSS；不要叠加其他主题。不含脚本或远程资源。
@@ -121,8 +121,8 @@ body:has(#username):has(#password) [data-slot=card].max-w-sm{max-width:27rem}
 @media(max-width:767px){#root main>.fixed:has(.react-flow) aside.order-3{>.overflow-y-auto{flex:none;max-height:min(440px,52dvh);overscroll-behavior-y:contain}>div:last-child:not(:first-child){position:sticky;bottom:0;z-index:5}}}
 #root .flex-\[1_1_280px\]{min-width:0}
 @media(max-width:359px){#root .flex-wrap>.flex-\[1_1_240px\]{padding-inline:12px;>.flex.gap-2>.flex-1{padding-inline:8px}}}
-/* 新版节点管理页筛选栏：标签多时限高、框内滚动，给列表留空间；液态玻璃 / Meow 以外底色不透明并盖住顶栏下的缝 */
-@media(min-width:768px){#root .md\:sticky.bg-card\/95 .flex-wrap.gap-2:has(>:nth-child(13)){max-height:clamp(5.5rem,22vh,12.5rem);overflow-y:auto;overscroll-behavior:contain;padding:2px;scrollbar-width:thin}:root:not(.theme-glass,.theme-meow) #root .md\:sticky.bg-card\/95{background:var(--card)!important;box-shadow:0 -6px var(--card)}}
+/* 新版节点管理页筛选栏：标签多时限高、框内滚动，给列表留空间；液态玻璃 / Meow / 天真以外底色不透明并盖住顶栏下的缝 */
+@media(min-width:768px){#root .md\:sticky.bg-card\/95 .flex-wrap.gap-2:has(>:nth-child(13)){max-height:clamp(5.5rem,22vh,12.5rem);overflow-y:auto;overscroll-behavior:contain;padding:2px;scrollbar-width:thin}:root:not(.theme-glass,.theme-meow,.theme-sweet) #root .md\:sticky.bg-card\/95{background:var(--card)!important;box-shadow:0 -6px var(--card)}}
 #root .space-y-2.p-3:has(>.flex>[aria-label=\66f4\591a\64cd\4f5c]){position:relative}
 #root .space-y-2.p-3>.flex>[aria-label=\66f4\591a\64cd\4f5c]{position:absolute;right:12px;bottom:12px;width:36px!important;height:36px!important}
 #root .space-y-2.p-3:has(>.flex>[aria-label=\66f4\591a\64cd\4f5c]){>.border-t:last-child{padding-right:44px}>.border-t:last-child>[data-slot=button]{flex:1 1 0;min-width:0;padding-inline:6px!important;gap:4px!important}}
@@ -187,7 +187,7 @@ tr[data-slot=table-row][class*="bg-primary/15"]{--tw-ring-color:color-mix(in okl
 @media(max-width:639px){.relative:has(>.pro-label-badge)>div>.space-y-4>.flex-col:first-child>button{order:-1}}
 /* 共享服务器标签行：收紧间距，卡片窄时藏起重复的“共享服务器” */
 .flex-wrap:has(>.hidden>*>.lucide-share-2){gap:3px;[data-slot=badge]{padding-inline:5px}>.hidden svg{display:none}}@container card-header (max-width:340px){.flex-wrap:has(>.hidden>*>.lucide-share-2){>.hidden{display:none}[data-slot=badge]{padding-inline:4px}}}
-/* 视觉设计：配色、背景、描边、圆角、阴影、字体与动画，液态玻璃 / Meow 下让开 */:where(:root:not(.theme-glass,.theme-meow)){
+/* 视觉设计：配色、背景、描边、圆角、阴影、字体与动画，液态玻璃 / Meow / 天真下让开 */:where(:root:not(.theme-glass,.theme-meow,.theme-sweet)){
 
 &:root:root{color-scheme:light;--background: var(--ink-light-page) !important;--foreground: var(--ink-light-ink) !important;--card: var(--ink-light-surface) !important;--card-foreground: var(--foreground) !important;--popover: var(--card) !important;--popover-foreground: var(--foreground) !important;--primary: var(--ink-light-accent) !important;--primary-foreground: #11151b !important;--ink-accent-text: var(--ink-light-accent-text);--secondary: #eeece6 !important;--secondary-foreground: #485361 !important;--muted: #eeece6 !important;--muted-foreground: #5f6b78 !important;--accent: #e2f7ec !important;--accent-foreground: #0b6e48 !important;--destructive: #c2413b !important;--destructive-foreground: #fffafa !important;--border: #dddcd5 !important;--input: #cfcdc4 !important;--ring: #0b6e48 !important;--sidebar: #eeece6 !important;--sidebar-foreground: var(--foreground) !important;--sidebar-primary: var(--primary) !important;--sidebar-primary-foreground: var(--primary-foreground) !important;--sidebar-accent: #e2f7ec !important;--sidebar-accent-foreground: #0b6e48 !important;--sidebar-border: var(--border) !important;--sidebar-ring: var(--ring) !important;--chart-1: var(--ink-light-accent) !important;--fwd-ok: var(--ink-light-accent) !important;--fwd-warn: var(--ink-warn) !important;--ink-icon: var(--ink-light-icon);--chart-2: #4f7cac !important;--chart-3: #8b6fb0 !important;--chart-4: #c9a03a !important;--chart-5: #3f9fb3 !important;--radius: var(--ink-control-radius) !important;--font-sans: var(--ink-body-font) !important;--font-mono: var(--ink-mono-font) !important;--ink-card-shadow: 0 1px 2px rgb(17 21 27 / 5%);--ink-overlay-shadow: 0 16px 44px -16px rgb(17 21 27 / 30%)}
 &:root:root.dark{color-scheme:dark;--background: var(--ink-dark-page) !important;--foreground: var(--ink-dark-ink) !important;--card: var(--ink-dark-surface) !important;--primary: var(--ink-dark-accent) !important;--primary-foreground: #11151b !important;--ink-accent-text: var(--ink-dark-accent-text);--secondary: #1d242e !important;--secondary-foreground: #c5ccd5 !important;--muted: #1d242e !important;--muted-foreground: #9aa3ae !important;--accent: #173528 !important;--accent-foreground: #3ddc97 !important;--destructive: #f0857e !important;--destructive-foreground: #2a1110 !important;--border: #2a313b !important;--input: #3a4350 !important;--ring: #3ddc97 !important;--sidebar: #0e1217 !important;--sidebar-accent: #173528 !important;--sidebar-accent-foreground: #3ddc97 !important;--chart-1: #3ddc97 !important;--fwd-ok: var(--ink-dark-accent) !important;--fwd-warn: var(--ink-warn) !important;--ink-icon: var(--ink-dark-accent);--chart-2: #7aa7d6 !important;--chart-3: #b39ad8 !important;--chart-4: #e0b35c !important;--chart-5: #5cc8d6 !important;--ink-card-shadow: 0 1px 3px rgb(0 0 0 / 30%);--ink-overlay-shadow: 0 16px 44px -16px rgb(0 0 0 / 60%)}
