@@ -1,6 +1,6 @@
 /*
  * MiaoMiaoWuX · Lumina 白金 / 黑金
- * 版本：v2026.11.08-01
+ * 版本：v2026.11.08-02
  * 更新日期：2026-11-08
  * 顶部为配置区，其余已压缩；跟随主控 light / dark，无需 JS。
  */
@@ -172,6 +172,8 @@ tr[data-slot=table-row][class*="bg-primary/15"]{--tw-ring-color:color-mix(in okl
 @media(max-width:639px){.relative:has(>.pro-label-badge)>div>.space-y-4>.flex-col:first-child>button{order:-1}}
 /* 共享服务器标签行 */
 .flex-wrap:has(>.hidden>*>.lucide-share-2){gap:3px;[data-slot=badge]{padding-inline:5px}>.hidden svg{display:none}}@container card-header (max-width:340px){.flex-wrap:has(>.hidden>*>.lucide-share-2){>.hidden{display:none}[data-slot=badge]{padding-inline:4px}}}
+/* 服务管理排序模式：底部“取消 / 保存”栏浮在屏幕底部（卡片裁切改 clip，sticky 才生效） */
+.pixel-card:has(>.sticky.bottom-2){overflow:clip}
 /* 液态玻璃 / Meow / 天真下让开 */:where(:root:not(.theme-glass,.theme-meow,.theme-sweet)){
 /* 视图切换按钮组 */
 &:root body #root [role=group].bg-muted.inline-flex:has(>[data-slot=button][aria-pressed]){padding:3px!important;border:0!important;background:var(--card)!important;box-shadow:0 1px 3px #0000001a,0 1px 2px -1px #0000001a!important;>[data-slot=button]{border-color:#0000!important;background:#0000!important;box-shadow:none!important;transform:none!important}>[aria-pressed=true]{color:#171107!important;border-color:#a87c22ad!important;background:var(--lc0)!important;box-shadow:var(--lc1)!important}}
