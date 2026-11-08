@@ -1,6 +1,6 @@
 /*
  * MiaoMiaoWuX · Lumina 白金 / 黑金
- * 版本：v2026.11.08-03
+ * 版本：v2026.11.08-04
  * 更新日期：2026-11-08
  * 顶部为配置区，其余已压缩；跟随主控 light / dark，无需 JS。
  */
@@ -106,7 +106,7 @@ body:has(#username):has(#password){#root .min-h-svh:has(>[data-slot=card]){justi
 @media(max-width:767px){#root main>.fixed:has(.react-flow) aside.order-3{>.overflow-y-auto{flex:none;max-height:min(440px,52dvh);overscroll-behavior-y:contain}>div:last-child:not(:first-child){position:sticky;bottom:0;z-index:5}}}
 #root .flex-\[1_1_280px\]{min-width:0}
 @media(max-width:359px){#root .flex-wrap>.flex-\[1_1_240px\]{padding-inline:12px;>.flex.gap-2>.flex-1{padding-inline:8px}}}
-/* 新版节点管理页筛选栏：标签多时限高、框内滚动，给列表留空间；液态玻璃 / Meow / 天真以外底色不透明并盖住顶栏下的缝 */
+/* 新版节点管理筛选栏限高、底色不透明 */
 @media(min-width:768px){#root .md\:sticky.bg-card\/95 .flex-wrap.gap-2:has(>:nth-child(13)){max-height:clamp(5.5rem,22vh,12.5rem);overflow-y:auto;overscroll-behavior:contain;padding:2px;scrollbar-width:thin}:root:not(.theme-glass,.theme-meow,.theme-sweet) #root .md\:sticky.bg-card\/95{background:var(--card)!important;box-shadow:0 -6px var(--card)}}
 #root .space-y-2.p-3:has(>.flex>[aria-label=\66f4\591a\64cd\4f5c]){position:relative}
 #root .space-y-2.p-3>.flex>[aria-label=\66f4\591a\64cd\4f5c]{position:absolute;right:12px;bottom:12px;width:36px!important;height:36px!important}
@@ -135,11 +135,11 @@ tr[data-slot=table-row][class*="bg-primary/15"]{--tw-ring-color:color-mix(in okl
 /* Meow 顶栏 / 侧栏 */
 :root.theme-meow :is(.app-topbar-inner,aside.app-blur-shell){-webkit-backdrop-filter:none;backdrop-filter:none}
 /* 手机批量操作栏 */
-.fixed.inset-x-0.bottom-0>.flex.overflow-x-auto:has(>button.w-16.shrink-0){display:grid;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);gap:4px;overflow-x:visible}.fixed.inset-x-0.bottom-0>.flex.overflow-x-auto>button.w-16.shrink-0{width:auto;min-width:0}
+.fixed.inset-x-0.bottom-0{&>.flex.overflow-x-auto:has(>button.w-16.shrink-0){display:grid;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);gap:4px;overflow-x:visible}&>.flex.overflow-x-auto>button.w-16.shrink-0{width:auto;min-width:0}}
 /* 转发链详情“路线与成员” */
 .flex-col.gap-2>.flex.items-baseline.justify-between>b.text-lg{flex-shrink:0;max-width:100%}
 /* 浅色琥珀图标加深 */
-:root:not(.dark) #root :is(.text-amber-500,.text-amber-400):is(svg,svg *),:root:not(.dark) #root :is(.text-amber-500,.text-amber-400) svg{color:#b45309}:root:not(.dark) #root :is(button,a).text-red-600{color:#c10007}:root.dark #root :is(button,a).text-red-600:not([class*="dark:text-"]){color:#f87171}
+:root:not(.dark) #root .text-amber-500:is(svg,svg *),:root:not(.dark) #root .text-amber-500 svg{color:#b45309}:root:not(.dark) #root :is(button,a).text-red-600{color:#c10007}:root.dark #root :is(button,a).text-red-600:not([class*="dark:text-"]){color:#f87171}
 /* 手机全屏弹窗 */
 [data-slot=dialog-content].inset-0.w-screen{border-radius:0!important;border-width:0!important;box-shadow:none!important}
 /* 手机套餐编辑 */
@@ -147,9 +147,9 @@ tr[data-slot=table-row][class*="bg-primary/15"]{--tw-ring-color:color-mix(in okl
 /* 手机用户卡片 */
 .grid.grid-cols-2.gap-x-3>.flex.items-start.gap-2.text-xs:has(a[href^="https://t.me/"]){grid-column:1/-1}
 /* 手机转发链展开线路 */
-@media(max-width:639px){.flex.flex-wrap.items-center.gap-x-2.gap-y-1.px-3.py-2.text-sm:has(>b.w-32.truncate)>b.w-32{flex:1 1 0;width:auto;min-width:0}.flex.flex-wrap.items-center.gap-x-2.gap-y-1.px-3.py-2.text-sm:has(>b.w-32.truncate)>span.flex-1{order:9;flex-basis:100%}.flex.flex-wrap.items-center.gap-x-2.gap-y-1.px-3.py-2.text-sm:has(>b.w-32.truncate)>b.w-20{width:auto}}
+@media(max-width:639px){.flex.flex-wrap.items-center.gap-x-2.gap-y-1.px-3.py-2.text-sm:has(>b.w-32.truncate){&>b.w-32{flex:1 1 0;width:auto;min-width:0}&>span.flex-1{order:9;flex-basis:100%}&>b.w-20{width:auto}}}
 /* 流量审计表头不竖排 */
-#root table.w-full.text-sm th.py-2.font-normal{white-space:nowrap}#root table.w-full.text-sm th.py-2.text-right.font-normal{padding-left:.75rem}
+#root table.w-full.text-sm{& th.py-2.font-normal{white-space:nowrap}& th.py-2.text-right.font-normal{padding-left:.75rem}}
 /* 桌面套餐编辑 */
 @media(min-width:768px){[data-slot=dialog-content] .flex.min-h-0.flex-1.flex-col.space-y-2>.flex.flex-wrap.gap-1:has(>button:nth-child(13)){max-height:6.75rem;overflow-y:auto;overscroll-behavior:contain;flex-shrink:0}}
 /* 手机套餐卡片 */
@@ -172,9 +172,9 @@ tr[data-slot=table-row][class*="bg-primary/15"]{--tw-ring-color:color-mix(in okl
 @media(max-width:639px){.relative:has(>.pro-label-badge)>div>.space-y-4>.flex-col:first-child>button{order:-1}}
 /* 共享服务器标签行 */
 .flex-wrap:has(>.hidden>*>.lucide-share-2){gap:3px;[data-slot=badge]{padding-inline:5px}>.hidden svg{display:none}}@container card-header (max-width:340px){.flex-wrap:has(>.hidden>*>.lucide-share-2){>.hidden{display:none}[data-slot=badge]{padding-inline:4px}}}
-/* 服务管理排序模式：底部“取消 / 保存”栏浮在屏幕底部（卡片裁切改 clip，sticky 才生效） */
+/* 排序模式保存栏浮在底部 */
 .pixel-card:has(>.sticky.bottom-2){overflow:clip}
-/* 窄屏：共享套餐操作按钮、用户出口筛选按钮可换行，不撑出屏幕 */
+/* 窄屏按钮行可换行 */
 .mt-4.space-y-2>.rounded-lg.border.p-3.text-sm>.flex-wrap>.flex.items-center.gap-2,main.max-w-6xl .flex-wrap.items-center.gap-2>.flex.gap-1{flex-wrap:wrap}
 /* 液态玻璃 / Meow / 天真下让开 */:where(:root:not(.theme-glass,.theme-meow,.theme-sweet)){
 /* 视图切换按钮组 */
@@ -190,7 +190,7 @@ tr[data-slot=table-row][class*="bg-primary/15"]{--tw-ring-color:color-mix(in okl
 /* 共享套餐说明 */
 .relative:has(>.pro-label-badge) .flex-col>p.max-w-2xl{padding:6px 10px;border-radius:.6rem;background:color-mix(in srgb,var(--card) 88%,#0000)}
 /* 首页配额 */
-& #root :is(.bg-teal-500,.bg-teal-600){background-color:var(--primary)!important}& #root [fill="#0d9488"]{fill:var(--primary)}& #root [stroke="#0d9488"]{stroke:var(--primary)}& #root [style*="13, 148, 136"]{background-color:var(--primary)!important}& #root :is(.absolute.inset-y-0.left-0:is(.bg-red-500,.bg-red-600),.inline-block.size-2\.5.bg-red-600,.inline-block.rounded-full[style*="220, 38, 38"]){background-color:#ea580c!important}& #root .recharts-scatter [fill="#dc2626"]{fill:#ea580c}& #root :is(.col-span-2.col-start-2.font-medium,.text-muted-foreground.flex.justify-between>.font-medium).text-red-600{color:#c2410c}&.dark #root :is(.col-span-2.col-start-2.font-medium,.text-muted-foreground.flex.justify-between>.font-medium).text-red-600{color:#fb923c}&.dark #root :is(.absolute.inset-y-0.left-0:is(.bg-amber-400,.bg-amber-500),.inline-block.size-2\.5.bg-amber-500,.inline-block.rounded-full[style*="217, 119, 6"]){background-color:#facc15!important}&.dark #root .recharts-scatter [fill="#d97706"]{fill:#facc15}
+& #root .bg-teal-600{background-color:var(--primary)!important}& #root [fill="#0d9488"]{fill:var(--primary)}& #root [stroke="#0d9488"]{stroke:var(--primary)}& #root [style*="13, 148, 136"]{background-color:var(--primary)!important}& #root :is(.absolute.inset-y-0.left-0:is(.bg-red-500,.bg-red-600),.inline-block.size-2\.5.bg-red-600,.inline-block.rounded-full[style*="220, 38, 38"]){background-color:#ea580c!important}& #root .recharts-scatter [fill="#dc2626"]{fill:#ea580c}& #root :is(.col-span-2.col-start-2.font-medium,.text-muted-foreground.flex.justify-between>.font-medium).text-red-600{color:#c2410c}&.dark #root :is(.col-span-2.col-start-2.font-medium,.text-muted-foreground.flex.justify-between>.font-medium).text-red-600{color:#fb923c}&.dark #root :is(.absolute.inset-y-0.left-0.bg-amber-500,.inline-block.size-2\.5.bg-amber-500,.inline-block.rounded-full[style*="217, 119, 6"]){background-color:#facc15!important}&.dark #root .recharts-scatter [fill="#d97706"]{fill:#facc15}
 /* 流量明细 */
 &:root:root{--ledger-node:var(--primary);--ledger-relay:#5b7590;--ledger-other:#dcd8cf;--ledger-fwd:#657d75;--ledger-fwd-2:#b7c8c1;--ledger-user:#8a8275;--ledger-c5:#8a7aa8;--ledger-c6:#b0705a}&:root:root.dark{--ledger-node:var(--primary);--ledger-relay:#8aa3c0;--ledger-other:#3a3731;--ledger-fwd:#7bb39f;--ledger-fwd-2:#3f5a50;--ledger-user:#a39a8c;--ledger-c5:#b3a3cf;--ledger-c6:#d69a80}#root :is([style*="repeating-linear-gradient(135deg, var(--fwd-bad)"],i.rounded-full[style*="background: var(--fwd-bad)"]){--fwd-bad:#ea580c}#root span[style*="color: var(--fwd-bad)"]{--fwd-bad:#c2410c}&.dark #root span[style*="color: var(--fwd-bad)"]{--fwd-bad:#fb923c}#root .bg-muted.relative.overflow-hidden.rounded-full>[style*="background: var(--fwd-warn)"]{--fwd-warn:#d97706}&.dark #root .bg-muted.relative.overflow-hidden.rounded-full>[style*="background: var(--fwd-warn)"]{--fwd-warn:#facc15}
 &:root{--lc0:linear-gradient(105deg,#b87b1e,#e3bd63);--lc1:0 1px #fff1b975 inset,0 5px 14px -9px #b87b1ec7;--lc2:linear-gradient(90deg,#b87b1e,#e3bd63)}
@@ -285,7 +285,7 @@ html&,& body,& body *,& body:before,& body:after,& body *:before,& body *:after{
 #root .recharts-bar-rectangle{-webkit-mask-image:linear-gradient(to top,#000 20%,rgb(0 0 0/.5));mask-image:linear-gradient(to top,#000 20%,#00000080)}#root :is(.bg-muted:is(.h-1,.h-1\.5,.h-2,.h-2\.5,.h-3,.rounded-full),.flex.h-1\.5.gap-0\.5)>:not(.rainbow-flow-bar,[style*=repeating]){background-image:linear-gradient(90deg,#fff0 15%,#ffffff73)!important}#root .bg-muted:is(.h-1,.h-1\.5,.h-2,.h-2\.5,.h-3,.rounded-full)>:is(.bg-primary,[style*="168, 124, 34"]):not(.x){background:var(--lc2)!important}#root .flex-col-reverse.overflow-hidden>*{background-image:linear-gradient(to top,#fff0 15%,#fff6)!important}
 /* 分段按钮组 */
 #root .flex.overflow-hidden.rounded-md.border:has(>[data-slot=button]):not(:has(>:not([data-slot=button]))){border-color:transparent!important}
-/* 地址池 / 专线：砖橙改主题色 */
+/* 地址池砖橙改主题色 */
 .border-\[\#B4541F\]{border-color:var(--primary)}.bg-\[\#B4541F\]{background-color:var(--primary);color:#171107}.bg-\[\#B4541F\]\/15{background-color:color-mix(in srgb,var(--primary) 15%,#0000)}.text-\[\#B4541F\]{color:color-mix(in srgb,var(--primary) 50%,var(--foreground))}
 /* 卡片内的卡片 */
 :is(.pixel-card,[data-slot=card]) :is(.bg-card,[data-slot=card]){border:1px solid var(--border)}&.dark :is(.pixel-card,[data-slot=card]) :is(.bg-card,[data-slot=card]){background:var(--muted)}}
