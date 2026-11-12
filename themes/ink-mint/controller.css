@@ -1,7 +1,7 @@
 /*
  * MiaoMiaoWuX · Ink Mint 墨薄荷
- * 版本：v2026.11.11-03
- * 更新日期：2026-11-11
+ * 版本：v2026.11.13-02
+ * 更新日期：2026-11-13
  * 容量控制：保留顶部配置格式，其余按顶层规则压缩；完整文件按 UTF-8 字节计量。
  * 独立主题：暖纸白 / 蓝墨黑底色，薄荷绿强调，正文与标题用主控自带的 OPlusSans3，数据用等宽字体，细描边、少阴影。
  * 整份替换主控自定义 CSS；不要叠加其他主题。不含脚本或远程资源。
@@ -299,6 +299,8 @@ html&{scrollbar-width:thin;scrollbar-color:var(--input) var(--background)}
 /* 转发链网络拓扑：窄屏“链路一览”移到图下方，图按宽度缩小 */
 /* 地址池 / 专线：砖橙改主题色 */
 .border-\[\#B4541F\]{border-color:var(--primary)}.bg-\[\#B4541F\]{background-color:var(--primary);color:var(--primary-foreground)}.bg-\[\#B4541F\]\/15{background-color:color-mix(in srgb,var(--primary) 15%,#0000)}.text-\[\#B4541F\]{color:color-mix(in srgb,var(--primary) 50%,var(--foreground))}
+/* 外框里的无边框输入框（如分流画板搜索）不框套框 */
+&:root body [data-slot=input].border-0{border:0!important;background:transparent!important;box-shadow:none!important;min-height:0!important}
 /* 卡片内的卡片：加描边区分层次 */
 :is(.pixel-card,[data-slot=card]) :is(.bg-card,[data-slot=card]){border:1px solid var(--border)}&.dark :is(.pixel-card,[data-slot=card]) :is(.bg-card,[data-slot=card]){background:var(--muted)}}
 /* 减少动画：关闭全站动画与过渡，保留加载转圈与长 IP 滚动显示；所有界面风格生效，删除本段可恢复 */
