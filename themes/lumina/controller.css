@@ -1,6 +1,6 @@
 /*
  * MiaoMiaoWuX · Lumina 白金 / 黑金
- * 版本：v2026.11.13-02
+ * 版本：v2026.11.13-03
  * 更新日期：2026-11-13
  * 顶部为配置区，其余已压缩；跟随主控 light / dark，无需 JS。
  */
@@ -285,6 +285,8 @@ html&,& body,& body *,& body:before,& body:after,& body *:before,& body *:after{
 #root .flex.overflow-hidden.rounded-md.border:has(>[data-slot=button]):not(:has(>:not([data-slot=button]))){border-color:transparent!important}
 /* 地址池砖橙改主题色 */
 .border-\[\#B4541F\]{border-color:var(--primary)}.bg-\[\#B4541F\]{background-color:var(--primary);color:#171107}.bg-\[\#B4541F\]\/15{background-color:color-mix(in srgb,var(--primary) 15%,#0000)}.text-\[\#B4541F\]{color:color-mix(in srgb,var(--primary) 50%,var(--foreground))}
+/* 像素风：原生把 rounded-* 全归零，按扁平风补回，避免同一页有圆有方 */
+&:root:not(.theme-flat,.theme-anime,.theme-premium){--radius-sm:calc(.625rem - 4px);--radius-md:calc(.625rem - 2px);--radius-lg:.625rem;--radius-xl:calc(.625rem + 4px)}&:root:not(.theme-flat,.theme-anime,.theme-premium) .rounded-sm{border-radius:var(--radius-sm)}&:root:not(.theme-flat,.theme-anime,.theme-premium) .rounded-md{border-radius:var(--radius-md)}&:root:not(.theme-flat,.theme-anime,.theme-premium) .rounded-lg{border-radius:var(--radius-lg)}&:root:not(.theme-flat,.theme-anime,.theme-premium) .rounded-xl{border-radius:var(--radius-xl)}&:root:not(.theme-flat,.theme-anime,.theme-premium) .rounded-t{border-radius:var(--radius-lg) var(--radius-lg) 0 0}&:root:not(.theme-flat,.theme-anime,.theme-premium) .rounded-b{border-radius:0 0 var(--radius-lg) var(--radius-lg)}
 /* 外框里的无边框输入框（如分流画板搜索）不框套框 */
 &:root body [data-slot=input].border-0{border:0!important;background:transparent!important;box-shadow:none!important;min-height:0!important}
 /* 卡片内的卡片 */

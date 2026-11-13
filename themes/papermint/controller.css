@@ -1,6 +1,6 @@
 /*
  * MiaoMiaoWuX · PaperMint 薄荷纸境
- * 版本：v2026.11.13-02
+ * 版本：v2026.11.13-03
  * 更新日期：2026-11-13
  * 容量控制：保留顶部配置格式，其余按顶层规则压缩；完整文件按 UTF-8 字节计量。
  * 独立主题：请单独粘贴使用，不要与 Lumina CSS 混用。
@@ -332,6 +332,8 @@ html&.dark{color-scheme:dark}
 /* 节点表格名称列快捷操作 */
 /* 地址池 / 专线：砖橙改主题色 */
 .border-\[\#B4541F\]{border-color:var(--primary)}.bg-\[\#B4541F\]{background-color:var(--primary);color:var(--primary-foreground)}.bg-\[\#B4541F\]\/15{background-color:color-mix(in srgb,var(--primary) 15%,#0000)}.text-\[\#B4541F\]{color:color-mix(in srgb,var(--primary) 50%,var(--foreground))}
+/* 像素风：原生把 rounded-* 全归零，按扁平风补回，避免同一页有圆有方 */
+&:root:not(.theme-flat,.theme-anime,.theme-premium){--radius-sm:calc(.625rem - 4px);--radius-md:calc(.625rem - 2px);--radius-lg:.625rem;--radius-xl:calc(.625rem + 4px)}&:root:not(.theme-flat,.theme-anime,.theme-premium) .rounded-sm{border-radius:var(--radius-sm)}&:root:not(.theme-flat,.theme-anime,.theme-premium) .rounded-md{border-radius:var(--radius-md)}&:root:not(.theme-flat,.theme-anime,.theme-premium) .rounded-lg{border-radius:var(--radius-lg)}&:root:not(.theme-flat,.theme-anime,.theme-premium) .rounded-xl{border-radius:var(--radius-xl)}&:root:not(.theme-flat,.theme-anime,.theme-premium) .rounded-t{border-radius:var(--radius-lg) var(--radius-lg) 0 0}&:root:not(.theme-flat,.theme-anime,.theme-premium) .rounded-b{border-radius:0 0 var(--radius-lg) var(--radius-lg)}
 /* 外框里的无边框输入框（如分流画板搜索）不框套框 */
 &:root body [data-slot=input].border-0{border:0!important;background:transparent!important;box-shadow:none!important;min-height:0!important}
 /* 卡片内的卡片 */
