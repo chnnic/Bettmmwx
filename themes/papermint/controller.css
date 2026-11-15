@@ -1,7 +1,7 @@
 /*
  * MiaoMiaoWuX · PaperMint 薄荷纸境
- * 版本：v2026.11.13-06
- * 更新日期：2026-11-13
+ * 版本：v2026.11.15-01
+ * 更新日期：2026-11-15
  * 容量控制：保留顶部配置格式，其余按顶层规则压缩；完整文件按 UTF-8 字节计量。
  * 独立主题：请单独粘贴使用，不要与 Lumina CSS 混用。
  * 视觉语言：清爽白底、学习绿、粉彩辅助色、深色描边、偏移硬阴影。
@@ -79,7 +79,7 @@
   --sidebar-border: #2d3748;
   --sidebar-ring: rgba(34, 197, 94, 0.45);
   --radius: 1rem;
-  --font-sans: "Nunito", "Noto Sans SC", ui-rounded, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-sans: "Twemoji Country Flags", "Nunito", "Noto Sans SC", ui-rounded, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
 
@@ -252,7 +252,7 @@ html&.dark{color-scheme:dark}
 &::selection,::selection{color:#102117;background:var(--paper-mint)}
 &::-webkit-scrollbar-track,::-webkit-scrollbar-track{background:var(--muted)}
 &::-webkit-scrollbar-thumb,::-webkit-scrollbar-thumb{background:var(--paper-green);border:calc(2px*var(--paper-effect-scale)) solid var(--muted);border-radius:999px}
-[data-slot=card-title],& h2,& h3,& h1,[data-slot=dialog-title],[data-slot=sheet-title],[data-slot=alert-dialog-title]{font-family:"Fredoka","Nunito","Noto Sans SC",var(--font-sans);font-weight:700;letter-spacing:-.015em}
+[data-slot=card-title],& h2,& h3,& h1,[data-slot=dialog-title],[data-slot=sheet-title],[data-slot=alert-dialog-title]{font-family:"Twemoji Country Flags","Fredoka","Nunito","Noto Sans SC",var(--font-sans);font-weight:700;letter-spacing:-.015em}
 [data-slot=card]{border:var(--paper-line)!important;border-radius:24px!important;background:color-mix(in srgb,var(--card) 96%,transparent)!important;box-shadow:var(--paper-shadow),0 calc(-4px*var(--paper-effect-scale)) 0 #0000000d inset!important;transition:transform .18s ease,box-shadow .18s ease}
 @media(hover:hover)and (pointer:fine){[data-slot=card]:hover{transform:translate(-1px,-1px);box-shadow:calc(6px*var(--paper-effect-scale)) calc(6px*var(--paper-effect-scale)) 0 var(--paper-ink),0 calc(-4px*var(--paper-effect-scale)) 0 #0000000d inset!important}}
 .pixel-card:before{display:none!important;content:none!important}
