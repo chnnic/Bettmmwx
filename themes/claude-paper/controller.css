@@ -1,7 +1,7 @@
 /*
  * MiaoMiaoWuX · Claude Paper 陶纸
- * 版本：v2026.11.15-02
- * 更新日期：2026-11-15
+ * 版本：v2026.11.18-01
+ * 更新日期：2026-11-18
  * 容量控制：保留顶部配置格式，其余按顶层规则压缩；完整文件按 UTF-8 字节计量。
  * Claude 风格的非官方独立主题：暖纸色、陶土橙、衬线标题、克制的细边线。
  * 整份替换主控自定义 CSS；不要叠加其他主题。不含脚本或远程资源。
@@ -190,7 +190,7 @@ tr[data-slot=table-row][class*="bg-primary/15"]{--tw-ring-color:color-mix(in okl
 /* 可搜索下拉框同普通下拉框 */
 &:root body #root [data-slot=popover-trigger][role=combobox]{height:2rem;font-weight:400!important}
 /* 首页配额：“正常”青绿改陶土色，“提前用完”保持红 */
-& #root :is(.bg-teal-500,.bg-teal-600){background-color:var(--primary)!important}& #root [fill="#0d9488"]{fill:var(--primary)}& #root [stroke="#0d9488"]{stroke:var(--primary)}& #root [style*="13, 148, 136"]{background-color:var(--primary)!important}
+& #root :is(.bg-teal-500,.bg-teal-600){background-color:var(--primary)!important}& #root [fill="#0d9488"]{fill:var(--primary)}& #root [stroke="#0d9488"]{stroke:var(--primary)}& #root [style*="13, 148, 136"]:not(.text-white){background-color:var(--primary)!important}
 /* 流量明细：节点用陶土色，其余分类用主题图表色；“会用完”保持红 */
 &:root:root{--ledger-node:var(--primary);--ledger-relay:#628398;--ledger-other:#d8d2c6;--ledger-fwd:#668373;--ledger-fwd-2:#b3c8b9;--ledger-user:#8a7666;--ledger-c5:#8b7d9b;--ledger-c6:#b18b43}&:root:root.dark{--ledger-node:var(--primary);--ledger-relay:#8caebe;--ledger-other:#4a4842;--ledger-fwd:#8faf98;--ledger-fwd-2:#4f6858;--ledger-user:#b8a594;--ledger-c5:#b5a0c3;--ledger-c6:#ccaf76}
 &:root:root{color-scheme:light;--background: var(--claude-light-page) !important;--foreground: var(--claude-light-ink) !important;--card: var(--claude-light-surface) !important;--card-foreground: var(--foreground) !important;--popover: var(--card) !important;--popover-foreground: var(--foreground) !important;--primary: var(--claude-light-accent) !important;--primary-foreground: #fffaf5 !important;--secondary: #efede6 !important;--secondary-foreground: #45423b !important;--muted: #eeece5 !important;--muted-foreground: #6b665d !important;--claude-accent-ink: var(--claude-light-accent-ink);--accent: #f1e3d9 !important;--accent-foreground: #8f432d !important;--destructive: #b7403d !important;--destructive-foreground: #fffafa !important;--border: #dedad0 !important;--input: #ccc7ba !important;--ring: var(--primary) !important;--sidebar: #eeece5 !important;--sidebar-foreground: var(--foreground) !important;--sidebar-primary: var(--primary) !important;--sidebar-primary-foreground: var(--primary-foreground) !important;--sidebar-accent: #e5dfd3 !important;--sidebar-accent-foreground: var(--accent-foreground) !important;--sidebar-border: var(--border) !important;--sidebar-ring: var(--ring) !important;--chart-1: var(--claude-light-accent) !important;--chart-2: #668373 !important;--chart-3: #8b7d9b !important;--chart-4: #b18b43 !important;--chart-5: #628398 !important;--radius: var(--claude-control-radius) !important;--font-sans: "Twemoji Country Flags",var(--claude-body-font) !important;--claude-card-shadow: 0 1px 3px rgb(48 46 41 / 4%);--claude-overlay-shadow: 0 12px 36px -16px rgb(48 46 41 / 30%)}

@@ -1,7 +1,7 @@
 /*
  * MiaoMiaoWuX · Lumina 白金 / 黑金
- * 版本：v2026.11.15-02
- * 更新日期：2026-11-15
+ * 版本：v2026.11.18-01
+ * 更新日期：2026-11-18
  * 顶部为配置区，其余已压缩；跟随主控 light / dark，无需 JS。
  */
 
@@ -188,7 +188,7 @@ tr[data-slot=table-row][class*="bg-primary/15"]{--tw-ring-color:color-mix(in okl
 /* 共享套餐说明 */
 .relative:has(>.pro-label-badge) .flex-col>p.max-w-2xl{padding:6px 10px;border-radius:.6rem;background:color-mix(in srgb,var(--card) 88%,#0000)}
 /* 首页配额 */
-& #root .bg-teal-600{background-color:var(--primary)!important}& #root [fill="#0d9488"]{fill:var(--primary)}& #root [stroke="#0d9488"]{stroke:var(--primary)}& #root [style*="13, 148, 136"]{background-color:var(--primary)!important}& #root :is(.absolute.inset-y-0.left-0:is(.bg-red-500,.bg-red-600),.inline-block.size-2\.5.bg-red-600,.inline-block.rounded-full[style*="220, 38, 38"]){background-color:#ea580c!important}& #root .recharts-scatter [fill="#dc2626"]{fill:#ea580c}& #root :is(.col-span-2.col-start-2.font-medium,.text-muted-foreground.flex.justify-between>.font-medium).text-red-600{color:#c2410c}&.dark #root :is(.col-span-2.col-start-2.font-medium,.text-muted-foreground.flex.justify-between>.font-medium).text-red-600{color:#fb923c}&.dark #root :is(.absolute.inset-y-0.left-0.bg-amber-500,.inline-block.size-2\.5.bg-amber-500,.inline-block.rounded-full[style*="217, 119, 6"]){background-color:#facc15!important}&.dark #root .recharts-scatter [fill="#d97706"]{fill:#facc15}
+& #root .bg-teal-600{background-color:var(--primary)!important}& #root [fill="#0d9488"]{fill:var(--primary)}& #root [stroke="#0d9488"]{stroke:var(--primary)}& #root [style*="13, 148, 136"]:not(.text-white){background-color:var(--primary)!important}& #root :is(.absolute.inset-y-0.left-0:is(.bg-red-500,.bg-red-600),.inline-block.size-2\.5.bg-red-600,.inline-block.rounded-full[style*="220, 38, 38"]){background-color:#ea580c!important}& #root .recharts-scatter [fill="#dc2626"]{fill:#ea580c}& #root :is(.col-span-2.col-start-2.font-medium,.text-muted-foreground.flex.justify-between>.font-medium).text-red-600{color:#c2410c}&.dark #root :is(.col-span-2.col-start-2.font-medium,.text-muted-foreground.flex.justify-between>.font-medium).text-red-600{color:#fb923c}&.dark #root :is(.absolute.inset-y-0.left-0.bg-amber-500,.inline-block.size-2\.5.bg-amber-500,.inline-block.rounded-full[style*="217, 119, 6"]){background-color:#facc15!important}&.dark #root .recharts-scatter [fill="#d97706"]{fill:#facc15}
 /* 流量明细 */
 &:root:root{--ledger-node:var(--primary);--ledger-relay:#5b7590;--ledger-other:#dcd8cf;--ledger-fwd:#657d75;--ledger-fwd-2:#b7c8c1;--ledger-user:#8a8275;--ledger-c5:#8a7aa8;--ledger-c6:#b0705a}&:root:root.dark{--ledger-node:var(--primary);--ledger-relay:#8aa3c0;--ledger-other:#3a3731;--ledger-fwd:#7bb39f;--ledger-fwd-2:#3f5a50;--ledger-user:#a39a8c;--ledger-c5:#b3a3cf;--ledger-c6:#d69a80}#root :is([style*="repeating-linear-gradient(135deg, var(--fwd-bad)"],i.rounded-full[style*="background: var(--fwd-bad)"]){--fwd-bad:#ea580c}#root span[style*="color: var(--fwd-bad)"]{--fwd-bad:#c2410c}&.dark #root span[style*="color: var(--fwd-bad)"]{--fwd-bad:#fb923c}#root .bg-muted.relative.overflow-hidden.rounded-full>[style*="background: var(--fwd-warn)"]{--fwd-warn:#d97706}&.dark #root .bg-muted.relative.overflow-hidden.rounded-full>[style*="background: var(--fwd-warn)"]{--fwd-warn:#facc15}
 &:root{--lc0:linear-gradient(105deg,#b87b1e,#e3bd63);--lc1:0 1px #fff1b975 inset,0 5px 14px -9px #b87b1ec7;--lc2:linear-gradient(90deg,#b87b1e,#e3bd63)}
