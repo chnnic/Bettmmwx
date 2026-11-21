@@ -1,40 +1,24 @@
 /*
- * MiaoMiaoWuX · PaperMint 薄荷纸境
- * 版本：v2026.11.21-03
- * 更新日期：2026-11-21
- * 容量控制：保留顶部配置格式，其余按顶层规则压缩；完整文件按 UTF-8 字节计量。
- * 独立主题：请单独粘贴使用，不要与 Lumina CSS 混用。
- * 视觉语言：清爽白底、学习绿、粉彩辅助色、深色描边、偏移硬阴影。
+ * MiaoMiaoWuX - PaperMint
+ * Version: v2026.11.22-01
+ * Updated: 2026-11-22
  */
 
 @import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;600;700;800&display=swap");
-
 :root {
-  /* 767px 以下、未开启画布“拖动画布”按钮时的空白区：none = 滑动页面（默认）；开启该按钮后可直接拖动画布。 */
   --paper-mobile-canvas-pan-pointer-events: none;
-  /* 手机画布平移栏：主控新版已自带“拖动画布”按钮，默认 none 隐藏；旧版主控可改 flex。 */
   --paper-mobile-canvas-pan-strip: none;
-  /* 服务卡片（含共享服务器）“自动”等模式菜单：none = 禁止鼠标/触屏点击，auto = 恢复；键盘仍可操作。 */
   --paper-server-mode-pointer-events: none;
-  /* 页面内容最大宽度：可改为 1360px、1600px；100% 表示不限制。 */
   --paper-content-max-width: 1440px;
-  /* 640px 及以上的页面两侧内边距；手机保留主控原生间距。 */
   --paper-content-gutter: 24px;
-  /* 手机/触屏轻量模式：0s 关闭装饰过渡；不影响加载旋转或弹窗开合。 */
   --paper-mobile-motion-duration: 0s;
-  /* 手机卡片阴影；只影响阴影，不改变边框与焦点标识。 */
   --paper-mobile-card-shadow: calc(3px * var(--paper-effect-scale)) calc(3px * var(--paper-effect-scale)) 0 var(--paper-ink);
-  /* 按钮减高：4px = 桌面 38px / 手机 40px；0px 恢复原高度。 */
   --paper-button-height-reduction: 4px;
-  /* 全部描边与阴影比例：1 = 原始，0.666667 = 减少约三分之一。 */
   --paper-effect-scale: 0.666667;
-  /* 黑金背景水印：none = 关闭（默认），block = 显示。 */
   --paper-premium-watermark-display: none;
-  /* 黑金选中色：控件使用渐变，文字选区使用同色系实金色。 */
   --paper-premium-accent-bg: linear-gradient(105deg, #b87b1e, #e3bd63);
   --paper-premium-accent-fg: #171107;
   --paper-premium-selection-bg: #e3bd63;
-
   --paper-ink: #2d3748;
   --paper-green: #22c55e;
   --paper-green-dark: #16a34a;
@@ -49,9 +33,7 @@
   --paper-shadow-sm: calc(3px * var(--paper-effect-scale)) calc(3px * var(--paper-effect-scale)) 0 var(--paper-ink);
   --paper-shadow: calc(5px * var(--paper-effect-scale)) calc(5px * var(--paper-effect-scale)) 0 var(--paper-ink);
 }:root:where(:not(.theme-glass,.theme-meow,.theme-sweet,.theme-mono)) {
-
   --primary: #22c55e;
-  /* 绿色主按钮上用深色字（白字对比度只有 2.3:1）。 */
   --primary-foreground: #102117;
   --background: #fff9f5;
   --foreground: #0f172a;
@@ -82,8 +64,6 @@
   --font-sans: "Twemoji Country Flags", "Nunito", "Noto Sans SC", ui-rounded, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
-
-/* 细节修复：布局、尺寸、溢出、显示与触控，所有界面风格下生效 */
 #root main.container,#root main.max-w-\[1600px\],#root :is(.min-h-svh,.min-h-dvh).bg-background>div.container.mx-auto{width:min(100%,var(--paper-content-max-width))!important;max-width:var(--paper-content-max-width)!important;margin-inline:auto}
 @media(min-width:640px){#root main.container,#root main.max-w-\[1600px\],#root :is(.min-h-svh,.min-h-dvh).bg-background>div.container.mx-auto{padding-inline:var(--paper-content-gutter)!important}}
 :root.theme-premium body:before{display:var(--paper-premium-watermark-display, none)!important}
@@ -162,7 +142,6 @@
 @media(max-width:767px){#root main>.fixed:has(.react-flow) aside.order-3{>.overflow-y-auto{flex:none;max-height:min(440px,52dvh);overscroll-behavior-y:contain}>div:last-child:not(:first-child){position:sticky;bottom:0;z-index:5}}}
 #root .flex-\[1_1_280px\]{min-width:0}
 @media(max-width:359px){#root .flex-wrap>.flex-\[1_1_240px\]{padding-inline:12px;>.flex.gap-2>.flex-1{padding-inline:8px}}}
-/* 新版节点管理筛选栏：标签多时限高、框内滚动；底色不透明，盖住顶栏下的缝 */
 @media(min-width:768px){#root .md\:sticky.bg-card\/95 .flex-wrap.gap-2:has(>:nth-child(13)){max-height:clamp(5.5rem,22vh,12.5rem);overflow-y:auto;overscroll-behavior:contain;padding:2px;scrollbar-width:thin}:root:not(.theme-glass,.theme-meow,.theme-sweet,.theme-mono) #root .md\:sticky.bg-card\/95{background:var(--card)!important;box-shadow:0 -6px var(--card)}}
 #root .space-y-2.p-3:has(>.flex>[aria-label=\66f4\591a\64cd\4f5c]){position:relative}
 #root .space-y-2.p-3>.flex>[aria-label=\66f4\591a\64cd\4f5c]{position:absolute;right:12px;bottom:12px;width:36px!important;height:36px!important}
@@ -178,72 +157,42 @@
 @container (max-width:511px){.overflow-x-auto>.relative.rounded-lg[style*=width]{zoom:.7}}
 @container (max-width:447px){.overflow-x-auto>.relative.rounded-lg[style*=width]{zoom:.6}}
 [data-slot=table-cell] .grid.grid-flow-col>.accent-action-btn{min-height:0}
-/* Meow 深色可读性：改用较亮的暖炭底色、卡片与分隔线，卡片与输入框加细描边；删除本段前两行恢复 Meow 原生深色 */
 :root.theme-meow.dark{--meow-bg:#242320;--meow-card:#2d2c28;--meow-card2:#35342f;--meow-hero:#49372e;--meow-line:#48463e;--meow-bar:#2d2c28eb;--input:#615b50;--fwd-nodata:#48463e;--ledger-other:#5a5750}
 :root.theme-meow.dark :is(.pixel-card,[data-slot=card]){border:1px solid var(--meow-line);box-shadow:0 1px 3px #0000001f}
 :root.theme-meow.dark :is([data-slot=input],[data-slot=textarea],[data-slot=select-trigger],[data-slot=tabs-list]){border:1px solid var(--meow-line)}
-/* 卡片内的卡片 */
 :root.theme-meow .pixel-card{:is(.bg-card,[data-slot=card]){background:var(--meow-card2);border:1px solid var(--meow-line)}:is(.bg-card,[data-slot=card]) .pixel-button[class*="bg-background/75"]{background:var(--meow-card)}}
 :root.theme-glass .pixel-card :is(.bg-card,[data-slot=card]){border:1px solid var(--border)}
-/* 节点表格选中行 */
 :root:not(.theme-glass) tr[data-slot=table-row][class*="bg-primary/15"]{background-color:color-mix(in oklab,var(--primary) 7%,transparent)!important}
 :root:not(.theme-glass) tr[data-slot=table-row][class*="bg-primary/15"]:hover{background-color:color-mix(in oklab,var(--primary) 10%,transparent)!important}
 tr[data-slot=table-row][class*="bg-primary/15"]{--tw-ring-color:color-mix(in oklab,var(--primary) 30%,transparent);--tw-ring-shadow:var(--tw-ring-inset,) 0 0 0 1px var(--tw-ring-color)}
-/* Meow 顶栏 / 侧栏 */
 :root.theme-meow :is(.app-topbar-inner,aside.app-blur-shell){-webkit-backdrop-filter:none;backdrop-filter:none}
-/* 手机批量操作栏 */
 .fixed.inset-x-0.bottom-0{&>.flex.overflow-x-auto:has(>button.w-16.shrink-0){display:grid;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);gap:4px;overflow-x:visible}&>.flex.overflow-x-auto>button.w-16.shrink-0{width:auto;min-width:0}}
-/* 转发链详情“路线与成员” */
 .flex-col.gap-2>.flex.items-baseline.justify-between>b.text-lg{flex-shrink:0;max-width:100%}
-/* 浅色琥珀图标加深 */
 :root:not(.dark) #root .text-amber-500:is(svg,svg *),:root:not(.dark) #root .text-amber-500 svg{color:#b45309}:root:not(.dark) #root :is(button,a).text-red-600{color:#c10007}:root.dark #root :is(button,a).text-red-600:not([class*="dark:text-"]){color:#f87171}
-/* 手机全屏弹窗 */
 [data-slot=dialog-content].inset-0.w-screen{border-radius:0!important;border-width:0!important;box-shadow:none!important}
-/* 手机全屏套餐编辑 */
 [data-slot=dialog-content].inset-0.w-screen .flex.flex-col.space-y-2>.flex.flex-wrap.gap-1:has(>button:nth-child(13)){max-height:9.5rem;overflow-y:auto;overscroll-behavior:contain}
-/* 手机用户卡片 */
 .grid.grid-cols-2.gap-x-3>.flex.items-start.gap-2.text-xs:has(a[href^="https://t.me/"]){grid-column:1/-1}
-/* 手机转发链展开线路 */
 @media(max-width:639px){.flex.flex-wrap.items-center.gap-x-2.gap-y-1.px-3.py-2.text-sm:has(>b.w-32.truncate){&>b.w-32{flex:1 1 0;width:auto;min-width:0}&>span.flex-1{order:9;flex-basis:100%}&>b.w-20{width:auto}}}
-/* 流量审计表头不竖排 */
 #root table.w-full.text-sm{& th.py-2.font-normal{white-space:nowrap}& th.py-2.text-right.font-normal{padding-left:.75rem}}
-/* 桌面套餐编辑 */
 @media(min-width:768px){[data-slot=dialog-content] .flex.min-h-0.flex-1.flex-col.space-y-2>.flex.flex-wrap.gap-1:has(>button:nth-child(13)){max-height:6.75rem;overflow-y:auto;overscroll-behavior:contain;flex-shrink:0}}
-/* 手机套餐卡片 */
 :is(.pixel-card,[data-slot=card])>.flex.px-4>.flex.flex-wrap.justify-end.gap-1{justify-content:flex-start}
-/* 弹窗吸底保存栏贴底 */
 :is([data-slot=dialog-content],[data-slot=sheet-content]) [data-slot=tabs-content].flex-1.overflow-y-auto:has(.sticky.bottom-0){padding-bottom:0}
-/* 滚动列表按容器宽度排布 */
 [data-radix-scroll-area-viewport]>div:has(>.divide-y>.flex.items-center.gap-3>[data-slot=checkbox]){display:block!important;min-width:0!important}
-/* 手机设置 */
 .flex.items-center.justify-between.gap-4>.flex.items-center.gap-2:has(>[data-slot=switch]){flex-shrink:0;>span{white-space:nowrap}}p.text-muted-foreground.text-xs>span.font-mono{overflow-wrap:anywhere}
-/* 手机设置“默认主题” */
 .px-6>.flex.gap-2:has(>button[data-slot=button]:nth-child(6)){flex-wrap:wrap}
-/* 服务卡片 */
 :root #root [data-slot=card-header]:has(>[data-slot=card-description]+.flex.text-xs){display:flex!important;flex-wrap:wrap;align-items:center;gap:6px 8px;>*{flex:1 1 100%;min-width:0}>[data-slot=card-description]{display:contents!important;>*{flex:0 0 auto;order:2}>:first-child>.w-\[120px\]{width:var(--ipw,120px)!important;flex:none!important}>.font-mono{order:1;flex:0 1 auto}>[data-slot=dropdown-menu-trigger]{order:3;margin-left:auto;&~*{order:4}&+span:has(>.lucide-wifi){margin:0 22px 0 -51px!important;align-self:center}}&+.flex{display:contents!important;>*{flex:0 0 auto;order:2}&~*{order:5}}}}
 @container card-header (min-width:300px) and (max-width:419px){[data-slot=card-description]{--ipw:112px;&+.flex.text-xs>*{gap:4px;margin-left:-4px;padding-inline:4px;>.mx-0\.5{margin:0}&:last-child{margin-right:-4px}&[data-slot=tooltip-trigger]{display:block;flex:1 1 4.5em!important;max-width:max-content;padding-inline:3px;overflow:hidden;text-overflow:ellipsis;>svg{display:none}>span{inset:0 0 auto auto}}}>[data-slot=dropdown-menu-trigger]>.lucide-settings{display:none}}}
-/* 服务卡片实时网速不换行，卡片高度不随网速跳动 */
 [data-slot=card-header]>.bg-muted\/50>.flex.flex-wrap.justify-between:has(>.font-mono.tabular-nums){flex-wrap:nowrap;>.font-mono{flex-shrink:0;gap:8px}}
-/* 手机共享套餐 Pro 角标不压说明 */
 @media(max-width:639px){.relative:has(>.pro-label-badge)>div>.space-y-4>.flex-col:first-child>button{order:-1}}
-/* 共享服务器标签行：收紧间距，卡片窄时藏起重复的“共享服务器” */
 .flex-wrap:has(>.hidden>*>.lucide-share-2){gap:3px;[data-slot=badge]{padding-inline:5px}>.hidden svg{display:none}}@container card-header (max-width:340px){.flex-wrap:has(>.hidden>*>.lucide-share-2){>.hidden{display:none}[data-slot=badge]{padding-inline:4px}}}
-/* 排序模式保存栏浮在底部（卡片裁切改 clip，sticky 才生效） */
 .pixel-card:has(>.sticky.bottom-2){overflow:clip}
-/* 窄屏：共享套餐操作按钮、用户出口筛选按钮可换行，不撑出屏幕 */
 .mt-4.space-y-2>.rounded-lg.border.p-3.text-sm>.flex-wrap>.flex.items-center.gap-2,main.max-w-6xl .flex-wrap.items-center.gap-2>.flex.gap-1,.flex-wrap.items-baseline.gap-2>.ml-auto.flex.gap-2{flex-wrap:wrap}
-/* 视觉设计：配色、背景、描边、圆角、阴影、字体与动画，液态玻璃 / Meow / 天真 / 素墨下让开 */:where(:root:not(.theme-glass,.theme-meow,.theme-sweet,.theme-mono)){
-/* 视图切换按钮组同页面标签样式 */
+:where(:root:not(.theme-glass,.theme-meow,.theme-sweet,.theme-mono)){
 &:root body #root [role=group].bg-muted.inline-flex:has(>[data-slot=button][aria-pressed]){padding:5px!important;border:calc(2px*var(--paper-effect-scale)) solid var(--paper-ink)!important;border-radius:14px!important;background:var(--muted)!important;box-shadow:none!important;>[data-slot=button]{border-color:transparent!important;border-radius:10px!important;background:transparent!important;box-shadow:none!important;transform:none!important;font-weight:800!important}>[aria-pressed=true]{color:#102117!important;background:var(--paper-mint)!important;box-shadow:calc(2px*var(--paper-effect-scale)) calc(2px*var(--paper-effect-scale)) 0 var(--paper-ink)!important}}&.dark body #root [role=group].bg-muted.inline-flex:has(>[data-slot=button][aria-pressed])>[aria-pressed=true]{color:var(--primary-foreground)!important;background:var(--primary)!important}
-/* 弹窗吸底保存栏用弹窗底色 */
 &:root body :is([data-slot=dialog-content],[data-slot=sheet-content]) .sticky.bottom-0.bg-background{background:var(--popover)!important}
-/* 可搜索下拉框同普通下拉框 */
 &:root body #root [data-slot=popover-trigger][role=combobox]{min-height:42px;border:calc(2px*var(--paper-effect-scale)) solid var(--input)!important;border-radius:12px!important;background:color-mix(in srgb,var(--card) 94%,transparent)!important;box-shadow:0 calc(3px*var(--paper-effect-scale)) 0 color-mix(in srgb,var(--paper-ink) 16%,transparent)!important;color:var(--foreground)!important;font-weight:600!important;transform:none!important;&:hover{border-color:color-mix(in srgb,var(--paper-green) 70%,var(--input))!important}}
-/* 不限流量的流量条 */
 &:root body .rainbow-flow-bar{background:color-mix(in srgb,var(--primary) 14%,transparent)!important}&:root body .rainbow-flow-bar:before{background-image:repeating-linear-gradient(-45deg,color-mix(in srgb,var(--primary) 70%,transparent) 0 4px,transparent 4px 8px)!important}
-/* 首页配额 */
 & #root .bg-teal-600{background-color:var(--primary)!important}& #root [fill="#0d9488"]{fill:var(--primary)}& #root [stroke="#0d9488"]{stroke:var(--primary)}& #root [style*="13, 148, 136"]:not(.text-white){background-color:var(--primary)!important}& #root :is(.absolute.inset-y-0.left-0:is(.bg-red-500,.bg-red-600),.inline-block.size-2\.5.bg-red-600,.inline-block.rounded-full[style*="220, 38, 38"]){background-color:#ea580c!important}& #root .recharts-scatter [fill="#dc2626"]{fill:#ea580c}& #root :is(.col-span-2.col-start-2.font-medium,.text-muted-foreground.flex.justify-between>.font-medium).text-red-600{color:#c2410c}&.dark #root :is(.col-span-2.col-start-2.font-medium,.text-muted-foreground.flex.justify-between>.font-medium).text-red-600{color:#fb923c}
-/* 流量明细 */
 &:root:root{--ledger-node:var(--primary);--ledger-relay:#4f7cac;--ledger-other:#ddd6cf;--ledger-fwd:#3f9fb3;--ledger-fwd-2:#a6d8e2;--ledger-user:#8a7f78;--ledger-c5:#8b6fb0;--ledger-c6:#c9a03a}&:root:root.dark{--ledger-node:var(--primary);--ledger-relay:#7aa7d6;--ledger-other:#334155;--ledger-fwd:#5cc8d6;--ledger-fwd-2:#2f7f8f;--ledger-user:#a8a29e;--ledger-c5:#b39ad8;--ledger-c6:#e0b35c}#root :is([style*="repeating-linear-gradient(135deg, var(--fwd-bad)"],i.rounded-full[style*="background: var(--fwd-bad)"]){--fwd-bad:#ea580c}#root span[style*="color: var(--fwd-bad)"]{--fwd-bad:#c2410c}&.dark #root span[style*="color: var(--fwd-bad)"]{--fwd-bad:#fb923c}
 &.dark{--primary: #4ade80;--primary-foreground: #102117;--background: #111827;--foreground: #f8fafc;--card: #1e293b;--card-foreground: #f8fafc;--popover: #1e293b;--popover-foreground: #f8fafc;--secondary: #31576a;--secondary-foreground: #f8fafc;--muted: #263449;--muted-foreground: #cbd5e1;--accent: #473f67;--accent-foreground: #f8fafc;--destructive: #fb7185;--destructive-foreground: #1f1115;--border: #d7e0ec;--input: #64748b;--ring: rgba(74, 222, 128, .52);--sidebar: #172033;--sidebar-foreground: #f8fafc;--sidebar-primary: #4ade80;--sidebar-primary-foreground: #102117;--sidebar-accent: #473f67;--sidebar-accent-foreground: #f8fafc;--sidebar-border: #d7e0ec;--sidebar-ring: rgba(74, 222, 128, .52);--paper-ink: #d7e0ec;--paper-green: #4ade80;--paper-green-dark: #22c55e;--paper-blue: #31576a;--paper-pink: #704a50;--paper-mint: #285c3b;--paper-lavender: #473f67;--paper-cream: #111827}
 &:root.theme-premium{--paper-nav-active-bg: var(--paper-premium-accent-bg);--paper-nav-active-fg: var(--paper-premium-accent-fg);--paper-green: var(--primary);--paper-green-dark: color-mix(in srgb, var(--primary) 85%, black);--paper-mint: var(--paper-premium-selection-bg);--sidebar-primary: var(--primary);--sidebar-primary-foreground: var(--primary-foreground);--sidebar-ring: var(--ring)}
@@ -318,27 +267,13 @@ html&.dark{color-scheme:dark}
 @media(prefers-reduced-motion:reduce){& *,& *:before,& *:after{scroll-behavior:auto!important;transition-duration:.01ms!important;animation-duration:.01ms!important;animation-iteration-count:1!important}}
 @media(prefers-contrast:more){&:root{--input: var(--paper-ink)}[data-slot=card],:is([data-slot=button],.pixel-button),[data-slot=input],[data-slot=textarea]{border-color:var(--foreground)!important}}
 @media(max-width:1023px){& main .react-flow__renderer:after{content:"\6309\4f4f\6b64\680f\62d6\52a8\753b\5e03";display:var(--paper-mobile-canvas-pan-strip,flex);letter-spacing:.2em;color:var(--muted-foreground);background:color-mix(in srgb,var(--muted) 82%,transparent);border-top:1px dashed var(--border)}& main .react-flow{--xy-controls-button-background-color:var(--card);--xy-controls-button-background-color-hover:var(--accent);--xy-controls-button-color:var(--foreground);--xy-controls-button-border-color:var(--border)}}#root [data-slot=badge].bg-green-500{background:#2f7d4f}&:root:not(.dark) #root :is(.text-green-600,.text-emerald-600){color:#22703f}&:root:not(.dark) #root .text-amber-600{color:#985008}&:root:not(.dark) #root .text-cyan-600{color:#0b6577}&:root:not(.dark) #root .bg-primary\/10.text-primary{color:var(--accent-foreground)}
-/* 浅色 */
 &:root:not(.dark,.theme-premium) #root :is(.text-primary:not(.bg-primary\/10,[aria-current],[data-status=active],[data-state=open],[data-slot=dropdown-menu-trigger]),.accent-action-btn,.accent-svg-icon){color:#15803d!important}&:root.theme-premium:not(.dark){--primary-foreground:#171107!important}&:root.theme-premium:not(.dark) #root .text-primary:not(.bg-primary\/10,[aria-current],[data-status=active],[data-state=open],[data-slot=dropdown-menu-trigger]){color:#7d5a1c}
-/* 手机画布 */
 @media(max-width:767px){#root main>.fixed:has(.react-flow) aside.order-3>div:last-child:not(:first-child){background:var(--card)}}
-/* 手机转发链详情 */
-/* 节点卡片 */
 [data-slot=sheet-content].rounded-t-2xl{border:1px solid var(--border)!important;border-radius:16px!important}
-/* 分段按钮组 */
 #root .flex.overflow-hidden.rounded-md.border:has(>[data-slot=button]):not(:has(>:not([data-slot=button]))){border-color:transparent!important}
-/* 转发链详情“事件” */
-/* 转发链网络拓扑 */
-/* 节点表格名称列快捷操作 */
-/* 地址池 / 专线：砖橙改主题色 */
 .border-\[\#B4541F\]{border-color:var(--primary)}.bg-\[\#B4541F\]{background-color:var(--primary);color:var(--primary-foreground)}.bg-\[\#B4541F\]\/15{background-color:color-mix(in srgb,var(--primary) 15%,#0000)}.text-\[\#B4541F\]{color:color-mix(in srgb,var(--primary) 50%,var(--foreground))}
-/* 像素风 / 高级黑金补回扁平风圆角，免得同页有圆有方 */
 &:root:root:not(.theme-flat,.theme-anime){--radius-sm:calc(.625rem - 4px);--radius-md:calc(.625rem - 2px);--radius-lg:.625rem;--radius-xl:calc(.625rem + 4px)}&:root:not(.theme-flat,.theme-anime) .rounded-sm{border-radius:var(--radius-sm)}&:root:not(.theme-flat,.theme-anime) .rounded-md{border-radius:var(--radius-md)}&:root:not(.theme-flat,.theme-anime) .rounded-lg{border-radius:var(--radius-lg)}&:root:not(.theme-flat,.theme-anime) .rounded-xl{border-radius:var(--radius-xl)}&:root:not(.theme-flat,.theme-anime) .rounded-t{border-radius:var(--radius-lg) var(--radius-lg) 0 0}&:root:not(.theme-flat,.theme-anime) .rounded-b{border-radius:0 0 var(--radius-lg) var(--radius-lg)}
-/* 服务管理 / 探针列表视图：表头贴卡片顶，由卡片圆角裁切 */
 &:root body .pixel-card:is(.table-card,.probe-server-table){padding-top:0}
-/* 外框里的无边框输入框（如分流画板搜索）不框套框 */
 &:root body [data-slot=input].border-0{border:0!important;background:transparent!important;box-shadow:none!important;min-height:0!important}
-/* 卡片内的卡片 */
 :is(.pixel-card,[data-slot=card]) :is(.bg-card,[data-slot=card]){border:1px solid var(--border)}&.dark :is(.pixel-card,[data-slot=card]) :is(.bg-card,[data-slot=card]){background:var(--muted)}}
-/* 减少动画：关闭全站动画与过渡，保留加载转圈与长 IP 滚动显示；所有界面风格生效，删除本段可恢复 */
 *,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.animate-spin{animation:spin 1s linear infinite!important}.sonner-loading-bar{animation:sonner-spin 1.2s linear infinite!important}.mmw-ip-marquee{animation:mmw-ip-marquee var(--mmw-marquee-dur,8s) ease-in-out infinite!important}
