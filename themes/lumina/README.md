@@ -2,7 +2,7 @@
 
 暖金强调色、白金浅色与黑金深色，搭配独立壁纸和轻薄边线。
 
-- [controller.css](controller.css)：主控完整样式，`v2026.11.21-02`。
+- [controller.css](controller.css)：主控完整样式，`v2026.11.21-03`。
 - [legacy/controller-v2026.10.06-02.css](legacy/controller-v2026.10.06-02.css)：旧版主控备份，适用于主控 0.5.6-beta.6 之前（beta.4 及更早）；新版主控请用上面的 `controller.css`。
 - [tgbot.css](tgbot.css)：TG Bot Mini App 完整样式，`v2026.11.01-02`。
 - [assets/wallpaper.jpg](assets/wallpaper.jpg)：两端共用的背景图。
@@ -20,6 +20,8 @@
 <p><img src="screenshots/servers-mobile.jpg" alt="Lumina 白金 / 黑金 手机服务管理" width="300"> <img src="screenshots/forward-mobile.jpg" alt="Lumina 白金 / 黑金 手机转发链" width="300"></p>
 
 ## 安装
+
+本版 v2026.11.21-03：适配主控 0.6.4-beta.4 新增的“素墨”界面风格（极简黑白灰，可自选主题色）：选素墨时主题的配色、描边、圆角、阴影、字体等视觉设计让开，保留素墨原生外观与自选主题色，与液态玻璃 / Meow / 天真同样处理；布局、尺寸、溢出等细节修复仍然生效。此前的版本在素墨下会把主题配色盖在上面。
 
 本版 v2026.11.21-02：隐藏页面“TG 机器人邀请码”（/tg-bot-invites）顶部不再被顶栏遮住：这页原生只留了 24px 顶部空白（其它页面是 96px），卡片标题和“新建邀请码”按钮被固定顶栏盖住，现补到 96px；所有界面风格下生效。
 
