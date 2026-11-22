@@ -1,6 +1,6 @@
 /*
  * MiaoMiaoWuX - PaperMint
- * Version: v2026.11.22-01
+ * Version: v2026.11.22-02
  * Updated: 2026-11-22
  */
 
@@ -105,11 +105,11 @@
 @media(max-width:1023px){:root body [data-slot=dialog-content].xl\:max-w-\[1400px\]>form,:root body [data-slot=dialog-content].xl\:max-w-\[1400px\]>form>.grid{flex:none;overflow:visible;min-width:0}:root body [data-slot=dialog-content].xl\:max-w-\[1400px\]{overflow-y:auto!important}}
 @media(max-width:767px){:root body [data-slot=dialog-content].xl\:max-w-\[1400px\] .divide-y{>.flex.flex-col:has(>.grow>label){display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-items:start}>.flex.flex-col:has(>.grow>label)>.cursor-pointer{grid-column:1/-1;padding-inline-end:24px}>.flex.flex-col:has(>.grow>label)>.cursor-pointer>.truncate{flex-basis:100%;white-space:normal;overflow-wrap:anywhere}>.flex.flex-col:has(>.grow>label)>.grow{min-width:0}}}
 :root #root .h-svh:has(>main [role=tab][id$=-trigger-auto-limit]):has(>main [role=tab][id$=-trigger-security]){height:auto;min-height:100dvh}
-:root #root main:has([role=tab][id$=-trigger-auto-limit]):has([role=tab][id$=-trigger-security]){[data-slot=tabs-content]>[data-slot=card]{height:auto;overflow:visible}[data-slot=card-content]{overflow:visible;padding-bottom:16px}.flex-1:has(>pre.overflow-y-auto){flex:none;height:clamp(20rem,60dvh,56rem);min-height:0}& pre.overflow-y-auto{min-width:0;overflow-wrap:anywhere}.overflow-auto:has(table){flex:none;height:auto;min-height:12rem;max-height:clamp(16rem,50dvh,40rem)}& div:has(>pre.overflow-y-auto)+.shrink-0{max-height:16rem;overflow-y:auto}}
+:root #root main.min-h-0.min-h-0.flex-col.flex-col{[data-slot=tabs-content]>[data-slot=card]{height:auto;overflow:visible}[data-slot=card-content]{overflow:visible;padding-bottom:16px}.flex-1:has(>pre.overflow-y-auto){flex:none;height:clamp(20rem,60dvh,56rem);min-height:0}& pre.overflow-y-auto{min-width:0;overflow-wrap:anywhere}.overflow-auto:has(table){flex:none;height:auto;min-height:12rem;max-height:clamp(16rem,50dvh,40rem)}& div:has(>pre.overflow-y-auto)+.shrink-0{max-height:16rem;overflow-y:auto}}
 :root body :is([data-slot=dialog-content],[data-slot=sheet-content]) textarea.font-mono:not(.flex-1,[class*="field-sizing"]){min-height:clamp(16rem,45dvh,30rem);resize:vertical}
 :root body [data-slot=dialog-content] [data-slot=collapsible-content].h-\[250px\]{height:clamp(18rem,42dvh,32rem);flex-shrink:0}
 :root #root textarea#tgbot-custom-css{min-height:clamp(16rem,45dvh,30rem)}
-@media(max-width:767px){:root body [data-slot=dialog-content] textarea.min-h-\[260px\]{min-height:clamp(16rem,45dvh,30rem)!important}:root #root main:has([role=tab][id$=-trigger-auto-limit]):has([role=tab][id$=-trigger-security]) [data-slot=card-content]{padding-inline:12px}}
+@media(max-width:767px){:root body [data-slot=dialog-content] textarea.min-h-\[260px\]{min-height:clamp(16rem,45dvh,30rem)!important}:root #root main.min-h-0.min-h-0.flex-col.flex-col [data-slot=card-content]{padding-inline:12px}}
 :root #root .ml-auto:has(>[data-slot=button]>.bg-green-500):has(>[data-slot=button]>.bg-red-500){display:grid;grid-template-columns:repeat(3,minmax(0,1fr));width:min(100%,22.75rem);max-width:100%;min-width:0;gap:8px}
 :root #root .ml-auto:has(>[data-slot=button]>.bg-green-500):has(>[data-slot=button]>.bg-red-500){>:is([data-slot=button],[data-slot=select-trigger]){box-sizing:border-box;width:100%!important;min-width:0!important;padding-inline:8px!important;gap:4px;white-space:nowrap}>[data-slot=button]>span{margin-inline:0!important}}
 @media(max-width:359px){:root #root .ml-auto:has(>[data-slot=button]>.bg-green-500):has(>[data-slot=button]>.bg-red-500){>:is([data-slot=button],[data-slot=select-trigger]){font-size:12px!important;padding-inline:6px!important}>[data-slot=button]>[data-slot=badge]{font-size:11px!important;padding-inline:4px!important}}}
