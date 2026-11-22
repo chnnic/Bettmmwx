@@ -1,6 +1,6 @@
 /*
  * MiaoMiaoWuX - Claude Paper
- * Version: v2026.11.22-04
+ * Version: v2026.11.22-05
  * Updated: 2026-11-22
  */
 
@@ -235,6 +235,7 @@ html&{scrollbar-width:thin;scrollbar-color:var(--input) var(--background)}
 :root.theme-mono{--mono-bg:var(--claude-light-page);--mono-card:var(--claude-light-surface);--mono-card2:#eeece5;--mono-ink:var(--claude-light-ink);--mono-ink2:#6b665d;--mono-line:#dedad0;--mono-line-strong:#ccc7ba;--mono-bar:#f5f3ede0;--shell-underlay:var(--claude-light-page);--destructive:#b7403d;--claude-accent-ink:var(--claude-light-accent-ink);--primary:var(--claude-light-accent);--primary-foreground:#fffaf5;--accent:#f1e3d9;--accent-foreground:#8f432d;--ring:#b5553640;--chart-1:var(--claude-light-accent);--chart-2:#668373;--chart-3:#8b7d9b;--chart-4:#b18b43;--chart-5:#628398}
 :root.theme-mono.dark{--mono-bg:var(--claude-dark-page);--mono-card:var(--claude-dark-surface);--mono-card2:#35342f;--mono-ink:var(--claude-dark-ink);--mono-ink2:#b2ab9e;--mono-line:#48463e;--mono-line-strong:#615b50;--mono-bar:#242320e0;--shell-underlay:var(--claude-dark-page);--destructive:#e68b85;--claude-accent-ink:var(--claude-dark-accent-ink);--chart-2:#8faf98;--chart-3:#b5a0c3;--chart-4:#ccaf76;--chart-5:#8caebe}
 :root.theme-mono.dark:where(:not([data-mono-accent])){--primary:var(--claude-dark-accent);--primary-foreground:#251b16;--accent:#49372e;--accent-foreground:#efb79d;--ring:#df967a47;--chart-1:#df967a}
+:root.theme-mono[data-mono-accent]{--chart-5:var(--mono-accent);--chart-2:color-mix(in srgb,var(--mono-accent) 50%,var(--mono-card))}
 :root.theme-mono #root{:is(.bg-teal-500,.bg-teal-600),[style*="13, 148, 136"]:not(.text-white){background-color:var(--primary)!important}[fill="#0d9488"]{fill:var(--primary)}[stroke="#0d9488"]{stroke:var(--primary)}[stroke="#2563eb"]{stroke:var(--chart-5)}[fill="#2563eb"]{fill:var(--chart-5)}[stroke="#16a34a"]{stroke:var(--chart-2)}[fill="#16a34a"]{fill:var(--chart-2)}& span[style*="37, 99, 235"]{color:var(--chart-5)!important}& span[style*="22, 163, 74"]{color:var(--chart-2)!important}}
 :root.theme-mono:not([data-mono-accent]) body :is(.text-primary,.accent-action-btn,.accent-svg-icon){color:var(--claude-accent-ink)!important}
 *,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.animate-spin{animation:spin 1s linear infinite!important}.sonner-loading-bar{animation:sonner-spin 1.2s linear infinite!important}.mmw-ip-marquee{animation:mmw-ip-marquee var(--mmw-marquee-dur,8s) ease-in-out infinite!important}

@@ -1,6 +1,6 @@
 /*
  * MiaoMiaoWuX - Ink Mint
- * Version: v2026.11.22-04
+ * Version: v2026.11.22-05
  * Updated: 2026-11-22
  */
 
@@ -240,6 +240,7 @@ html&{scrollbar-width:thin;scrollbar-color:var(--input) var(--background)}
 :root.theme-mono{--mono-bg:var(--ink-light-page);--mono-card:var(--ink-light-surface);--mono-card2:#eeece6;--mono-ink:var(--ink-light-ink);--mono-ink2:#5f6b78;--mono-line:#dddcd5;--mono-line-strong:#cfcdc4;--mono-bar:#f6f4efe0;--shell-underlay:var(--ink-light-page);--destructive:#c2413b;--ink-accent-text:var(--ink-light-accent-text);--primary:var(--ink-light-accent);--primary-foreground:#11151b;--accent:#e2f7ec;--accent-foreground:#0b6e48;--ring:#0b6e4840;--chart-1:var(--ink-light-accent);--chart-2:#4f7cac;--chart-3:#8b6fb0;--chart-4:#c9a03a;--chart-5:#3f9fb3}
 :root.theme-mono.dark{--mono-bg:var(--ink-dark-page);--mono-card:var(--ink-dark-surface);--mono-card2:#1d242e;--mono-ink:var(--ink-dark-ink);--mono-ink2:#9aa3ae;--mono-line:#2a313b;--mono-line-strong:#3a4350;--mono-bar:#11151be0;--shell-underlay:var(--ink-dark-page);--destructive:#f0857e;--ink-accent-text:var(--ink-dark-accent-text);--chart-2:#7aa7d6;--chart-3:#b39ad8;--chart-4:#e0b35c;--chart-5:#5cc8d6}
 :root.theme-mono.dark:where(:not([data-mono-accent])){--primary:var(--ink-dark-accent);--primary-foreground:#11151b;--accent:#173528;--accent-foreground:#3ddc97;--ring:#3ddc9747;--chart-1:#3ddc97}
+:root.theme-mono[data-mono-accent]{--chart-5:var(--mono-accent);--chart-2:color-mix(in srgb,var(--mono-accent) 50%,var(--mono-card))}
 :root.theme-mono #root{:is(.bg-teal-500,.bg-teal-600),[style*="13, 148, 136"]:not(.text-white){background-color:var(--primary)!important}[fill="#0d9488"]{fill:var(--primary)}[stroke="#0d9488"]{stroke:var(--primary)}[stroke="#2563eb"]{stroke:var(--chart-5)}[fill="#2563eb"]{fill:var(--chart-5)}[stroke="#16a34a"]{stroke:var(--chart-2)}[fill="#16a34a"]{fill:var(--chart-2)}& span[style*="37, 99, 235"]{color:var(--chart-5)!important}& span[style*="22, 163, 74"]{color:var(--chart-2)!important}}
 :root.theme-mono:not([data-mono-accent]) body :is(.text-primary,.accent-action-btn,.accent-svg-icon){color:var(--ink-accent-text)!important}
 *,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.animate-spin{animation:spin 1s linear infinite!important}.sonner-loading-bar{animation:sonner-spin 1.2s linear infinite!important}.mmw-ip-marquee{animation:mmw-ip-marquee var(--mmw-marquee-dur,8s) ease-in-out infinite!important}

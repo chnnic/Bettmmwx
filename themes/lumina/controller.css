@@ -1,6 +1,6 @@
 /*
  * MiaoMiaoWuX - Lumina Platinum Gold
- * Version: v2026.11.22-04
+ * Version: v2026.11.22-05
  * Updated: 2026-11-22
  */
 
@@ -232,10 +232,12 @@ html&,& body,& body *,& body:before,& body:after,& body *:before,& body *:after{
 &:root body [data-slot=input].border-0{border:0!important;background:transparent!important;box-shadow:none!important;min-height:0!important}
 :is(.pixel-card,[data-slot=card]) :is(.bg-card,[data-slot=card]){border:1px solid var(--border)}&.dark :is(.pixel-card,[data-slot=card]) :is(.bg-card,[data-slot=card]){background:var(--muted)}
 .um-avatar{border-color:var(--border)}
+#root [stroke="#2563eb"]{stroke:var(--chart-1)}#root [fill="#2563eb"]{fill:var(--chart-1)}#root [stroke="#16a34a"]{stroke:var(--chart-2)}#root [fill="#16a34a"]{fill:var(--chart-2)}
 }
 :root.theme-mono{--mono-bg:#f4f3ef;--mono-card:#fffefa;--mono-card2:#efede8;--mono-ink:#24211b;--mono-ink2:#746e63;--mono-line:#d5ccb8;--mono-line-strong:#b8aa90;--mono-bar:#f4f3efe0;--shell-underlay:#f4f3ef;--destructive:#be4b45;--primary:#a67c2e;--primary-foreground:#fffdf7;--accent:#e7ddca;--accent-foreground:#6f511d;--ring:#b88c3766;--chart-1:#b4862f;--chart-2:#657d75;--chart-3:#8c7958;--chart-4:#c5a65d;--chart-5:#4f6660}
 :root.theme-mono.dark{--mono-bg:#080806;--mono-card:#12110e;--mono-card2:#1b1915;--mono-ink:#f2eadb;--mono-ink2:#aaa08e;--mono-line:#3d3423;--mono-line-strong:#705a34;--mono-bar:#080806e0;--shell-underlay:#080806;--destructive:#db6860;--chart-2:#7bb39f;--chart-3:#b89764;--chart-4:#f0ce7a;--chart-5:#5e8d7d}
 :root.theme-mono.dark:where(:not([data-mono-accent])){--primary:#dfb65a;--primary-foreground:#171108;--accent:#2b2519;--accent-foreground:#f1d28a;--ring:#d7aa4d66;--chart-1:#e0b557}
-:root.theme-mono #root{:is(.bg-teal-500,.bg-teal-600),[style*="13, 148, 136"]:not(.text-white){background-color:var(--primary)!important}[fill="#0d9488"]{fill:var(--primary)}[stroke="#0d9488"]{stroke:var(--primary)}}
+:root.theme-mono #root{:is(.bg-teal-500,.bg-teal-600),[style*="13, 148, 136"]:not(.text-white){background-color:var(--primary)!important}[fill="#0d9488"]{fill:var(--primary)}[stroke="#0d9488"]{stroke:var(--primary)}[stroke="#2563eb"]{stroke:var(--chart-1)}[fill="#2563eb"]{fill:var(--chart-1)}[stroke="#16a34a"]{stroke:var(--chart-2)}[fill="#16a34a"]{fill:var(--chart-2)}}
+:root.theme-mono[data-mono-accent]{--chart-2:color-mix(in srgb,var(--mono-accent) 50%,var(--mono-card))}
 :root.theme-mono:not(.dark) #root .text-primary:not(.bg-primary){color:var(--accent-foreground)}
 *,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.animate-spin{animation:spin 1s linear infinite!important}.sonner-loading-bar{animation:sonner-spin 1.2s linear infinite!important}.mmw-ip-marquee{animation:mmw-ip-marquee var(--mmw-marquee-dur,8s) ease-in-out infinite!important}
