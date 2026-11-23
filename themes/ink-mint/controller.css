@@ -1,7 +1,7 @@
 /*
  * MiaoMiaoWuX - Ink Mint
- * Version: v2026.11.22-05
- * Updated: 2026-11-22
+ * Version: v2026.11.23-01
+ * Updated: 2026-11-23
  */
 
 :root {
@@ -94,7 +94,7 @@ body [data-slot=card].max-w-sm:has(#username):has(#password){max-width:27rem}
 :root body .recharts-cartesian-axis-tick text{font-size:11px}
 @media(max-width:1023px){#root main>.fixed .relative:has(>.react-flow)>.absolute.bottom-2{bottom:52px}}
 @media(max-width:767px){#root main>.fixed:has(.react-flow) aside.order-3{>.overflow-y-auto{flex:none;max-height:min(440px,52dvh);overscroll-behavior-y:contain}>div:last-child:not(:first-child){position:sticky;bottom:0;z-index:5}}}
-#root .flex-\[1_1_280px\]{min-width:0}
+#root .flex-\[1_1_280px\]{max-width:100%}
 @media(max-width:359px){#root .flex-wrap>.flex-\[1_1_240px\]{padding-inline:12px;>.flex.gap-2>.flex-1{padding-inline:8px}}}
 @media(min-width:768px){#root .md\:sticky.bg-card\/95 .flex-wrap.gap-2:has(>:nth-child(13)){max-height:clamp(5.5rem,22vh,12.5rem);overflow-y:auto;overscroll-behavior:contain;padding:2px;scrollbar-width:thin}:root:not(.theme-glass,.theme-meow,.theme-sweet,.theme-mono) #root .md\:sticky.bg-card\/95{background:var(--card)!important;box-shadow:0 -6px var(--card)}}
 #root .space-y-2.p-3:has(>.flex>[aria-label=\66f4\591a\64cd\4f5c]){position:relative}
@@ -122,6 +122,7 @@ tr[data-slot=table-row][class*="bg-primary/15"]{--tw-ring-color:color-mix(in okl
 .fixed.inset-x-0.bottom-0>.flex.overflow-x-auto:has(>button.w-16.shrink-0){display:grid;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);gap:4px;overflow-x:visible}.fixed.inset-x-0.bottom-0>.flex.overflow-x-auto>button.w-16.shrink-0{width:auto;min-width:0}
 .flex-col.gap-2>.flex.items-baseline.justify-between>b.text-lg{flex-shrink:0;max-width:100%}
 :root:not(.dark) #root :is(.text-amber-500,.text-amber-400):is(svg,svg *),:root:not(.dark) #root :is(.text-amber-500,.text-amber-400) svg{color:#b45309}:root:not(.dark) #root :is(button,a).text-red-600{color:#c10007}:root.dark #root :is(button,a).text-red-600:not([class*="dark:text-"]){color:#f87171}
+:root.dark #root .text-blue-600:not([class*="dark:text-"]){color:#60a5fa}
 [data-slot=dialog-content].inset-0.w-screen{border-radius:0!important;border-width:0!important;box-shadow:none!important}
 [data-slot=dialog-content].inset-0.w-screen .flex.flex-col.space-y-2>.flex.flex-wrap.gap-1:has(>button:nth-child(13)){max-height:9.5rem;overflow-y:auto;overscroll-behavior:contain}
 .grid.grid-cols-2.gap-x-3>.flex.items-start.gap-2.text-xs:has(a[href^="https://t.me/"]){grid-column:1/-1}
@@ -169,8 +170,8 @@ html&,& body,& body *,& body:before,& body:after,& body *:before,& body *:after{
 &:root body :is([data-slot=button],.pixel-button):is(.bg-destructive,[data-variant=destructive]):hover:not(:disabled){background:color-mix(in srgb,var(--destructive) 90%,var(--foreground))!important}
 &:root body :is([data-slot=button],.pixel-button):is(.text-destructive,[class*=text-red-]){color:var(--destructive)!important}
 &:root body :is([data-slot=button],.pixel-button):disabled{opacity:.45}
-&:root body :is(nav .pixel-button,[data-slot=sidebar-menu-button]){border-color:transparent!important;background:transparent!important;color:var(--muted-foreground)!important;border-radius:var(--ink-control-radius)!important;box-shadow:none!important;transform:none!important}
-&:root body :is(nav .pixel-button,[data-slot=sidebar-menu-button]):is([aria-current=page],[data-status=active],[data-active=true]){color:var(--accent-foreground)!important;background:var(--accent)!important;font-weight:600!important}
+&:root body nav .pixel-button{border-color:transparent!important;background:transparent!important;color:var(--muted-foreground)!important;border-radius:var(--ink-control-radius)!important;box-shadow:none!important;transform:none!important}
+&:root body nav .pixel-button:is([aria-current=page],[data-status=active],[data-active=true]){color:var(--accent-foreground)!important;background:var(--accent)!important;font-weight:600!important}
 &:root body [data-slot=tabs-list]{padding:4px;border:0!important;border-radius:calc(var(--ink-control-radius) + 3px)!important;background:var(--muted)!important;box-shadow:none!important}
 &:root body [data-slot=tabs-trigger]{color:var(--muted-foreground)!important;border:1px solid transparent!important;border-radius:var(--ink-control-radius)!important;background:transparent!important;box-shadow:none!important;font-weight:500!important;transform:none!important}
 &:root body [data-slot=tabs-trigger][data-state=active]{color:var(--accent-foreground)!important;background:var(--card)!important;border-color:var(--border)!important;font-weight:600!important}
@@ -191,7 +192,6 @@ html&,& body,& body *,& body:before,& body:after,& body *:before,& body *:after{
 &:root body :is([data-slot=checkbox],[data-slot=radio-group-item])[data-state=checked]{color:var(--primary-foreground)!important;border-color:var(--primary)!important;background:var(--primary)!important}
 &:root body [data-slot=badge]{border-radius:6px!important;box-shadow:none!important;font-weight:500}
 &:root body [data-slot=progress]{border:0!important;border-radius:999px;background:var(--muted)!important}
-&:root body [data-slot=progress-indicator]{background:var(--primary)!important}
 &:root body [data-slot=table-container]{border-radius:inherit}
 &:root body :is(thead,[data-slot=table-header]){background:var(--muted)!important}
 &:root body :is(tr,[data-slot=table-row]){border-color:var(--border)!important;box-shadow:none!important}
@@ -243,4 +243,5 @@ html&{scrollbar-width:thin;scrollbar-color:var(--input) var(--background)}
 :root.theme-mono[data-mono-accent]{--chart-5:var(--mono-accent);--chart-2:color-mix(in srgb,var(--mono-accent) 50%,var(--mono-card))}
 :root.theme-mono #root{:is(.bg-teal-500,.bg-teal-600),[style*="13, 148, 136"]:not(.text-white){background-color:var(--primary)!important}[fill="#0d9488"]{fill:var(--primary)}[stroke="#0d9488"]{stroke:var(--primary)}[stroke="#2563eb"]{stroke:var(--chart-5)}[fill="#2563eb"]{fill:var(--chart-5)}[stroke="#16a34a"]{stroke:var(--chart-2)}[fill="#16a34a"]{fill:var(--chart-2)}& span[style*="37, 99, 235"]{color:var(--chart-5)!important}& span[style*="22, 163, 74"]{color:var(--chart-2)!important}}
 :root.theme-mono:not([data-mono-accent]) body :is(.text-primary,.accent-action-btn,.accent-svg-icon){color:var(--ink-accent-text)!important}
+:where(:root.theme-mono.dark[data-mono-accent]) .text-primary{color:oklch(from var(--mono-accent) max(l,.66) c h)}
 *,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.animate-spin{animation:spin 1s linear infinite!important}.sonner-loading-bar{animation:sonner-spin 1.2s linear infinite!important}.mmw-ip-marquee{animation:mmw-ip-marquee var(--mmw-marquee-dur,8s) ease-in-out infinite!important}

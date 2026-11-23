@@ -1,7 +1,7 @@
 /*
  * MiaoMiaoWuX - Lumina Platinum Gold
- * Version: v2026.11.22-05
- * Updated: 2026-11-22
+ * Version: v2026.11.23-01
+ * Updated: 2026-11-23
  */
 
 :root {
@@ -86,7 +86,7 @@ html,body{min-height:100%;overscroll-behavior:auto}
 #root main .flex-wrap.justify-center.border-t.pt-2{>span.basis-\[calc\(50\%-0\.25rem\)\]{min-width:0}>span.basis-\[calc\(50\%-0\.25rem\)\]>button{width:100%;min-width:0;height:36px;padding-inline:16px;font-size:14px;overflow:hidden}}
 @media(max-width:1023px){#root main>.fixed .relative:has(>.react-flow)>.absolute.bottom-2{bottom:52px}}
 @media(max-width:767px){#root main>.fixed:has(.react-flow) aside.order-3{>.overflow-y-auto{flex:none;max-height:min(440px,52dvh);overscroll-behavior-y:contain}>div:last-child:not(:first-child){position:sticky;bottom:0;z-index:5}}}
-#root .flex-\[1_1_280px\]{min-width:0}
+#root .flex-\[1_1_280px\]{max-width:100%}
 @media(max-width:359px){#root .flex-wrap>.flex-\[1_1_240px\]{padding-inline:12px;>.flex.gap-2>.flex-1{padding-inline:8px}}}
 @media(min-width:768px){#root .md\:sticky.bg-card\/95 .flex-wrap.gap-2:has(>:nth-child(13)){max-height:clamp(5.5rem,22vh,12.5rem);overflow-y:auto;overscroll-behavior:contain;padding:2px;scrollbar-width:thin}:root:not(.theme-glass,.theme-meow,.theme-sweet,.theme-mono) #root .md\:sticky.bg-card\/95{background:var(--card)!important;box-shadow:0 -6px var(--card)}}
 #root .space-y-2.p-3:has(>.flex>[aria-label=\66f4\591a\64cd\4f5c]){position:relative}
@@ -114,6 +114,7 @@ tr[data-slot=table-row][class*="bg-primary/15"]{--tw-ring-color:color-mix(in okl
 .fixed.inset-x-0.bottom-0{&>.flex.overflow-x-auto:has(>button.w-16.shrink-0){display:grid;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);gap:4px;overflow-x:visible}&>.flex.overflow-x-auto>button.w-16.shrink-0{width:auto;min-width:0}}
 .flex-col.gap-2>.flex.items-baseline.justify-between>b.text-lg{flex-shrink:0;max-width:100%}
 :root:not(.dark) #root .text-amber-500:is(svg,svg *),:root:not(.dark) #root .text-amber-500 svg{color:#b45309}:root:not(.dark) #root :is(button,a).text-red-600{color:#c10007}:root.dark #root :is(button,a).text-red-600:not([class*="dark:text-"]){color:#f87171}
+:root.dark #root .text-blue-600:not([class*="dark:text-"]){color:#60a5fa}
 [data-slot=dialog-content].inset-0.w-screen{border-radius:0!important;border-width:0!important;box-shadow:none!important}
 [data-slot=dialog-content].inset-0.w-screen .flex.flex-col.space-y-2>.flex.flex-wrap.gap-1:has(>button:nth-child(13)){max-height:9.5rem;overflow-y:auto;overscroll-behavior:contain}
 .grid.grid-cols-2.gap-x-3>.flex.items-start.gap-2.text-xs:has(a[href^="https://t.me/"]){grid-column:1/-1}
@@ -240,4 +241,5 @@ html&,& body,& body *,& body:before,& body:after,& body *:before,& body *:after{
 :root.theme-mono #root{:is(.bg-teal-500,.bg-teal-600),[style*="13, 148, 136"]:not(.text-white){background-color:var(--primary)!important}[fill="#0d9488"]{fill:var(--primary)}[stroke="#0d9488"]{stroke:var(--primary)}[stroke="#2563eb"]{stroke:var(--chart-1)}[fill="#2563eb"]{fill:var(--chart-1)}[stroke="#16a34a"]{stroke:var(--chart-2)}[fill="#16a34a"]{fill:var(--chart-2)}}
 :root.theme-mono[data-mono-accent]{--chart-2:color-mix(in srgb,var(--mono-accent) 50%,var(--mono-card))}
 :root.theme-mono:not(.dark) #root .text-primary:not(.bg-primary){color:var(--accent-foreground)}
+:where(:root.theme-mono.dark[data-mono-accent]) .text-primary{color:oklch(from var(--mono-accent) max(l,.66) c h)}
 *,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.animate-spin{animation:spin 1s linear infinite!important}.sonner-loading-bar{animation:sonner-spin 1.2s linear infinite!important}.mmw-ip-marquee{animation:mmw-ip-marquee var(--mmw-marquee-dur,8s) ease-in-out infinite!important}
