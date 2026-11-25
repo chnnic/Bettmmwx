@@ -1,7 +1,7 @@
 /*
  * MiaoMiaoWuX - Lumina Platinum Gold
- * Version: v2026.11.24-02
- * Updated: 2026-11-24
+ * Version: v2026.11.25-01
+ * Updated: 2026-11-25
  */
 
 :root {
@@ -127,6 +127,8 @@ tr[data-slot=table-row][class*="bg-primary/15"]{--tw-ring-color:color-mix(in okl
 @media(max-width:639px){.relative:has(>.pro-label-badge)>div>.space-y-4>.flex-col:first-child>button{order:-1}}
 .pixel-card:has(>.sticky.bottom-2){overflow:clip}
 .mt-4.space-y-2>.rounded-lg.border.p-3.text-sm>.flex-wrap>.flex.items-center.gap-2,main.max-w-6xl .flex-wrap.items-center.gap-2>.flex.gap-1,.flex-wrap.items-baseline.gap-2>.ml-auto.flex.gap-2{flex-wrap:wrap}
+#root th.w-2\/5{width:34%;&~th.text-right{width:1%;padding-left:12px}}
+#root td.max-w-0.py-2:not(.truncate)~td.text-right{padding-left:12px}
 :where(:root:not(.theme-glass,.theme-meow,.theme-sweet,.theme-mono)){
 &:root body #root [role=group].bg-muted.inline-flex:has(>[data-slot=button][aria-pressed]){padding:3px!important;border:0!important;background:var(--card)!important;box-shadow:0 1px 3px #0000001a,0 1px 2px -1px #0000001a!important;>[data-slot=button]{border-color:#0000!important;background:#0000!important;box-shadow:none!important;transform:none!important}>[aria-pressed=true]{color:#171107!important;border-color:#a87c22ad!important;background:var(--lc0)!important;box-shadow:var(--lc1)!important}}
 &:root body :is([data-slot=dialog-content],[data-slot=sheet-content]) .sticky.bottom-0.bg-background{background:var(--popover)!important}
