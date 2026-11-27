@@ -2,7 +2,7 @@
 
 暖纸白 / 蓝墨黑底色、薄荷绿强调的主控与 TG Bot Mini App 主题：主控正文与标题以主控自带的 OPlusSans3 为主，IP、延迟等数据用等宽字体，细描边、少阴影。配色思路参考 nodecloak.com 的明暗两套界面；非官方，不使用其标识、字体或图片素材。
 
-- [controller.css](controller.css)：主控完整样式，`v2026.11.27-03`，适用于主控 0.6.3 起，已核对 0.6.4-beta.7；0.5.6 至 0.6.2 的主控不再核对，针对旧页面结构的几处排版修正已删除。
+- [controller.css](controller.css)：主控完整样式，`v2026.11.27-05`，适用于主控 0.6.3 起，已核对 0.6.4-beta.8；0.5.6 至 0.6.2 的主控不再核对，针对旧页面结构的几处排版修正已删除。
 - [tgbot.css](tgbot.css)：TG Bot Mini App 完整样式，`v2026.11.01-02`；不要与主控文件混用。
 - 独立文件，不依赖其他主题，不加载远程字体、图片或脚本。
 
@@ -27,7 +27,7 @@
 
 两端样式分别保存，更新主控 CSS 不会自动更新 Mini App。Mini App 主题不改变 Telegram 原生聊天界面。
 
-主控 CSS 完整文件 56,679 个 UTF-8 字节，低于 65,536 字节上限。需要支持 CSS 嵌套的浏览器：Chrome 112+、Safari / iOS 16.5+、Firefox 117+。选中文字的主题配色在 Chrome / Edge 上需要 131+，更早的版本是浏览器默认的选区颜色。
+主控 CSS 完整文件 56,729 个 UTF-8 字节，低于 65,536 字节上限。需要支持 CSS 嵌套的浏览器：Chrome 112+、Safari / iOS 16.5+、Firefox 117+。选中文字的主题配色在 Chrome / Edge 上需要 131+，更早的版本是浏览器默认的选区颜色。
 
 ## 界面风格与深浅色
 
@@ -85,7 +85,7 @@
 
 | 参数 | 默认值 / 用途 |
 | --- | --- |
-| `--ink-content-max-width` | `1440px`；`100%` 不限宽 |
+| `--ink-content-max-width` | `1440px`；`100%` 不限宽。也管主控 0.6.4-beta.8 起的全宽表格页（用户、节点、服务等） |
 | `--ink-content-gutter` | `24px`，640px 及以上的页面两侧内边距 |
 | `--ink-card-radius` / `--ink-control-radius` | `12px` / `10px`，卡片与按钮、输入框圆角 |
 | `--ink-light-page` / `--ink-dark-page` | 深浅页面底色 `#f6f4ef` / `#11151b` |
