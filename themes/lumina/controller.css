@@ -1,6 +1,6 @@
 /*
  * MiaoMiaoWuX - Lumina Platinum Gold
- * Version: v2026.11.27-02
+ * Version: v2026.11.27-03
  * Updated: 2026-11-27
  */
 
@@ -131,6 +131,7 @@ tr[data-slot=table-row][class*="bg-primary/15"]{--tw-ring-color:color-mix(in okl
 #root td.max-w-0.py-2:not(.truncate)~td.text-right{padding-left:12px}
 :where(:root:not(.theme-glass,.theme-meow,.theme-sweet,.theme-mono)){
 &:root body #root [role=group].bg-muted.inline-flex:has(>[data-slot=button][aria-pressed]){padding:3px!important;border:0!important;background:var(--card)!important;box-shadow:0 1px 3px #0000001a,0 1px 2px -1px #0000001a!important;>[data-slot=button]{border-color:#0000!important;background:#0000!important;box-shadow:none!important;transform:none!important}>[aria-pressed=true]{color:#171107!important;border-color:#a87c22ad!important;background:var(--lc0)!important;box-shadow:var(--lc1)!important}}
+&:root #root :is(.bg-muted,.bg-muted\/40)>button.bg-background.shadow-sm{color:#171107;background:var(--lc0);box-shadow:0 0 0 1px #a87c22ad,var(--lc1)}
 &:root body :is([data-slot=dialog-content],[data-slot=sheet-content]) .sticky.bottom-0.bg-background{background:var(--popover)!important}
 &:root body #root [data-slot=popover-trigger][role=combobox]{height:2rem;border:1px solid var(--input)!important;background:var(--card)!important;box-shadow:none!important}&.dark body #root [data-slot=popover-trigger][role=combobox]{color:#f2eadb!important;border-color:#dfb65a6b!important;background:#2a261e!important;box-shadow:0 1px #ffe8b40f inset!important}
 &.theme-anime:not(.dark) #root header :is(a,button).bg-primary\/20.text-primary{color:#fff!important}
@@ -239,6 +240,7 @@ html&,& body,& body *{-webkit-backdrop-filter:none!important;backdrop-filter:non
 :root.theme-mono[data-mono-accent]{--chart-2:color-mix(in srgb,var(--mono-accent) 50%,var(--mono-card))}
 :root.theme-mono:not(.dark) #root .text-primary:not(.bg-primary){color:var(--accent-foreground)}
 :root.theme-mono:not(.dark) #root :is(.text-green-600,.text-emerald-600){color:#22703f}
+:root.theme-mono:not(.dark) #root :is(.bg-muted,.bg-muted\/40)>button.bg-background.shadow-sm{background:var(--mono-card)}
 :where(:root.theme-mono.dark[data-mono-accent]) .text-primary{color:oklch(from var(--mono-accent) max(l,.66) c h)}
 :root.dark:not(.theme-glass,.theme-meow,.theme-sweet) #root span.max-w-\[42\%\].rounded-full{filter:brightness(1.5)}
 *,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.animate-spin{animation:spin 1s linear infinite!important}.sonner-loading-bar{animation:sonner-spin 1.2s linear infinite!important}.mmw-ip-marquee{animation:mmw-ip-marquee var(--mmw-marquee-dur,8s) ease-in-out infinite!important}

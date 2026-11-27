@@ -1,6 +1,6 @@
 /*
  * MiaoMiaoWuX - Claude Paper
- * Version: v2026.11.27-02
+ * Version: v2026.11.27-03
  * Updated: 2026-11-27
  */
 
@@ -135,6 +135,7 @@ tr[data-slot=table-row][class*="bg-primary/15"]{--tw-ring-color:color-mix(in okl
 #root td.max-w-0.py-2:not(.truncate)~td.text-right{padding-left:12px}
 :where(:root:not(.theme-glass,.theme-meow,.theme-sweet,.theme-mono)){
 &:root body #root [role=group].bg-muted.inline-flex:has(>[data-slot=button][aria-pressed]){padding:4px!important;border:0!important;border-radius:calc(var(--claude-control-radius) + 3px)!important;background:var(--muted)!important;box-shadow:none!important;>[data-slot=button]{color:var(--muted-foreground)!important;border:1px solid transparent!important;border-radius:var(--claude-control-radius)!important;background:transparent!important;box-shadow:none!important;transform:none!important}>[aria-pressed=true]{color:var(--accent-foreground)!important;background:var(--card)!important;border-color:var(--border)!important;font-weight:600!important}}
+&:root #root :is(.bg-muted,.bg-muted\/40)>button.bg-background.shadow-sm{color:var(--accent-foreground);background:var(--card);box-shadow:0 0 0 1px var(--border),0 1px 3px #0000001a}&:root.dark #root :is(.bg-muted,.bg-muted\/40)>button.bg-background.shadow-sm{background:var(--background)}
 &:root body :is([data-slot=dialog-content],[data-slot=sheet-content]) .sticky.bottom-0.bg-background{background:var(--popover)!important}
 &:root body #root [data-slot=popover-trigger][role=combobox]{height:2rem;font-weight:400!important}
 & #root :is(.bg-teal-500,.bg-teal-600){background-color:var(--primary)!important}& #root [fill="#0d9488"]{fill:var(--primary)}& #root [stroke="#0d9488"]{stroke:var(--primary)}& #root [style*="13, 148, 136"]:not(.text-white){background-color:var(--primary)!important}
@@ -237,6 +238,7 @@ html&{scrollbar-width:thin;scrollbar-color:var(--input) var(--background)}
 :root.theme-mono #root{:is(.bg-teal-500,.bg-teal-600),[style*="13, 148, 136"]:not(.text-white){background-color:var(--primary)!important}[fill="#0d9488"]{fill:var(--primary)}[stroke="#0d9488"]{stroke:var(--primary)}[stroke="#2563eb"]{stroke:var(--chart-5)}[fill="#2563eb"]{fill:var(--chart-5)}[stroke="#16a34a"]{stroke:var(--chart-2)}[fill="#16a34a"]{fill:var(--chart-2)}& span[style*="37, 99, 235"]:not(.rounded-full){color:var(--chart-5)!important}& span[style*="22, 163, 74"]{color:var(--chart-2)!important}}
 :root.theme-mono:not([data-mono-accent]) body :is(.text-primary,.accent-action-btn,.accent-svg-icon){color:var(--claude-accent-ink)!important}
 :root.theme-mono:not(.dark) #root :is(.text-green-600,.text-emerald-600){color:#22703f}
+:root.theme-mono:not(.dark) #root :is(.bg-muted,.bg-muted\/40)>button.bg-background.shadow-sm{background:var(--mono-card)}
 :where(:root.theme-mono.dark[data-mono-accent]) .text-primary{color:oklch(from var(--mono-accent) max(l,.66) c h)}
 :root.dark:not(.theme-glass,.theme-meow,.theme-sweet) #root span.max-w-\[42\%\].rounded-full{filter:brightness(1.5)}
 *,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.animate-spin{animation:spin 1s linear infinite!important}.sonner-loading-bar{animation:sonner-spin 1.2s linear infinite!important}.mmw-ip-marquee{animation:mmw-ip-marquee var(--mmw-marquee-dur,8s) ease-in-out infinite!important}
