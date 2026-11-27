@@ -1,14 +1,14 @@
 /*
  * MiaoMiaoWuX - Claude Paper
- * Version: v2026.11.27-05
- * Updated: 2026-11-27
+ * Version: v2026.11.28-01
+ * Updated: 2026-11-28
  */
 
 :root {
   --claude-mobile-canvas-pan-pointer-events: none;
   --claude-mobile-canvas-pan-strip: none;
   --claude-server-mode-pointer-events: none;
-  --claude-content-max-width: 1440px;
+  --claude-content-max-width: 1600px;
   --claude-content-gutter: 24px;
   --claude-mobile-card-shadow: none;
   --claude-card-radius: 16px;

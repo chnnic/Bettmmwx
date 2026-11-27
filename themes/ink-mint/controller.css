@@ -1,14 +1,14 @@
 /*
  * MiaoMiaoWuX - Ink Mint
- * Version: v2026.11.27-05
- * Updated: 2026-11-27
+ * Version: v2026.11.28-01
+ * Updated: 2026-11-28
  */
 
 :root {
   --ink-mobile-canvas-pan-pointer-events: none;
   --ink-mobile-canvas-pan-strip: none;
   --ink-server-mode-pointer-events: none;
-  --ink-content-max-width: 1440px;
+  --ink-content-max-width: 1600px;
   --ink-content-gutter: 24px;
   --ink-mobile-card-shadow: none;
   --ink-card-radius: 12px;

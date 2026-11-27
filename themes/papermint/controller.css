@@ -1,7 +1,7 @@
 /*
  * MiaoMiaoWuX - PaperMint
- * Version: v2026.11.27-05
- * Updated: 2026-11-27
+ * Version: v2026.11.28-01
+ * Updated: 2026-11-28
  */
 
 @import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;600;700;800&display=swap");
@@ -9,7 +9,7 @@
   --paper-mobile-canvas-pan-pointer-events: none;
   --paper-mobile-canvas-pan-strip: none;
   --paper-server-mode-pointer-events: none;
-  --paper-content-max-width: 1440px;
+  --paper-content-max-width: 1600px;
   --paper-content-gutter: 24px;
   --paper-mobile-motion-duration: 0s;
   --paper-mobile-card-shadow: calc(3px * var(--paper-effect-scale)) calc(3px * var(--paper-effect-scale)) 0 var(--paper-ink);

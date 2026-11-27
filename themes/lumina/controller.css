@@ -1,7 +1,7 @@
 /*
  * MiaoMiaoWuX - Lumina Platinum Gold
- * Version: v2026.11.27-05
- * Updated: 2026-11-27
+ * Version: v2026.11.28-01
+ * Updated: 2026-11-28
  */
 
 :root {
@@ -9,7 +9,7 @@
   --lumina-mobile-canvas-pan-strip: none;
   --lumina-server-mode-pointer-events: none;
   --lumina-wallpaper: url("https://raw.githubusercontent.com/chnnic/Bettmmwx/90225bdb65067c9ee771c5457b786092132ba49d/themes/lumina/assets/wallpaper.jpg");
-  --lumina-content-max-width: 1440px;
+  --lumina-content-max-width: 1600px;
   --lumina-content-gutter: 24px;
   --lumina-mobile-card-shadow: 0 1px 3px rgb(0 0 0 / 12%);
   --lumina-background-attachment: fixed;
