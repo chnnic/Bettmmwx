@@ -1,7 +1,7 @@
 /*
  * MiaoMiaoWuX - Lumina Platinum Gold
- * Version: v2026.11.25-01
- * Updated: 2026-11-25
+ * Version: v2026.11.27-01
+ * Updated: 2026-11-27
  */
 
 :root {
@@ -239,4 +239,5 @@ html&,& body,& body *,& body:before,& body:after,& body *:before,& body *:after{
 :root.theme-mono:not(.dark) #root .text-primary:not(.bg-primary){color:var(--accent-foreground)}
 :root.theme-mono:not(.dark) #root :is(.text-green-600,.text-emerald-600){color:#22703f}
 :where(:root.theme-mono.dark[data-mono-accent]) .text-primary{color:oklch(from var(--mono-accent) max(l,.66) c h)}
+:root.dark:not(.theme-glass,.theme-meow,.theme-sweet) #root span.max-w-\[42\%\].rounded-full{filter:brightness(1.5)}
 *,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.animate-spin{animation:spin 1s linear infinite!important}.sonner-loading-bar{animation:sonner-spin 1.2s linear infinite!important}.mmw-ip-marquee{animation:mmw-ip-marquee var(--mmw-marquee-dur,8s) ease-in-out infinite!important}
