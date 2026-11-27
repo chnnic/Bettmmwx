@@ -1,6 +1,6 @@
 /*
  * MiaoMiaoWuX - PaperMint
- * Version: v2026.11.27-01
+ * Version: v2026.11.27-02
  * Updated: 2026-11-27
  */
 
@@ -191,7 +191,7 @@ tr[data-slot=table-row][class*="bg-primary/15"]{--tw-ring-color:color-mix(in okl
 html&{color-scheme:light;scrollbar-color:var(--paper-green) var(--muted);scrollbar-width:thin}
 html&.dark{color-scheme:dark}
 & body{font-family:var(--font-sans);color:var(--foreground);background-color:var(--background);background-image:radial-gradient(circle at 12% 12%,color-mix(in srgb,var(--paper-blue) 48%,transparent)0 70px,transparent 72px),radial-gradient(circle at 91% 18%,color-mix(in srgb,var(--paper-pink) 42%,transparent)0 54px,transparent 56px),radial-gradient(circle at 83% 88%,color-mix(in srgb,var(--paper-mint) 34%,transparent)0 78px,transparent 80px);background-attachment:fixed}
-&::selection,::selection{color:#102117;background:var(--paper-mint)}
+&::selection,.selection\:bg-primary::selection{color:#102117;background:var(--paper-mint)}
 &::-webkit-scrollbar-track,::-webkit-scrollbar-track{background:var(--muted)}
 &::-webkit-scrollbar-thumb,::-webkit-scrollbar-thumb{background:var(--paper-green);border:calc(2px*var(--paper-effect-scale)) solid var(--muted);border-radius:999px}
 [data-slot=card-title],& h2,& h3,& h1,[data-slot=dialog-title],[data-slot=sheet-title],[data-slot=alert-dialog-title]{font-family:"Twemoji Country Flags","Fredoka","Nunito","Noto Sans SC",var(--font-sans);font-weight:700;letter-spacing:-.015em}
@@ -240,7 +240,8 @@ html&.dark{color-scheme:dark}
 [data-slot=alert]{border:calc(2px*var(--paper-effect-scale)) solid var(--paper-ink)!important;border-radius:16px!important;box-shadow:var(--paper-shadow-sm)}
 &:root.theme-premium :is([data-slot=tabs-trigger][data-state=active],[data-slot=dropdown-menu-item]:focus,[data-slot=dropdown-menu-item][data-highlighted],[data-slot=select-item]:focus,[data-slot=select-item][data-highlighted],[data-slot=command-item][data-selected=true],[data-slot=checkbox][data-state=checked],[data-slot=switch][data-state=checked],.pixel-button.bg-primary,[data-slot=button][data-active=true],[data-slot=badge].bg-primary,.flex.border>button.flex-1.bg-foreground.text-background){color:var(--paper-premium-accent-fg)!important;background:var(--paper-premium-accent-bg)!important}
 &:root.theme-premium ::-webkit-scrollbar-thumb{background:var(--paper-premium-accent-bg)!important}
-&:root.theme-premium::selection,&:root.theme-premium ::selection{color:var(--paper-premium-accent-fg);background-color:var(--paper-premium-selection-bg);text-shadow:none}
+&:root.theme-premium::selection,&:root.theme-premium .selection\:bg-primary::selection{color:var(--paper-premium-accent-fg);background-color:var(--paper-premium-selection-bg);text-shadow:none}
+@supports (-moz-appearance:none) or (-webkit-hyphens:none){::selection{color:#102117;background:var(--paper-mint)}&:root.theme-premium ::selection{color:var(--paper-premium-accent-fg);background-color:var(--paper-premium-selection-bg);text-shadow:none}}
 @media(max-width:640px){& body{background-image:radial-gradient(circle at 0 8%,color-mix(in srgb,var(--paper-blue) 38%,transparent)0 44px,transparent 46px),radial-gradient(circle at 100% 92%,color-mix(in srgb,var(--paper-mint) 28%,transparent)0 58px,transparent 60px)}[data-slot=card]{border-width:calc(2px*var(--paper-effect-scale));border-radius:18px;box-shadow:calc(4px*var(--paper-effect-scale)) calc(4px*var(--paper-effect-scale)) 0 var(--paper-ink)}:is([data-slot=button],.pixel-button){min-height:calc(44px - var(--paper-button-height-reduction));border-width:calc(2px*var(--paper-effect-scale))!important;box-shadow:var(--paper-shadow-sm)!important}[data-slot=dialog-content],[data-slot=alert-dialog-content],[data-slot=sheet-content]{border-width:calc(2px*var(--paper-effect-scale))!important;box-shadow:calc(4px*var(--paper-effect-scale)) calc(4px*var(--paper-effect-scale)) 0 var(--paper-ink)!important}}
 &:root #root [data-slot=card-description]:has(>[data-slot=dropdown-menu-trigger]>svg.lucide-settings)>[data-slot=dropdown-menu-trigger]:has(>svg.lucide-settings):has(>svg.lucide-chevron-down)+span:has(>svg.lucide-wifi){border:0!important;border-left:1px solid currentColor!important;border-radius:0!important;background:transparent!important;box-shadow:none!important}
 @media(max-width:1023px){&:root #root main>.fixed:has(.react-flow){>div:first-child{background:var(--background)}>.min-h-0>aside{border-inline:0;border-bottom:1px solid var(--border)}>.min-h-0>.relative{border-bottom:1px solid var(--border)}}}

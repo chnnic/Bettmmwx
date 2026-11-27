@@ -1,6 +1,6 @@
 /*
  * MiaoMiaoWuX - Lumina Platinum Gold
- * Version: v2026.11.27-01
+ * Version: v2026.11.27-02
  * Updated: 2026-11-27
  */
 
@@ -149,7 +149,7 @@ html&,& body{background-color:var(--background);color:var(--foreground)}
 &.dark #root .bg-background\/50{background-color:#12110e!important}
 [data-slot=card]{border:1px solid color-mix(in srgb,var(--border) 92%,var(--primary));background:var(--card);box-shadow:0 1px #ffffffb8 inset,0 12px 30px #2f2a2012}
 .pixel-card:hover:before,.pixel-card:focus:before,.pixel-card:focus-within:before,.pixel-card:active:before{opacity:var(--lumina-card-hover-stripes,0)!important}
-html&,& body,& body *,& body:before,& body:after,& body *:before,& body *:after{-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
+html&,& body,& body *{-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
 &.dark [data-slot=card]{background:linear-gradient(145deg,#16140f,#0e0e0b);border-color:#daae537a;box-shadow:0 1px #ffe09d0d inset,0 16px 34px #00000040}
 [data-slot=sidebar],& header,[data-sidebar=sidebar]{border-color:var(--sidebar-border);border-width:1px;background-color:var(--sidebar)!important}
 [data-slot=popover-content],[data-slot=dropdown-menu-content],[data-slot=select-content],[data-slot=tooltip-content],[data-slot=command],[role=dialog]{border-color:var(--border);border-width:1px;background-color:var(--popover)!important;color:var(--popover-foreground);box-shadow:0 18px 44px #1c181129}
@@ -188,7 +188,8 @@ html&,& body,& body *,& body:before,& body:after,& body *:before,& body *:after{
 [data-slot=table-header],& thead{background-color:#0000!important}
 [data-slot=table-row],& tr{border-color:color-mix(in srgb,var(--border) 75%,#0000)}
 [data-slot=table-row]:hover,& tbody tr:hover{background-color:color-mix(in srgb,var(--accent) 54%,#0000)}
-&::selection,::selection{color:var(--primary-foreground);background:var(--primary)}
+&::selection,.selection\:bg-primary::selection{color:var(--primary-foreground);background:var(--primary)}
+@supports (-moz-appearance:none) or (-webkit-hyphens:none){::selection{color:var(--primary-foreground);background:var(--primary)}}
 @media(max-width:1180px){&:root:not(.theme-glass){& body{isolation:isolate;background-color:#0000!important;background-image:none!important;background-attachment:scroll!important}& body:before{content:"";background-image:linear-gradient(#f7f4ec75,#f7f4ec75),radial-gradient(circle at 50% -6rem,#b792461a,#0000 24rem),var(--lumina-wallpaper);background-position:center,center,center top;background-repeat:no-repeat;background-size:auto,auto,cover;backface-visibility:hidden;will-change:transform}}&:root.dark:not(.theme-glass) body:before{background-image:linear-gradient(#08090994,#08090994),radial-gradient(circle at 50% -6rem,#ddb1541f,#0000 24rem),var(--lumina-wallpaper)}}
 @media(max-width:640px){&:root,&.light,&.dark{--radius:.65rem}[data-slot=card]{box-shadow:0 8px 22px #2f2a200f}}
 &:root.theme-anime{--sidebar:#fbf9fd!important}

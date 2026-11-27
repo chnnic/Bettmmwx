@@ -1,6 +1,6 @@
 /*
  * MiaoMiaoWuX - Ink Mint
- * Version: v2026.11.27-01
+ * Version: v2026.11.27-02
  * Updated: 2026-11-27
  */
 
@@ -141,7 +141,7 @@ tr[data-slot=table-row][class*="bg-primary/15"]{--tw-ring-color:color-mix(in okl
 &:root:root{color-scheme:light;--background:var(--ink-light-page)!important;--foreground:var(--ink-light-ink)!important;--card:var(--ink-light-surface)!important;--card-foreground:var(--foreground)!important;--popover:var(--card)!important;--popover-foreground:var(--foreground)!important;--primary:var(--ink-light-accent)!important;--primary-foreground:#11151b!important;--ink-accent-text:var(--ink-light-accent-text);--secondary:#eeece6!important;--secondary-foreground:#485361!important;--muted:#eeece6!important;--muted-foreground:#5f6b78!important;--accent:#e2f7ec!important;--accent-foreground:#0b6e48!important;--destructive:#c2413b!important;--destructive-foreground:#fffafa!important;--border:#dddcd5!important;--input:#cfcdc4!important;--ring:#0b6e48!important;--sidebar:#eeece6!important;--sidebar-foreground:var(--foreground)!important;--sidebar-primary:var(--primary)!important;--sidebar-primary-foreground:var(--primary-foreground)!important;--sidebar-accent:#e2f7ec!important;--sidebar-accent-foreground:#0b6e48!important;--sidebar-border:var(--border)!important;--sidebar-ring:var(--ring)!important;--chart-1:var(--ink-light-accent)!important;--fwd-ok:var(--ink-light-accent)!important;--fwd-warn:var(--ink-warn)!important;--ink-icon:var(--ink-light-icon);--chart-2:#4f7cac!important;--chart-3:#8b6fb0!important;--chart-4:#c9a03a!important;--chart-5:#3f9fb3!important;--radius:var(--ink-control-radius)!important;--font-sans:"Twemoji Country Flags",var(--ink-body-font)!important;--font-mono:"Twemoji Country Flags",var(--ink-mono-font)!important;--ink-card-shadow:0 1px 2px rgb(17 21 27 / 5%);--ink-overlay-shadow:0 16px 44px -16px rgb(17 21 27 / 30%)}
 &:root:root.dark{color-scheme:dark;--background:var(--ink-dark-page)!important;--foreground:var(--ink-dark-ink)!important;--card:var(--ink-dark-surface)!important;--primary:var(--ink-dark-accent)!important;--primary-foreground:#11151b!important;--ink-accent-text:var(--ink-dark-accent-text);--secondary:#1d242e!important;--secondary-foreground:#c5ccd5!important;--muted:#1d242e!important;--muted-foreground:#9aa3ae!important;--accent:#173528!important;--accent-foreground:#3ddc97!important;--destructive:#f0857e!important;--destructive-foreground:#2a1110!important;--border:#2a313b!important;--input:#3a4350!important;--ring:#3ddc97!important;--sidebar:#0e1217!important;--sidebar-accent:#173528!important;--sidebar-accent-foreground:#3ddc97!important;--chart-1:#3ddc97!important;--fwd-ok:var(--ink-dark-accent)!important;--fwd-warn:var(--ink-warn)!important;--ink-icon:var(--ink-dark-accent);--chart-2:#7aa7d6!important;--chart-3:#b39ad8!important;--chart-4:#e0b35c!important;--chart-5:#5cc8d6!important;--ink-card-shadow:0 1px 3px rgb(0 0 0 / 30%);--ink-overlay-shadow:0 16px 44px -16px rgb(0 0 0 / 60%)}
 &:root body{color:var(--foreground)!important;background:var(--background)!important;font-family:"Twemoji Country Flags",var(--ink-body-font)!important;-webkit-font-smoothing:antialiased}
-html&,& body,& body *,& body:before,& body:after,& body *:before,& body *:after{-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
+html&,& body,& body *{-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
 &:root body:before,&:root body:after,&:root .pixel-card:before,&:root .pixel-button:before,&:root .pixel-button:after{display:none!important;content:none!important}
 &:root body :is(.min-h-svh,.min-h-dvh,.min-h-screen,.h-svh,.h-dvh).bg-background{background:var(--background)!important}
 &:root body :is(h1,[data-slot=dialog-title],[data-slot=sheet-title]){color:var(--foreground)!important;font-family:"Twemoji Country Flags",var(--ink-heading-font)!important;font-weight:650!important;letter-spacing:-.02em;text-shadow:none!important}
@@ -201,7 +201,8 @@ html&,& body,& body *,& body:before,& body:after,& body *:before,& body *:after{
 &:root body [data-slot=tooltip-content]{color:var(--card)!important;background:var(--foreground)!important;border:0!important;border-radius:6px!important;box-shadow:none!important}
 &:root body [data-slot=tooltip-content] svg{fill:var(--foreground)!important;background:var(--foreground)!important}
 &:root body [data-slot=dialog-close]{color:var(--muted-foreground)!important;box-shadow:none!important}
-&::selection,::selection{color:var(--foreground);background:color-mix(in srgb,var(--primary) 27%,var(--card));text-shadow:none}
+&::selection,.selection\:bg-primary::selection{color:var(--foreground);background:color-mix(in srgb,var(--primary) 27%,var(--card));text-shadow:none}
+@supports (-moz-appearance:none) or (-webkit-hyphens:none){::selection{color:var(--foreground);background:color-mix(in srgb,var(--primary) 27%,var(--card));text-shadow:none}}
 html&{scrollbar-width:thin;scrollbar-color:var(--input) var(--background)}
 & body [data-slot=card].max-w-sm:has(#username):has(#password) [data-slot=card-title]{font-family:"Twemoji Country Flags",var(--ink-heading-font)}
 @media(max-width:1023px){&:root #root main>.fixed:has(.react-flow)>div:first-child{background:var(--background)}}
